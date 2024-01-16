@@ -12,7 +12,11 @@
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 
         <!-- Scripts -->
-        @vite(['resources/css/app.css', 'resources/js/app.js'])
+        <link rel="preload" as="style" href="http://localhost/ezevent/public/build/assets/app-Xiwbi0Lx.css">
+        <link rel="modulepreload" as="style" href="http://localhost/ezevent/public/build/assets/app-vZDQhnJA.js">
+        <link rel="stylesheet" href="http://localhost/ezevent/public/build/assets/app-Xiwbi0Lx.css">
+        <script type="module" src="http://localhost/ezevent/public/build/assets/app-vZDQhnJA.js">
+        </script>
     </head>
     <body class="font-sans text-gray-900 antialiased">
         <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100 dark:bg-gray-900">
