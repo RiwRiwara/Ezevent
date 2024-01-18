@@ -12,9 +12,9 @@
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 
         <!-- Scripts -->
-        <link rel="preload" as="style" href="http://localhost/ezevent/public/build/assets/app-Xiwbi0Lx.css">
+        <link rel="preload" as="style" href="http://localhost/ezevent/public/build/assets/app-tEQAxQRq.css">
         <link rel="modulepreload" as="style" href="http://localhost/ezevent/public/build/assets/app-vZDQhnJA.js">
-        <link rel="stylesheet" href="http://localhost/ezevent/public/build/assets/app-Xiwbi0Lx.css">
+        <link rel="stylesheet" href="http://localhost/ezevent/public/build/assets/app-tEQAxQRq.css">
         <script type="module" src="http://localhost/ezevent/public/build/assets/app-vZDQhnJA.js">
         </script>
     </head>
