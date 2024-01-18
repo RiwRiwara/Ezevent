@@ -12,14 +12,28 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('users', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->string('firstname');
-            $table->string('lastname');
-            $table->string('email')->unique();
+            $table->bigIncrements('user_id');
+            $table->string('first_name', 50);
+            $table->string('last_name', 50);
+            $table->string('email', 50)->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
+            $table->enum('gender', ['female', 'male', 'LGBTQ+'])->nullable();
+            $table->char('mobile_number', 10);
+            $table->text('address_1')->nullable();
+            $table->string('postid', 5)->nullable();
+            $table->string('personality', 4);
+            $table->string('profile_img')->nullable();
+            $table->text('short_bio')->nullable();
+            $table->text('description')->nullable();
+            $table->string('sub_img_1')->nullable();
+            $table->string('sub_img_2')->nullable();
+            $table->string('sub_img_3')->nullable();
+            $table->string('facebook')->nullable();
+            $table->string('line')->nullable();
+            $table->string('instagram')->nullable();
+            $table->string('address_2')->nullable();
             $table->timestamps();
         });
     }
