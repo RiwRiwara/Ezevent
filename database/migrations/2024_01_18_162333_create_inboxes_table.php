@@ -18,6 +18,10 @@ return new class extends Migration
             $table->text('body')->nullable(); 
             // $table->dateTime('send_time')->nullable(); 
             $table->timestamps();
+
+            $table->string('event_id'); //FK event_id from event
+            $table->integer('user_recieve_id'); //FK user_id from user
+
         });
     }
 

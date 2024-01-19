@@ -15,6 +15,10 @@ return new class extends Migration
             $table->bigIncrements('give_badge_id'); 
             // $table->dateTime('give_date');
             $table->timestamps();
+
+            $table->integer('user_id'); //FK user_id from user
+            $table->integer('badge_id'); //FK badge_id from badge
+            $table->integer('event_id'); //FK event_id from event
         });
     }
 
