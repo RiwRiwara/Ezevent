@@ -11,11 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('badges', function (Blueprint $table) {
-            $table->bigIncrements('badge_id');
-            $table->string('title')->nullable();
-            $table->string('description')->nullable();
-            $table->string('img_src')->nullable();
+        Schema::create('give_badges', function (Blueprint $table) {
+            $table->bigIncrements('give_badge_id'); 
+            // $table->dateTime('give_date');
             $table->timestamps();
         });
     }
@@ -25,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('badges');
+        Schema::dropIfExists('give_badges');
     }
 };
