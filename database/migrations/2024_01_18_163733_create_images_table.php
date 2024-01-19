@@ -17,6 +17,9 @@ return new class extends Migration
             $table->string('src', 255); 
             $table->string('image_type', 255)->nullable(); 
             $table->timestamps();
+
+            $table->string('user_upload_id'); //FK user_id from user
+            $table->integer('event_id'); //FK event_id from event
         });
     }
 

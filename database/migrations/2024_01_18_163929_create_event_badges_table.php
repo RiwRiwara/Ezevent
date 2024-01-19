@@ -16,6 +16,7 @@ return new class extends Migration
             $table->integer('badge_1')->nullable(); 
             $table->integer('badge_2')->nullable(); 
             $table->integer('badge_3')->nullable(); 
+            $table->integer('badge_4')->nullable(); 
             $table->timestamps();
         });
     }

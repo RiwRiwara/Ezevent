@@ -17,6 +17,8 @@ return new class extends Migration
             $table->integer('status')->nullable(); 
             $table->string('value')->nullable(); 
             $table->timestamps();
+
+            $table->string('user_id'); //FK user_id from user
         });
     }
 

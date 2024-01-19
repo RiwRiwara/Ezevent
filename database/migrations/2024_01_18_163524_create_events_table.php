@@ -21,6 +21,8 @@ return new class extends Migration
             $table->string('number_people', 50); 
             $table->dateTime('end_date')->nullable(); 
             $table->timestamps();
+
+            $table->integer('organizer_id'); //FK user_id from user
         });
     }
 

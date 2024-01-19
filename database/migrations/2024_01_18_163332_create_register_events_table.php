@@ -18,6 +18,9 @@ return new class extends Migration
             $table->string('status', 50)->nullable(); 
             $table->string('role', 50)->nullable(); 
             $table->timestamps();
+
+            $table->integer('user_id'); //FK user_id from user
+            $table->string('event_id'); //FK event_id from event
         });
     }
 
