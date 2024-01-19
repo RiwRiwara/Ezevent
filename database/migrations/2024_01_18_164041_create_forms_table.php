@@ -13,12 +13,15 @@ return new class extends Migration
     {
         Schema::create('forms', function (Blueprint $table) {
             $table->bigIncrements('form_id'); 
-            $table->string('form_name', 255); 
-            $table->string('form_type', 50); 
+            $table->string('form_name'); 
+            $table->enum('form_type', ['all', 'staff', 'participants']);
             // $table->dateTime('created_at'); 
             // $table->dateTime('updated_at'); 
             $table->integer('status'); 
             $table->timestamps();
+
+
+            $table->string('event_id'); //FK event_id from event
         });
     }
 

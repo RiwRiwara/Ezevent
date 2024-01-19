@@ -21,6 +21,8 @@ return new class extends Migration
             $table->text('answer'); 
             $table->integer('score'); 
             $table->timestamps();
+
+            $table->string('form_id'); //FK form_id from from
         });
     }
 
