@@ -12,7 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('users', function (Blueprint $table) {
-            $table->bigIncrements('user_id');
+            $table->id();
+            $table->integer('user_id')->nullable();
             $table->string('first_name', 50);
             $table->string('last_name', 50);
             $table->string('email', 50)->unique();
@@ -23,7 +24,7 @@ return new class extends Migration
             $table->string('mobile_number');
             $table->text('address_1')->nullable();
             $table->string('postid', 5)->nullable();
-            $table->string('personality', 4);
+            $table->string('personality', 4)->nullable();;
             $table->string('profile_img')->nullable();
             $table->text('short_bio')->nullable();
             $table->text('description')->nullable();

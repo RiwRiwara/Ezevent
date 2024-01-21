@@ -48,7 +48,8 @@
                                 {{ __('Log Out') }}
                             </x-dropdown-link>
                         </form>
-                    </x-slot>
+                    </x-slot> 
+                                
                 </x-dropdown>
             </div>
 
