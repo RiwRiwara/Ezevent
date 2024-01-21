@@ -6,13 +6,13 @@
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
         <title>{{ config('app.name', 'Laravel') }}</title>
-        <x-import-css-link />
+        @vite('resources/css/app.css')
 
     </head>
     <body class="font-sans antialiased">
         <div class="min-h-screen bg-gray-100 dark:bg-gray-900">
-            @include('layouts.navigation')
-
+            @include('components.sidebar')
+            @include('layouts.Navigation')
             <!-- Page Heading -->
             @if (isset($header))
                 <header class="bg-white dark:bg-gray-800 shadow">
@@ -28,6 +28,6 @@
             </main>
         </div>
     </body>
-<x-import-script-link />
+@vite('resources/js/app.js')
 
 </html>
