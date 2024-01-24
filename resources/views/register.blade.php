@@ -1,9 +1,10 @@
 <x-guest-layout>
   <!-- register page1 -->
-  <!-- <div class="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
-    <div class="sm:mx-auto sm:w-full sm:max-w-sm">
-      <h2 class="mt-10 text-center text-4xl font-bold leading-9 tracking-tight text-neutral-9">Create New Account
-      </h2>
+  <link rel="icon" href="{{ env('RESOURECE_ASSET_URL') }}/images/logo-small.png">
+  <div class="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
+    <div class="sm:mx-auto sm:w-full sm:max-w-sm flex flex-row items-center justify-center">
+      <img class="h-15 w-auto" src="{{ env('RESOURECE_ASSET_URL') }}/images/Logo(Orange).png" alt="Logo">
+      <h2 class="ml-4 text-3xl font-bold leading-9 tracking-tight text-neutral-9">Create New Account</h2>
     </div>
 
     <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
@@ -72,17 +73,18 @@
             </div>
             <div>
               <button type="submit"
-                class="mt-20 flex w-full justify-center rounded-md bg-neutral-9 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Next</button>
+                class="mt-20 flex w-full justify-center rounded-md bg-neutral-9 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-neutral-7">Next</button>
             </div>
       </form>
     </div>
-  </div> -->
+  </div>
   <!-- register page2 -->
-  <div class="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
-    <div class="sm:mx-auto sm:w-full sm:max-w-sm">
-      <h2 class="mt-10 text-center text-4xl font-bold leading-9 tracking-tight text-neutral-9">Create New Account
-      </h2>
+  <!-- <div class="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
+    <div class="sm:mx-auto sm:w-full sm:max-w-sm flex flex-row items-center justify-center">
+      <img class="h-15 w-auto" src="{{ env('RESOURECE_ASSET_URL') }}/images/Logo(Orange).png" alt="Logo">
+      <h2 class="ml-4 text-3xl font-bold leading-9 tracking-tight text-neutral-9">Create New Account</h2>
     </div>
+
 
     <div class="mt-16 sm:mx-auto sm:w-full sm:max-w-sm">
       <form class="space-y-6" action="#" method="POST">
@@ -93,7 +95,7 @@
               <input placeholder='Mobile Number*'
                 class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-neutral-9 placeholder:text-neutral-8 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
               <button type="button"
-                class="ml-2 px-3 py-1.5 ring-neutral-9 border-2 border-neutral-9 text-primary-9 rounded-md shadow-sm hover:bg-neutral-7 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">SEND</button>
+                class="ml-2 px-3 py-1.5 ring-neutral-9 border-2 border-neutral-9 text-primary-9 rounded-md shadow-sm hover:bg-neutral-1 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">SEND</button>
             </div>
           </div>
           <input placeholder='Enter OTP code'
@@ -108,15 +110,15 @@
               <input placeholder='Email*'
                 class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-neutral-9 placeholder:text-neutral-8 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
               <button type="button"
-                class="ml-2 px-3 py-1.5 ring-neutral-9 border-2 border-neutral-9 text-primary-9 rounded-md shadow-sm hover:bg-neutral-7 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">SEND</button>
+                class="ml-2 px-3 py-1.5 ring-neutral-9 border-2 border-neutral-9 text-primary-9 rounded-md shadow-sm hover:bg-neutral-1 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">SEND</button>
             </div><input placeholder='Email Verify code'
               class="mt-3 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-neutral-9 placeholder:text-neutral-8 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
           </div>
           <div>
             <button type="submit"
-              class="mt-16 flex w-full justify-center rounded-md bg-neutral-9 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Register</button>
+              class="mt-16 flex w-full justify-center rounded-md bg-neutral-9 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-neutral-7 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Register</button>
           </div>
       </form>
     </div>
-  </div>
+  </div> -->
 </x-guest-layout>
