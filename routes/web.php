@@ -25,6 +25,10 @@ Route::get('/registers', function () {
     return view('register');
 });
 
+Route::get('/landing', function () {
+    return view('landing');
+});
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');

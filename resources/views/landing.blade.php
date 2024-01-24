@@ -1,4 +1,4 @@
-<x-app-layout>
+<x-guest-layout>
 <div class="flex" style="font-family: IBM Plex Sans Thai">
         <aside class="flex h-screen w-20 flex-col items-center border-r border-gray-200 bg-neutral-7">
             <button class="mt-2 rounded-full bg-gray-100">
@@ -153,4 +153,4 @@
         </div>
     </div>
     </div>
-</x-app-layout>
+</x-guest-layout>
