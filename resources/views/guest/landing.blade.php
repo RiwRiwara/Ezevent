@@ -1,5 +1,5 @@
 <x-guest-layout>
-<div class="flex" style="font-family: IBM Plex Sans Thai">
+    <div class="flex" style="font-family: IBM Plex Sans Thai">
         <aside class="flex h-screen w-20 flex-col items-center border-r border-gray-200 bg-neutral-7">
             <button class="mt-2 rounded-full bg-gray-100">
                 <img class="h-10 w-10 rounded-full" src="https://avatars.githubusercontent.com/u/35387401?v=4" alt="" />
@@ -104,32 +104,37 @@
                         <label class="text-2xl font-bold leading-9 tracking-tight text-neutral-9">All event(0
                             Events)</label>
                         <button type="button"
-                            class="px-20 py-1.5 bg-neutral-9 ring-neutral-9 border-2 border-neutral-9 text-white rounded-md shadow-sm hover:bg-neutral-7 ml-auto mr-10">
+                            class="hidden md:block px-20 py-1.5 bg-neutral-9 ring-neutral-9 border-2 border-neutral-9 text-white rounded-md shadow-sm hover:bg-neutral-7 ml-auto mr-10">
                             Create Activity
                         </button>
                     </div>
-                    <div class="mt-4 lg:flex justify-between items-center">
+                    <div class="mt-4 flex flex-row justify-between items-center">
                         <!-- Search Icon -->
-                        <div class="mr-2">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
-                                class="bi bi-search" viewBox="0 0 16 16">
-                                <path
-                                    d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
-                            </svg>
+                        <div class="mr-2 mb-2 md:mb-0">
+                            <i class="bi bi-search text-3xl"></i>
                         </div>
-
                         <!-- Search Bar -->
                         <input type="text"
-                            class="border-none flex-grow px-4 py-2 border border-neutral-9 rounded-md focus:outline-none focus:border-indigo-600"
+                            class="border-none flex-grow px-4 py-2 border border-neutral-9 rounded-md focus:outline-none focus:border-indigo-600 mb-2 md:mr-0 mr-4"
                             placeholder="Search...">
-
-                        <!-- Dropdown Filter -->
-                        <select class="border-none ml-2  mr-10 font-bold">
+                        <!-- Dropdown Filter (Desktop) -->
+                        <div class="hidden md:block">
+                            <select class="border-none ml-2 mr-10 font-bold">
+                                <option value="filter1">All event</option>
+                                <option value="filter2">Filter 2</option>
+                                <option value="filter3">Filter 3</option>
+                            </select>
+                        </div>
+                    </div>
+                    <!-- Dropdown Filter (Mobile) -->
+                    <div class="md:hidden mb-2">
+                        <select class="border-none w-full font-bold">
                             <option value="filter1">All event</option>
                             <option value="filter2">Filter 2</option>
                             <option value="filter3">Filter 3</option>
                         </select>
                     </div>
+
                     <div class="lg:mt-48 mt-0 flex flex-col items-center justify-center h-auto">
                         <div class="text-neutral-9">
                             <svg xmlns="http://www.w3.org/2000/svg" width="180" height="180" fill="currentColor"

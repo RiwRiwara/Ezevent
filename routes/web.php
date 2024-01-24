@@ -25,7 +25,7 @@ Route::middleware('guest')->group(function () {
     });
 
     Route::get('/landing', function () {
-        return view('landing');
+        return view('guest.landing');
     });
 });
 Route::middleware('auth')->group(function () {
