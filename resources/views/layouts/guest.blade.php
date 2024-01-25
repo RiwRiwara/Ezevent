@@ -11,7 +11,7 @@
 
 </head>
 
-<body class="font-sans text-gray-900 antialiased">
+<body class="min-h-full">
     {{ $slot }}
 </body>
 @vite('resources/js/app.js')
