@@ -27,6 +27,9 @@ Route::middleware('guest')->group(function () {
     Route::get('/landing', function () {
         return view('guest.landing');
     });
+    Route::get('/createevent', function () {
+        return view('guest.createEvent');
+    });
 });
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
