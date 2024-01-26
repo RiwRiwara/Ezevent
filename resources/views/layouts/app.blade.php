@@ -6,7 +6,11 @@
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
         <title>{{ config('app.name', 'Laravel') }}</title>
-        @vite('resources/css/app.css')
+        @if (config('app.env', 'production') == 'production')
+        <link href="https://ezevent.online/public/build/assets/{{env('CSS_BUILD_FILE_NAME')}}" rel="stylesheet" type="text/css" />
+        @else
+            @vite('resources/css/app.css')
+        @endif
 
     </head>
     <body class="font-sans antialiased">
@@ -28,6 +32,10 @@
             </main>
         </div>
     </body>
-@vite('resources/js/app.js')
+    @if (config('app.env', 'production') == 'production')
+        <script src="https://ezevent.online/public/build/assets/{{env('JS_BUILD_FILE_NAME')}}"></script>
+    @else
+        @vite('resources/js/app.js')
+    @endif
 
 </html>
