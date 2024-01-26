@@ -8,8 +8,11 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.css"  rel="stylesheet" />
 
     <title>{{ config('app.name', 'Laravel') }}</title>
-    @vite('resources/css/app.css')
-
+    @if (config('app.env', 'production') == 'production')
+        <link href="https://ezevent.online/public/build/assets/{{env('CSS_BUILD_FILE_NAME')}}" rel="stylesheet" type="text/css" />
+    @else
+        @vite('resources/css/app.css')
+    @endif
 </head>
 
 
@@ -47,6 +50,9 @@
             </p>
         </div>
     </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.js"></script>
-
+    @if (config('app.env', 'production') == 'production')
+        <script src="https://ezevent.online/public/build/assets/{{env('JS_BUILD_FILE_NAME')}}"></script>
+    @else
+        @vite('resources/js/app.js')
+    @endif
 </body>
