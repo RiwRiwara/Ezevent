@@ -5,13 +5,17 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.css"  rel="stylesheet" />
 
     <title>{{ config('app.name', 'Laravel') }}</title>
     @vite('resources/css/app.css')
 
 </head>
 
+
+
 <body class="bg-neutral-6">
+
     <div class="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
         <div class="sm:mx-auto sm:w-full sm:max-w-sm">
             <img class="mx-auto h-100 w-auto" src="{{ asset('images/Logo.png') }}" alt="Your Company">
@@ -43,4 +47,6 @@
             </p>
         </div>
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.js"></script>
+
 </body>
