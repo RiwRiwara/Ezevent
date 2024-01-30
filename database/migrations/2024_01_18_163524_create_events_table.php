@@ -20,7 +20,7 @@ return new class extends Migration
             $table->dateTime('end_date')->nullable(); 
             $table->text('event_description');
             $table->string('event_location');
-            $table->string('event_time', 50); 
+            // $table->string('event_time', 50); 
             $table->integer('event_staff_number'); 
             $table->integer('event_part_number'); 
             $table->enum('event_phase', ['Upcoming', 'In progress', 'Reviewing', 'Compelete'])->nullable();
@@ -38,3 +38,4 @@ return new class extends Migration
         Schema::dropIfExists('events');
     }
 };
+

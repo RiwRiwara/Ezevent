@@ -13,11 +13,11 @@ return new class extends Migration
     {
         Schema::create('register_events', function (Blueprint $table) {
             $table->bigIncrements('resgister_event_id'); 
-            $table->string('register_type', 50); #ประเภทงาน
+            $table->string('register_type', 50); # ประเภทงาน
             // $table->dateTime('register_date')->nullable(); 
-            $table->enum('status', ['check-in', 'check-out'])->nullable(); # check-in/check-out
+            $table->enum('status', ['checked', 'check-out'])->nullable(); # check-in/check-out
             $table->enum('role', ['staff', 'Participants'])->nullable(); # staff/participants
-            $table->enum('confirm', ['Approve', 'Reject'])->nullable(); #
+            $table->enum('confirm', ['waiting', 'approved'])->nullable();
             $table->timestamps();
 
             $table->integer('user_id'); //FK user_id from user
