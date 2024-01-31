@@ -19,8 +19,7 @@ return new class extends Migration
             // $table->dateTime('updated_at'); 
             $table->integer('status'); 
             $table->timestamps();
-
-
+            
             $table->string('event_id'); //FK event_id from event
         });
     }
