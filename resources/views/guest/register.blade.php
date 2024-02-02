@@ -1,9 +1,9 @@
 <x-guest-layout>
   <!-- register page1 -->
-  <div class=" px-6 py-6 9lg:px-8 bg-neutral-2">
+  <div class=" px-6 py-6 9lg:px-8 bg-neutral-6">
     <div class=" flex flex-row items-center justify-center">
       <img class="h-15 w-auto" src="{{ asset('images/Logo(Orange).png') }}" alt="Logo">
-      <h2 class="ml-4 text-3xl font-bold leading-9 tracking-tight text-neutral-9">Create New Account</h2>
+      <h2 class="ml-4 text-3xl font-bold leading-9 tracking-tight text-gray-0 ">Create New Account</h2>
     </div>
 
     <div class="mt-4 sm:mx-auto sm:w-full sm:max-w-md bg-gray-0 p-4 rounded-lg shadow-md">

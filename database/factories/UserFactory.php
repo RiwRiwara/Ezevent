@@ -24,6 +24,7 @@ class UserFactory extends Factory
     public function definition(): array
     {
         return [
+            'user_id' => $this ->faker->unique()->randomNumber(5),
             'first_name' => $this ->faker->name(),
             'last_name' => $this ->faker->name(),
             'gender' => $this ->faker->randomElement(['female', 'male', 'LGBTQ+']),
@@ -32,7 +33,13 @@ class UserFactory extends Factory
             'password' => static::$password ??= Hash::make('password'),
             'remember_token' => Str::random(10),
             'mobile_number' => $this ->faker->phoneNumber(),
-            'personality' => Str::random(4)
+            'personality' => Str::random(4),
+            'date_of_birth' => $this ->faker->date(),
+            'address_1' => $this ->faker->address(),
+            'province' => $this ->faker->state(),
+            'district' => $this ->faker->city(),
+            'post_id' => $this ->faker->postcode(),
+            'profile_img' => $this ->faker->imageUrl(),
         ];
     }
 
