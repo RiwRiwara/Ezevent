@@ -25,6 +25,7 @@ class AppServiceProvider extends ServiceProvider
 	public function boot(): void
 	{
 		$this->registerBladeComponents('forms');
+		$this->registerBladeComponents('button');
 
 	}
 

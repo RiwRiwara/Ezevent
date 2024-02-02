@@ -2,7 +2,8 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Resources\UserResource;
+use App\Models\User;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -23,4 +24,12 @@ Route::get('/test', function () {
     return response()->json([
         'message' => 'Hello World!',
     ], 200);
+});
+
+// user api
+Route::get('/user/{id}', function (string $id) {
+    return new UserResource(User::findOrFail($id));
+});
+Route::get('/users', function () {
+    return UserResource::collection(User::all());
 });
