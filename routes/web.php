@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\LanguageController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::post("language-switch", [LanguageController::class, 'languageSwitch'])->name('language.switch');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -28,11 +29,6 @@ Route::middleware('guest')->group(function () {
         return view('guest.landing');
     });
     
-    Route::get('/createevent', function () {
-        return view('guest.createEvent');
-    });
-
-
 
 });
 
@@ -41,6 +37,10 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
+
+    Route::get('/create-event', function () { return view('guest.createEvent');});
+
 });
 
 require __DIR__ . '/auth.php';
