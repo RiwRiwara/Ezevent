@@ -71,18 +71,30 @@
                 </ul>
             </div>
 
-            <div class="min-w-max hover:bg-danger-8 ">
-                <form action="{{route('logout')}}" class="group flex items-center space-x-4 rounded-md px-4 py-3 text-white" method="POST">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
-                        class="bi bi-door-closed" viewBox="0 0 16 16">
-                        <path
-                            d="M3 2a1 1 0 0 1 1-1h8a1 1 0 0 1 1 1v13h1.5a.5.5 0 0 1 0 1h-13a.5.5 0 0 1 0-1H3zm1 13h8V2H4z" />
-                        <path d="M9 9a1 1 0 1 0 2 0 1 1 0 0 0-2 0" />
-                    </svg>
-                    <button type="submit" class="">LogOut</button>
+            <div class="">
+                <div class="min-w-max ">
+                    @include('components.language-switch')
+                </div>
+                <form action="{{route('logout')}}" method="POST">
+                    <div class="min-w-max hover:bg-danger-8 ">
+                        @csrf
+                        <button type="submit" class="group flex items-center space-x-4 rounded-md px-4 py-3 text-white"
+                            style="width:100%">
+                            <div>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+                                    class="bi bi-door-closed" viewBox="0 0 16 16">
+                                    <path
+                                        d="M3 2a1 1 0 0 1 1-1h8a1 1 0 0 1 1 1v13h1.5a.5.5 0 0 1 0 1h-13a.5.5 0 0 1 0-1H3zm1 13h8V2H4z" />
+                                    <path d="M9 9a1 1 0 1 0 2 0 1 1 0 0 0-2 0" />
+                                </svg>
+                            </div>
+                            <div class="">
+                                Log out
+                            </div>
+                        </button>
+                    </div>
                 </form>
             </div>
-
         </div>
     </div>
 </aside>

@@ -17,8 +17,9 @@
 </head>
 
 
+@include('components.language-switch')
 
-<body class="bg-neutral-6 " >
+<body class="bg-neutral-5 " >
     <div class="flex flex-col justify-center px-6 py-12 lg:px-8">
         <div class="sm:mx-auto sm:w-full sm:max-w-sm">
             <img class="mx-auto w-auto" src="{{ asset('images/Logo.png') }}" alt="EZEVENT">
@@ -28,19 +29,19 @@
         <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
             <form class="space-y-6" action="{{route('login.store')}}" method="POST">
                 @csrf
-                    <div class="mt-2 bg-white rounded-lg">
-                        <x-forms.input-outline-primary name="email" label="Email" type="email" required />
+                    <div class="mt-2">
+                        <x-forms.input-outline-primary name="email" label="{{__('field_name.email')}}" type="email" required />
                     </div>
 
-                    <div class="mt-2 bg-white rounded-lg">
-                        <x-forms.input-outline-primary name="password" label="Password" type="password" required />
+                    <div class="mt-2">
+                        <x-forms.input-outline-primary name="password" label="{{__('field_name.password')}}" type="password" required />
                     </div>
 
-                    <x-button.primary type="submit" innerHtml="Login"/>
+                    <x-button.primary type="submit" innerHtml="{{__('field_name.login')}}"/>
             </form>
 
             <p class="mt-3 text-center text-sm">
-                <a href="/register" class="font-semibold leading-5 text-gray-0">Create account</a>
+                <a href="/register" class="font-semibold leading-5 text-gray-0">{{__('field_name.create_account')}}</a>
             </p>
         </div>
     </div>
