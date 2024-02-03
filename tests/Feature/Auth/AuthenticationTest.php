@@ -13,7 +13,6 @@ class AuthenticationTest extends TestCase
 
     public function test_login_screen_can_be_rendered(): void
     {
-        $this->markTestSkipped('Reason for skipping the test');
 
         $response = $this->get('/login');
 
@@ -22,7 +21,6 @@ class AuthenticationTest extends TestCase
 
     public function test_users_can_authenticate_using_the_login_screen(): void
     {
-        $this->markTestSkipped('Reason for skipping the test');
 
         $user = User::factory()->create();
 
@@ -37,7 +35,6 @@ class AuthenticationTest extends TestCase
 
     public function test_users_can_not_authenticate_with_invalid_password(): void
     {
-        $this->markTestSkipped('Reason for skipping the test');
 
         $user = User::factory()->create();
 
@@ -51,7 +48,6 @@ class AuthenticationTest extends TestCase
 
     public function test_users_can_logout(): void
     {
-        $this->markTestSkipped('Reason for skipping the test');
 
         $user = User::factory()->create();
 
