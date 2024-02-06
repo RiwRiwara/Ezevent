@@ -26,7 +26,6 @@ Route::get('/test', function () {
     ], 200);
 });
 
-// user api
 Route::get('/user/{id}', function (string $id) {
     return new UserResource(User::findOrFail($id));
 });
