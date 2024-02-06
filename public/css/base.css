@@ -7,71 +7,113 @@
 }
 
 
-.filter-section {
-	background-color: rgba(255, 255, 255, 0.846);
-	border-radius: 8px;
-	max-width: 750px;
-	max-height: 400px;
-	width: fit-content;
-	height: fit-content;
-	padding: 10px;
+.unique-style .switch-language {
+	position: relative;
+	display: inline-block;
+	margin: 0 5px;
 }
 
-.bgImageSearch {
-	background-color: #000000;
-	background-image: url('https://www.ruksaaproperty.com/wp-content/themes/rukksaa/images/raksa-banner2.jpg');
-	background-position: center;
-	background-size: cover;
-	background-repeat: no-repeat;
-	min-height: 400px;
-}
-
-.popularPlaceCard {
-	color: #fff;
+.unique-style .switch-language > span {
+	position: absolute;
+	top: 14px;
+	pointer-events: none;
 	font-weight: bold;
-	font-size: 1.5rem;
-	padding: 1rem;
+	font-size: 12px;
+	text-transform: uppercase;
+	text-shadow: 0 1px 0 rgba(0, 0, 0, .06);
+	width: 50%;
 	text-align: center;
-	align-items: center;
-	justify-content: center;
-	display: flex;
-	flex-direction: column;
-	border-radius: 8px;
-	background-color: #000000;
-	opacity: 0.8;
-	background-position: center;
-	background-size: cover;
-	background-repeat: no-repeat;
-
-	text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
-	-webkit-text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
-	transition: transform 0.5s ease-out;
 }
 
-.popularPlaceCard:hover {
-	transform: scale(1.1);
+.unique-style input.check-toggle-round-flat:checked ~ .off {
+	color: #fff;
+
 }
 
-.servicebox {
-	border-radius: 10px;
+.unique-style input.check-toggle-round-flat:checked ~ .on {
+	color: #053F5C;
 }
 
-.servicebox:hover {
-	background-color: #95becf;
+.unique-style .switch-language > span.on {
+	left: 0;
+	padding-left: 2px;
+	color: #fff;
 }
 
-img {
-	border-radius: 8px;
+.unique-style .switch-language > span.off {
+	right: 0;
+	padding-right: 4px;
+	color: #053F5C;
 }
 
-.shake {
-	animation: shake 0.5s;
+.unique-style .check-toggle {
+	position: absolute;
+	margin-left: -9999px;
+	visibility: hidden;
 }
 
-@keyframes shake {
-	0% { transform: translateX(0); }
-	25% { transform: translateX(-5px); }
-	50% { transform: translateX(5px); }
-	75% { transform: translateX(-5px); }
-	100% { transform: translateX(0); }
+.unique-style .check-toggle + label {
+	display: block;
+	position: relative;
+	cursor: pointer;
+	outline: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+.unique-style input.check-toggle-round-flat + label {
+	padding: 2px;
+	width: 97px;
+	height: 35px;
+	background-color: 0;
+	-webkit-border-radius: 60px;
+	-moz-border-radius: 60px;
+	-ms-border-radius: 60px;
+	-o-border-radius: 60px;
+	border-radius: 60px;
+}
+
+.unique-style input.check-toggle-round-flat + label:before,
+.unique-style input.check-toggle-round-flat + label:after {
+	display: block;
+	position: absolute;
+	content: "";
+}
+
+.unique-style input.check-toggle-round-flat + label:before {
+	top: 2px;
+	left: 2px;
+	bottom: 2px;
+	right: 2px;
+	/* background-color: blue; */
+	-webkit-border-radius: 60px;
+	-moz-border-radius: 60px;
+	-ms-border-radius: 60px;
+	-o-border-radius: 60px;
+	border-radius: 60px;
+}
+
+.unique-style input.check-toggle-round-flat + label:after {
+	top: 4px;
+	left: 4px;
+	bottom: 4px;
+	width: 48px;
+	background-color: #053F5C;
+	-webkit-border-radius: 52px;
+	-moz-border-radius: 52px;
+	-ms-border-radius: 52px;
+	-o-border-radius: 52px;
+	border-radius: 52px;
+	-webkit-transition: margin 0.2s;
+	-moz-transition: margin 0.2s;
+	-o-transition: margin 0.2s;
+	transition: margin 0.2s;
+}
+
+.unique-style input.check-toggle-round-flat:checked + label {}
+
+.unique-style input.check-toggle-round-flat:checked + label:after {
+	margin-left: 44px;
 }
