@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LanguageController;
 use Illuminate\Http\Request;
+use App\Http\Controllers\ChartController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,7 +17,6 @@ use Illuminate\Http\Request;
 */
 
 Route::post("language-switch", [LanguageController::class, 'languageSwitch'])->name('language.switch');
-
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
@@ -37,6 +37,9 @@ Route::middleware('guest')->group(function () {
     Route::get('/eventpage', function () {
         return view('guest.eventpage');
     });
+    Route::get('/summary', function () {
+        return view('guest.summary');
+    });
 });
 
 
@@ -44,11 +47,11 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-
-
     Route::get('/create-event', function () {
         return view('guest.createEvent');
     });
 });
+
+Route::get('/charts', [ChartController::class, 'showChart']);
 
 require __DIR__ . '/auth.php';
