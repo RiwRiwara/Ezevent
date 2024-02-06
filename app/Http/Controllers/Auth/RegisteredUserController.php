@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
 use Illuminate\View\View;
+use App\Constants\ThailandPlace;
 
 class RegisteredUserController extends Controller
 {
@@ -20,7 +21,12 @@ class RegisteredUserController extends Controller
      */
     public function create(): View
     {
-        return view('guest.register');
+        $FORM_DATA_ITEMS = [
+            'provinces' => ThailandPlace::PROVINCE,
+            'districts' => ThailandPlace::CITY,
+            'cities' => ThailandPlace::DISTRICT,
+          ];
+        return view('guest.register', compact('FORM_DATA_ITEMS'));
     }
 
     /**

@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LanguageController;
+use Illuminate\Http\Request;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -21,21 +22,21 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('guest')->group(function () {
-    Route::get('/', function () {
-        return view('welcome');
+    
+    Route::get('/', function (Request $request) {
+        $userAgent = $request->header('User-Agent');
+        return view('welcome', ['userAgent' => $userAgent]);
     });
 
     Route::get('/landing', function () {
         return view('guest.landing');
     });
-
     Route::get('/createevent', function () {
         return view('guest.createEvent');
     });
     Route::get('/eventpage', function () {
         return view('guest.eventpage');
     });
-
 });
 
 
@@ -45,8 +46,9 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
 
-    Route::get('/create-event', function () { return view('guest.createEvent');});
-
+    Route::get('/create-event', function () {
+        return view('guest.createEvent');
+    });
 });
 
 require __DIR__ . '/auth.php';
