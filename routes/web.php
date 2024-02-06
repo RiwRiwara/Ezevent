@@ -28,7 +28,13 @@ Route::middleware('guest')->group(function () {
     Route::get('/landing', function () {
         return view('guest.landing');
     });
-    
+
+    Route::get('/createevent', function () {
+        return view('guest.createEvent');
+    });
+    Route::get('/eventpage', function () {
+        return view('guest.eventpage');
+    });
 
 });
 
