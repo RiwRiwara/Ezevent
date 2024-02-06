@@ -12,6 +12,5 @@ class ExampleTest extends TestCase
     public function test_that_true_is_true(): void
     {
         $this->assertTrue(true);
-        $this->markTestSkipped('Reason for skipping the test');
     }
 }

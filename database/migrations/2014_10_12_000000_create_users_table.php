@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->integer('user_id')->nullable();
+            $table->string('user_id')->unique();
             $table->string('first_name', 50);
             $table->string('last_name', 50);
             $table->string('email', 50)->unique();
@@ -24,10 +24,10 @@ return new class extends Migration
             $table->dateTime('date_of_birth');
             $table->string('mobile_number');
             $table->string('address_1');
-            $table->string('Province');
-            $table->string('Dsitinct');
-            $table->string('postid', 5);
-            $table->string('personality', 4)->nullable();;
+            $table->string('province');
+            $table->string('district');
+            $table->string('post_id');
+            $table->string('personality', 4)->nullable();
             $table->string('profile_img')->nullable();
             $table->text('short_bio')->nullable();
             $table->text('description')->nullable();
