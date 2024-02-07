@@ -17,6 +17,8 @@
     @else
     @vite('resources/css/app.css')
     @endif
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 
 </head>
 
@@ -45,5 +47,4 @@
 @vite('resources/js/app.js')
 @endif
 <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.js"></script>
-
 </html>
