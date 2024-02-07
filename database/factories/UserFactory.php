@@ -35,9 +35,10 @@ class UserFactory extends Factory
             'mobile_number' => $this ->faker->phoneNumber(),
             'personality' => Str::random(4),
             'date_of_birth' => $this ->faker->date(),
-            'address_1' => $this ->faker->address(),
+            'address' => $this ->faker->address(),
             'province' => $this ->faker->state(),
             'district' => $this ->faker->city(),
+            'city' => $this ->faker->city(),
             'post_id' => $this ->faker->postcode(),
             'profile_img' => $this ->faker->imageUrl(),
         ];

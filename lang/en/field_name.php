@@ -1,18 +1,20 @@
 <?php
 
 return [
-    'password' => 'password',
-    'email' => 'email',
-    'first_name' => 'first name',
-    'last_name' => 'last name',
-    'phone' => 'phone',
+    'personal_information' => 'Personal Information',
+    'address_information' => 'Address Information',
+    'password' => 'Password',
+    'email' => 'Email',
+    'first_name' => 'First Name',
+    'last_name' => 'Last Name',
+    'phone' => 'Phone',
 
-    'add_address' => 'add address',
-    'province' => 'province',
-    'district' => 'district',
-    'city' => 'city',
-    'address' => 'address',
-    'zipcode' => 'zipcode',
+    'add_address' => 'Add address',
+    'province' => 'Province',
+    'district' => 'District',
+    'city' => 'City',
+    'address' => 'Address',
+    'zipcode' => 'Zipcode',
     
     'select_date_birth' => 'Select date of birth',
     'date_birth' => 'Date of birth',

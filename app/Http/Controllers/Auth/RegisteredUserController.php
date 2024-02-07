@@ -26,6 +26,7 @@ class RegisteredUserController extends Controller
             'districts' => ThailandPlace::CITY,
             'cities' => ThailandPlace::DISTRICT,
           ];
+
         return view('guest.register', compact('FORM_DATA_ITEMS'));
     }
 

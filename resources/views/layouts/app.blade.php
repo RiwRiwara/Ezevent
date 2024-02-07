@@ -10,13 +10,7 @@
         integrity="sha384-4LISF5TTJX/fLmGSxO53rV4miRxdg84mZsxmO8Rx5jGtp/LbrixFETvWa5a6sESd" crossorigin="anonymous">
         <title>{{ isset($title) ? $title : config('app.name', 'Laravel') }}</title>
     <link rel="icon" href="{{ asset('images/Logo.png') }}" type="image/x-icon" />
-    <link href="{{ env('RESOURECE_ASSET_URL') }}/css/base.css" rel="stylesheet" type="text/css" />
-
-    <style>
-        .custom-input {
-            transition: border-color 0.5s ease;
-        }
-    </style>
+    <link href="{{ asset('css/base.css') }}" rel="stylesheet" type="text/css" />
 
     @if (config('app.env', 'production') == 'production')
     <link href="https://ezevent.online/public/build/assets/{{env('CSS_BUILD_FILE_NAME')}}" rel="stylesheet"
@@ -28,7 +22,7 @@
 </head>
 
 <body class="antialiased">
-    <div class="min-h-screen bg-neutral-0 dark:bg-gray-900">
+    <div class="min-h-screen bg-neutral-4 dark:bg-gray-900">
         @include('components.sidebar')
 
         <!-- Page Heading -->

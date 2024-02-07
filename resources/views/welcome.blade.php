@@ -7,7 +7,8 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.css" rel="stylesheet" />
     <link rel="icon" href="{{ asset('images/Logo.png') }}" type="image/x-icon" />
-    <link href="{{ env('RESOURECE_ASSET_URL') }}/css/base.css" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('css/base.css') }}" rel="stylesheet" type="text/css" />
+
 
     <title>{{ isset($title) ? $title : config('app.name', 'Laravel') }}</title>
     @if (config('app.env', 'production') == 'production')
@@ -15,12 +16,6 @@
     @else
     @vite('resources/css/app.css')
     @endif
-
-    <style>
-        .custom-input {
-            transition: border-color 0.5s ease;
-        }
-    </style>
 </head>
 @include('components.language-switch')
 
