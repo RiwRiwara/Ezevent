@@ -4,6 +4,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Resources\UserResource;
 use App\Models\User;
+use Illuminate\Support\Str;
+use App\Http\Controllers\User\UserController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -19,7 +21,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-// tset api
 Route::get('/test', function () {
     return response()->json([
         'message' => 'Hello World!',
@@ -29,6 +30,5 @@ Route::get('/test', function () {
 Route::get('/user/{id}', function (string $id) {
     return new UserResource(User::findOrFail($id));
 });
-Route::get('/users', function () {
-    return UserResource::collection(User::all());
-});
+
+Route::apiResource('users', UserController::class);

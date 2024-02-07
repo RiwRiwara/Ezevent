@@ -1,6 +1,8 @@
 <?php
 
 return [
+    'personal_information' => 'ข้อมูลส่วนตัว',
+    'address_information' => 'ข้อมูลที่อยู่',
     'password' => 'รหัสผ่าน',
     'email' => 'อีเมล',
     'first_name' => 'ชื่อ',
@@ -9,8 +11,8 @@ return [
     
     'add_address' => 'เพิ่มที่อยู่',
     'province' => 'จังหวัด',
-    'district' => 'อำเภอ',
-    'city' => 'เขต/ตำบล',
+    'district' => 'อำเภอ/เขต',
+    'city' => 'แขวง/ตำบล',
     'address' => 'ที่อยู่',
     'zipcode' => 'รหัสไปรษณีย์',
 

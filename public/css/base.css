@@ -117,3 +117,7 @@
 .unique-style input.check-toggle-round-flat:checked + label:after {
 	margin-left: 44px;
 }
+
+.custom-input {
+	transition: border-color 0.5s ease;
+}

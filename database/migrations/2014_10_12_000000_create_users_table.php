@@ -23,9 +23,10 @@ return new class extends Migration
             $table->enum('gender', ['female', 'male', 'LGBTQ+'])->nullable();
             $table->dateTime('date_of_birth');
             $table->string('mobile_number');
-            $table->string('address_1');
+            $table->string('address');
             $table->string('province');
             $table->string('district');
+            $table->string('city');
             $table->string('post_id');
             $table->string('personality', 4)->nullable();
             $table->string('profile_img')->nullable();

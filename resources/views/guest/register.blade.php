@@ -1,7 +1,5 @@
 <x-guest-layout>
   <div class=" px-6 py-6 9lg:px-8 bg-neutral-5">
-    @include('components.language-switch')
-
     <div class=" flex flex-row items-center justify-center">
       <img class="h-15 w-auto" src="{{ asset('images/Logo(Orange).png') }}" alt="Logo">
       <h2 class="ml-4 text-3xl font-bold leading-9 tracking-tight text-gray-0 ">Create New Account</h2>
@@ -11,7 +9,7 @@
       <form class="space-y-6" action="#" method="POST">
         @csrf
         <div class="mb-2">
-          <p class="block text-md font-bold  text-primary-9">Personal Infomation</p>
+          <p class="block text-md font-bold  text-primary-9">{{__('field_name.personal_information')}}</p>
           <div class="mt-2 flex flex-col gap-3">
             <x-forms.input-outline-primary name="email" label="{{__('field_name.email')}}" type="email" />
             <x-forms.input-outline-primary name="phone" label="{{__('field_name.phone')}}" type="text" />
@@ -25,9 +23,9 @@
         </div>
 
         <div class="mb-2">
-          <p class="block text-md font-bold  text-primary-9 mb-3">Address</p>
+          <p class="block text-md font-bold  text-primary-9 mb-3">{{__('field_name.address_information')}}</p>
 
-          <x-forms.textarea-outline-primary name="address" label="{{__('field_name.address')}}" placeholder="{{__('field_name.add_address')}}"/>
+          <x-forms.textarea-outline-primary name="address" label="{{__('field_name.address')}}" placeholder="{{__('field_name.add_address')}}" />
 
           <div class="mt-2 row">
             <div class="col-md-3 mb-3">
@@ -41,7 +39,7 @@
               <x-forms.select-dropdown name="property_city" label="{{__('field_name.city')}}" disabled />
             </div>
 
-            <div class="col-md-3 mั-3">
+            <div class="col-md-3 mt-5">
               <x-forms.input-outline-primary name="zipcode" label="{{__('field_name.zipcode')}}" type="text" disabled />
             </div>
           </div>
@@ -73,6 +71,8 @@
 
         $('#property_city').html('');
         $('#property_city').prop('disabled', true);
+        $('#property_district').trigger('change');
+
       });
 
       $('#property_district').change(function() {
@@ -84,12 +84,12 @@
 
         $('#property_city').html('');
         $('#property_city').prop('disabled', false);
-        $('#zipcode').val(''); // Clear existing value
-        $('#zipcode').prop('disabled', true); // Disable ZIP code input by default
+        $('#zipcode').val('');
+        $('#zipcode').prop('disabled', true); 
 
         $.each(filteredcities, function(index, city) {
           $('#property_city').append('<option value="' + city.id + '">' + city["{{ app()->getLocale() === 'th' ? 'name_th' : 'name_en'}}"] + '</option>');
-          $('#zipcode').val(city.zip_code); // Set the ZIP code input value
+          $('#zipcode').val(city.zip_code); 
         });
       });
 
@@ -97,6 +97,5 @@
       $('#property_district').trigger('change');
 
     });
-  </script>
   </script>
 </x-guest-layout>
