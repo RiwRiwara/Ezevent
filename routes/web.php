@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LanguageController;
 use Illuminate\Http\Request;
 use App\Http\Controllers\ChartController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -22,7 +23,7 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('guest')->group(function () {
-    
+
     Route::get('/', function (Request $request) {
         $userAgent = $request->header('User-Agent');
         return view('welcome', ['userAgent' => $userAgent]);
@@ -37,11 +38,11 @@ Route::middleware('guest')->group(function () {
     Route::get('/eventpage', function () {
         return view('guest.eventpage');
     });
-    Route::get('/summary', function () {
-        return view('guest.summary');
-    });
+    // Route::get('/summary', function () {
+    //     return view('guest.summary');
+    // });
 });
-
+Route::get('/summary', [ChartController::class, 'showChart']);
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -52,6 +53,6 @@ Route::middleware('auth')->group(function () {
     });
 });
 
-Route::get('/charts', [ChartController::class, 'showChart']);
+
 
 require __DIR__ . '/auth.php';

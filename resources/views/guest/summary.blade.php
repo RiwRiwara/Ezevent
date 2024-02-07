@@ -6,17 +6,17 @@
     </x-slot>
     <h2 class="text-xl px-20 py-5 text-left text-gray-9">Summary Responses</h2>
 
-    <div style="width: 80%; margin: auto;">
+    <div>
         <canvas id="barChart"></canvas>
     </div>
 
-    <div style="width: 80%; margin: auto; margin-top: 20px;">
+    <div >
         <canvas id="pieChart"></canvas>
     </div>
 
     <script>
         // Get data from the controller
-        var data = {!! isset($data) ? json_encode($data) : 'null' !!};
+        var data = JSON.parse('{!! isset($data) ? json_encode($data) : "null" !!}');
 
         // Get the context of the canvas elements
         var barChartCtx = document.getElementById('barChart').getContext('2d');
