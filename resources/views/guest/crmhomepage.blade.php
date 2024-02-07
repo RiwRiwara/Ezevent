@@ -55,7 +55,6 @@
                         Status
                     </th>
                     <th scope="col" class="px-6 py-3">
-                        Time
                     </th>
                 </tr>
             </thead>
@@ -77,24 +76,8 @@
                     <td class="px-6 py-4">
                         Checked </td>
                     <td class="px-6 py-4">
-                        16:20:56 </td>
-                </tr>
-                <tr class="bg-white border-b border-gray-9 dark:bg-gray-800 dark:border-gray-700">
-                    <th scope="row" class="px-6 py-4 font-medium text-gray-9 whitespace-nowrap dark:text-white">
-                        ปีเตอร์สโมค </th>
-                    <td class="px-6 py-4">
-                        21
+                        <button type="submit" class="block w-24 h-6 rounded-md border border-neutral-9 text-neutral-9 text-center text-xl shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Send</button>
                     </td>
-                    <td class="px-6 py-4">
-                        ชาย </td>
-                    <td class="px-6 py-4">
-                        099-9999998 </td>
-                    <td class="px-6 py-4">
-                        BKK </td>
-                    <td class="px-6 py-4">
-                        Check - Out </td>
-                    <td class="px-6 py-4">
-                        16:25:56 </td>
                 </tr>
             </tbody>
         </table>
