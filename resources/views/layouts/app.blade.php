@@ -12,7 +12,6 @@
     <link href="{{ env('RESOURECE_ASSET_URL') }}/css/base.css" rel="stylesheet" type="text/css" />
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/datepicker.min.js"></script>
-    <!-- TW Elements is free under AGPL, with commercial license required for specific uses. See more details: https://tw-elements.com/license/ and contact us for queries at tailwind@mdbootstrap.com -->
     <style>
         .custom-input {
             transition: border-color 0.5s ease;
