@@ -25,7 +25,7 @@
         <div class="mb-2">
           <p class="block text-md font-bold  text-primary-9 mb-3">{{__('field_name.address_information')}}</p>
 
-          <x-forms.textarea-outline-primary name="address" label="{{__('field_name.address')}}" placeholder="{{__('field_name.add_address')}}"/>
+          <x-forms.textarea-outline-primary name="address" label="{{__('field_name.address')}}" placeholder="{{__('field_name.add_address')}}" />
 
           <div class="mt-2 row">
             <div class="col-md-3 mb-3">
