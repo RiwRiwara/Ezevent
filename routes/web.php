@@ -22,7 +22,7 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('guest')->group(function () {
-    
+
     Route::get('/', function (Request $request) {
         $userAgent = $request->header('User-Agent');
         return view('welcome', ['userAgent' => $userAgent]);
@@ -36,6 +36,12 @@ Route::middleware('guest')->group(function () {
     });
     Route::get('/eventpage', function () {
         return view('guest.eventpage');
+    });
+    Route::get('/crmhomepage', function () {
+        return view('guest.crmhomepage');
+    });
+    Route::get('/messagecrm', function () {
+        return view('guest.messagecrm');
     });
 });
 

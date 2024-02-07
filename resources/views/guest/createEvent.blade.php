@@ -18,73 +18,73 @@
         <div class="grid grid-cols-2">
           <div>
             <h3 class="pt-4 mb-4">Select Type</h3>
-            <ul class="w-48 text-sm font-medium text-gray-9 bg-white border border-gray-6 rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white">
+            <ul class="w-full text-sm font-medium text-gray-9 bg-white border border-gray-6 rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white">
               <li class="w-full border-b border-gray-6 rounded-t-lg dark:border-gray-600">
                 <div class="flex items-center ps-3">
-                  <input id="entertainment" name="entertainment" type="checkbox" value="" class="w-4 h-4 text-neutral-6 bg-gray-100 border-gray-6 rounded focus:ring-blue-500 dark:focus:ring-neutral-6 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+                  <x-forms.checkbox id="entertainment" name="entertainment" />
                   <label for="entertainment" class="w-full py-3 ms-2 text-sm font-medium text-gray-9 dark:text-gray-6">Entertainment</label>
                 </div>
               </li>
               <li class="w-full border-b border-gray-6 rounded-t-lg dark:border-gray-600">
                 <div class="flex items-center ps-3">
-                  <input id="education" name="education" type="checkbox" value="" class="w-4 h-4 text-neutral-6 bg-gray-100 border-gray-6 rounded focus:ring-blue-500 dark:focus:ring-neutral-6 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+                  <x-forms.checkbox id="education" name="education" />
                   <label for="education" class="w-full py-3 ms-2 text-sm font-medium text-gray-9 dark:text-gray-6">Education</label>
                 </div>
               </li>
               <li class="w-full border-b border-gray-6 rounded-t-lg dark:border-gray-600">
                 <div class="flex items-center ps-3">
-                  <input id="charity" name="charity" type="checkbox" value="" class="w-4 h-4 text-neutral-6 bg-gray-100 border-gray-6 rounded focus:ring-blue-500 dark:focus:ring-neutral-6 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+                  <x-forms.checkbox id="charity" name="charity" />
                   <label for="charity" class="w-full py-3 ms-2 text-sm font-medium text-gray-9 dark:text-gray-6">Charity</label>
                 </div>
               </li>
               <li class="w-full border-b border-gray-6 rounded-t-lg dark:border-gray-600">
                 <div class="flex items-center ps-3">
-                  <input id="seminar" name="seminar" type="checkbox" value="" class="w-4 h-4 text-neutral-6 bg-gray-100 border-gray-6 rounded focus:ring-blue-500 dark:focus:ring-neutral-6 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+                  <x-forms.checkbox id="seminar" name="seminar" />
                   <label for="seminar" class="w-full py-3 ms-2 text-sm font-medium text-gray-9 dark:text-gray-6">Seminar</label>
                 </div>
               </li>
               <li class="w-full border-b border-gray-6 rounded-t-lg dark:border-gray-600">
                 <div class="flex items-center ps-3">
-                  <input id="funny" name="funny" type="checkbox" value="" class="w-4 h-4 text-neutral-6 bg-gray-100 border-gray-6 rounded focus:ring-blue-500 dark:focus:ring-neutral-6 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+                  <x-forms.checkbox id="funny" name="funny" />
                   <label for="funny" class="w-full py-3 ms-2 text-sm font-medium text-gray-9 dark:text-gray-6">Funny</label>
                 </div>
               </li>
               <li class="w-full border-b border-gray-6 rounded-t-lg dark:border-gray-600">
                 <div class="flex items-center ps-3">
-                  <input id="finance" name="finance" type="checkbox" value="" class="w-4 h-4 text-neutral-6 bg-gray-100 border-gray-6 rounded focus:ring-blue-500 dark:focus:ring-neutral-6 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+                  <x-forms.checkbox id="finance" name="finance" />
                   <label for="finance" class="w-full py-3 ms-2 text-sm font-medium text-gray-9 dark:text-gray-6">Finance &
                     Accounting</label>
                 </div>
               </li>
               <li class="w-full border-b border-gray-6 rounded-t-lg dark:border-gray-600">
                 <div class="flex items-center ps-3">
-                  <input id="game" name="game" type="checkbox" value="" class="w-4 h-4 text-neutral-6 bg-gray-100 border-gray-6 rounded focus:ring-blue-500 dark:focus:ring-neutral-6 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+                  <x-forms.checkbox id="game" name="game" />
                   <label for="game" class="w-full py-3 ms-2 text-sm font-medium text-gray-9 dark:text-gray-6">Game &
                     E-sports</label>
                 </div>
               </li>
               <li class="w-full border-b border-gray-6 rounded-t-lg dark:border-gray-600">
                 <div class="flex items-center ps-3">
-                  <input id="exhibition" name="exhibition" type="checkbox" value="" class="w-4 h-4 text-neutral-6 bg-gray-100 border-gray-6 rounded focus:ring-blue-500 dark:focus:ring-neutral-6 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+                  <x-forms.checkbox id="exhibition" name="exhibition" />
                   <label for="exhibition" class="w-full py-3 ms-2 text-sm font-medium text-gray-9 dark:text-gray-6">Exhibition</label>
                 </div>
               </li>
               <li class="w-full border-b border-gray-6 rounded-t-lg dark:border-gray-600">
                 <div class="flex items-center ps-3">
-                  <input id="art" name="art" type="checkbox" value="" class="w-4 h-4 text-neutral-6 bg-gray-100 border-gray-6 rounded focus:ring-blue-500 dark:focus:ring-neutral-6 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+                  <x-forms.checkbox id="art" name="art" />
                   <label for="art" class="w-full py-3 ms-2 text-sm font-medium text-gray-9 dark:text-gray-6">Art &
                     Design</label>
                 </div>
               </li>
               <li class="w-full border-b border-gray-6 rounded-t-lg dark:border-gray-600">
                 <div class="flex items-center ps-3">
-                  <input id="technology" name="technology" type="checkbox" value="" class="w-4 h-4 text-neutral-6 bg-gray-100 border-gray-6 rounded focus:ring-blue-500 dark:focus:ring-neutral-6 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+                  <x-forms.checkbox id="technology" name="technology" />
                   <label for="technology" class="w-full py-3 ms-2 text-sm font-medium text-gray-9 dark:text-gray-6">Technology</label>
                 </div>
               </li>
               <li class="w-full border-b border-gray-6 rounded-t-lg dark:border-gray-600">
                 <div class="flex items-center ps-3">
-                  <input id="other" name="other" type="checkbox" value="" class="w-4 h-4 text-neutral-6 bg-gray-100 border-gray-6 rounded focus:ring-blue-500 dark:focus:ring-neutral-6 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+                  <x-forms.checkbox id="other" name="other" />
                   <label for="other" class="w-full py-3 ms-2 text-sm font-medium text-gray-9 dark:text-gray-6">Other</label>
                 </div>
               </li>
@@ -92,56 +92,56 @@
           </div>
           <div>
             <h3 class="pt-4 mb-4">Select Badge</h3>
-            <ul class="w-48 text-sm font-medium text-gray-9 bg-white border border-gray-6 rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white">
+            <ul class="w-full text-sm font-medium text-gray-9 bg-white border border-gray-6 rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white">
               <li class="w-full border-b border-gray-6 rounded-t-lg dark:border-gray-600">
                 <div class="flex items-center ps-3">
-                  <input id="communication" name="communication" type="checkbox" value="" class="w-4 h-4 text-neutral-6 bg-gray-100 border-gray-6 rounded focus:ring-blue-500 dark:focus:ring-neutral-6 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+                  <x-forms.checkbox id="communication" name="communication" />
                   <label for="communication" class="w-full py-3 ms-2 text-sm font-medium text-gray-9 dark:text-gray-6">Communication Skill</label>
                 </div>
               </li>
               <li class="w-full border-b border-gray-6 rounded-t-lg dark:border-gray-600">
                 <div class="flex items-center ps-3">
-                  <input id="problem" name="problem" type="checkbox" value="" class="w-4 h-4 text-neutral-6 bg-gray-100 border-gray-6 rounded focus:ring-blue-500 dark:focus:ring-neutral-6 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+                  <x-forms.checkbox id="problem" name="problem" />
                   <label for="problem" class="w-full py-3 ms-2 text-sm font-medium text-gray-9 dark:text-gray-6">Problem-Solving
                     Skill</label>
                 </div>
               </li>
               <li class="w-full border-b border-gray-6 rounded-t-lg dark:border-gray-600">
                 <div class="flex items-center ps-3">
-                  <input id="learning" name="learning" type="checkbox" value="" class="w-4 h-4 text-neutral-6 bg-gray-100 border-gray-6 rounded focus:ring-blue-500 dark:focus:ring-neutral-6 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+                  <x-forms.checkbox id="learning" name="learning" />
                   <label for="learning" class="w-full py-3 ms-2 text-sm font-medium text-gray-9 dark:text-gray-6">Learning
                     Skill</label>
                 </div>
               </li>
               <li class="w-full border-b border-gray-6 rounded-t-lg dark:border-gray-600">
                 <div class="flex items-center ps-3">
-                  <input id="teamwork" name="teamwork" type="checkbox" value="" class="w-4 h-4 text-neutral-6 bg-gray-100 border-gray-6 rounded focus:ring-blue-500 dark:focus:ring-neutral-6 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+                  <x-forms.checkbox id="teamwork" name="teamwork" />
                   <label for="teamwork" class="w-full py-3 ms-2 text-sm font-medium text-gray-9 dark:text-gray-6">Teamwork
                     Skill</label>
                 </div>
               </li>
               <li class="w-full border-b border-gray-6 rounded-t-lg dark:border-gray-600">
                 <div class="flex items-center ps-3">
-                  <input id="thinking" name="thinking" type="checkbox" value="" class="w-4 h-4 text-neutral-6 bg-gray-100 border-gray-6 rounded focus:ring-blue-500 dark:focus:ring-neutral-6 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+                  <x-forms.checkbox id="thinking" name="thinking" />
                   <label for="thinking" class="w-full py-3 ms-2 text-sm font-medium text-gray-9 dark:text-gray-6">Thinking
                     Skill</label>
                 </div>
               </li>
               <li class="w-full border-b border-gray-6 rounded-t-lg dark:border-gray-600">
                 <div class="flex items-center ps-3">
-                  <input id="leadership" name="leadership" type="checkbox" value="" class="w-4 h-4 text-neutral-6 bg-gray-100 border-gray-6 rounded focus:ring-blue-500 dark:focus:ring-neutral-6 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+                  <x-forms.checkbox id="leadership" name="leadership" />
                   <label for="leadership" class="w-full py-3 ms-2 text-sm font-medium text-gray-9 dark:text-gray-6">Leadership</label>
                 </div>
               </li>
               <li class="w-full border-b border-gray-6 rounded-t-lg dark:border-gray-600">
                 <div class="flex items-center ps-3">
-                  <input id="knowledge" name="knowledge" type="checkbox" value="" class="w-4 h-4 text-neutral-6 bg-gray-100 border-gray-6 rounded focus:ring-blue-500 dark:focus:ring-neutral-6 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+                  <x-forms.checkbox id="knowledge" name="knowledge" />
                   <label for="knowledge" class="w-full py-3 ms-2 text-sm font-medium text-gray-9 dark:text-gray-6">Knowledge</label>
                 </div>
               </li>
               <li class="w-full border-b border-gray-6 rounded-t-lg dark:border-gray-600">
                 <div class="flex items-center ps-3">
-                  <input id="professional" name="professional" type="checkbox" value="" class="w-4 h-4 text-neutral-6 bg-gray-100 border-gray-6 rounded focus:ring-blue-500 dark:focus:ring-neutral-6 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+                  <x-forms.checkbox id="professional" name="professional" />
                   <label for="professional" class="w-full py-3 ms-2 text-sm font-medium text-gray-9 dark:text-gray-6">Professional Skill</label>
                 </div>
               </li>
@@ -151,22 +151,22 @@
       </div>
 
       <!-- right-content -->
-      <div >
+      <div>
         <div class="mb-4 py-5 col-span-1 border-2 border-neutral-8 rounded-lg p-4 bg-gray-0">
           <h1 class="text-xl font-bold">Date & Time</h1>
           <div class="mb-4">
             <label for="start-date" class="text-lg">Start at Date</label>
           </div>
           <div class="mb-4 flex gap-4">
-            <input type="date" class="w-full form-control px-2.5 pb-2.5 pt-4 text-md text-gray-9 bg-transparent rounded-lg border-1 border-gray-6 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-neutral-9 peer" id="start-date">
-            <input type="time" class="w-full form-control px-2.5 pb-2.5 pt-4 text-md text-gray-9 bg-transparent rounded-lg border-1 border-gray-6 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-neutral-9 peer" id="start-time">
+            <x-forms.date-picker name="date_start" placeholder="{{__('Start Date')}}" />
+            <x-forms.time-picker name="date_start" placeholder="{{__('Start Time')}}" />
           </div>
           <div class="mb-4">
             <label for="end-date" class="text-lg">End at Date</label>
           </div>
           <div class="mb-4 flex gap-4">
-            <input type="date" class="w-full form-control px-2.5 pb-2.5 pt-4 text-md text-gray-9 bg-transparent rounded-lg border-1 border-gray-6 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-neutral-9 peer" id="end-date">
-            <input type="time" class="w-full form-control px-2.5 pb-2.5 pt-4 text-md text-gray-9 bg-transparent rounded-lg border-1 border-gray-6 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-neutral-9 peer" id="end-time">
+            <x-forms.date-picker name="date_birth" placeholder="{{__('End Date')}}" />
+            <x-forms.time-picker name="date_start" placeholder="{{__('End Time')}}" />
           </div>
         </div>
         <div class="mb-4 col-span-1 border-2 border-neutral-8 rounded-lg p-4 bg-gray-0">
