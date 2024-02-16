@@ -17,7 +17,7 @@ return [
     'add_address' => 'Add address',
     'province' => 'Province',
     'district' => 'District',
-    'city' => 'City',
+    'sub_district' => 'Sub-District',
     'address' => 'Address',
     'zipcode' => 'Zipcode',
     

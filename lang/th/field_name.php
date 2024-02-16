@@ -2,7 +2,7 @@
 
 return [
     'dashboard' => 'แดชบอร์ด',
-    'event' => 'อีเวนท์',
+    'event' => 'อีเวนต์',
     'crm' => 'CRM',
     'summary' => 'สรุปผล',
 
@@ -17,7 +17,7 @@ return [
     'add_address' => 'เพิ่มที่อยู่',
     'province' => 'จังหวัด',
     'district' => 'อำเภอ/เขต',
-    'city' => 'แขวง/ตำบล',
+    'sub_district' => 'แขวง/ตำบล',
     'address' => 'ที่อยู่',
     'zipcode' => 'รหัสไปรษณีย์',
 
@@ -31,5 +31,7 @@ return [
     'have_create_account' => "คุณยังไม่มีบัญชีใช่หรือไม่?",
     'have_account' => 'มีบัญชีอยู่แล้ว?',
     'create_account' => 'สร้างบัญชีทันที',
+
+
 
 ];
