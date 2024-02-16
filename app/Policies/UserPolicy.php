@@ -4,6 +4,7 @@ namespace App\Policies;
 
 use Illuminate\Auth\Access\Response;
 use App\Models\User;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
 class UserPolicy
@@ -16,7 +17,8 @@ class UserPolicy
      */
     public function viewAny(User $user): bool
     {
-        return true;
+        Log::debug('User-inpolicy: ' . $user);
+        return $user->email === 'awirut@mail.com';
     }
 
     /**

@@ -26,8 +26,8 @@
                         </a>
                     </li>
                     <li class="min-w-max hover:bg-neutral-8">
-                        <a href="#" aria-label="dashboard"
-                            class="relative flex items-center space-x-4 bg-neutral-9 px-4 py-3 text-white">
+                        <a href="{{route('dashboard')}}" aria-label="dashboard"
+                            class="relative flex items-center space-x-4  px-4 py-3 text-white {{ request()->is('dashboard') ? 'bg-neutral-9 ' : '' }}">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
                                 class="bi bi-inbox" viewBox="0 0 16 16">
                                 <path
@@ -37,7 +37,7 @@
                         </a>
                     </li>
                     <li class="min-w-max hover:bg-neutral-8">
-                        <a href="#" class="bg group flex items-center space-x-4 rounded-full px-4 py-3 text-white">
+                        <a href="{{route('landing')}}" class="bg group flex items-center space-x-4 px-4 py-3 text-white {{ request()->is('landing') ? 'bg-neutral-9 ' : '' }}">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
                                 class="bi bi-calendar-event" viewBox="0 0 16 16">
                                 <path
@@ -49,7 +49,7 @@
                         </a>
                     </li>
                     <li class="min-w-max hover:bg-neutral-8">
-                        <a href="#" class="group flex items-center space-x-4 rounded-md px-4 py-3 text-white">
+                        <a href="{{route('crm-home-page')}}" class="group flex items-center space-x-4  px-4 py-3 text-white {{ request()->is('crm-home-page') ? 'bg-neutral-9 ' : '' }}">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
                                 class="bi bi-people" viewBox="0 0 16 16">
                                 <path
@@ -59,7 +59,7 @@
                         </a>
                     </li>
                     <li class="min-w-max hover:bg-neutral-8">
-                        <a href="#" class="group flex items-center space-x-4 rounded-md px-4 py-3 text-white">
+                        <a href="{{route('summary')}}" class="group flex items-center space-x-4  px-4 py-3 text-white {{ request()->is('summary') ? 'bg-neutral-9 ' : '' }}">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
                                 class="bi bi-star" viewBox="0 0 16 16">
                                 <path
@@ -78,7 +78,7 @@
                 <form action="{{route('logout')}}" method="POST">
                     <div class="min-w-max hover:bg-danger-8 ">
                         @csrf
-                        <button type="submit" class="group flex items-center space-x-4 rounded-md px-4 py-3 text-white"
+                        <button type="submit" class="group flex items-center space-x-4  px-4 py-3 text-white"
                             style="width:100%">
                             <div>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"

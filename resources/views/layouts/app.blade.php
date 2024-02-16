@@ -23,7 +23,7 @@
 </head>
 
 <body class="antialiased">
-    <div class="min-h-screen bg-neutral-4 dark:bg-gray-900">
+    <div class="min-h-screen bg-gray-0 dark:bg-gray-900">
         @include('components.sidebar')
 
         <!-- Page Heading -->

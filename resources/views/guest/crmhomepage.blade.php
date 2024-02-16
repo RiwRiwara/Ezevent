@@ -1,10 +1,12 @@
-<x-guest-layout>
-    @include('components.sidebar')
-    <h1 class="text-3xl px-20 py-5 text-left text-primary-5">Ezevent</h1>
-    <h2 class="text-2xl px-20 py-5 text-left text-gray-9">Junior Architecture CRM</h2>
-    <!-- ใส่ Nav Bar ตรงเน้ -->
+<x-app-layout>
 
-    <div class="relative overflow-x-auto px-20">
+    <x-slot name="header">
+        <h2 class="font-semibold text-xl text-primary-5 dark:text-gray-200 leading-tight">
+            {{ __('Ezevent') }}
+        </h2>
+    </x-slot>
+
+    <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
         <div class="grid grid-cols-2 py-10">
             <h3 class="text-2xl text-gray-9">Filter Customers:</h3>
             <div class="grid justify-items-end">
@@ -13,15 +15,12 @@
         </div>
         <div class="flex">
             <div>
-                <h1>Name</h1>
                 <x-forms.input-outline-primary name="event_name" label="Name" type="text" />
             </div>
             <div class="px-10">
-                <h1>Mobile Phone</h1>
                 <x-forms.input-outline-primary name="event_name" label="Mobile Phone" type="text" />
             </div>
-            <div>
-                <h1>Duty</h1>
+            <div >
                 <div class="inline-flex rounded-md shadow-sm" role="group">
                     <button type="button" class="px-4 py-2 text-sm font-medium text-gray-900 bg-transparent border-2 border-neutral-2 hover:border-primary-3 rounded-s-lg hover:bg-primary-3 focus:z-10 focus:ring-2 focus:ring-gray-500 focus:bg-primary-3 dark:border-white dark:text-white dark:hover:text-white dark:hover:bg-gray-700 dark:focus:bg-gray-700">
                         Staff
@@ -83,5 +82,5 @@
         </table>
     </div>
 
-</x-guest-layout>
+</x-app-layout>
 ```
