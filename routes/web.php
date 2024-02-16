@@ -47,6 +47,9 @@ Route::middleware('guest')->group(function () {
     Route::get('/messagecrm', function () {
         return view('guest.messagecrm');
     });
+    Route::get('/createform',function() {
+        return view('guest.createform');
+    });
 });
 Route::get('/summary', [ChartController::class, 'showChart']);
 
