@@ -1,9 +1,9 @@
 @props([
 'name' => 'input',
 'id' => null,
-'placeholder' => null
+'label' => null
 ])
-<div class="flex items-center ps-3">
+<div class="flex items-center p-2 m-2 bg-neutral-0 shadow-sm hover:bg-neutral-1 " >
     <input 
     id="{{$id ?? $name}}" 
     name="{{$name}}" 

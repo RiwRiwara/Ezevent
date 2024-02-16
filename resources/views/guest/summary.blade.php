@@ -4,14 +4,18 @@
             {{ __('Ezevent') }}
         </h2>
     </x-slot>
-    <h2 class="text-xl px-20 py-5 text-left text-gray-9">Summary Responses</h2>
 
-    <div>
-        <canvas id="barChart"></canvas>
-    </div>
+    <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
 
-    <div >
-        <canvas id="pieChart"></canvas>
+        <h2 class="text-xl px-20 py-5 text-left text-gray-9">Summary Responses</h2>
+
+        <div>
+            <canvas id="barChart"></canvas>
+        </div>
+
+        <div>
+            <canvas id="pieChart"></canvas>
+        </div>
     </div>
 
     <script>

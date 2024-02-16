@@ -93,8 +93,7 @@
         });
       });
 
-      $('#property_province').trigger('change');
-      $('#property_district').trigger('change');
+      $('#property_province').val('-');
 
     });
   </script>

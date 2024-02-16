@@ -7,9 +7,7 @@
   </x-slot>
 
   <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-    <h2 class="text-xl px-20 py-5 text-left text-gray-9">Create New Event</h2>
-    <div class="container px-10 mx-auto pt-8 grid grid-cols-1 gap-4 sm:grid-cols-2">
-
+    <div class="container px-10 mx-auto pt-8 grid grid-cols-1 gap-8 sm:grid-cols-2">
       <!-- left-content -->
       <div class="col-span-1 border-2 border-neutral-8 rounded-lg p-4 bg-gray-0">
         <h1 class="text-xl font-bold">Detail</h1>
@@ -18,132 +16,68 @@
         <div class="grid grid-cols-2">
           <div>
             <h3 class="pt-4 mb-4">Select Type</h3>
-            <ul class="w-full text-sm font-medium text-gray-9 bg-white border border-gray-6 rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white">
-              <li class="w-full border-b border-gray-6 rounded-t-lg dark:border-gray-600">
-                <div class="flex items-center ps-3">
-                  <x-forms.checkbox id="entertainment" name="entertainment" />
-                  <label for="entertainment" class="w-full py-3 ms-2 text-sm font-medium text-gray-9 dark:text-gray-6">Entertainment</label>
-                </div>
+            <ul class="">
+              <li class=" ">
+                <x-forms.checkbox id="entertainment" name="entertainment" />
               </li>
-              <li class="w-full border-b border-gray-6 rounded-t-lg dark:border-gray-600">
-                <div class="flex items-center ps-3">
-                  <x-forms.checkbox id="education" name="education" />
-                  <label for="education" class="w-full py-3 ms-2 text-sm font-medium text-gray-9 dark:text-gray-6">Education</label>
-                </div>
+              <li class=" ">
+                <x-forms.checkbox id="education" name="education" />
               </li>
-              <li class="w-full border-b border-gray-6 rounded-t-lg dark:border-gray-600">
-                <div class="flex items-center ps-3">
-                  <x-forms.checkbox id="charity" name="charity" />
-                  <label for="charity" class="w-full py-3 ms-2 text-sm font-medium text-gray-9 dark:text-gray-6">Charity</label>
-                </div>
+              <li class=" ">
+                <x-forms.checkbox id="charity" name="charity" />
               </li>
-              <li class="w-full border-b border-gray-6 rounded-t-lg dark:border-gray-600">
-                <div class="flex items-center ps-3">
-                  <x-forms.checkbox id="seminar" name="seminar" />
-                  <label for="seminar" class="w-full py-3 ms-2 text-sm font-medium text-gray-9 dark:text-gray-6">Seminar</label>
-                </div>
+              <li class=" ">
+                <x-forms.checkbox id="seminar" name="seminar" />
               </li>
-              <li class="w-full border-b border-gray-6 rounded-t-lg dark:border-gray-600">
-                <div class="flex items-center ps-3">
-                  <x-forms.checkbox id="funny" name="funny" />
-                  <label for="funny" class="w-full py-3 ms-2 text-sm font-medium text-gray-9 dark:text-gray-6">Funny</label>
-                </div>
+              <li class=" ">
+                <x-forms.checkbox id="funny" name="funny" />
               </li>
-              <li class="w-full border-b border-gray-6 rounded-t-lg dark:border-gray-600">
-                <div class="flex items-center ps-3">
-                  <x-forms.checkbox id="finance" name="finance" />
-                  <label for="finance" class="w-full py-3 ms-2 text-sm font-medium text-gray-9 dark:text-gray-6">Finance &
-                    Accounting</label>
-                </div>
+              <li class=" ">
+                <x-forms.checkbox id="finance" name="finance" />
               </li>
-              <li class="w-full border-b border-gray-6 rounded-t-lg dark:border-gray-600">
-                <div class="flex items-center ps-3">
-                  <x-forms.checkbox id="game" name="game" />
-                  <label for="game" class="w-full py-3 ms-2 text-sm font-medium text-gray-9 dark:text-gray-6">Game &
-                    E-sports</label>
-                </div>
+              <li class=" ">
+                <x-forms.checkbox id="game" name="game" />
               </li>
-              <li class="w-full border-b border-gray-6 rounded-t-lg dark:border-gray-600">
-                <div class="flex items-center ps-3">
-                  <x-forms.checkbox id="exhibition" name="exhibition" />
-                  <label for="exhibition" class="w-full py-3 ms-2 text-sm font-medium text-gray-9 dark:text-gray-6">Exhibition</label>
-                </div>
+              <li class=" ">
+                <x-forms.checkbox id="exhibition" name="exhibition" />
               </li>
-              <li class="w-full border-b border-gray-6 rounded-t-lg dark:border-gray-600">
-                <div class="flex items-center ps-3">
-                  <x-forms.checkbox id="art" name="art" />
-                  <label for="art" class="w-full py-3 ms-2 text-sm font-medium text-gray-9 dark:text-gray-6">Art &
-                    Design</label>
-                </div>
+              <li class=" ">
+                <x-forms.checkbox id="art" name="art" />
               </li>
-              <li class="w-full border-b border-gray-6 rounded-t-lg dark:border-gray-600">
-                <div class="flex items-center ps-3">
-                  <x-forms.checkbox id="technology" name="technology" />
-                  <label for="technology" class="w-full py-3 ms-2 text-sm font-medium text-gray-9 dark:text-gray-6">Technology</label>
-                </div>
+              <li class=" ">
+                <x-forms.checkbox id="technology" name="technology" />
               </li>
-              <li class="w-full border-b border-gray-6 rounded-t-lg dark:border-gray-600">
-                <div class="flex items-center ps-3">
-                  <x-forms.checkbox id="other" name="other" />
-                  <label for="other" class="w-full py-3 ms-2 text-sm font-medium text-gray-9 dark:text-gray-6">Other</label>
-                </div>
+              <li class=" ">
+                <x-forms.checkbox id="other" name="other" />
               </li>
             </ul>
           </div>
           <div>
             <h3 class="pt-4 mb-4">Select Badge</h3>
-            <ul class="w-full text-sm font-medium text-gray-9 bg-white border border-gray-6 rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white">
-              <li class="w-full border-b border-gray-6 rounded-t-lg dark:border-gray-600">
-                <div class="flex items-center ps-3">
-                  <x-forms.checkbox id="communication" name="communication" />
-                  <label for="communication" class="w-full py-3 ms-2 text-sm font-medium text-gray-9 dark:text-gray-6">Communication Skill</label>
-                </div>
+            <ul class="">
+              <li class=" ">
+                <x-forms.checkbox id="communication" name="communication" />
               </li>
-              <li class="w-full border-b border-gray-6 rounded-t-lg dark:border-gray-600">
-                <div class="flex items-center ps-3">
-                  <x-forms.checkbox id="problem" name="problem" />
-                  <label for="problem" class="w-full py-3 ms-2 text-sm font-medium text-gray-9 dark:text-gray-6">Problem-Solving
-                    Skill</label>
-                </div>
+              <li class=" ">
+                <x-forms.checkbox id="problem" name="problem" />
               </li>
-              <li class="w-full border-b border-gray-6 rounded-t-lg dark:border-gray-600">
-                <div class="flex items-center ps-3">
-                  <x-forms.checkbox id="learning" name="learning" />
-                  <label for="learning" class="w-full py-3 ms-2 text-sm font-medium text-gray-9 dark:text-gray-6">Learning
-                    Skill</label>
-                </div>
+              <li class=" ">
+                <x-forms.checkbox id="learning" name="learning" />
               </li>
-              <li class="w-full border-b border-gray-6 rounded-t-lg dark:border-gray-600">
-                <div class="flex items-center ps-3">
-                  <x-forms.checkbox id="teamwork" name="teamwork" />
-                  <label for="teamwork" class="w-full py-3 ms-2 text-sm font-medium text-gray-9 dark:text-gray-6">Teamwork
-                    Skill</label>
-                </div>
+              <li class=" ">
+                <x-forms.checkbox id="teamwork" name="teamwork" />
               </li>
-              <li class="w-full border-b border-gray-6 rounded-t-lg dark:border-gray-600">
-                <div class="flex items-center ps-3">
-                  <x-forms.checkbox id="thinking" name="thinking" />
-                  <label for="thinking" class="w-full py-3 ms-2 text-sm font-medium text-gray-9 dark:text-gray-6">Thinking
-                    Skill</label>
-                </div>
+              <li class=" ">
+                <x-forms.checkbox id="thinking" name="thinking" />
               </li>
-              <li class="w-full border-b border-gray-6 rounded-t-lg dark:border-gray-600">
-                <div class="flex items-center ps-3">
-                  <x-forms.checkbox id="leadership" name="leadership" />
-                  <label for="leadership" class="w-full py-3 ms-2 text-sm font-medium text-gray-9 dark:text-gray-6">Leadership</label>
-                </div>
+              <li class=" ">
+                <x-forms.checkbox id="leadership" name="leadership" />
               </li>
-              <li class="w-full border-b border-gray-6 rounded-t-lg dark:border-gray-600">
-                <div class="flex items-center ps-3">
-                  <x-forms.checkbox id="knowledge" name="knowledge" />
-                  <label for="knowledge" class="w-full py-3 ms-2 text-sm font-medium text-gray-9 dark:text-gray-6">Knowledge</label>
-                </div>
+              <li class=" ">
+                <x-forms.checkbox id="knowledge" name="knowledge" />
               </li>
-              <li class="w-full border-b border-gray-6 rounded-t-lg dark:border-gray-600">
-                <div class="flex items-center ps-3">
-                  <x-forms.checkbox id="professional" name="professional" />
-                  <label for="professional" class="w-full py-3 ms-2 text-sm font-medium text-gray-9 dark:text-gray-6">Professional Skill</label>
-                </div>
+              <li class=" ">
+                <x-forms.checkbox id="professional" name="professional" />
               </li>
             </ul>
           </div>
@@ -185,7 +119,7 @@
           <div class="mb-4">
             <label for="address" class="text-lg">Do you want to add venue location now?</label>
             <div class="mt-2.5">
-              <textarea name="address" id="address" autocomplete="off" rows="4" class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-9 shadow-sm ring-1 ring-inset ring-gray-6 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"></textarea>
+              <x-forms.textarea-outline-primary name="address" label="{{__('field_name.address')}}" placeholder="{{__('field_name.add_address')}}" />
             </div>
           </div>
         </div>

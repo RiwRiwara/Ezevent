@@ -7,14 +7,17 @@ use App\Models\User;
 use App\Http\Resources\UserResource;
 use App\Policies\UserPolicy;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class UserController extends Controller
 {
 
     
-    public function index()
+    public function index(Request $request)
     {
-        $this->authorize('viewAny', User::class);
+        $user = User::where('email', 'awirut@mail.com')->firstOrFail();
+        Log::debug('User: ' . $user);
+        $this->authorize('viewAny', $user);
         return UserResource::collection(User::all());
     }
 
@@ -24,14 +27,15 @@ class UserController extends Controller
         //
     }
 
-    public function show($id)
+    public function show($user_id)
     {
-        //
+        $user = User::where('user_id', $user_id)->firstOrFail();
+        return new UserResource($user);
     }
-
     public function update(Request $request, $id)
     {
-        //
+        // Update user by 
+        
     }
 
     public function destroy($id)
