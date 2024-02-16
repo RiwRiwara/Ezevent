@@ -1,6 +1,11 @@
 <?php
 
 return [
+    'dashboard' => 'Dashboard',
+    'event' => 'Event',
+    'crm' => 'CRM',
+    'summary' => 'Summary',
+
     'personal_information' => 'Personal Information',
     'address_information' => 'Address Information',
     'password' => 'Password',
@@ -12,7 +17,7 @@ return [
     'add_address' => 'Add address',
     'province' => 'Province',
     'district' => 'District',
-    'city' => 'City',
+    'sub_district' => 'Sub-District',
     'address' => 'Address',
     'zipcode' => 'Zipcode',
     

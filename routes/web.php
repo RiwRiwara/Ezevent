@@ -43,6 +43,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/landing', function () {
         return view('guest.landing');
     })->name('landing');
+    
     Route::get('/event-page', function () {
         return view('guest.eventpage');
     })->name('event-page');
