@@ -28,12 +28,8 @@ Route::middleware('guest')->group(function () {
         $userAgent = $request->header('User-Agent');
         return view('welcome', ['userAgent' => $userAgent]);
     });
-    
-    // Route::get('/summary', function () {
-    //     return view('guest.summary');
-    // });
-
 });
+
 Route::get('/summary', [ChartController::class, 'showChart'])->name('summary');
 
 Route::middleware('auth')->group(function () {
