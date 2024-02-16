@@ -1,6 +1,11 @@
 <?php
 
 return [
+    'dashboard' => 'Dashboard',
+    'event' => 'Event',
+    'crm' => 'CRM',
+    'summary' => 'Summary',
+
     'personal_information' => 'Personal Information',
     'address_information' => 'Address Information',
     'password' => 'Password',

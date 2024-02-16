@@ -1,6 +1,11 @@
 <?php
 
 return [
+    'dashboard' => 'แดชบอร์ด',
+    'event' => 'อีเวนท์',
+    'crm' => 'CRM',
+    'summary' => 'สรุปผล',
+
     'personal_information' => 'ข้อมูลส่วนตัว',
     'address_information' => 'ข้อมูลที่อยู่',
     'password' => 'รหัสผ่าน',
