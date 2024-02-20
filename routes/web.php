@@ -44,6 +44,10 @@ Route::middleware('auth')->group(function () {
         return view('guest.landing');
     })->name('landing');
     
+    Route::get('/profile', function () {
+        return view('guest.profilePage');
+    })->name('profile');
+
     Route::get('/event-page', function () {
         return view('guest.eventpage');
     })->name('event-page');
