@@ -18,6 +18,7 @@ return [
     'address' => 'ที่อยู่',
     'status' => 'สเตตัส',
     'moblie_phone' => 'เบอร์โทรศัพท์',
+    'time' => 'เวลา',
 
     'staff' => 'สตาฟ',
     'participant' => 'ผู้เข้าร่วม',
@@ -26,4 +27,18 @@ return [
     'topic' => 'หัวข้อ',
     'description' => 'คำอธิบาย',
     'all' => 'ทั้งหมด',
+
+    'overview' => 'ภาพรวม',
+    'check' => 'เข้าร่วม/ออก',
+    'total_participants' => 'ผู้เข้าร่วมทั้งหมด',
+    'total_staff' => 'สตาฟทั้งหมด',
+    'person' => 'คน',
+    'nowphase' => 'เฟสปัจจุบัน',
+    'upcome' => 'กำลังมาจะมาถึง',
+    'in_progress' => 'กำลังดำเนินการ',
+    'review' => 'ประเมินอีเวนต์',
+    'complete' => 'อีเวนต์สิ้นสุด',
+    'save_phase' => 'บันทึกเฟส',
+    'create_qr' => 'สร้างคิวอาร์โค้ด',
+    
 ];
