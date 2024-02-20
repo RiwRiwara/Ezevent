@@ -18,6 +18,7 @@ return [
     'address' => 'Address',
     'status' => 'Status',
     'moblie_phone' => 'Mobile Phone',
+    'time' => 'Time',
 
     'staff' => 'Staff',
     'participant' => 'Participant',
@@ -26,6 +27,19 @@ return [
     'topic' => 'Topic',
     'description' => 'Description',
     'all' => 'All',
+
+    'overview' => 'Overview',
+    'check' => 'Check-in / Check-out',
+    'total_participants' => 'Total Participants',
+    'total_staff' => 'Total Staffs',
+    'person' => 'person',
+    'nowphase' => 'Now Phase',
+    'upcome' => 'Upcoming',
+    'in_progress' => 'In Progress',
+    'review' => 'Reviewing',
+    'complete' => 'Complete',
+    'save_phase' => 'Save phase',
+    'create_qr' => 'Create QR-code',
 
     
 ];

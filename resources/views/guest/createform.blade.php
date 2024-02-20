@@ -1,5 +1,9 @@
 <x-guest-layout>
-<h1 class="text-3xl px-20 py-5 text-left text-primary-5">Ezevent</h1>
+  <x-slot name="header">
+    <h2 class="font-semibold text-xl text-primary-5 dark:text-gray-200 leading-tight">
+      {{ __('Ezevent') }}
+    </h2>
+  </x-slot>
   <h2 class="text-s px-20 py-5 text-left text-gray-9 font-bold">Occupation</h2>
   <div class="hidden sm:ml-6 sm:block">
       <div class="flex space-x-2">
