@@ -60,7 +60,7 @@
                     <td class="px-6 py-4 text-primary-5">
                         Waiting </td>
                     <td class="py-4 flex flex-row space-x-8">
-                        <button type="submit" class="block w-24 h-6 rounded-md border border-neutral-9 text-neutral-9 text-center text-xl shadow-sm hover:bg-red-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600">Dismiss</button>
+                        <button type="submit" class="block w-24 h-6 rounded-md border border-neutral-9 text-neutral-9 text-center text-xl shadow-sm hover:bg-danger-6 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600">Dismiss</button>
                         <button type="submit" class="block w-24 h-6 rounded-md border border-neutral-9 text-neutral-9 text-center text-xl shadow-sm hover:bg-neutral-7 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-7">Detail</button>
                     </td>
                 </tr>
@@ -81,7 +81,7 @@
                     <td class="px-6 py-4 text-success-8 ">
                         Approved </td>
                     <td class="py-4 flex flex-row space-x-8">
-                        <button type="submit" class="block w-24 h-6 rounded-md border border-neutral-9 text-neutral-9 text-center text-xl shadow-sm hover:bg-red-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600">Dismiss</button>
+                        <button type="submit" class="block w-24 h-6 rounded-md border border-neutral-9 text-neutral-9 text-center text-xl shadow-sm hover:bg-danger-6 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-danger-6">Dismiss</button>
                         <button type="submit" class="block w-24 h-6 rounded-md border border-neutral-9 text-neutral-9 text-center text-xl shadow-sm hover:bg-neutral-7 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neutral-7">Detail</button>
                     </td>
                 </tr>
