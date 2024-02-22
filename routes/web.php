@@ -51,7 +51,9 @@ Route::middleware('auth')->group(function () {
     Route::get('/event-page', function () {
         return view('guest.eventpage');
     })->name('event-page');
-
+    Route::get('/participantpage', function () {
+        return view('guest.participantpage');
+    })->name('participantpage');
     Route::get('/crm-home-page', function () {
         return view('guest.crmhomepage');
     })->name('crm-home-page');
