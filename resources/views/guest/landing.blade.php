@@ -10,10 +10,10 @@
             <div>
                 <div class="ml-8">
                     <div class="mt-4 lg:flex justify-between items-center">
-                        <label class="text-2xl font-bold leading-9 tracking-tight text-neutral-9">All event(0
-                            Events)</label>
+                        <label class="text-2xl font-bold leading-9 tracking-tight text-neutral-9">{{__('page.all_event')}}(0
+                        {{__('page.event')}})</label>
                         <a  href="{{route('create-event')}}" class="hidden md:block px-20 py-1.5 bg-neutral-9 ring-neutral-9 border-2 border-neutral-9 text-white rounded-md shadow-sm hover:bg-neutral-7 ml-auto mr-10">
-                            Create Activity
+                        {{__('page.create_event')}}
                         </a>
                     </div>
                     <div class="mt-4 flex flex-row justify-between items-center">
@@ -21,13 +21,13 @@
                             <div class="mr-2 mb-2 md:mb-0">
                                 <i class="bi bi-search text-3xl"></i>
                             </div>
-                            <x-forms.input-outline-primary name="search_string" label="{{__('Search')}}" type="text" />
+                            <x-forms.input-outline-primary name="search_string" label="{{__('page.search')}}" type="text" />
                         </div>
 
                         <!-- Dropdown Filter (Desktop) -->
                         <div class="hidden md:block">
                             <select class="border-none ml-2 mr-10 font-bold">
-                                <option value="filter1">All event</option>
+                                <option value="filter1">{{__('page.all_event')}}</option>
                                 <option value="filter2">Filter 2</option>
                                 <option value="filter3">Filter 3</option>
                             </select>
@@ -36,7 +36,7 @@
                     <!-- Dropdown Filter (Mobile) -->
                     <div class="md:hidden mb-2">
                         <select class="border-none w-full font-bold">
-                            <option value="filter1">All event</option>
+                            <option value="filter1">{{__('page.all_event')}}</option>
                             <option value="filter2">Filter 2</option>
                             <option value="filter3">Filter 3</option>
                         </select>
@@ -49,14 +49,12 @@
                             </svg>
                         </div>
 
-                        <label class="text-2xl font-bold leading-9 tracking-tight text-black">Start your first
-                            activity!</label>
+                        <label class="text-2xl font-bold leading-9 tracking-tight text-black">{{__('page.topic1')}}</label>
 
-                        <label class="text-base">Let’s create your exclusive event with Ezevent.
-                            Many attendees will join :)</label>
+                        <label class="text-base">{{__('page.paragraph1')}}</label>
 
                         <button type="button" class="px-20 mt-2 py-1.5 bg-neutral-9 ring-neutral-9 border-2 border-neutral-9 text-white rounded-md shadow-sm hover:bg-neutral-7">
-                            Create Activity
+                            {{__('page.create_event')}}
                         </button>
                     </div>
 

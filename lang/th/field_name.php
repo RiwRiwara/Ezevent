@@ -1,6 +1,11 @@
 <?php
 
 return [
+    'dashboard' => 'แดชบอร์ด',
+    'event' => 'อีเวนต์',
+    'crm' => 'CRM',
+    'summary' => 'สรุปผล',
+
     'personal_information' => 'ข้อมูลส่วนตัว',
     'address_information' => 'ข้อมูลที่อยู่',
     'password' => 'รหัสผ่าน',
@@ -13,7 +18,7 @@ return [
     'add_address' => 'เพิ่มที่อยู่',
     'province' => 'จังหวัด',
     'district' => 'อำเภอ/เขต',
-    'city' => 'แขวง/ตำบล',
+    'sub_district' => 'แขวง/ตำบล',
     'address' => 'ที่อยู่',
     'zipcode' => 'รหัสไปรษณีย์',
 
@@ -30,5 +35,7 @@ return [
     'have_create_account' => "คุณยังไม่มีบัญชีใช่หรือไม่?",
     'have_account' => 'มีบัญชีอยู่แล้ว?',
     'create_account' => 'สร้างบัญชีทันที',
+
+
 
 ];

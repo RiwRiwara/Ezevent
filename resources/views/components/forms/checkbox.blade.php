@@ -13,4 +13,5 @@
     bg-gray-100 border-gray-6 rounded focus:ring-primary-4
     dark:focus:ring-neutral-6 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 
     focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+    <label for="{{$id ?? $name}}" class="ml-2 text-sm font-medium text-primary-11 dark:text-neutral-0">{{ucfirst($label ?? $name)}}</label>
 </div>
