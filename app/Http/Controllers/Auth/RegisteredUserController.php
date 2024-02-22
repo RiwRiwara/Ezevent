@@ -15,9 +15,9 @@ use Illuminate\View\View;
 use Illuminate\Support\Str;
 use App\Constants\Cities;
 use App\Constants\Districts;
-use App\Http\Requests\Auth\RegisterRequest;
 use App\Constants\Provinces;
 use App\Constants\Gender;
+use App\Http\Requests\Auth\RegisterRequest;
 
 class RegisteredUserController extends Controller
 {
@@ -47,7 +47,7 @@ class RegisteredUserController extends Controller
      *
      * @throws \Illuminate\Validation\ValidationException
      */
-    public function store(Request $request): RedirectResponse
+    public function store(RegisterRequest $request): RedirectResponse
     {
 
         if ($request->password !== $request->password_confirmation) {

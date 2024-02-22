@@ -26,5 +26,11 @@ class AuthServiceProvider extends ServiceProvider
     public function boot(): void
     {
         $this->registerPolicies();
+
+        Gate::define('viewApiDocs', function (User $user) {
+            return in_array($user->email, ['awirut2629@gmail.com']);
+        });
+
+        
     }
 }

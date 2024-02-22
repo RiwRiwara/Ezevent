@@ -29,9 +29,10 @@ class RegisterRequest extends FormRequest
             'password' => [
                 'required',
                 'min:8',
-                'regex:/^.*(?=.{3,})(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[\d\x])(?=.*[!$#%]).*$/',
+                'regex:/^(?=.*[0-9]).*$/',
                 'confirmed'
             ],
+
             'mobile_number' => ['required', 'string', 'max:15', 'unique:users'],
             'date_birth' => ['required', 'date', 'before:today'],
             'gender' => ['required', 'string'],

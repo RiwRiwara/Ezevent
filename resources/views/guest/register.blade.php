@@ -15,16 +15,9 @@
           <p class="block text-md font-bold  text-primary-9">{{__('field_name.personal_information')}}</p>
           <div class="mt-2 flex flex-col gap-3">
             <x-forms.input-outline-primary name="email" label="{{__('field_name.email')}}" type="email" required />
-            <div class="flex flex-row gap-2">
-              <div class="">
-                <x-forms.input-outline-primary-password name="password" label="{{__('field_name.password')}}" type="password" required />
+            <x-forms.input-outline-primary-password name="password" label="{{__('field_name.password')}}" type="password" required />
 
-              </div>
-              <div class="">
-                <x-forms.input-outline-primary name="password_confirmation" label="{{__('field_name.confirm_password')}}" type="password" required />
-
-              </div>
-            </div>
+            <x-forms.input-outline-primary name="password_confirmation" label="{{__('field_name.confirm_password')}}" type="password" required />
             <x-forms.input-outline-primary name="mobile_number" label="{{__('field_name.phone')}}" type="text" required />
             <x-forms.input-outline-primary name="first_name" label="{{__('field_name.first_name')}}" type="text" required />
             <x-forms.input-outline-primary name="last_name" label="{{__('field_name.last_name')}}" type="text" required />

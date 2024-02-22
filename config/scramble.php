@@ -19,13 +19,19 @@ return [
         /*
          * API version.
          */
-        'version' => env('API_VERSION', '0.0.1'),
+        'version' => env('API_VERSION', '0.1.1'),
 
         /*
          * Description rendered on the home page of the API documentation (`/docs/api`).
          */
         'description' => '
-            # API documentation
+            # API documentation 
+            [API documentation](https://scramble.dedoc.co/docs/api ]
+
+            Meaning of the symbols:
+            - [T] - This endpoint is required for the token.
+            - [NT] - This endpoint is not required for the token.
+
         ',
     ],
 
@@ -41,7 +47,7 @@ return [
         /*
          * URL to an image that displays as a small square logo next to the title, above the table of contents.
          */
-        'logo' => '',
+        'logo' => 'https://ezevent.online/images/Logo(Orange).png',
 
         /*
          * Use to fetch the credential policy for the Try It feature. Options are: omit, include (default), and same-origin
@@ -63,11 +69,15 @@ return [
      * ],
      * ```
      */
-    'servers' => null,
+    'servers' => [
+        'Local' => 'api',
+        'Production' => 'https://ezevent.online/api',
+    ],
 
     'middleware' => [
         'web',
         RestrictedDocsAccess::class,
+        
     ],
 
     'extensions' => [],
