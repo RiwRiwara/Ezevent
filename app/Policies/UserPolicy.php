@@ -17,8 +17,7 @@ class UserPolicy
      */
     public function viewAny(User $user): bool
     {
-        Log::debug('User-inpolicy: ' . $user);
-        return $user->email === 'awirut@mail.com';
+        return true;
     }
 
     /**

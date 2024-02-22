@@ -15,9 +15,6 @@ class UserController extends Controller
     
     public function index(Request $request)
     {
-        $user = User::where('email', 'awirut@mail.com')->firstOrFail();
-        Log::debug('User: ' . $user);
-        $this->authorize('viewAny', $user);
         return UserResource::collection(User::all());
     }
 

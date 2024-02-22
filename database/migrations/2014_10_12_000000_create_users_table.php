@@ -14,20 +14,20 @@ return new class extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('user_id')->unique();
-            $table->string('first_name', 50);
-            $table->string('last_name', 50);
+            $table->string('first_name', 100);
+            $table->string('last_name', 100);
             $table->string('email', 50)->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
-            $table->enum('gender', ['female', 'male', 'LGBTQ+'])->nullable();
+            $table->enum('gender', [1, 2, 3, 4])->nullable();
             $table->dateTime('date_of_birth');
-            $table->string('mobile_number');
+            $table->string('mobile_number', 15)->unique();
             $table->string('address');
-            $table->string('province');
-            $table->string('district');
-            $table->string('city');
-            $table->string('post_id');
+            $table->string('province')->nullable();
+            $table->string('district')->nullable();
+            $table->string('city')->nullable();
+            $table->string('zipcode')->nullable();
             $table->string('personality', 4)->nullable();
             $table->string('profile_img')->nullable();
             $table->text('short_bio')->nullable();
