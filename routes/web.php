@@ -36,14 +36,14 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-    
+
     Route::get('/create-event', function () {
         return view('guest.createEvent');
     })->name('create-event');
     Route::get('/landing', function () {
         return view('guest.landing');
     })->name('landing');
-    
+ 
     Route::get('/profile', function () {
         return view('guest.profilePage');
     })->name('profile');
@@ -61,6 +61,18 @@ Route::middleware('auth')->group(function () {
         return view('guest.messagecrm');
     })->name('message-crm');
 
+    Route::get('/email_confirm', function () {
+        return view('mailTemplate.email_confirm');
+    })->name('email_confirm');
+    Route::get('/register_complete', function () {
+        return view('mailTemplate.register_complete');
+    })->name('register_complete');
+    Route::get('/reset_password', function () {
+        return view('mailTemplate.reset_password');
+    })->name('reset_password');
+    Route::get('/reset_password_complete', function () {
+        return view('mailTemplate.reset_password_complete');
+    })->name('reset_password_complete');
 });
 
 
