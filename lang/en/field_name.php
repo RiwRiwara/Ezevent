@@ -4,6 +4,7 @@ return [
     'personal_information' => 'Personal Information',
     'address_information' => 'Address Information',
     'password' => 'Password',
+    'confirm_password' => 'Confirm Password',
     'email' => 'Email',
     'first_name' => 'First Name',
     'last_name' => 'Last Name',
@@ -21,7 +22,10 @@ return [
 
 
     'login' => 'Login',
+    'next' => 'Next',
     'register' => 'Register',
+    'createnewaccount' => 'Create new account',
+    'selected_gender' => 'Selected gender',
     'logout' => 'Logout',
     'forgot_password' => 'Forgot password',
     'have_create_account' => "Do not have an account?",

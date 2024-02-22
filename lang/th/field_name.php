@@ -4,6 +4,7 @@ return [
     'personal_information' => 'ข้อมูลส่วนตัว',
     'address_information' => 'ข้อมูลที่อยู่',
     'password' => 'รหัสผ่าน',
+    'confirm_password' => 'ยืนยันรหัสผ่าน',
     'email' => 'อีเมล',
     'first_name' => 'ชื่อ',
     'last_name' => 'นามสกุล',
@@ -20,7 +21,10 @@ return [
     'date_birth' => 'วันเกิด',
 
     'login' => 'เข้าสู่ระบบ',
+    'next' => 'ถัดไป',
     'register' => 'ลงทะเบียน',
+    'createnewaccount' => 'สร้างบัญชีใหม่',
+    'selected_gender' => 'เลือกเพศ',
     'logout' => 'ออกจากระบบ',
     'forgot_password' => 'ลืมรหัสผ่าน',
     'have_create_account' => "คุณยังไม่มีบัญชีใช่หรือไม่?",

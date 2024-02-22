@@ -20,7 +20,7 @@
             <div>
                 <ul class="space-y-4 font-medium ">
                     <li>
-                        <a href="#" class="mt-2 rounded-full flex justify-center">
+                        <a href="{{route('profile.edit')}}" class="mt-2 rounded-full flex justify-center">
                             <img class="h-10 w-10 rounded-full items-center"
                                 src="https://avatars.githubusercontent.com/u/35387401?v=4" alt="" />
                         </a>

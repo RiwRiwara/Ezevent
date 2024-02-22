@@ -27,7 +27,7 @@ class UserFactory extends Factory
             'user_id' => Str::uuid(),
             'first_name' => $this ->faker->name(),
             'last_name' => $this ->faker->name(),
-            'gender' => $this ->faker->randomElement(['female', 'male', 'LGBTQ+']),
+            'gender' => $this ->faker->randomElement([1,2,3]),
             'email' => $this ->faker->unique()->safeEmail(),
             'email_verified_at' => now(),
             'password' => static::$password ??= Hash::make('password'),
@@ -36,10 +36,6 @@ class UserFactory extends Factory
             'personality' => Str::random(4),
             'date_of_birth' => $this ->faker->date(),
             'address' => $this ->faker->address(),
-            'province' => $this ->faker->state(),
-            'district' => $this ->faker->city(),
-            'city' => $this ->faker->city(),
-            'post_id' => $this ->faker->postcode(),
             'profile_img' => $this ->faker->imageUrl(),
         ];
     }
