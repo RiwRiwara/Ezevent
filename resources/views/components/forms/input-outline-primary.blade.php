@@ -5,11 +5,14 @@
     'value'         => old($name, ''),
     'placeholder'   => '',
     'attributes'    => '',
-    'autocomplete'  => 'off'
+    'autocomplete'  => 'off',
+    'isDisabled'    => false,
+    'classinput'    => '',
+    'isHighlight'   => false,
 ])
 
 
-<div class="relative">
+<div class="relative w-full">
     <input 
         type="{{ $type }}" 
         id="{{ $name }}" 
@@ -20,10 +23,11 @@
         {{$attributes}} 
         autocomplete="{{$autocomplete}}" 
         class=" block px-2.5 pb-2.5 pt-2 w-full text-md text-gray-9 bg-gray-0
-                    rounded-lg border-2 border-neutral-2 hover:border-primary-3 appearance-none dark:text-white 
+                    rounded-lg border-2 {{$isHighlight ? 'border-neutral-6 hover:border-neutral-7' : 'border-neutral-2 hover:border-primary-3'}}  appearance-none dark:text-white 
                     dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none 
-                    focus:ring-0 focus:border-primary-3 peer
-                    {{ $errors->has($name) ? 'bg-danger-0 border-danger-5 shake' : '' }} custom-input" 
+                    focus:ring-0 peer {{ $classinput }}
+                    {{ $errors->has($name) ? 'bg-danger-0 border-danger-5 shake' : '' }} custom-input {{$isDisabled ? '' : ''}}" 
+                    @if($isDisabled) disabled @endif
     />
 
     <label 

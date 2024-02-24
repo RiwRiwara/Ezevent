@@ -10,18 +10,21 @@
     <title>{{ isset($title) ? $title : config('app.name', 'Laravel') }}</title>
     <link rel="icon" href="{{ asset('images/Logo.png') }}" type="image/x-icon" />
     <link href="{{ asset('css/base.css') }}" rel="stylesheet" type="text/css" />
+    <script src="{{ asset('js/base.js') }}" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/datepicker.min.js"></script>
 
     @if (config('app.env', 'production') == 'production')
     <link href="https://ezevent.online/public/build/assets/{{env('CSS_BUILD_FILE_NAME')}}" rel="stylesheet" type="text/css" />
     @else
     @vite('resources/css/app.css')
+    @livewireStyles
     @endif
 
 </head>
 
 <body class="antialiased">
     <div class="min-h-screen bg-gray-0 dark:bg-gray-900">
+        
         @include('components.sidebar')
 
         <!-- Page Heading -->
@@ -43,6 +46,7 @@
 <script src="https://ezevent.online/public/build/assets/{{env('JS_BUILD_FILE_NAME')}}"></script>
 @else
 @vite('resources/js/app.js')
+@livewireScripts
 @endif
 <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.js"></script>
 
