@@ -21,3 +21,12 @@
                 dark:placeholder-gray-400 dark:text-white dark:focus:ring-neutral-5  custom-input
                 dark:focus:border-neutral-5" placeholder="{{$placeholder}}">
 </div>
+@error($name)
+<div class="mt-1">
+    <span 
+        id="{{ $name }}-error" 
+        class="text-danger-7 text-sm">
+        {{ $message }}
+    </span>
+</div>
+@enderror
