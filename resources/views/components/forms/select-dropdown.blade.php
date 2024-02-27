@@ -32,3 +32,13 @@
     </select>
 </div>
 
+
+@error($name)
+<div class="mt-1">
+    <span 
+        id="{{ $name }}-error" 
+        class="text-danger-7 text-sm">
+        {{ $message }}
+    </span>
+</div>
+@enderror

@@ -23,7 +23,7 @@ return new class extends Migration
             $table->enum('gender', [1, 2, 3, 4])->nullable();
             $table->dateTime('date_of_birth');
             $table->string('mobile_number', 15)->unique();
-            $table->string('address');
+            $table->string('address')->max(255);
             $table->enum('role', ['participant', 'admin', 'organizer'])->default('participant');
             $table->string('province')->nullable();
             $table->string('district')->nullable();

@@ -13,9 +13,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 
 Route::middleware('guest')->group(function () {
-    Route::get('register', [RegisteredUserController::class, 'create'])->name('register');
+    Route::get('register', [RegisteredUserController::class, 'create'])->name('web.register');
 
-    Route::post('register', [RegisteredUserController::class, 'store'])->name('register.store');
+    Route::post('register', [RegisteredUserController::class, 'store'])->name('web.register');
 
     Route::get('login', [AuthenticatedSessionController::class, 'create'])->name('login');
 

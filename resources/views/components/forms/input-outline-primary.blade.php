@@ -22,8 +22,8 @@
         placeholder="{{ $placeholder }}" 
         {{$attributes}} 
         autocomplete="{{$autocomplete}}" 
-        class=" block px-2.5 pb-2.5 pt-2 w-full text-md text-gray-9 bg-gray-0
-                    rounded-lg border-2 {{$isHighlight ? 'border-neutral-6 hover:border-neutral-7' : 'border-neutral-2 hover:border-primary-3'}}  appearance-none dark:text-white 
+        class=" block px-2.5 pb-2.5 pt-2 w-full text-md text-gray-9 bg-gray-0 border-1
+                    rounded-lg  {{$isHighlight ? 'border-neutral-6 hover:border-neutral-7 border-2' : 'border-neutral-5 hover:border-primary-3'}}  appearance-none dark:text-white 
                     dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none 
                     focus:ring-0 peer {{ $classinput }}
                     {{ $errors->has($name) ? 'bg-danger-0 border-danger-5 shake' : '' }} custom-input {{$isDisabled ? '' : ''}}" 

@@ -163,7 +163,8 @@ class Time
     public function getDay(): string
     {
         $date = explode('-', $this->date);
-        return $date[2][0] === '0' ? $date[2][1] : $date[2];
+        $day = explode(' ', $date[2])[0];
+        return $day;
     }
 
     /** 
@@ -201,6 +202,7 @@ class Time
             'day' => $day,
             'month' => $month,
             'year' => explode('-', $this->date)[0],
+            'date' => $month . '/' . $day . '/' . explode('-', $this->date)[0],
             'show' => $this->show_date,
         ];
     }

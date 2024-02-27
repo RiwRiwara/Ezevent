@@ -1,11 +1,11 @@
 <?php
- 
+
 namespace App\Http\Resources;
- 
+
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
- 
+
 class UserResource extends JsonResource
 {
     /**
@@ -29,26 +29,18 @@ class UserResource extends JsonResource
             'date_of_birth' => $this->date_of_birth,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
-            'address' => [
-                'address' => $this->address,
-                'province' => $this->province,
-                'district' => $this->district,
-                'city' => $this->city,
-                'zipcode' => $this->zipcode
-            ],
-            'social' => [
-                'facebook' => $this->facebook,
-                'line' => $this->line,
-                'instagram' => $this->instagram
-            ],
-            'images' => [
-                'profile_img' => $this->profile_img,
-                'sub_img_1' => $this->sub_img_1,
-                'sub_img_2' => $this->sub_img_2,
-                'sub_img_3' => $this->sub_img_3
-            ],
+            'address' => $this->address,
+            'province' => $this->province,
+            'district' => $this->district,
+            'city' => $this->city,
+            'zipcode' => $this->zipcode,
+            'facebook' => $this->facebook,
+            'line' => $this->line,
+            'instagram' => $this->instagram,
+            'profile_img' => $this->profile_img,
+            'sub_img_1' => $this->sub_img_1,
+            'sub_img_2' => $this->sub_img_2,
+            'sub_img_3' => $this->sub_img_3
         ];
     }
-
-    
 }

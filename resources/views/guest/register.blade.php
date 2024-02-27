@@ -16,12 +16,11 @@
           <div class="mt-2 flex flex-col gap-3">
             <x-forms.input-outline-primary name="email" label="{{__('field_name.email')}}" type="email" required />
             <x-forms.input-outline-primary-password name="password" label="{{__('field_name.password')}}" type="password" required />
-
-            <x-forms.input-outline-primary name="password_confirmation" label="{{__('field_name.confirm_password')}}" type="password" required />
+            <x-forms.input-outline-primary-password name="password_confirmation" label="{{__('field_name.confirm_password')}}" type="password" required />
             <x-forms.input-outline-primary name="mobile_number" label="{{__('field_name.phone')}}" type="text" required />
             <x-forms.input-outline-primary name="first_name" label="{{__('field_name.first_name')}}" type="text" required />
             <x-forms.input-outline-primary name="last_name" label="{{__('field_name.last_name')}}" type="text" required />
-            <x-forms.date-picker name="date_birth" placeholder="{{__('field_name.select_date_birth')}}" />
+            <x-forms.date-picker name="date_of_birth" placeholder="{{__('field_name.select_date_birth')}}" />
             <x-forms.select-dropdown name="gender" label="{{__('field_name.selected_gender')}}" :options="$FORM_DATA_ITEMS['gender']" val_key="{{ app()->getLocale() === 'th' ? 'name_th' : 'name_en'}}" require />
 
 
@@ -31,8 +30,7 @@
         <div class="mb-2">
           <p class="block text-md font-bold  text-primary-9 mb-3">{{__('field_name.address_information')}}</p>
 
-          <input type="hidden" name="address" id="address" />
-          <x-forms.textarea-outline-primary id="address_field" name="address_field" label="{{__('field_name.address')}}" placeholder="{{__('field_name.add_address')}}" require onchange="document.getElementById('address').value = this.value;" />
+          <x-forms.textarea-outline-primary id="address" name="address" label="{{__('field_name.address')}}" placeholder="{{__('field_name.add_address')}}" require />
 
           <div class="mt-2 row">
             <div class="col-md-3 mb-3">
