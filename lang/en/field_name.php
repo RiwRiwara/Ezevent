@@ -14,6 +14,7 @@ return [
     'first_name' => 'First Name',
     'last_name' => 'Last Name',
     'phone' => 'Phone',
+    'gender'=> 'Gender',
 
     'add_address' => 'Add address',
     'province' => 'Province',
@@ -27,6 +28,8 @@ return [
 
 
     'login' => 'Login',
+    'update' => 'Update',
+    'cancel' => 'Cancel',
     'next' => 'Next',
     'register' => 'Register',
     'createnewaccount' => 'Create new account',

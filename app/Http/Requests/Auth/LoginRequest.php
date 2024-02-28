@@ -44,7 +44,6 @@ class LoginRequest extends FormRequest
         if (!Auth::attempt($this->only('email', 'password'), $this->boolean('remember'))) {
             RateLimiter::hit($this->throttleKey());
 
-            flash()->addError('auth.failed');
             throw ValidationException::withMessages([
                 'email' => __('auth.failed'),
             ]);
@@ -52,8 +51,6 @@ class LoginRequest extends FormRequest
 
         RateLimiter::clear($this->throttleKey());
 
-        // If authentication is successful, set flash message
-        flash()->success('You have been successfully logged in.');
     }
 
 
@@ -65,12 +62,7 @@ class LoginRequest extends FormRequest
      */
     protected function failedValidation($validator)
     {
-
         $this->redirect = url()->previous();
-        flash()->addError('เกิดข้อผิดพลาดในการกรอกข้อมูล กรุณากรอกข้อมูลให้ถูกต้องและครบถ้วน');
-        foreach ($validator->errors()->all() as $error) {
-            flash()->addError($error);
-        }
         parent::failedValidation($validator);
     }
 
