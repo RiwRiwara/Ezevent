@@ -13,10 +13,14 @@
         for="{{$name}}"
         class="text-md text-gray-9">{{$label}} 
     </label>
+
+<input type="hidden" name="{{$id ?? $name }}" id="{{$id ?? $name }}" value="" />
+
 <textarea 
     {{$attributes}} 
     autocomplete="{{$autocomplete}}" 
-    id="{{$id ?? $name }}"
+    onchange="document.getElementById('{{$id ?? $name }}').value = this.value;"
+    id="{{$id ?? $name }}_field"
     placeholder="{{ $placeholder }}"  
     rows="4" 
     class="block p-2.5 w-full text-sm text-gray-900 bg-gray-0 rounded-lg border-2 border-neutral-2 hover:border-primary-3

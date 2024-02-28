@@ -6,6 +6,8 @@ use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\File;
 use Dedoc\Scramble\Scramble;
+use Dedoc\Scramble\Support\Generator\OpenApi;
+use Dedoc\Scramble\Support\Generator\SecurityScheme;
 use Illuminate\Routing\Route;
 use Illuminate\Support\Str;
 
@@ -27,8 +29,14 @@ class AppServiceProvider extends ServiceProvider
 	public function boot(): void
 	{
 
-		Scramble::routes(function (Route $route) {
-			return Str::startsWith($route->uri, 'api/');
+		// Scramble::routes(function (Route $route) {
+		// 	return Str::startsWith($route->uri, 'api/');
+		// });
+
+		Scramble::extendOpenApi(function (OpenApi $openApi) {
+			$openApi->secure(
+				SecurityScheme::http('bearer', 'JWT')
+			);
 		});
 
 		$this->registerBladeComponents('forms');

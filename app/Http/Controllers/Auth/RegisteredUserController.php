@@ -15,9 +15,10 @@ use Illuminate\View\View;
 use Illuminate\Support\Str;
 use App\Constants\Cities;
 use App\Constants\Districts;
-use App\Http\Requests\Auth\RegisterRequest;
 use App\Constants\Provinces;
+use Illuminate\Validation\ValidationException;
 use App\Constants\Gender;
+use App\Http\Requests\Auth\RegisterRequest;
 
 class RegisteredUserController extends Controller
 {
@@ -42,59 +43,39 @@ class RegisteredUserController extends Controller
         return view('guest.register', compact('FORM_DATA_ITEMS', 'breadcrumbItems'));
     }
 
+
     /**
      * Handle an incoming registration request.
      *
      * @throws \Illuminate\Validation\ValidationException
      */
-    public function store(Request $request): RedirectResponse
+    public function store(RegisterRequest $request): RedirectResponse
     {
-
-        if ($request->password !== $request->password_confirmation) {
-            flash()->addError('Password and Confirm Password do not match');
-            return redirect()->back();
+        try {
+            $date_birth = date('Y-m-d', strtotime($request->date_birth));
+            $user = User::create([
+                'user_id' => Str::uuid(),
+                'first_name' => $request->first_name,
+                'last_name' => $request->last_name,
+                'email' => $request->email,
+                'mobile_number' => $request->mobile_number,
+                'password' => Hash::make($request->password),
+                'date_of_birth' => $date_birth,
+                'gender' => $request->gender,
+                'address' => $request->address,
+                'province' => $request->province,
+                'district' => $request->district,
+                'city' => $request->city,
+                'zipcode' => $request->zipcode,
+            ]);
+    
+            event(new Registered($user));
+            Auth::login($user);
+            flash()->addSuccess('You have successfully registered!');
+            return redirect(RouteServiceProvider::HOME);
+        } catch (ValidationException $e) {
+            return redirect()->back()->withErrors($e->validator->getMessageBag())->withInput();
         }
-
-        if ($request->address === null || $request->province === null || $request->district === null || $request->city === null || $request->zipcode === null) {
-            flash()->addError('Please fill in the address information');
-            return redirect()->back();
-        }
-
-        $email = User::where('email', $request->email)->first();
-        if ($email) {
-            flash()->addError('Email already exists');
-            return redirect()->back();
-        }
-
-        $mobile_number = User::where('mobile_number', $request->mobile_number)->first();
-        if ($mobile_number) {
-            flash()->addError('Mobile number already exists');
-            return redirect()->back();
-        }
-
-
-
-        $date_birth = date('Y-m-d', strtotime($request->date_birth));
-        $user = User::create([
-            'user_id' => Str::uuid(),
-            'first_name' => $request->first_name,
-            'last_name' => $request->last_name,
-            'email' => $request->email,
-            'mobile_number' => $request->mobile_number,
-            'password' => Hash::make($request->password),
-            'date_of_birth' => $date_birth,
-            'gender' => $request->gender,
-            'address' => $request->address,
-            'province' => $request->province,
-            'district' => $request->district,
-            'city' => $request->city,
-            'zipcode' => $request->zipcode,
-        ]);
-
-        event(new Registered($user));
-        Auth::login($user);
-        
-        flash()->addSuccess('You have successfully registered!');
-        return redirect(RouteServiceProvider::HOME);
     }
+    
 }

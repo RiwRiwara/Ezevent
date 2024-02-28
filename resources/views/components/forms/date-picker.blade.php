@@ -1,7 +1,8 @@
 @props([
 'name' => 'input',
 'id' => null,
-'placeholder' => 'เลือกวันเกิด'
+'placeholder' => 'เลือกวันเกิด',
+'value' => null,
 ])
 <div class="relative w-full">
     <div 
@@ -15,6 +16,7 @@
         id="{{$id ?? $name}}"
         name="{{$name}}"
         type="text" 
+        value="{{$value}}"
         class=" rounded-lg focus:ring-0
                 hover:border-primary-3 bg-gray-0 border-2 border-neutral-2 text-neutral-9 text-sm
                 focus:border-neutral-5 block w-full ps-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 

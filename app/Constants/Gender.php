@@ -31,7 +31,18 @@ class Gender
 
     ];
 
-    public static function gender() {
+    public static function gender()
+    {
         return self::GENDER;
+    }
+
+    public static function getGenderById($id)
+    {
+        foreach (self::GENDER as $gender) {
+            if ($gender['id'] == $id) {
+                return $gender;
+            }
+        }
+        return null; 
     }
 }

@@ -8,6 +8,11 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
+use App\Constants\Cities;
+use App\Constants\Districts;
+use App\Constants\Provinces;
+use App\Constants\Gender;
+use App\Constants\Time;
 
 class ProfileController extends Controller
 {
@@ -20,6 +25,20 @@ class ProfileController extends Controller
             'user' => $request->user(),
         ]);
     }
+
+
+
+    public function myProfileDetail(Request $request): View
+    {
+        $user = $request->user();
+        $isThai = app()->getLocale() === 'th';
+
+        $user->gender = Gender::getGenderById($user->gender);
+        $user->date_of_birth = (new Time($user->date_of_birth, $isThai))->getDateBirthObject();
+        
+        return view('profile.profilePage', compact('user', 'isThai'));
+    }
+
 
     /**
      * Update the user's profile information.

@@ -14,6 +14,8 @@ return [
     'first_name' => 'ชื่อ',
     'last_name' => 'นามสกุล',
     'phone' => 'โทรศัพท์',
+    'gender'=> 'เพศ',
+
     
     'add_address' => 'เพิ่มที่อยู่',
     'province' => 'จังหวัด',
@@ -26,6 +28,8 @@ return [
     'date_birth' => 'วันเกิด',
 
     'login' => 'เข้าสู่ระบบ',
+    'update' => 'แก้ไข',
+    'cancel' => 'ยกเลิก',
     'next' => 'ถัดไป',
     'register' => 'ลงทะเบียน',
     'createnewaccount' => 'สร้างบัญชีใหม่',

@@ -15,6 +15,7 @@
     <link href="https://ezevent.online/public/build/assets/{{env('CSS_BUILD_FILE_NAME')}}" rel="stylesheet" type="text/css" />
     @else
     @vite('resources/css/app.css')
+    @livewireStyles
     @endif
 </head>
 @include('components.language-switch')
@@ -23,7 +24,7 @@
 <body class="bg-neutral-5 ">
     <div class="flex flex-col justify-center px-6 py-12 md:px-0 md:py-0 lg:px-0 lg:py-0 xl:px-0 xl:py-0">
         <div class="sm:mx-auto sm:w-full sm:max-w-sm">
-            <img class="mx-auto w-auto h-3/4" src="{{ asset('images/Logo.png') }}" alt="EZEVENT" >
+            <img class="mx-auto w-auto h-3/4" src="{{ asset('images/Logo.png') }}" alt="EZEVENT">
             <h2 class="mt-10 text-center text-5xl font-bold leading-9 tracking-tight text-neutral-0">EZEVENT</h2>
         </div>
 
@@ -31,11 +32,13 @@
             <form class="space-y-6" action="{{route('login.store')}}" method="POST">
                 @csrf
                 <div class="mt-2">
-                    <x-forms.input-outline-primary name="email" label="{{__('field_name.email')}}" type="email" required />
+                    <x-forms.input-outline-primary name="email" label="{{__('field_name.email')}}" type="email"
+                        required />
                 </div>
 
                 <div class="mt-2">
-                    <x-forms.input-outline-primary-password name="password" label="{{__('field_name.password')}}" type="password" required />
+                    <x-forms.input-outline-primary-password name="password" label="{{__('field_name.password')}}"
+                        type="password" required />
                 </div>
 
                 <x-button.primary type="submit" innerHtml="{{__('field_name.login')}}" id="loginButton" />
@@ -43,16 +46,17 @@
 
             <p class="mt-3 text-center text-sm">
                 {{__('field_name.have_create_account')}}
-                <a href="{{route('register')}}" class="font-semibold text-lg underline leading-10 text-neutral-0">
+                <a href="{{route('web.register')}}" class="font-semibold text-lg underline leading-10 text-neutral-0">
                     {{__('field_name.create_account')}}
                 </a>
             </p>
-            
+
         </div>
     </div>
     @if (config('app.env', 'production') == 'production')
     <script src="https://ezevent.online/public/build/assets/{{env('JS_BUILD_FILE_NAME')}}"></script>
     @else
     @vite('resources/js/app.js')
+    @livewireScripts
     @endif
 </body>
