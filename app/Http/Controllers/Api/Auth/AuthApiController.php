@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Api\User;
+namespace App\Http\Controllers\Api\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -20,12 +20,10 @@ class AuthApiController extends Controller
      * @param  LoginRequest  $request
      * @return \Illuminate\Http\JsonResponse
      */
-
     public function login(LoginRequest $request)
     {
         return (new LoginUserController($request))->login($request);
     }
-
 
     /**
      * Logout the  user. [T]
@@ -54,8 +52,6 @@ class AuthApiController extends Controller
      * @return \Illuminate\Http\JsonResponse
      * 
      */
-
-
     public function register(RegisterRequest $request)
     {
         return (new RegisterUserController($request))->register($request);
