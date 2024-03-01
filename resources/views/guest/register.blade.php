@@ -42,7 +42,7 @@
             </div>
 
             <div class="col-md-3 mb-3">
-              <x-forms.select-dropdown name="city" label="{{__('field_name.city')}}" disabled require />
+              <x-forms.select-dropdown name="city" label="{{__('field_name.sub_district')}}" disabled require />
             </div>
 
             <div class="col-md-3 mt-5">
