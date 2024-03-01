@@ -1,5 +1,5 @@
 
-<form id="language-form" action="{{ route('language.switch') }}" method="POST" class="unique-style">
+<form id="language-form" action="{{ route('language.switch') }}" method="POST" class="unique-style fade-in  duration-300 ">
     @csrf
     <input type="hidden" name="language" value="{{ app()->getLocale() === 'th' ? 'en' : 'th'}}">
     <div class="switch-language">

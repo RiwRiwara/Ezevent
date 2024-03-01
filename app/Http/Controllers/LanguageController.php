@@ -11,11 +11,11 @@ class LanguageController extends Controller
     {
         $language = $request->language;
         $request->session()->put('language', $language);
-        flash()->addPreset('language_switch', [
+        toastr()->addPreset('language_switch', [
             'title' => __('lang.success'),
             'message' => __('lang.Language_changed_to'),
-            'language' => __("lang.".$language)]);
-
+            'language' => __("lang." . $language)
+        ]);
         return redirect()->back();
     }
 }

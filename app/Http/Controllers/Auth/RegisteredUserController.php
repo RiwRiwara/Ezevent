@@ -71,7 +71,7 @@ class RegisteredUserController extends Controller
     
             event(new Registered($user));
             Auth::login($user);
-            flash()->addSuccess('You have successfully registered!');
+            toastr()->addSuccess('You have successfully registered!');
             return redirect(RouteServiceProvider::HOME);
         } catch (ValidationException $e) {
             return redirect()->back()->withErrors($e->validator->getMessageBag())->withInput();

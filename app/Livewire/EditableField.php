@@ -38,9 +38,9 @@ class EditableField extends Component
                 $this->fieldName => $this->newValue
             ]);
             $this->oldValue = $this->newValue;
-            flash()->addSuccess($this->label_show . ' ' . __('success.update_success'));
+            toastr()->addSuccess($this->label_show . ' ' . __('success.update_success'));
         } catch (\Exception $e) {
-            flash()->addError(__('error.profile_update'));
+            toastr()->addError(__('error.profile_update'));
             return redirect()->back();
         }
     }

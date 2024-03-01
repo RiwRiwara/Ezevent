@@ -13,11 +13,11 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 
 Route::middleware('guest')->group(function () {
-    Route::get('register', [RegisteredUserController::class, 'create'])->name('web.register');
+    Route::get('register', [RegisteredUserController::class, 'create'])->name('web.register.index');
 
-    Route::post('register', [RegisteredUserController::class, 'store'])->name('web.register');
+    Route::post('register', [RegisteredUserController::class, 'store'])->name('web.register.store');
 
-    Route::get('login', [AuthenticatedSessionController::class, 'create'])->name('login');
+    Route::get('login', [AuthenticatedSessionController::class, 'create'])->name('web.login.index');
 
     Route::post('login', [AuthenticatedSessionController::class, 'store'])
         ->name('login.store');
@@ -60,5 +60,5 @@ Route::middleware('auth')->group(function () {
     Route::put('password', [PasswordController::class, 'update'])->name('password.update');
 
     Route::post('logout', [AuthenticatedSessionController::class, 'destroy'])
-        ->name('logout');
+        ->name('web.logout');
 });

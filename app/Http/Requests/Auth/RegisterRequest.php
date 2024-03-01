@@ -85,7 +85,7 @@ class RegisterRequest extends FormRequest
 
             throw new \Illuminate\Validation\ValidationException($validator, $response);
         }
-        flash()->addError('You have failed to register!');
+        toastr()->addError('You have failed to register!');
         parent::failedValidation($validator);
     }
 }
