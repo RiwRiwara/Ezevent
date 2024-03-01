@@ -9,11 +9,15 @@
         "dedoc/scramble": "^0.8.5",
         "doctrine/dbal": "^3.8",
         "guzzlehttp/guzzle": "^7.2",
+        "intervention/image": "^3.4",
         "laravel/framework": "^10.10",
         "laravel/sanctum": "^3.3",
         "laravel/tinker": "^2.8",
         "livewire/livewire": "^3.4",
+        "matthewbdaly/laravel-azure-storage": "^2.0",
         "php-flasher/flasher-laravel": "^1.15",
+        "php-flasher/flasher-pnotify-laravel": "^1.15",
+        "php-flasher/flasher-toastr-laravel": "^1.15",
         "zircote/swagger-php": "^4.8"
     },
     "require-dev": {

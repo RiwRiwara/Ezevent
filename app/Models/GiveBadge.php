@@ -5,8 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Logging_login extends Model
+class GiveBadge extends Model
 {
-    public $table = 'logging_logins';
+    public $table = 'give_badges';
     use HasFactory;
 }

@@ -22,7 +22,7 @@
 
 </head>
 
-<body class="antialiased">
+<body class="antialiased ">
     <div class="min-h-screen bg-gray-0 dark:bg-gray-900">
         
         @include('components.sidebar')
@@ -37,7 +37,7 @@
         @endif
 
         <!-- Page Content -->
-        <main class="md:ms-10">
+        <main class="md:ms-10 fade-in">
             {{ $slot }}
         </main>
     </div>

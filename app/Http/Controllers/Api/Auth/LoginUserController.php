@@ -41,11 +41,9 @@ class LoginUserController extends Controller
                 'message' => 'Invalid login details'
             ], 401);
         }
-        // get the authenticated user
         $user = auth()->user();
-        // delete existing tokens
         $user->tokens()->delete();
-        // create auth token and expire in 1 day
+        
         $token = $request->user()->createToken('authToken', ['role:participant'], now()->addDay());
         return response()->json([
             'message' => 'You have been logged in',

@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\Str;
 use Illuminate\Validation\ValidationException;
+use Illuminate\Contracts\Validation\Validator;
+
 
 class LoginRequest extends FormRequest
 {
@@ -39,14 +41,23 @@ class LoginRequest extends FormRequest
      */
     public function authenticate(): void
     {
+
         $this->ensureIsNotRateLimited();
 
         if (!Auth::attempt($this->only('email', 'password'), $this->boolean('remember'))) {
             RateLimiter::hit($this->throttleKey());
 
+            if ($this->expectsJson()) {
+                throw ValidationException::withMessages([
+                    'email' => __('auth.failed'),
+                ]);
+            }
+
+            toastr()->addError('You have failed to Login!');
             throw ValidationException::withMessages([
                 'email' => __('auth.failed'),
             ]);
+            
         }
 
         RateLimiter::clear($this->throttleKey());
@@ -56,13 +67,25 @@ class LoginRequest extends FormRequest
 
     /**
      * Handle a failed validation attempt.
-     *
+     * 
      * @param \Illuminate\Contracts\Validation\Validator $validator
      * @return void
+     *  
+     * @throws \Illuminate\Validation\ValidationException
      */
-    protected function failedValidation($validator)
+
+    protected function failedValidation(Validator $validator)
     {
-        $this->redirect = url()->previous();
+        if ($this->expectsJson()) {
+            $response = response()->json([
+                'status' => 'error',
+                'message' => $validator->errors()->first(),
+                'errors' => $validator->errors()
+            ], 422);
+
+            throw new ValidationException($validator, $response);
+        }
+        toastr()->addError('You have failed to Login!');
         parent::failedValidation($validator);
     }
 
@@ -111,4 +134,8 @@ class LoginRequest extends FormRequest
             'password.required' => 'Password is required',
         ];
     }
+
+
+
+
 }

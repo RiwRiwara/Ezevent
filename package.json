@@ -16,6 +16,15 @@
         "vite": "^5.0.0"
     },
     "dependencies": {
-        "chart.js": "^4.4.1"
+        "chart.js": "^4.4.1",
+        "filepond": "^4.30.6",
+        "filepond-plugin-file-validate-type": "^1.2.9",
+        "filepond-plugin-image-crop": "^2.0.6",
+        "filepond-plugin-image-edit": "^1.6.3",
+        "filepond-plugin-image-exif-orientation": "^1.0.11",
+        "filepond-plugin-image-preview": "^4.6.12",
+        "filepond-plugin-image-resize": "^2.0.10",
+        "filepond-plugin-image-transform": "^3.8.7",
+        "tailwindcss-animated": "^1.0.1"
     }
 }
