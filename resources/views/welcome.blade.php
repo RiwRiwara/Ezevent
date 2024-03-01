@@ -21,10 +21,10 @@
 @include('components.language-switch')
 
 
-<body class="bg-neutral-5 ">
+<body class="bg-neutral-5 fade-in">
     <div class="flex flex-col justify-center px-6 py-12 md:px-0 md:py-0 lg:px-0 lg:py-0 xl:px-0 xl:py-0">
         <div class="sm:mx-auto sm:w-full sm:max-w-sm">
-            <img class="mx-auto w-auto h-3/4" src="{{ asset('images/Logo.png') }}" alt="EZEVENT">
+            <img class="mx-auto w-auto h-3/4 h " src="{{ asset('images/Logo.png') }}" alt="EZEVENT">
             <h2 class="mt-10 text-center text-5xl font-bold leading-9 tracking-tight text-neutral-0">EZEVENT</h2>
         </div>
 
@@ -46,7 +46,7 @@
 
             <p class="mt-3 text-center text-sm">
                 {{__('field_name.have_create_account')}}
-                <a href="{{route('web.register')}}" class="font-semibold text-lg underline leading-10 text-neutral-0">
+                <a href="{{route('web.register.index')}}" class="font-semibold text-lg underline leading-10 text-neutral-0">
                     {{__('field_name.create_account')}}
                 </a>
             </p>
@@ -59,4 +59,5 @@
     @vite('resources/js/app.js')
     @livewireScripts
     @endif
-</body>
+
+</body>t

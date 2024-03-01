@@ -25,11 +25,11 @@ class UserController extends Controller
                 $updatedField => $newValue
             ]);
 
-            flash()->addSuccess($request->label_show . ' ' . __('success.update_success'));
+            toastr()->addSuccess($request->label_show . ' ' . __('success.update_success'));
 
             return redirect()->back();
         } catch (\Exception $e) {
-            flash()->addError('Something went wrong: ' . $e->getMessage());
+            toastr()->addError('Something went wrong: ' . $e->getMessage());
             return redirect()->back();
         }
     }

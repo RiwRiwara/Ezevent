@@ -19,13 +19,14 @@
         <div class="flex h-screen flex-col justify-between pt-2 pb-6">
             <div>
                 <ul class="space-y-4 font-medium ">
-                    <li>
-                        <a href="{{route('profile.edit')}}" class="mt-2 rounded-full flex justify-center">
-                            <img class="h-10 w-10 rounded-full items-center"
+                    <li class="">
+                        <a href="{{route('my-profile')}}" class="mt-2 rounded-full flex justify-center hover:scale-125 duration-300 delay-500 ease-in-out
+                        ">
+                            <img class="h-10 w-10 rounded-full items-center {{ request()->is('my-profile') ? 'border-4 border-neutral-5' : '' }}"
                                 src="https://avatars.githubusercontent.com/u/35387401?v=4" alt="" />
                         </a>
                     </li>
-                    <li class="min-w-max hover:bg-neutral-8">
+                    <li class="min-w-max hover:bg-neutral-8 hover:scale-105 duration-300 ease-in-out hover:font-extrabold hover:underline">
                         <a href="{{route('dashboard')}}" aria-label="dashboard"
                             class="relative flex items-center space-x-4  px-4 py-3 text-white {{ request()->is('dashboard') ? 'bg-neutral-9 ' : '' }}">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
@@ -36,7 +37,7 @@
                             <span class="-mr-1 font-medium">{{__('field_name.dashboard')}}</span>
                         </a>
                     </li>
-                    <li class="min-w-max hover:bg-neutral-8">
+                    <li class="min-w-max hover:bg-neutral-8 hover:scale-105 duration-300 ease-in-out hover:font-extrabold hover:underline">
                         <a href="{{route('landing')}}" class="bg group flex items-center space-x-4 px-4 py-3 text-white {{ request()->is('landing') ? 'bg-neutral-9 ' : '' }}">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
                                 class="bi bi-calendar-event" viewBox="0 0 16 16">
@@ -48,7 +49,7 @@
                             <span class="">{{__('field_name.event')}}</span>
                         </a>
                     </li>
-                    <li class="min-w-max hover:bg-neutral-8">
+                    <li class="min-w-max hover:bg-neutral-8 hover:scale-105 duration-300 ease-in-out hover:font-extrabold hover:underline">
                         <a href="{{route('crm-home-page')}}" class="group flex items-center space-x-4  px-4 py-3 text-white {{ request()->is('crm-home-page') ? 'bg-neutral-9 ' : '' }}">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
                                 class="bi bi-people" viewBox="0 0 16 16">
@@ -58,7 +59,7 @@
                             <span class="">{{__('field_name.crm')}}</span>
                         </a>
                     </li>
-                    <li class="min-w-max hover:bg-neutral-8">
+                    <li class="min-w-max hover:bg-neutral-8 hover:scale-105 duration-300 ease-in-out hover:font-extrabold hover:underline">
                         <a href="{{route('summary')}}" class="group flex items-center space-x-4  px-4 py-3 text-white {{ request()->is('summary') ? 'bg-neutral-9 ' : '' }}">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
                                 class="bi bi-star" viewBox="0 0 16 16">
@@ -75,8 +76,8 @@
                 <div class="min-w-max ">
                     @include('components.language-switch')
                 </div>
-                <form action="{{route('logout')}}" method="POST">
-                    <div class="min-w-max hover:bg-danger-8 ">
+                <form action="{{route('web.logout')}}" method="POST">
+                    <div class="min-w-max hover:bg-danger-8 hover:scale-110 duration-300 ease-in-out hover:font-extrabold">
                         @csrf
                         <button type="submit" class="group flex items-center space-x-4  px-4 py-3 text-white"
                             style="width:100%">

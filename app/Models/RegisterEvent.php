@@ -5,8 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class give_badge extends Model
+class RegisterEvent extends Model
 {
-    public $table = 'give_badges';
+    public $table = 'register_events';
     use HasFactory;
 }

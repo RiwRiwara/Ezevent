@@ -35,8 +35,13 @@ class ProfileController extends Controller
 
         $user->gender = Gender::getGenderById($user->gender);
         $user->date_of_birth = (new Time($user->date_of_birth, $isThai))->getDateBirthObject();
-        
-        return view('profile.profilePage', compact('user', 'isThai'));
+
+        $breadcrumbItems = [
+            ['label' => 'Dashboard', 'url' => route('dashboard')],
+            ['label' => 'My Profile'],
+        ];
+
+        return view('profile.profilePage', compact('user', 'isThai', 'breadcrumbItems'));
     }
 
 
@@ -53,7 +58,7 @@ class ProfileController extends Controller
 
         $request->user()->save();
 
-        flash()->addSuccess(__('success.profile_update'));
+        toastr()->addSuccess(__('success.profile_update'));
 
         return Redirect::route('profile.edit')->with('status', 'profile-updated');
     }
