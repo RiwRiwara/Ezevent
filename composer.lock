@@ -3238,7 +3238,7 @@
         },
         {
             "name": "php-flasher/flasher",
-            "version": "v1.15.9",
+            "version": "v1.15.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-flasher/flasher.git",
@@ -3300,7 +3300,7 @@
                 "yoeunes"
             ],
             "support": {
-                "source": "https://github.com/php-flasher/flasher/tree/v1.15.9"
+                "source": "https://github.com/php-flasher/flasher/tree/v1.15.10"
             },
             "funding": [
                 {
@@ -3328,7 +3328,7 @@
         },
         {
             "name": "php-flasher/flasher-laravel",
-            "version": "v1.15.9",
+            "version": "v1.15.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-flasher/flasher-laravel.git",
@@ -3399,7 +3399,7 @@
                 "yoeunes"
             ],
             "support": {
-                "source": "https://github.com/php-flasher/flasher-laravel/tree/v1.15.9"
+                "source": "https://github.com/php-flasher/flasher-laravel/tree/v1.15.10"
             },
             "funding": [
                 {
@@ -3427,7 +3427,7 @@
         },
         {
             "name": "php-flasher/flasher-pnotify",
-            "version": "v1.15.9",
+            "version": "v1.15.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-flasher/flasher-pnotify.git",
@@ -3490,7 +3490,7 @@
                 "yoeunes"
             ],
             "support": {
-                "source": "https://github.com/php-flasher/flasher-pnotify/tree/v1.15.9"
+                "source": "https://github.com/php-flasher/flasher-pnotify/tree/v1.15.10"
             },
             "funding": [
                 {
@@ -3518,7 +3518,7 @@
         },
         {
             "name": "php-flasher/flasher-pnotify-laravel",
-            "version": "v1.15.9",
+            "version": "v1.15.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-flasher/flasher-pnotify-laravel.git",
@@ -3589,7 +3589,7 @@
                 "yoeunes"
             ],
             "support": {
-                "source": "https://github.com/php-flasher/flasher-pnotify-laravel/tree/v1.15.9"
+                "source": "https://github.com/php-flasher/flasher-pnotify-laravel/tree/v1.15.10"
             },
             "funding": [
                 {
@@ -3617,7 +3617,7 @@
         },
         {
             "name": "php-flasher/flasher-toastr",
-            "version": "v1.15.9",
+            "version": "v1.15.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-flasher/flasher-toastr.git",
@@ -3680,7 +3680,7 @@
                 "yoeunes"
             ],
             "support": {
-                "source": "https://github.com/php-flasher/flasher-toastr/tree/v1.15.9"
+                "source": "https://github.com/php-flasher/flasher-toastr/tree/v1.15.10"
             },
             "funding": [
                 {
@@ -3708,7 +3708,7 @@
         },
         {
             "name": "php-flasher/flasher-toastr-laravel",
-            "version": "v1.15.9",
+            "version": "v1.15.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-flasher/flasher-toastr-laravel.git",
@@ -3779,7 +3779,7 @@
                 "yoeunes"
             ],
             "support": {
-                "source": "https://github.com/php-flasher/flasher-toastr-laravel/tree/v1.15.9"
+                "source": "https://github.com/php-flasher/flasher-toastr-laravel/tree/v1.15.10"
             },
             "funding": [
                 {
@@ -9832,5 +9832,5 @@
         "php": "^8.2"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.3.0"
+    "plugin-api-version": "2.6.0"
 }
