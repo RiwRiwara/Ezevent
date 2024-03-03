@@ -23,7 +23,7 @@ return new class extends Migration
             $table->enum('gender', [1, 2, 3, 4])->nullable();
             $table->dateTime('date_of_birth');
             $table->string('mobile_number', 15)->unique();
-            $table->foreignId('role_id')->constrained('roles')->default(2);
+            $table->string('role_id')->default(2);
             $table->string('address')->max(255);
             $table->string('city')->nullable();
             $table->string('district')->nullable();

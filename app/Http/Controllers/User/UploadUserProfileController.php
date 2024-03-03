@@ -36,7 +36,7 @@ class UploadUserProfileController extends Controller
             Storage::deleteDirectory('tmp');
 
             // delete old image
-            $blobService->deleteBlob($containerName, auth()->user()->profile_img);
+            // $blobService->deleteBlob($containerName, auth()->user()->profile_img);
 
             // update User profile image
             $user = User::where('user_id', auth()->user()->user_id)->first();
