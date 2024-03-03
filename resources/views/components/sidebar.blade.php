@@ -23,7 +23,7 @@
                         <a href="{{route('my-profile')}}" class="mt-2 rounded-full flex justify-center hover:scale-125 duration-300 delay-500 ease-in-out
                         ">
                             <img class="h-10 w-10 rounded-full items-center {{ request()->is('my-profile') ? 'border-4 border-neutral-5' : '' }}"
-                                src="https://avatars.githubusercontent.com/u/35387401?v=4" alt="" />
+                                src="{{config('azure.base_url').'/'.config('azure.containers.userprofile').'/'.auth()->user()->profile_img ?? 'https://avatars.githubusercontent.com/u/35387401?v=4'}}" alt="" />
                         </a>
                     </li>
                     <li class="min-w-max hover:bg-neutral-8 hover:scale-105 duration-300 ease-in-out hover:font-extrabold hover:underline">

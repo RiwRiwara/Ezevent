@@ -7,15 +7,12 @@ use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
 {
-    /**
-     * Seed the application's database.
-     */
+
     public function run(): void
     {
-        // \App\Models\User::factory(10)->create();
+        $this->call(RoleSeeder::class);
 
-        $userData = include(database_path('seeders/user_seed.php'));
-        // var_dump($userData); 
+        $userData = include(database_path('seeders/testUser.php'));
         foreach ($userData as $user) {
             \App\Models\User::factory()->create($user);
         }

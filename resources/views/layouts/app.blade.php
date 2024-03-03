@@ -17,6 +17,7 @@
     <link href="https://ezevent.online/public/build/assets/{{env('CSS_BUILD_FILE_NAME')}}" rel="stylesheet" type="text/css" />
     @else
     @vite('resources/css/app.css')
+    @vite('resources/js/app.js')
     @livewireStyles
     @endif
 
@@ -41,13 +42,13 @@
             {{ $slot }}
         </main>
     </div>
+    @if (config('app.env', 'production') == 'production')
+    <script src="https://ezevent.online/public/build/assets/{{env('JS_BUILD_FILE_NAME')}}"></script>
+    @else
+    @livewireScripts
+    @endif
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.js"></script>
+    
 </body>
-@if (config('app.env', 'production') == 'production')
-<script src="https://ezevent.online/public/build/assets/{{env('JS_BUILD_FILE_NAME')}}"></script>
-@else
-@vite('resources/js/app.js')
-@livewireScripts
-@endif
-<script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.js"></script>
 
 </html>

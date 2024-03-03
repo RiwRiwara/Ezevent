@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <div class="flex justify-center">
-            <x-breadcrumb :items="$breadcrumbItems" />
+            <x-breadcrumb :items="$FORM_DATA_ITEMS['breadcrumbItems']" />
         </div>
     </x-slot>
 
@@ -15,10 +15,14 @@
 
                 <div class="flex justify-center items-center">
                     <div class=" w-4/6 md:w-3/12 ">
-                        <form action="{{ route('images.uploaded') }}" method="POST">
+                        <form action="{{ route('upload-profile-img') }}" method="POST">
                             @csrf
                             <input type="file" name="image" class="filepond profile-img-upload hover:scale-105 duration-300 cursor-pointer " name="image" accept="image/png, image/jpeg, image/gif" />
-                        <button type="submit" class="btn btn-primary">Upload</button>
+                            <button type="submit" class="w-full relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-neutral-3 to-neutral-7 group-hover:from-neutral-3 group-hover:to-neutral-7 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-cyan-200 dark:focus:ring-cyan-800">
+                                <span class="w-full relative px-2 py-1 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
+                                    {{__('button.upload')}}
+                                </span>
+                            </button>
                         </form>
                     </div>
                 </div>
@@ -49,7 +53,7 @@
                                 <livewire:editable-field fieldName="first_name" label_show="{{__('field_name.first_name')}}" />
                                 <livewire:editable-field fieldName="last_name" label_show="{{__('field_name.last_name')}}" />
 
-                                <x-forms.input-outline-primary name="gender" classinput="cursor-alias" readonly label="" type="text" value="{{$isThai ? $user->gender['name_th'] : $user->gender['name_en']}}" />
+                                <livewire:editable-field-dropdown fieldName="gender" label_show="{{__('field_name.gender')}}" optionsObject="{{json_encode($FORM_DATA_ITEMS['gender'])}}" />
 
 
                                 <div x-data="{ showDatePicker: false }" class="flex flex-col gap-2">
@@ -116,5 +120,51 @@
         </div>
     </div>
 
+    <script type="module">
+        // FilePond
+        const update_profile = document.querySelector('input[type="file"].profile-img-upload');
+        const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+        const customOptions = {
+            files: [{
+                source: '{{$user->profile_img}}',
+                options: {
+                    'X-CSRF-TOKEN': csrfToken,
+                    type: 'local',
+                }
+            }],
+
+            labelIdle: `<div class="cursor-pointer">Drag & Drop your picture or <span class="font-bold underline hover:text-neutral-6 duration-300 ">Browse</span></div>`,
+            imagePreviewHeight: 100,
+            imageCropAspectRatio: '1:1',
+            imageResizeTargetWidth: 200,
+            imageResizeTargetHeight: 250,
+            stylePanelLayout: 'circle',
+            styleLoadIndicatorPosition: 'center bottom',
+            allowMultiple: false,
+            allowDrop: true,
+            allowReplace: true,
+            server: {
+                process: {
+                    url: './uploads/process',
+                    method: 'POST',
+                    headers: {
+                        'X-CSRF-TOKEN': csrfToken,
+                    },
+                    withCredentials: false,
+                },
+                load: {
+                    url: './load-profile-img/',
+                    method: 'GET',
+                    withCredentials: false,
+                    onload: (response) => {
+                        console.log(response);
+                        return response;
+                    }
+                },
+
+            },
+        };
+        filepond.createFilePond(update_profile, customOptions);
+    </script>
 
 </x-app-layout>

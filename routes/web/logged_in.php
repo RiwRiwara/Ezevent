@@ -3,11 +3,17 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\User\UserController;
+use App\Http\Controllers\User\UploadUserProfileController;
+use App\Http\Controllers\ChartController;
+
 
 
 Route::middleware('auth', 'verified')->group(function () {
-    
+    Route::get('/summary', [ChartController::class, 'showChart'])->name('summary');
+
+
     Route::get('/my-profile', [ProfileController::class, 'myProfileDetail'])->name('my-profile');
+    Route::post('/my-profile/upload-profile-img', UploadUserProfileController::class)->name('upload-profile-img');
 
     Route::get('/dashboard', function () {
         return view('dashboard');

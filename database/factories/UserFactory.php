@@ -41,8 +41,7 @@ class UserFactory extends Factory
             ]),
             'address' => $this->faker->unique()->numerify('###/###'),
             'date_of_birth' => $this ->faker->date(),
-            // 'address' => $this ->faker->address(),
-            'profile_img' => $this ->faker->imageUrl(),
+            'role_id' => 2,
         ];
     }
 

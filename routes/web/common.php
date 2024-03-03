@@ -2,22 +2,25 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LanguageController;
-use Illuminate\Http\Request;
-use App\Http\Controllers\ChartController;
-use App\Http\Controllers\Tools\FileUploadController;
-use App\Http\Controllers\Tools\UploadImageController;
-
-// uploaded file
-Route::post('uploads/process', [FileUploadController::class, 'process'])->name('uploads.process');
-Route::post('images/uploaded', [UploadImageController::class, '__invoke'])->name('images.uploaded');
-
-// Return Back to the previous page
-Route::get('back', function () {
-    return back();
-})->name('back');
+use App\Utils\Filepond\FileUploadController;
+use App\Utils\Filepond\UploadImageController;
+use App\Utils\Filepond\LoadImageController;
 
 // Language Switch
 Route::post("language-switch", [LanguageController::class, 'languageSwitch'])->name('language.switch');
 
 
-Route::get('/summary', [ChartController::class, 'showChart'])->name('summary');
+Route::middleware('auth', 'verified')->group(function () {
+
+    // Proccess File Upload
+    Route::post('uploads/process', [FileUploadController::class, 'process'])->name('uploads.process');
+
+    // Upload Image
+    Route::post('image/profile/upload', [UploadImageController::class, '__invoke'])->name('images.profile.upload');
+
+    // Get profile
+    Route::get('/load-profile-img/{img_url}',LoadImageController::class)->name('load-profile-img');
+    
+
+});
+
