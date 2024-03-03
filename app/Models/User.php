@@ -8,6 +8,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
+
 class User extends Authenticatable  implements MustVerifyEmail
 {
     use HasApiTokens, HasFactory, Notifiable;
@@ -32,7 +33,7 @@ class User extends Authenticatable  implements MustVerifyEmail
         'city',
         'zipcode',
         'email_verified_at',
-        'role',
+        'role_id',
         'gender',
         'short_bio',
         'personality',
@@ -66,6 +67,13 @@ class User extends Authenticatable  implements MustVerifyEmail
         'password' => 'hashed',
     ];
 
+    public function role()
+    {
+        return $this->belongsTo(Role::class);
+    }
+    
+
+    
 
 
     

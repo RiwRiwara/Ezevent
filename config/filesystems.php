@@ -55,16 +55,6 @@ return [
             'use_path_style_endpoint' => env('AWS_USE_PATH_STYLE_ENDPOINT', false),
             'throw' => false,
         ],
-
-        'azure' => [
-            'driver' => 'azure',
-            'account-name' => env('AZURE_STORAGE_ACCOUNT_NAME'),
-            'account-key' => env('AZURE_SAS_TOKEN'),
-            'container' =>'testprofileimgs',
-            'url' => 'https://ezeventstorage.blob.core.windows.net',
-            'prefix'    => null,
-        ],
-
     ],
 
     /*

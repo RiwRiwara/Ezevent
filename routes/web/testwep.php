@@ -2,27 +2,37 @@
 
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Log;
+use App\Services\AzureBlobService;
 
+Route::get('/check-php-extensions', function () {
+    $extensions = [
+        'fileinfo' => 'php_fileinfo',
+        'mbstring' => 'php_mbstring',
+        'openssl' => 'php_openssl',
+        'xsl' => 'php_xsl',
+        'curl' => 'php_curl',
+        'gd' => 'GD'
+    ];
 
-Route::get('/check-gd-extension', function () {
-    if (extension_loaded('gd')) {
-        return "GD extension is enabled.";
-    } else {
-        return "GD extension is not enabled. Please enable it.";
+    $results = [];
+    foreach ($extensions as $extension => $name) {
+        if (extension_loaded($extension)) {
+            $results[] = "$name extension is enabled.";
+        } else {
+            $results[] = "$name extension is not enabled. Please enable it.";
+        }
     }
-});
 
-Route::get('/testimg/{img_url}', function ($img_url) {
-    $url = 'https://firstdraw.blob.core.windows.net/userprofile/'.$img_url;
-    
-    $response = Http::get($url);
-    $img = $response->body();
-    return response($img)->header('Content-Type', 'image/png');
-
+    return implode("<br>", $results);
 });
 
 
-// get azure config
-// Route::get('/azure-config', function () {
-//     return config('azure.blob_url').'?comp=list';
-// });
+
+
+
+Route::get('/azure-test', function () {
+
+    $blobService = new AzureBlobService();
+    return $blobService->getBlobUrl('userprofile', 'test.png');
+});

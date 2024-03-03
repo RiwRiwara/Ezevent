@@ -1,4 +1,7 @@
 <?php
+
+use App\Models\Role;
+
 return [
     [
         'first_name' => 'Awirut',
@@ -12,7 +15,7 @@ return [
         'district' => '1401',
         'province' => '5',
         'zipcode' => '10260',
-        'role' => 'admin',
+        'role_id' => Role::where('name', 'admin')->first()->id,
         'email_verified_at' => '2024-02-22 15:22:04',
     ],
     [
@@ -27,7 +30,7 @@ return [
         'district' => '1401',
         'province' => '5',
         'zipcode' => '10260',
-        'role' => 'admin',
+        'role_id' => Role::where('name', 'admin')->first()->id,
         'email_verified_at' => '2024-02-22 15:22:04',
     ],
     [
@@ -36,7 +39,8 @@ return [
         'city' => '100101',
         'district' => '1001',
         'province' => '1',
-        'zipcode' => '10200'
+        'zipcode' => '10200',
+        'password' => bcrypt('.Awirut3526293'),
     ],
     [
         'first_name' => 'สมชาย',

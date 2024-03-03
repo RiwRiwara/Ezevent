@@ -12,6 +12,7 @@ use App\Http\Requests\Auth\RegisterRequest;
 class RegisterUserController extends Controller
 {
     private RegisterRequest $request;
+    
     public function __construct(RegisterRequest $request)
     {
         $this->request = $request;

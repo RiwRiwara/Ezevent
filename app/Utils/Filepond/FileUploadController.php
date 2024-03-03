@@ -2,8 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Http\Controllers\Tools;
-
+namespace App\Utils\Filepond;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
@@ -47,7 +46,7 @@ final class FileUploadController extends Controller
             path: 'tmp/' . now()->timestamp . '-' . Str::random(20)
         );
         
-        $respons_body = [
+        $response_body = [
             'path' => $tempPath,
             'name' => $file->getClientOriginalName(),
             'size' => $file->getSize(),
@@ -56,6 +55,6 @@ final class FileUploadController extends Controller
         ];
 
         // return
-        return  $respons_body;
+        return  $response_body;
     }
 }

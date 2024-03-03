@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\Api\Auth;
+namespace App\Http\Controllers\Api\User;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use App\Http\Resources\UserResource;
 use Illuminate\Http\Request;
+
 
 class UserController extends Controller
 {
@@ -25,18 +26,7 @@ class UserController extends Controller
      */
     public function getUserByID(string $user_id)
     {
-        try {
-            $user = User::where('user_id', $user_id)->firstOrFail();
-            return response()->json([
-                'message' => 'User retrieved successfully',
-                'user' => new UserResource($user)
-            ], 200);
-        } catch (\Exception $e) {
-            return response()->json([
-                'message' => 'User not found'
-            ], 404);
-        }
-
+        return (new getUserByIdController())->getUserByID($user_id);
     }
 
     /**
@@ -51,25 +41,21 @@ class UserController extends Controller
      */
     public function updateByFieldsName(Request $request)
     {
-        
-        $request->validate([
-            'updateFields.first_name' => 'string',
-            'updateFields.another_fields' => '',
-        ]);
-
-        try {
-            $user = $request->user();
-            $user->update($request->updateFields);
-            return response()->json([
-                'message' => 'User updated successfully',
-                'user' => new UserResource($user)
-            ], 200);
-        } catch (\Exception $e) {
-            return response()->json([
-                'message' => 'User not found'
-            ], 404);
-        }
-
+        return (new UpdateByFieldsName())->updateByFieldsName($request);
     }
-    
+
+    /**
+     * Upload user profile [T]
+     * 
+     * Uploads a user's profile image to the server and returns the updated user object.
+     * 
+     * อัปโหลดรูปภาพโปรไฟล์ของผู้ใช้ไปยังเซิร์ฟเวอร์และส่งคืนอ็อบเจ็กต์ผู้ใช้ที่อัปเดตแล้ว
+     * 
+     * @param \Illuminate\Http\Request $request The incoming request object.
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function uploadUserProfile(Request $request)
+    {
+        return (new UploadUserProfileController())->uploadUserProfile($request);
+    }
 }
