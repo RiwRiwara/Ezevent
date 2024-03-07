@@ -29,6 +29,7 @@ return [
 
     'login' => 'Login',
     'update' => 'Update',
+    'save' => 'Save',
     'cancel' => 'Cancel',
     'next' => 'Next',
     'register' => 'Register',

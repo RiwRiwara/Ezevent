@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Laravel\Facades\Image;
+use App\Models\User;
 use App\Services\AzureBlobService;
 
 
@@ -47,9 +48,10 @@ class UploadUserProfileController extends Controller
             $blobService->deleteBlob($containerName, auth()->user()->profile_img);
 
             // update User profile image
-            $user = auth()->user();
+            $user = User::where('user_id', auth()->user()->user_id)->first();
             $user->profile_img = $blobName;
             $user->save();
+
 
             return response()->json([
                 'message' => 'Profile image uploaded',

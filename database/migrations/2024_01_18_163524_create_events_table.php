@@ -9,21 +9,43 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('events', function (Blueprint $table) {
-            $table->bigIncrements('event_id'); 
-            $table->string('event_name', 50); 
-            $table->string('event_category', 50); 
-            $table->string('event_event', 50)->unique(); 
+            // information
+            $table->id(); 
+            $table->string('event_id')->unique();
+            $table->string('name')->nullable(); 
+            $table->string('description')->nullable();
+            $table->string('categories')->nullable(); // 1, 2
+
+            // Contact
+            $table->string('contact_email', 50)->nullable();
+            $table->string('contact_phone', 15)->nullable();
+
+            // Date
             $table->dateTime('start_date')->nullable(); 
             $table->dateTime('end_date')->nullable(); 
-            $table->text('event_description');
-            $table->string('event_location');
-            // $table->string('event_time', 50); 
-            $table->integer('event_staff_number'); 
-            $table->integer('event_part_number'); 
-            $table->enum('event_phase', ['Upcoming', 'In progress', 'Reviewing', 'Compelete'])->nullable();
-            $table->timestamps();
+            $table->time('start_time')->nullable();
+            $table->time('end_time')->nullable();
 
-            $table->integer('organizer_id'); //FK user_id from user
+            // Location
+            $table->string('address')->nullable();
+            $table->string('city')->nullable();
+            $table->string('district')->nullable();
+            $table->string('province')->nullable();
+            $table->string('zipcode')->nullable();
+
+            // Status
+            $table->enum('event_phase', ['Upcoming', 'In progress', 'Reviewing', 'Complete'])->nullable();
+            $table->enum('event_status', ['Draft', 'Published', 'Cancelled'])->nullable();
+            $table->boolean('is_specific_date')->nullable()->default(false);
+            $table->boolean('is_online')->nullable()->default(false);
+
+            // Organizer
+            $table->string('organizer_id'); 
+
+            // Image
+            $table->string('thumbnail')->nullable();
+
+            $table->timestamps();
         });
     }
 

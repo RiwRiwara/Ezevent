@@ -20,7 +20,7 @@ final class LoadImageController extends Controller
 
         if ($response->status() !== 200) {
             $img = file_get_contents(public_path('images/default_thumnail.png'));
-            return response($img, 200, ['Content-Type' => 'image/png']);
+            return response($img, 200, ['Content-Type' => 'image/webp']);
         }
 
         $response = response($img, 200, ['Content-Type' => 'image/webp']);

@@ -50,8 +50,12 @@ class AzureBlobService
     }
 
 
-    public function deleteBlob(string $containerName, string $blobName): bool 
+    public function deleteBlob(string $containerName, ?string $blobName): bool 
     {
+        if ($blobName === null) {
+            return false; 
+        }
+    
         try {
             $this->blobClient->deleteBlob($containerName, $blobName);
             return true;
@@ -59,6 +63,7 @@ class AzureBlobService
             return false;
         }
     }
+    
 
 
     public function getBlobUrl(string $containerName, string $blobName): string

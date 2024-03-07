@@ -12,10 +12,11 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('badges', function (Blueprint $table) {
-            $table->bigIncrements('badge_id');
-            $table->string('title')->nullable();
+            $table->id();
+            $table->string('name_th');
+            $table->string('name_en');
             $table->string('description')->nullable();
-            $table->string('img_src')->nullable();
+            $table->string('icon');
             $table->timestamps();
         });
     }
