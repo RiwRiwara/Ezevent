@@ -10,6 +10,7 @@ use App\Http\Requests\Auth\LoginRequest;
 class LoginUserController extends Controller
 {
     private LoginRequest $request;
+
     public function __construct(LoginRequest $request)
     {
         $this->request = $request;
@@ -42,8 +43,6 @@ class LoginUserController extends Controller
             ], 401);
         }
         $user = auth()->user();
-        $user->tokens()->delete();
-        
         $token = $request->user()->createToken('authToken', ['role:participant'], now()->addDay());
         return response()->json([
             'message' => 'You have been logged in',

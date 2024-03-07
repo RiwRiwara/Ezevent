@@ -30,7 +30,7 @@ return [
         'other' => 'Other',  
     ],
     'badge' => [
-        'communication' => 'Communication Skills',
+        'communication skills' => 'Communication Skills',
         'problem' => 'Problem solving skills ',
         'learning' => 'Learning skills ',
         'teamwork' => 'Teamwork skills ',

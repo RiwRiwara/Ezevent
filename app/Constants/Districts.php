@@ -3,7 +3,8 @@
 namespace App\Constants;
 
 
-class Districts{
+class Districts
+{
 
 const DISTRICT = [
   [

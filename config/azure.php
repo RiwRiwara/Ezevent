@@ -2,6 +2,7 @@
 
 return [
 
+    'account_name' => env('AZURE_STORAGE_ACCOUNT_NAME'),
 
     /*
     |--------------------------------------------------------------------------
@@ -18,6 +19,9 @@ return [
         'eventimgs' => env('APP_ENV') === 'local' ? 'testtesteventimgs' : 'testeventimgs',
         'formimgs' => env('APP_ENV') === 'local' ? 'testformimgs' : 'formimgs',
     ],
+
+
+    'base_url' => env('AZURE_STORAGE_BASE_URL'),
 
 
     /*
@@ -51,7 +55,9 @@ return [
     |
     */
 
-    'connection_string' => env('AZURE_CONNECTION_STRING'),
+    'connection_string' => env('AZURE_ACCOUNT_CONNECT_STRING'),
+
+
 
     /*
     |--------------------------------------------------------------------------

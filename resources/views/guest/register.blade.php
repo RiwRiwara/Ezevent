@@ -22,7 +22,7 @@
             <x-forms.input-outline-primary name="first_name" label="{{__('field_name.first_name')}}" type="text" required />
             <x-forms.input-outline-primary name="last_name" label="{{__('field_name.last_name')}}" type="text" required />
             <x-forms.date-picker name="date_of_birth" placeholder="{{__('field_name.select_date_birth')}}" />
-            <x-forms.select-dropdown name="gender" label="{{__('field_name.selected_gender')}}" :options="$FORM_DATA_ITEMS['gender']" val_key="{{ app()->getLocale() === 'th' ? 'name_th' : 'name_en'}}" require />
+            <x-forms.select-dropdown name="gender" label="{{__('field_name.selected_gender')}}" :options="$page_data['gender']" val_key="{{ app()->getLocale() === 'th' ? 'name_th' : 'name_en'}}" require />
 
 
           </div>
@@ -35,14 +35,14 @@
 
           <div class="mt-2 row">
             <div class="col-md-3 mb-3">
-              <x-forms.select-dropdown name="province" label="{{__('field_name.province')}}" :options="$FORM_DATA_ITEMS['provinces']" val_key="{{ app()->getLocale() === 'th' ? 'name_th' : 'name_en'}}" require />
+              <x-forms.select-dropdown name="province" label="{{__('field_name.province')}}" :options="$page_data['provinces']" val_key="{{ app()->getLocale() === 'th' ? 'name_th' : 'name_en'}}" require />
             </div>
             <div class="col-md-3 mb-3">
               <x-forms.select-dropdown name="district" label="{{__('field_name.district')}}" require />
             </div>
 
             <div class="col-md-3 mb-3">
-              <x-forms.select-dropdown name="city" label="{{__('field_name.city')}}" disabled require />
+              <x-forms.select-dropdown name="city" label="{{__('field_name.sub_district')}}" disabled require />
             </div>
 
             <div class="col-md-3 mt-5">
@@ -71,7 +71,7 @@
       $('#province').change(function() {
         var provinceId = $(this).val();
 
-        var districtsData = <?php echo json_encode($FORM_DATA_ITEMS['districts']); ?>;
+        var districtsData = <?php echo json_encode($page_data['districts']); ?>;
         var filteredDistricts = districtsData.filter(function(district) {
           return district.province_id == provinceId;
         });
@@ -90,7 +90,7 @@
 
       $('#district').change(function() {
         var districtId = $(this).val();
-        var citiesData = <?php echo json_encode($FORM_DATA_ITEMS['cities']); ?>;
+        var citiesData = <?php echo json_encode($page_data['cities']); ?>;
         var filteredcities = citiesData.filter(function(city) {
           return city.amphure_id == districtId;
         });

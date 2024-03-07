@@ -1,9 +1,7 @@
 import './bootstrap';
 import './filepondUploader';
 
+import * as filepond from './filepondUploader';
+window.filepond = filepond;
 
-// import Alpine from 'alpinejs';
-
-// window.Alpine = Alpine;
-// Alpine.start();
 

@@ -9,4 +9,13 @@ class Badge extends Model
 {
     public $table = 'badges';
     use HasFactory;
+
+    protected $fillable = [
+        'name_th',
+        'name_en',
+        'description',
+        'icon',
+    ];
+
+    
 }

@@ -27,16 +27,21 @@ class UserFactory extends Factory
             'user_id' => Str::uuid(),
             'first_name' => $this ->faker->name(),
             'last_name' => $this ->faker->name(),
-            'gender' => $this ->faker->randomElement([1,2,3]),
-            'email' => $this ->faker->unique()->safeEmail(),
+            'gender' => $this ->faker->randomElement([1,2,3,4]),
+            'email' => $this->faker->unique()->userName . '@mail.com',
             'email_verified_at' => now(),
             'password' => static::$password ??= Hash::make('password'),
             'remember_token' => Str::random(10),
-            'mobile_number' => $this ->faker->phoneNumber(),
-            'personality' => Str::random(4),
+            'mobile_number' => $this->faker->unique()->numerify('09########'), 
+            'personality' => $this ->faker->randomElement([
+                'ISTJ', 'ISFJ', 'INFJ', 'INTJ',
+                'ISTP', 'ISFP', 'INFP', 'INTP',
+                'ESTP', 'ESFP', 'ENFP', 'ENTP',
+                'ESTJ', 'ESFJ', 'ENFJ', 'ENTJ'
+            ]),
+            'address' => $this->faker->unique()->numerify('###/###'),
             'date_of_birth' => $this ->faker->date(),
-            'address' => $this ->faker->address(),
-            'profile_img' => $this ->faker->imageUrl(),
+            'role_id' => 2,
         ];
     }
 

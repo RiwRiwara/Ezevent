@@ -36,12 +36,20 @@ class ProfileController extends Controller
         $user->gender = Gender::getGenderById($user->gender);
         $user->date_of_birth = (new Time($user->date_of_birth, $isThai))->getDateBirthObject();
 
-        $breadcrumbItems = [
-            ['label' => 'Dashboard', 'url' => route('dashboard')],
-            ['label' => 'My Profile'],
+        $page_data = [
+            'isThai' => $isThai,
+            'provinces' => Provinces::provinces(),
+            'districts' => Cities::cities(),
+            'cities' => Districts::districts(),
+            'gender' => Gender::gender(),
+            'breadcrumbItems' => [
+                ['label' => 'Dashboard', 'url' => route('dashboard')],
+                ['label' => 'My Profile'],
+            ]
+
         ];
 
-        return view('profile.profilePage', compact('user', 'isThai', 'breadcrumbItems'));
+        return view('profile.profilePage', compact('user', 'page_data'));
     }
 
 
