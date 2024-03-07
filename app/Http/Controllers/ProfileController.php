@@ -36,7 +36,7 @@ class ProfileController extends Controller
         $user->gender = Gender::getGenderById($user->gender);
         $user->date_of_birth = (new Time($user->date_of_birth, $isThai))->getDateBirthObject();
 
-        $FORM_DATA_ITEMS = [
+        $page_data = [
             'isThai' => $isThai,
             'provinces' => Provinces::provinces(),
             'districts' => Cities::cities(),
@@ -49,7 +49,7 @@ class ProfileController extends Controller
 
         ];
 
-        return view('profile.profilePage', compact('user', 'FORM_DATA_ITEMS'));
+        return view('profile.profilePage', compact('user', 'page_data'));
     }
 
 

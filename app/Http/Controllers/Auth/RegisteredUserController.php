@@ -27,7 +27,7 @@ class RegisteredUserController extends Controller
      */
     public function create(): View
     {
-        $FORM_DATA_ITEMS = [
+        $page_data = [
             'provinces' => Provinces::provinces(),
             'districts' => Cities::cities(),
             'cities' => Districts::districts(),
@@ -40,7 +40,7 @@ class RegisteredUserController extends Controller
         ];
 
 
-        return view('guest.register', compact('FORM_DATA_ITEMS', 'breadcrumbItems'));
+        return view('guest.register', compact('page_data', 'breadcrumbItems'));
     }
 
 

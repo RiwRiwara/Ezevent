@@ -33,6 +33,22 @@ return [
         'role_id' => Role::where('name', 'admin')->first()->id,
         'email_verified_at' => '2024-02-22 15:22:04',
     ],
+    // admin riw
+    [
+        'first_name' => 'Awirut',
+        'last_name' => 'Phuseansaart',
+        'email' => 'riwriwara@ezevent.online',
+        'password' => bcrypt('R8q62k?4z'),
+        'mobile_number' => '0817595815',
+        'date_of_birth' => '2002-02-07 00:00:00',
+        'address' => '365/786',
+        'city' => '140101',
+        'district' => '1401',
+        'province' => '5',
+        'zipcode' => '10260',
+        'role_id' => Role::where('name', 'admin')->first()->id,
+        'email_verified_at' => '2024-02-22 15:22:04',
+    ],
     [
         'first_name' => 'สุริยา',
         'last_name' => 'พรหมสุข',

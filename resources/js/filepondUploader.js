@@ -32,5 +32,5 @@ export function createFilePond(input, options) {
     };
     const mergedOptions = { ...defaultOptions, ...options };
 
-    FilePond.create(input, mergedOptions);
+    return FilePond.create(input, mergedOptions);
 }

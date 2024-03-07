@@ -10,4 +10,6 @@ class Event extends Model
     public $table = 'events';
 
     use HasFactory;
+
+
 }

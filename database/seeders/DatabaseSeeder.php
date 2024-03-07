@@ -11,6 +11,8 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         $this->call(RoleSeeder::class);
+        $this->call(EventTypeSeeder::class);
+        $this->call(BadgeTypeSeeder::class);
 
         $userData = include(database_path('seeders/testUser.php'));
         foreach ($userData as $user) {

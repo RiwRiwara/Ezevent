@@ -11,12 +11,10 @@
 
 
     <title>{{ isset($title) ? $title : config('app.name', 'Laravel') }}</title>
-    @if (config('app.env', 'production') == 'production')
-    <link href="https://ezevent.online/public/build/assets/{{env('CSS_BUILD_FILE_NAME')}}" rel="stylesheet" type="text/css" />
-    @else
-    @vite('resources/css/app.css')
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
     @livewireStyles
-    @endif
+    @livewireStyles
+  
 </head>
 @include('components.language-switch')
 
@@ -53,11 +51,7 @@
 
         </div>
     </div>
-    @if (config('app.env', 'production') == 'production')
-    <script src="https://ezevent.online/public/build/assets/{{env('JS_BUILD_FILE_NAME')}}"></script>
-    @else
-    @vite('resources/js/app.js')
     @livewireScripts
-    @endif
 
-</body>t
+
+</body>

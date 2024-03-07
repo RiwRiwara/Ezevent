@@ -5,7 +5,8 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\User\UserController;
 use App\Http\Controllers\User\UploadUserProfileController;
 use App\Http\Controllers\ChartController;
-
+use App\Http\Controllers\Event\EventList\EventListController;
+use App\Http\Controllers\Event\CreateEvent\CreateEventController;
 
 
 Route::middleware('auth', 'verified')->group(function () {
@@ -19,13 +20,9 @@ Route::middleware('auth', 'verified')->group(function () {
         return view('dashboard');
     })->name('dashboard');
 
-    Route::get('/create-event', function () {
-        return view('logged_in.create_event');
-    })->name('create-event');
+    Route::get('/create-event',CreateEventController::class)->name('create-event');
 
-    Route::get('/landing', function () {
-        return view('logged_in.landing');
-    })->name('landing');
+    Route::get('/event-list', EventListController::class)->name('event-list');
 
 
     Route::get('/event-page', function () {
