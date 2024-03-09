@@ -1,6 +1,9 @@
 <?php
 // en
 return [
+    'event' => 'Event',
+    'create_event' => 'Create Event',
+    'add_type' => 'Seelct Event Type',
     'detail' => 'Detail',
     'event_name' => 'Event Name',
     'select_type' => 'Select Type',

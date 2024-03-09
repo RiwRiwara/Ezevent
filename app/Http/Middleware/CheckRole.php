@@ -26,6 +26,7 @@ class CheckRole
              return abort(401, 'Unauthorized'); // Return 401 instead of 403 for unauthenticated users
          }
      
+         // Check if the user is authenticated
          $user = Auth::user();
          if ($user->role_id !== $role) {
              return abort(403, 'Unauthorized'); // Return 403 for unauthorized users

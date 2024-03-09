@@ -18,6 +18,7 @@
         "microsoft/azure-storage-blob": "^1.5",
         "php-flasher/flasher-laravel": "^1.15",
         "php-flasher/flasher-pnotify-laravel": "^1.15",
+        "php-flasher/flasher-sweetalert-laravel": "^1.15",
         "php-flasher/flasher-toastr-laravel": "^1.15",
         "zircote/swagger-php": "^4.8"
     },
@@ -26,6 +27,7 @@
         "laravel/breeze": "^1.28",
         "laravel/pint": "^1.0",
         "laravel/sail": "^1.18",
+        "laravel/ui": "*",
         "mockery/mockery": "^1.4.4",
         "nunomaduro/collision": "^7.0",
         "phpunit/phpunit": "^10.1",

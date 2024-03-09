@@ -20,9 +20,7 @@ Route::middleware('auth', 'verified')->group(function () {
         return view('dashboard');
     })->name('dashboard');
 
-    Route::get('/create-event',CreateEventController::class)->name('create-event');
 
-    Route::get('/event-list', EventListController::class)->name('event-list');
 
 
     Route::get('/event-page', function () {

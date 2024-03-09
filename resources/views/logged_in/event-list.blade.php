@@ -10,7 +10,7 @@
     </x-slot>
 
 
-    <div class="max-w-7xl mx-auto p-6 md:p-8 my-5 md:mt-10 bg-neutral-0 rounded-md h-svh ">
+    <div class="max-w-7xl mx-auto p-6 md:p-8 my-5 md:mt-10 bg-white rounded-md h-svh ">
         <div class="md:flex-col gap-4">
             <div class=" md:flex justify-between items-center">
                 <h1 class="text-2xl font-bold leading-9 tracking-tight text-neutral-9">{{__('page.all_event')}}(0
