@@ -7,6 +7,7 @@ use App\Http\Controllers\User\UploadUserProfileController;
 use App\Http\Controllers\ChartController;
 use App\Http\Controllers\Event\EventList\EventListController;
 use App\Http\Controllers\Event\CreateEvent\CreateEventController;
+use App\Models\User;
 
 
 Route::middleware('auth', 'verified')->group(function () {
@@ -50,6 +51,11 @@ Route::middleware('auth', 'verified')->group(function () {
         return view('mailTemplate.reset_password_complete');
     })->name('reset_password_complete');
 
+    // admin
+    Route::get('/admin-dashboard', function () {
+        $users = User::all();
+        return view('admin.admin_dashboard', compact('users'));
+    })->name('admin-dashboard');
 
     Route::post('/profile/update', [UserController::class, 'updateUserInformation'])->name('profile.update.field');
 });
