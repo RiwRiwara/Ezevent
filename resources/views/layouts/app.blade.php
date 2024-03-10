@@ -11,6 +11,7 @@
     <link rel="icon" href="{{ asset('images/Logo.png') }}" type="image/x-icon" />
     <link href="{{ asset('css/base.css') }}" rel="stylesheet" type="text/css" />
     <script src="{{ asset('js/base.js') }}" defer></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/datepicker.min.js"></script>
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
@@ -50,7 +51,7 @@
     </footer>
 
     @livewireScripts
-
+    @stack('scripts')
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.js"></script>
 
 </body>

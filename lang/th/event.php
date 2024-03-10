@@ -1,6 +1,9 @@
 <?php
 // th
 return [
+    'event' => 'อีเวนต์',
+    'create_event' => 'สร้างอีเวนต์',
+    'add_type' => 'เลือกประเภทของอีเวนต์',
     'detail' => 'รายละเอียด',
     'event_name' => 'ชื่ออีเวนต์',
     'select_type' => 'เลือกประเภท',
@@ -38,7 +41,13 @@ return [
         'leadership' => 'ทักษะการเป็นผู้นำ',
         'knowledge' => 'ทักษะความรู้เฉพาะทาง',
         'professional' => 'ทักษะการเป็นมืออาชีพ',
-    ]
+    ],
+    'status' => [
+        'Draft' => 'ร่าง',
+        'Published' => 'เผยแพร่',
+        'Cancelled' => 'ยกเลิก',
+        'Archived' => 'เก็บถาวร',
+    ],
 
 
 ];

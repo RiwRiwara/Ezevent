@@ -26,7 +26,7 @@ class UploadUserProfileController extends Controller
                 $image = Image::read($path)->toWebp();
 
                 $blobService = new AzureBlobService();
-                $containerName = 'testprofileimgs';
+                $containerName = config('azure.containers.userprofile');
                 $blobName = auth()->user()->user_id . '_' . now() . '.webp';
 
                 $decodeImage = base64_decode(preg_replace('#^data:image/\w+;base64,#i', '', $image->toDataUri()));

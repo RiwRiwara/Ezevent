@@ -9,7 +9,7 @@
 
     <div class="flex justify-center md:items-center h-screen">
 
-        <div class="container mx-auto md:my-10 px-5 py-7 md:w-5/12 bg-neutral-0 rounded-md">
+        <div class="container mx-auto md:my-10 px-5 py-7 md:w-5/12 bg-white rounded-md">
 
             <div class="no-wrap md:-mx-2 my-2 ">
 

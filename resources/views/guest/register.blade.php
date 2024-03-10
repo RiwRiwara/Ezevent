@@ -74,7 +74,9 @@
       </form>
     </div>
   </div>
+
   <x-forms.privacy_agreement />
+
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/datepicker.min.js"></script>
   <script>
