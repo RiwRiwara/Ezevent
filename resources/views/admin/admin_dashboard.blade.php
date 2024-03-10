@@ -25,7 +25,7 @@
                 </div>
             </div>
             <hr class="my-5 border-1 border-primary-5">
-
+            {{$users}}
         </div>
     </div>
 

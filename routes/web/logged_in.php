@@ -7,6 +7,7 @@ use App\Http\Controllers\User\UploadUserProfileController;
 use App\Http\Controllers\ChartController;
 use App\Http\Controllers\Event\EventList\EventListController;
 use App\Http\Controllers\Event\CreateEvent\CreateEventController;
+use App\Models\User;
 
 
 Route::middleware('auth', 'verified')->group(function () {
@@ -54,7 +55,8 @@ Route::middleware('auth', 'verified')->group(function () {
 
     // admin
     Route::get('/admin-dashboard', function () {
-        return view('admin.admin_dashboard');
+        $users = User::all();
+        return view('admin.admin_dashboard', compact('users'));
     })->name('admin-dashboard');
 
     Route::post('/profile/update', [UserController::class, 'updateUserInformation'])->name('profile.update.field');
