@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Carbon\Carbon;
 
 class Event extends Model
 {
@@ -60,4 +61,48 @@ class Event extends Model
         'organizer_id',
         'thumbnail',
     ];
+
+    public function getStatusColor()
+    {
+        switch ($this->event_status) {
+            case self::EVENT_STATUS_DRAFT:
+                return 'bg-gray-5';
+            case self::EVENT_STATUS_PUBLISHED:
+                return 'bg-success-5';
+            case self::EVENT_STATUS_CANCELLED:
+                return 'bg-danger-5';
+            case self::EVENT_STATUS_ARCHIVED:
+                return 'bg-neutral-5';
+            default:
+                return 'bg-gray-5';
+        }
+    }
+
+
+    public function getDateStart()
+    {
+        return Carbon::parse($this->date_start)->timezone('Asia/Bangkok')->format('M d, Y');
+    }
+
+    public function getDateEnd()
+    {
+        return Carbon::parse($this->date_end)->timezone('Asia/Bangkok')->format('M d, Y');
+    }
+    
+    public function getTimeStart()
+    {
+        return Carbon::parse($this->time_start)->timezone('Asia/Bangkok')->format('H:i');
+    }
+
+    public function getTimeEnd()
+    {
+        return Carbon::parse($this->time_end)->timezone('Asia/Bangkok')->format('H:i');
+    }
+
+    public function getThumbnail()
+    {
+        $thumbnail_url = config('azure.base_url')."/" . config('azure.containers.eventimgs') . $this->thumbnail;
+
+        return $this->thumbnail ? $thumbnail_url : 'https://ezeventstorage.blob.core.windows.net/testprofileimgs/default_thumnail.png';
+    }
 }

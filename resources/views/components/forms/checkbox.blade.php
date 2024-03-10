@@ -4,9 +4,10 @@
     'label' => null,
     'icon' => null,
     'group' => null,
+    'check' => false,
 ])
 
-<div x-data="{ checked: false }" 
+<div x-data="{ checked: {{ $check ? 'true' : 'false' }} }" 
      x-on:click="checked = !checked; $dispatch('checkbox-checked', { checked: checked, icon: '{{ $icon }}' })"
      x-bind:class="{ 'animate-check': checked, 'bg-primary-2': checked, 'bg-neutral-0': !checked }"
      class="flex items-center p-2  bg-neutral-0 hover:bg-primary-2 cursor-pointer transition duration-300 rounded-md hover:shadow-md justify-between "

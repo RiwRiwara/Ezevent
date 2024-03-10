@@ -19,7 +19,7 @@ class CreateEventPageController extends Controller
             'badge_types' => \App\Models\Badge::all(),
         ];
         
-        return view('logged_in.create_event', compact('page_data'),);
+        return view('event.create-event', compact('page_data'),);
     }
 
 

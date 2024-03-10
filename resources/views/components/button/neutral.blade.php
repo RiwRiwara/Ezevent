@@ -9,7 +9,7 @@
                                                                         group-hover:from-neutral-5 group-hover:to-neutral-9 hover:text-white dark:text-white focus:ring-4
                                                                         focus:scale-105 duration-300 
                                                                         focus:outline-none focus:ring-neutral-2 dark:focus:ring-neutral-8">
-    <span class="w-full text-neutral-9 hover:text-neutral-0 relative px-2  transition-all ease-in duration-300 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
+    <span class="w-full text-neutral-9 hover:text-neutral-0 relative px-2  transition-all ease-in duration-300 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0 text-center">
         {{ $slot }}
     </span>
 </a>

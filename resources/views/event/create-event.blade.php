@@ -47,7 +47,7 @@
                   <div class="relative px-4 py-2 w-full max-w-2xl max-h-full bg-white rounded-md">
                     <div class=" flex items-center justify-between p-2 md:p-3 border-b rounded-t dark:border-gray-600 bg-neutral-0 my-4">
                       <h3 class=" text-2xl px-2 py-1 rounded-md font-semibold text-neutral-9 dark:text-white text-center">
-                        เลือกประเภทกิจกรรม
+                        {{__('event.add_type')}}
                       </h3>
 
                       <button type="button" class=" text-gray-400  hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-hide="type-modal">

@@ -41,7 +41,13 @@ return [
         'leadership' => 'ทักษะการเป็นผู้นำ',
         'knowledge' => 'ทักษะความรู้เฉพาะทาง',
         'professional' => 'ทักษะการเป็นมืออาชีพ',
-    ]
+    ],
+    'status' => [
+        'Draft' => 'ร่าง',
+        'Published' => 'เผยแพร่',
+        'Cancelled' => 'ยกเลิก',
+        'Archived' => 'เก็บถาวร',
+    ],
 
 
 ];

@@ -41,6 +41,12 @@ return [
         'leadership' => 'Leadership skills ',
         'knowledge' => 'Knowledge skills ',
         'professional' => 'Professional skills ',
-    ]
+    ],
+    'status' => [
+        'Draft' => 'Draft',
+        'Published' => 'Published',
+        'Cancelled' => 'Cancelled',
+        'Archived' => 'Archived',
+    ],
 
 ];
