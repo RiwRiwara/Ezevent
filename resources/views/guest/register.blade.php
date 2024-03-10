@@ -1,12 +1,11 @@
-<x-guest-layout >
-  <div class=" px-6 py-6 9lg:px-8 bg-neutral-5 "
-  >
+<x-guest-layout>
+  <div class=" px-6 py-6 9lg:px-8 bg-neutral-5 ">
     <div class=" flex flex-row items-center justify-center fade-in">
       <img class="h-15 w-auto" src="{{ asset('images/Logo(Orange).png') }}" alt="Logo">
       <h2 class="ml-4 text-3xl font-bold leading-9 tracking-tight text-gray-0 ">{{__('field_name.createnewaccount')}}</h2>
     </div>
 
-    <div class="mt-4 sm:mx-auto sm:w-full sm:max-w-md bg-gray-0 p-4 rounded-lg shadow-md slide-in-right fade-in" >
+    <div class="mt-4 sm:mx-auto sm:w-full sm:max-w-md bg-gray-0 p-4 rounded-lg shadow-md slide-in-right fade-in">
 
       <x-breadcrumb :items="$breadcrumbItems" />
 
@@ -51,6 +50,18 @@
             </div>
           </div>
         </div>
+        <!-- Modal toggle -->
+        <div class="flex justify-between">
+          <div>
+            <x-forms.checkbox name="submit_agreement" label="{{__('')}}" />
+          </div>
+          <span>
+            ฉันมีอายุอย่างน้อย 13 ปีขึ้นไปและยอมรับ
+            <a class="text-primary-9 underline cursor-pointer" data-modal-target="privacy_agreement" data-modal-toggle="privacy_agreement">
+              {{__('ข้อตกลงเงื่อนไขการใช้งาน EZEVENT')}}
+            </a>
+          </span>
+        </div>
         <div>
           <x-button.primary type="submit" innerHtml="{{__('field_name.register')}}" id="nextButton" />
         </div>
@@ -63,6 +74,9 @@
       </form>
     </div>
   </div>
+
+  <x-forms.privacy_agreement />
+
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/datepicker.min.js"></script>
   <script>

@@ -62,7 +62,10 @@
         <img src="http://127.0.0.1:9000/images/Logo.png" alt="EZEVENT" class="smaller-img">
     </div>
     <div class="confirmation-email">
-        <img src="https://www.flaticon.com/svg/static/icons/svg/561/561094.svg" alt="Check Icon" class="check-icon">
+        <svg class="w-1 h-1 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+            <path fill-rule="evenodd" d="M2 12a10 10 0 1 1 20 0 10 10 0 0 1-20 0Zm13.7-1.3a1 1 0 0 0-1.4-1.4L11 12.6l-1.8-1.8a1 1 0 0 0-1.4 1.4l2.5 2.5c.4.4 1 .4 1.4 0l4-4Z" clip-rule="evenodd" />
+        </svg>
+
         <h2 class="center-text">Registeration Complete</h2>
         <p>Thank you for registering on Ezevent. You are almost done.</p>
         <p>Please note that your organization administrator will also need to approve your registration for you to use all available funtionallities in Ezevent</p>
