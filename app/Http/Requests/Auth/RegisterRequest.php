@@ -4,6 +4,7 @@ namespace App\Http\Requests\Auth;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Contracts\Validation\Validator;
+use Illuminate\Support\Facades\Log;
 
 class RegisterRequest extends FormRequest
 {
@@ -20,9 +21,9 @@ class RegisterRequest extends FormRequest
     public function rules(): array
     {
 
-        return [
-            'first_name' => ['required', 'string', 'max:100'],
-            'last_name' => ['required', 'string', 'max:100'],
+        $rules = [
+            'first_name' => ['required', 'string', 'max:50', 'min:3'],
+            'last_name' => ['required', 'string', 'max:50', 'min:3'],
             'email' => ['required', 'string', 'lowercase', 'email', 'max:50', 'unique:users'],
             'password' => [
                 'required',
@@ -40,7 +41,26 @@ class RegisterRequest extends FormRequest
             'city' => ['required', 'string'],
             'zipcode' => ['required', 'string'],
         ];
+
+        if ($this->isFromLivewire()) {
+            $logMessage = json_decode(request()->toArray()['components'][0]['snapshot'], true);
+            request()->merge([
+                $logMessage['data']['fieldName'] => $logMessage['data']['newValue']
+            ]);
+            foreach ($rules as $key => $value) {
+                if ($key !== $logMessage['data']['fieldName']) {
+                    unset($rules[$key]);
+                }
+            }
+        }
+        return $rules;
     }
+
+    public function isFromLivewire(): bool
+    {
+        return request()->has('components');
+    }
+
 
     /**
      * Get the validation error messages.

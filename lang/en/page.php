@@ -4,6 +4,7 @@ return [
     'all_event' => 'All events',
     'event' => 'Events',
     'create_event' =>'Create Event',
+    'event_detail' => 'Event Detail',
     'search' =>'Search',
     'topic1'=> 'Start your first activity!',
     'paragraph1' => "Let's create your exclusive event with Ezevent. Many attendees will join :)",

@@ -6,7 +6,9 @@
         x-transition:enter-end="opacity-100 scale-100"
     >
         <!-- Display the current value -->
-        <x-forms.input-outline-primary @click="show = !show" name="{{ $fieldName }}" wire:model="value_show" classinput="cursor-pointer" readonly label="{{ $label_show }}" type="text" />
+        <x-forms.input-outline-primary 
+        value="{{ $value_show }}"
+        @click="show = !show" name="{{ $fieldName }}" wire:model="value_show" classinput="cursor-pointer" readonly label="{{ $label_show }}" type="text" />
     </div>
     <div x-show="show"
         x-transition:enter="transition ease-out duration-300"

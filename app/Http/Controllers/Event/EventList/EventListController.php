@@ -9,13 +9,18 @@ class EventListController extends Controller
 {
     public function __invoke(Request $request)
     {
+
+        $my_events = $request->user()->events()->paginate(10);
+
         $page_data = [
             'breadcrumbItems' => [
                 ['label' => 'Events', 'url' => route('create-event')],
                 ['label' => 'Create Event'],
-            ]
+            ],
+            'my_events' => $my_events,
         ];
         
-        return view('logged_in.event-list', compact('page_data'));
+        
+        return view('event.event-list', compact('page_data'));
     }
 }

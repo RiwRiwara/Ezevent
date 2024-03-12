@@ -9,11 +9,13 @@
     'isDisabled'    => false,
     'classinput'    => '',
     'isHighlight'   => false,
+    'isHaveReset'   => false,
 ])
 
 
-<div class="relative w-full">
+<div class="relative w-full" x-data="{ inputValue: '{{ $value }}' }"> 
     <input 
+        x-model="inputValue"
         type="{{ $type }}" 
         id="{{ $name }}" 
         name="{{ $name }}" 
@@ -22,14 +24,22 @@
         placeholder="{{ $placeholder }}" 
         {{$attributes}} 
         autocomplete="{{$autocomplete}}" 
-        class=" block px-2.5 pb-2.5 pt-2 w-full text-md text-gray-9 bg-gray-0 border-1
-                    rounded-lg  {{$isHighlight ? 'border-neutral-6 hover:border-neutral-7 border-2' : 'border-neutral-5 hover:border-primary-3'}}  appearance-none dark:text-white 
+        class=" block px-2.5 pb-2.5 pt-2 w-full text-md text-gray-9 bg-gray-0 border-2
+                    rounded-lg  {{$isHighlight ? 'border-neutral-6 hover:border-neutral-7 border-2' : 'border-neutral-3 hover:border-primary-3'}}  appearance-none dark:text-white 
                     dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none 
                     focus:ring-0 peer {{ $classinput }}
                     {{ $errors->has($name) ? 'bg-danger-0 border-danger-5 shake' : '' }} custom-input {{$isDisabled ? '' : ''}}" 
                     @if($isDisabled) disabled @endif
     />
 
+    @if($isHaveReset)
+    <button type="button" class="absolute inset-y-0 right-0 px-3 py-2 text-gray-600" x-on:click="inputValue = ''" >
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+    </button>
+    @endif
+    
     <label 
         for="{{ $name }}" 
         class=" absolute text-md text-gray-9 dark:text-gray-400 duration-300 transform -translate-y-4 

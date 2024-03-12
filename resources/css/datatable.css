@@ -1,0 +1,56 @@
+
+.data-table .row {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+  }
+  
+  .data-table .dataTable {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    
+  }
+  
+  .data-table .dataTable thead {
+    background-color: #f5f5f5;
+    color: #000;
+    font-weight: 600;
+  }
+  
+  .data-table .dataTable thead th {
+    padding: 10px 0;
+    text-align: left;
+  }
+  
+  .data-table .dataTable tbody tr {
+    border-bottom: 1px solid #f5f5f5;
+  }
+  
+  .data-table .dataTable tbody tr:last-child {
+    border-bottom: none;
+  }
+  
+  .data-table .dataTable tbody tr:hover {
+    background-color: #f5f5f5;
+  }
+  
+  .data-table .dataTable tbody td {
+    padding: 10px 0;
+    text-align: left;
+  }
+  
+  .data-table .dataTable tbody td:first-child {
+    padding-left: 10px;
+  }
+  
+  .data-table .dataTable tbody td:last-child {
+    padding-right: 10px;
+  }
+  
+  .data-table .dataTable tbody tr:hover {
+    background-color: #f5f5f5;
+  }
+  
+  
+  

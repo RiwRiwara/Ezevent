@@ -1,6 +1,9 @@
 <?php
 // en
 return [
+    'event' => 'Event',
+    'create_event' => 'Create Event',
+    'add_type' => 'Seelct Event Type',
     'detail' => 'Detail',
     'event_name' => 'Event Name',
     'select_type' => 'Select Type',
@@ -38,6 +41,19 @@ return [
         'leadership' => 'Leadership skills ',
         'knowledge' => 'Knowledge skills ',
         'professional' => 'Professional skills ',
-    ]
+    ],
+    'status' => [
+        'Draft' => 'Draft',
+        'Published' => 'Published',
+        'Cancelled' => 'Cancelled',
+        'Archived' => 'Archived',
+    ],
+    'phase' => [
+        'Initial' => 'Initial',
+        'Upcoming' => 'Upcoming',
+        'Ongoing' => 'Ongoing',
+        'Reviewing' => 'Reviewing',
+        'Completed' => 'Completed',
+    ],
 
 ];
