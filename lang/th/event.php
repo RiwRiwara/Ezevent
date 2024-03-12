@@ -48,6 +48,14 @@ return [
         'Cancelled' => 'ยกเลิก',
         'Archived' => 'เก็บถาวร',
     ],
+    'phase' => [
+        'Initial' => 'เริ่มต้น',
+        'Upcoming' => 'เร็วๆนี้',
+        'Ongoing' => 'กำลังดำเนินการ',
+        'Reviewing' => 'กำลังตรวจสอบ',
+        'Completed' => 'เสร็จสิ้น',
+    ],
+    
 
 
 ];

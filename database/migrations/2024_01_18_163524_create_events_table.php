@@ -12,13 +12,18 @@ return new class extends Migration
             // information
             $table->id(); 
             $table->string('event_id')->unique();
-            $table->string('event_name')->nullable(); 
-            $table->string('description')->nullable();
+            $table->string('event_name', 144)->nullable()->unique(); 
             $table->string('categories')->nullable(); // 1, 2
 
             // Contact
             $table->string('contact_email', 50)->nullable();
             $table->string('contact_phone', 15)->nullable();
+            $table->string('facebook')->nullable();
+            $table->string('twitter')->nullable();
+            $table->string('instagram')->nullable();
+            $table->string('line')->nullable();
+            $table->string('website')->nullable();
+
             
             // Date
             $table->enum('event_time', ['announce_after', 'specific'])->nullable();
@@ -44,13 +49,25 @@ return new class extends Migration
             $table->boolean('is_specific_date')->nullable()->default(false);
             $table->boolean('is_online')->nullable()->default(false);
             $table->boolean('is_deleted')->nullable()->default(false);
-            
+
+            // Rule
+            $table->integer('age_require')->nullable();
+            $table->integer('limit_participant')->nullable();
 
             // Organizer
             $table->string('organizer_id'); 
 
             // Image
             $table->string('thumbnail')->nullable();
+            $table->string('banner_image')->nullable();
+
+
+            // Appearance
+            $table->string('content')->nullable();
+            $table->string('banner_text_bg')->nullable()->default('#000');
+            $table->string('banner_text_color')->nullable()->default('#fff');
+            $table->string('content-theme')->nullable()->default('light');
+
 
             $table->timestamps();
         });

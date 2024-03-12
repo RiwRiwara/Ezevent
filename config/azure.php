@@ -16,8 +16,23 @@ return [
     'containers' => [
         'userprofile' => env('APP_ENV') === 'local' ? 'testprofileimgs' : 'profileimgs',
         'subimgs' => env('APP_ENV') === 'local' ? 'testsubimgs' : 'subimgs',
-        'eventimgs' => env('APP_ENV') === 'local' ? 'testtesteventimgs' : 'testeventimgs',
+        'eventimgs' => env('APP_ENV') === 'local' ? 'testeventimgs' : 'eventimgs',
         'formimgs' => env('APP_ENV') === 'local' ? 'testformimgs' : 'formimgs',
+    ],
+
+    'default_img' => [
+        'userprofile' => 'https://ezeventstorage.blob.core.windows.net/testprofileimgs/default_thumnail.png',
+        'event' => 'https://ezeventstorage.blob.core.windows.net/testprofileimgs/default_event.png',
+        'event_thumbnail' => 'https://ezeventstorage.blob.core.windows.net/testprofileimgs/default_thumnail.png',
+        'event_banner' => 'https://ichef.bbci.co.uk/news/976/cpsprodpb/AEF6/production/_126709744_c66798edc6ea30838d4af96c1060a8cce4ab180f-1.jpg.webp',
+
+    
+    ],
+    'image' =>[
+        'userprofile' => env('AZURE_STORAGE_BASE_URL').'/'.(env('APP_ENV') === 'local' ? 'testprofileimgs' : 'profileimgs'),
+        'subimgs' => env('AZURE_STORAGE_BASE_URL').'/'.(env('APP_ENV') === 'local' ? 'testsubimgs' : 'subimgs'),
+        'eventimgs' => env('AZURE_STORAGE_BASE_URL').'/'.(env('APP_ENV') === 'local' ? 'testeventimgs' : 'eventimgs'),
+        'formimgs' => env('AZURE_STORAGE_BASE_URL').'/'.(env('APP_ENV') === 'local' ? 'testformimgs' : 'formimgs'),
     ],
 
 

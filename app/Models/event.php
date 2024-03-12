@@ -36,7 +36,6 @@ class Event extends Model
     protected $fillable = [
         'event_id',
         'event_name',
-        'description',
         'categories',
         'contact_email',
         'contact_phone',
@@ -59,7 +58,22 @@ class Event extends Model
         'is_specific_date',
         'is_online',
         'organizer_id',
+        'facebook',
+        'twitter',
+        'instagram',
+        'line',
+        'website',
+        'age_require',
+        'limit_participant',
+
+        'content',
+        'banner_text_bg',
+        'banner_text_color',
+        'content_theme',
+        'banner_image',
         'thumbnail',
+
+
     ];
 
     public function getStatusColor()
@@ -88,7 +102,7 @@ class Event extends Model
     {
         return Carbon::parse($this->date_end)->timezone('Asia/Bangkok')->format('M d, Y');
     }
-    
+
     public function getTimeStart()
     {
         return Carbon::parse($this->time_start)->timezone('Asia/Bangkok')->format('H:i');
@@ -101,8 +115,26 @@ class Event extends Model
 
     public function getThumbnail()
     {
-        $thumbnail_url = config('azure.base_url')."/" . config('azure.containers.eventimgs') . $this->thumbnail;
+        $banner_image_url = config('azure.image.eventimgs') . '/' . $this->banner_image;
+        return $this->banner_image ? $banner_image_url : config('azure.default_img.event_banner');
+    }
 
-        return $this->thumbnail ? $thumbnail_url : 'https://ezeventstorage.blob.core.windows.net/testprofileimgs/default_thumnail.png';
+    public function getCategoriesForShow()
+    {
+        $event_types = $this->categories;
+        $event_types = explode(',', $event_types);
+
+        $event_types = collect($event_types)->map(function ($event_type) {
+            return EventType::where('id', $event_type)->first()->name_en;
+        });
+
+        return $event_types->implode(', ');
+    }
+
+    public function getBannerImage()
+    {
+        $banner_image_url = config('azure.image.eventimgs') . '/' . $this->banner_image;
+
+        return $this->banner_image ? $banner_image_url : config('azure.default_img.event_banner');
     }
 }

@@ -10,7 +10,7 @@ class EventListController extends Controller
     public function __invoke(Request $request)
     {
 
-        $my_events = $request->user()->events()->get();
+        $my_events = $request->user()->events()->paginate(10);
 
         $page_data = [
             'breadcrumbItems' => [

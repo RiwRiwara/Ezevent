@@ -36,7 +36,7 @@
                 </form>
             </div>
 
-            @if ($page_data['my_events']->count() < 0) 
+            @if ($page_data['my_events']->count() == 0)
             <div class="mt-10 flex flex-col items-center justify-center gap-4b ">
                 <div class="text-neutral-9">
                     <svg xmlns="http://www.w3.org/2000/svg" width="150" height="130" fill="currentColor" class="bi bi-calendar2-event-fill" viewBox="0 0 16 16">
@@ -50,68 +50,81 @@
                 <x-button.neutral name="create-event">
                     {{__('page.create_event')}}
                 </x-button.neutral>
+            </div>
+            @else
+            <div class="relative overflow-x-auto shadow-md sm:rounded-lg my-3">
+
+                <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400 ">
+                    <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                        <tr>
+                            <th scope="col" class="bg-neutral-8 text-white px-3 py-2">
+                                <span class="sr-only">Image</span>
+                            </th>
+                            <th scope="col" class="bg-neutral-9 text-white px-6 py-3">
+                                Event Name
+                            </th>
+                            <th scope="col" class="bg-neutral-8 text-white px-6 py-3">
+                                Event Date & Time
+                            </th>
+                            <th scope="col" class="bg-neutral-9 text-white px-6 py-3">
+                                Phase
+                            </th>
+                            <th scope="col" class="bg-neutral-8 text-white px-6 py-3">
+                                Status
+                            </th>
+                            <th scope="col" class="bg-neutral-9 text-white px-6 py-3">
+                                <span class="sr-only">Edit</span>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($page_data['my_events'] as $event)
+
+                        <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+
+                            <td class="px-3 py-4">
+                                <img class="h-24 w-20 rounded-md" src="{{$event->getThumbnail()}}" alt="">
+                            </td>
+                            <th scope="row" class="px-6 py-4 font-semibold text-neutral-9 whitespace-nowrap dark:text-white text-lg">
+                                {{ mb_strlen($event->event_name) > 30 ? mb_substr($event->event_name, 0, 30) . '...' : $event->event_name }}
+                            </th>
+
+                            <td class="px-6 py-4 text-lg">
+                                {{$event->getDateStart()}} - {{$event->getDateEnd()}}
+                            </td>
+                            <td class="px-6 py-4 font-bold text-lg">
+                                <div class="flex items-center">
+                                    <span class="h-2.5 w-2.5 rounded-full {{$event->getStatusColor()}} me-2 animate-pulse"></span>
+                                    {{ __('event.status.'.$event->event_status) }}
+                                </div>
+                            </td>
+                            <td class="px-6 py-4 font-bold text-lg">
+                                <div class="flex items-center">
+                                    <span class="h-2.5 w-2.5 rounded-full {{$event->getStatusColor()}} me-2 animate-pulse"></span>
+                                    {{ __('event.phase.'.$event->event_phase) }}
+                                </div>
+                            </td>
+                            <td class="px-6 py-4 text-right">
+                                <x-button.btn-common name="view" type="link" href="{{route('event-detail', ['event_id' => $event->event_id])}}">
+                                    View
+                                </x-button.btn-common>
+                            </td>
+                        </tr>
+                        @endforeach
+
+                    </tbody>
+
+                </table>
+
+                <div class="mt-5">
+                    {{ $page_data['my_events']->links() }}
+                </div>
+            </div>
+
+
+            @endif
+
         </div>
-        @else 
-        <div class="relative overflow-x-auto shadow-md sm:rounded-lg my-3">
-
-            <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400 ">
-                <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-                    <tr>
-                        <th scope="col" class="bg-neutral-9 text-white px-3 py-2">
-                            <span class="sr-only">Image</span>
-                        </th>
-                        <th scope="col" class="bg-neutral-9 text-white px-6 py-3">
-                            Event Name
-                        </th>
-                        <th scope="col" class="bg-neutral-9 text-white px-6 py-3">
-                            Event Date & Time
-                        </th>
-                        <th scope="col" class="bg-neutral-9 text-white px-6 py-3">
-                            Status
-                        </th>
-                        <th scope="col" class="bg-neutral-9 text-white px-6 py-3">
-                            <span class="sr-only">Edit</span>
-                        </th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach ($page_data['my_events'] as $event)
-
-                    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-
-                        <td class="px-3 py-4">
-                            <img class="h-24 w-20 rounded-md" src="{{$event->getThumbnail()}}" alt="">
-                        </td>
-
-                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                            {{ $event->event_name }}
-                        </th>
-                        <td class="px-6 py-4">
-                            {{$event->getDateStart()}} - {{$event->getDateEnd()}}
-                        </td>
-                        <td class="px-6 py-4">
-                            <div class="flex items-center">
-                                <div class="h-2.5 w-2.5 rounded-full {{$event->getStatusColor()}} me-2"></div>
-                                {{ __('event.status.'.$event->event_status) }}
-                            </div>
-                        </td>
-                        <td class="px-6 py-4 text-right">
-                            <x-button.btn-common name="view" type="link" href="{{route('event-detail', ['event_id' => $event->event_id])}}">
-                                View
-                            </x-button.btn-common>
-                        </td>
-                    </tr>
-                    @endforeach
-
-                </tbody>
-
-            </table>
-        </div>
-
-
-        @endif
-
-    </div>
     </div>
 
 

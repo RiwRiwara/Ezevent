@@ -31,12 +31,12 @@
                 @csrf
                 <div class="mt-2">
                     <x-forms.input-outline-primary name="email" label="{{__('field_name.email')}}" type="email"
-                        required />
+                        required autocomplete="off" />
                 </div>
 
                 <div class="mt-2">
                     <x-forms.input-outline-primary-password name="password" label="{{__('field_name.password')}}"
-                        type="password" required />
+                        type="password" required autocomplete="new-password" />
                 </div>
 
                 <x-button.primary type="submit" innerHtml="{{__('field_name.login')}}" id="loginButton" />

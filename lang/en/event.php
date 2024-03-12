@@ -48,5 +48,12 @@ return [
         'Cancelled' => 'Cancelled',
         'Archived' => 'Archived',
     ],
+    'phase' => [
+        'Initial' => 'Initial',
+        'Upcoming' => 'Upcoming',
+        'Ongoing' => 'Ongoing',
+        'Reviewing' => 'Reviewing',
+        'Completed' => 'Completed',
+    ],
 
 ];

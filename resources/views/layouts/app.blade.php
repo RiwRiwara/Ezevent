@@ -20,7 +20,11 @@
 
 </head>
 
+
 <body class="antialiased ">
+    <div class="loading-spinner-container" id="loading-spinner">
+        <div class="loading-spinner"></div>
+    </div>
     <div class="min-h-screen bg-gray-0 dark:bg-gray-900">
 
         @include('components.sidebar')
@@ -38,11 +42,6 @@
         <main class="md:ms-10 fade-in">
             {{ $slot }}
         </main>
-
-
-
-        
-        
     </div>
     <footer class="bg-white rounded-lg shadow dark:bg-gray-900 m-4">
         <div class="w-full max-w-screen-xl mx-auto p-4 md:py-8">
@@ -54,6 +53,15 @@
     @stack('scripts')
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.js"></script>
 
+    <script>
+        window.onload = function() {
+
+            document.getElementById('loading-spinner').style.display = 'none';
+            setTimeout(function() {
+                partialsDetail.style.opacity = '1';
+            }, 100);
+        };
+    </script>
 </body>
 
 </html>

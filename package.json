@@ -28,6 +28,7 @@
     "dependencies": {
         "@sweetalert2/theme-material-ui": "^5.0.16",
         "chart.js": "^4.4.1",
+        "quill": "^2.0.0-rc.2",
         "sweetalert2": "^11.10.6",
         "tailwindcss-animated": "^1.0.1"
     }

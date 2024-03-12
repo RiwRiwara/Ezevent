@@ -23,14 +23,30 @@ class PreCreateRequest extends FormRequest
      */
     public function rules(): array
     {
-        return [
+        $rules = [
             'event_name' => 'required|string|max:144',
             'event_time' => 'required|string|in:announce_after,specific',
             'venue' => 'required|string|in:venue,online',
 
         ];
+        if ($this->isFromLivewire()) {
+            $logMessage = json_decode(request()->toArray()['components'][0]['snapshot'], true);
+            request()->merge([
+                $logMessage['data']['fieldName'] => $logMessage['data']['newValue']
+            ]);
+            foreach ($rules as $key => $value) {
+                if ($key !== $logMessage['data']['fieldName']) {
+                    unset($rules[$key]);
+                }
+            }
+        }
+        return $rules;
     }
 
+    public function isFromLivewire(): bool
+    {
+        return request()->has('components');
+    }
 
 
     /**
@@ -52,8 +68,8 @@ class PreCreateRequest extends FormRequest
             'venue.in' => 'Venue must be either venue or online',
         ];
     }
-    
-    
+
+
     protected function failedValidation(Validator $validator)
     {
         if ($this->expectsJson()) {
@@ -68,6 +84,4 @@ class PreCreateRequest extends FormRequest
         toastr()->AddError($validator->errors()->first());
         parent::failedValidation($validator);
     }
-    
-
 }

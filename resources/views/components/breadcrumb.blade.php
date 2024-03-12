@@ -11,10 +11,16 @@
           <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4" />
         </svg>
         @endif
+        @php
+            $label = $item['label'];
+            if (mb_strlen($label) > 30) {
+                $label = mb_substr($label, 0, 30) . '...';
+            }
+        @endphp
         @if(isset($item['url']))
-        <a href="{{ $item['url'] }}" class="ms-1 text-sm font-medium text-neutral-9  hover:scale-110 md:ms-2 dark:text-gray-4 dark:hover:text-white duration-300">{{ $item['label'] }}</a>
+        <a href="{{ $item['url'] }}" class="ms-1 text-sm font-medium text-neutral-9  hover:scale-110 md:ms-2 dark:text-gray-4 dark:hover:text-white duration-300">{{ $label }}</a>
         @else
-        <span class="ms-1 text-sm font-medium text-gray-5 md:ms-2 dark:text-gray-4">{{ $item['label'] }}</span>
+        <span class="ms-1 text-sm font-medium text-gray-5 md:ms-2 dark:text-gray-4">{{ $label }}</span>
         @endif
       </div>
     </li>

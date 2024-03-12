@@ -1,7 +1,6 @@
 @props(['name' => 'richtext', 'label' => ''])
 
 <div class="">
-    <link href="/styles.css" rel="stylesheet" />
     <link href="https://cdn.jsdelivr.net/npm/quill@2.0.0-rc.2/dist/quill.snow.css" rel="stylesheet" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/quill@2.0.0-rc.2/dist/quill.js"></script>
@@ -9,7 +8,7 @@
     <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" />
 
-    <div id="toolbar-container">
+    <div id="toolbar-container" class="rounded-md">
         <span class="ql-formats">
             <select class="ql-font"></select>
             <select class="ql-size"></select>
@@ -62,7 +61,7 @@
                 syntax: true,
                 toolbar: '#toolbar-container',
             },
-            placeholder : 'Write your content here...',
+            placeholder: 'Write your content here...',
             theme: 'snow',
         });
     </script>
