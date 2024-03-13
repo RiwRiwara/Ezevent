@@ -11,16 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('forms', function (Blueprint $table) {
+        Schema::create('event_collaborators', function (Blueprint $table) {
             $table->id();
-            $table->string('form_id')->unique()->default(uniqid('form_')); 
-            $table->string('event_id'); 
-            $table->enum('form_type', ['All', 'Staff', 'Participants']);
-
-            $table->string('form_title');
-            $table->string('form_description');
-
-            $table->string('status'); 
+            $table->string('event_collaborator_id')->unique()->default(uniqid('event_collaborator_'));
+            $table->string('event_id');
+            $table->string('user_id');
             $table->timestamps();
         });
     }
@@ -30,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('forms');
+        Schema::dropIfExists('event_collaborators');
     }
 };

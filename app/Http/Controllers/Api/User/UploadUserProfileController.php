@@ -19,6 +19,7 @@ class UploadUserProfileController extends Controller
     }
     public function __invoke(Request $request)
     {
+        return $this->uploadUserProfile($request);
     }
 
     public function uploadUserProfile(Request $request)

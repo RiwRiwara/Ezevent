@@ -12,7 +12,7 @@ class CreateEventPageController extends Controller
 
         $page_data = [
             'breadcrumbItems' => [
-                ['label' => __('event.event'), 'url' => route('create-event')],
+                ['label' => __('event.event'), 'url' => route('event-list')],
                 ['label' => __('event.create_event')],
             ],
             'event_types' => \App\Models\EventType::all(),

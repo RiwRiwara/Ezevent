@@ -12,15 +12,14 @@ use Laravel\Sanctum\HasApiTokens;
 class User extends Authenticatable  implements MustVerifyEmail
 {
     use HasApiTokens, HasFactory, Notifiable;
-    
+    public $table = 'users';
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array<int, string>
-     */
+    const ROLE_ADMIN = 1;
+    const ROLE_ORGANIZER = 2;
+    const ROLE_PARTICIPANT = 3;
+
     protected $fillable = [
-        'user_id', // 'user_id' => Str::uuid(),
+        'user_id',
         'first_name',
         'last_name',
         'mobile_number',
@@ -44,7 +43,6 @@ class User extends Authenticatable  implements MustVerifyEmail
         'sub_img_1',
         'sub_img_2',
         'sub_img_3',
-        
     ];
 
     /**
@@ -71,7 +69,6 @@ class User extends Authenticatable  implements MustVerifyEmail
     {
         return $this->belongsTo(Role::class);
     }
-    
 
 
     public function events()
@@ -79,8 +76,9 @@ class User extends Authenticatable  implements MustVerifyEmail
         return $this->hasMany(Event::class, 'organizer_id', 'user_id');
     }
 
-    
-
-
-    
+    public function activeEvents()
+    {
+        return $this->hasMany(Event::class, 'organizer_id', 'user_id')
+            ->where('is_deleted', false);
+    }
 }

@@ -20,7 +20,7 @@ class EventDetailController extends Controller
 
         $page_data = [
             'breadcrumbItems' => [
-                ['label' => 'Events', 'url' => route('create-event')],
+                ['label' => 'Events', 'url' => route('event-list')],
                 ['label' => $event->event_name],
             ],
             'event_types' => \App\Models\EventType::all(),

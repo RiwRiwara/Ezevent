@@ -65,6 +65,7 @@ class Event extends Model
         'website',
         'age_require',
         'limit_participant',
+        'limit_staff',
 
         'content',
         'banner_text_bg',
@@ -72,6 +73,10 @@ class Event extends Model
         'content_theme',
         'banner_image',
         'thumbnail',
+
+        'is_deleted',
+        'deleted_by',
+        'deleted_type',
 
 
     ];
@@ -136,5 +141,10 @@ class Event extends Model
         $banner_image_url = config('azure.image.eventimgs') . '/' . $this->banner_image;
 
         return $this->banner_image ? $banner_image_url : config('azure.default_img.event_banner');
+    }
+
+    public function getOrganizer()
+    {
+        return User::where('user_id', $this->organizer_id)->first();
     }
 }
