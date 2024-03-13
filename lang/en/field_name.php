@@ -41,4 +41,7 @@ return [
     'have_account' => 'Already have an account?',
     'create_account' => 'Create an account',
 
+    'policy1' => 'I am at least 13 years old and agree to',
+    'policy2' => 'EZEVENT Terms of Use Agreement',
+
 ];

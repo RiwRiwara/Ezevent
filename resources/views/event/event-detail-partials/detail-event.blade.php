@@ -4,7 +4,7 @@
         <div class="  ">
 
             <h1 class="text-2xl text-center font-bold mb-4 mt-2 text-neutral-8">
-                Event Setting
+                {{__("event.menu-event.menu-event2")}}
             </h1>
 
 
@@ -166,32 +166,32 @@
             </form>
 
             <div class="p-3 rounded-lg my-5 border-2 border-gray-1">
-                <a class="text-lg font-bold text-neutral-9 mb-3">Contact Information</a>
+                <a class="text-lg font-bold text-neutral-9 mb-3">{{__('event.eventdetail_page.contact_info')}}</a>
 
                 <div class="mt-3 flex flex-col gap-3">
-                    <livewire:event-editable-field fieldName="contact_email" label_show="{{__('event.contact_email')}}" oldValue="{{$event->contact_email ?? auth()->user()->email}}" item_id="{{$event->event_id}}" />
-                    <livewire:event-editable-field fieldName="contact_phone" label_show="{{__('event.contact_phone')}}" oldValue="{{$event->contact_phone ?? auth()->user()->mobile_number}}" item_id="{{$event->event_id}}" />
+                    <livewire:event-editable-field fieldName="contact_email" label_show="{{__('event.eventdetail_page.contact_email')}}" oldValue="{{$event->contact_email ?? auth()->user()->email}}" item_id="{{$event->event_id}}" />
+                    <livewire:event-editable-field fieldName="contact_phone" label_show="{{__('event.eventdetail_page.contact_phone')}}" oldValue="{{$event->contact_phone ?? auth()->user()->mobile_number}}" item_id="{{$event->event_id}}" />
                 </div>
             </div>
 
             <div class="p-3 rounded-lg my-5 border-2 border-gray-1">
-                <h1 class="text-lg font-bold text-neutral-9 mb-3">Website & Social Media</h1>
+                <h1 class="text-lg font-bold text-neutral-9 mb-3">{{__('event.eventdetail_page.social')}}</h1>
 
                 <div class="mt-3 flex flex-col gap-3">
-                    <livewire:event-editable-field fieldName="facebook" label_show="{{__('event.facebook')}}" oldValue="{{$event->facebook}}" item_id="{{$event->event_id}}" />
-                    <livewire:event-editable-field fieldName="instagram" label_show="{{__('event.instagram')}}" oldValue="{{$event->instagram}}" item_id="{{$event->event_id}}" />
-                    <livewire:event-editable-field fieldName="twitter" label_show="{{__('event.twitter')}}" oldValue="{{$event->twitter}}" item_id="{{$event->event_id}}" />
-                    <livewire:event-editable-field fieldName="line" label_show="{{__('event.line')}}" oldValue="{{$event->line}}" item_id="{{$event->event_id}}" />
-                    <livewire:event-editable-field fieldName="website" label_show="{{__('event.website')}}" oldValue="{{$event->website}}" item_id="{{$event->event_id}}" />
+                    <livewire:event-editable-field fieldName="facebook" label_show="{{__('event.eventdetail_page.facebook')}}" oldValue="{{$event->facebook}}" item_id="{{$event->event_id}}" />
+                    <livewire:event-editable-field fieldName="instagram" label_show="{{__('event.eventdetail_page.instagram')}}" oldValue="{{$event->instagram}}" item_id="{{$event->event_id}}" />
+                    <livewire:event-editable-field fieldName="twitter" label_show="{{__('event.eventdetail_page.twitter')}}" oldValue="{{$event->twitter}}" item_id="{{$event->event_id}}" />
+                    <livewire:event-editable-field fieldName="line" label_show="{{__('event.eventdetail_page.line')}}" oldValue="{{$event->line}}" item_id="{{$event->event_id}}" />
+                    <livewire:event-editable-field fieldName="website" label_show="{{__('event.eventdetail_page.website')}}" oldValue="{{$event->website}}" item_id="{{$event->event_id}}" />
                 </div>
             </div>
 
             <div class="p-3 rounded-lg my-5 border-2 border-gray-1">
-                <h1 class="text-lg font-bold text-neutral-9 mb-3">Delete Event</h1>
+                <h1 class="text-lg font-bold text-neutral-9 mb-3">{{__('event.eventdetail_page.delete_event')}}</h1>
 
                 <div class="mt-3 flex flex-col gap-3">
                     <p>
-                        {{__('event.delete_desc')}}
+                        {{__('event.eventdetail_page.delete_desc')}}
                     </p>
                     <div class="flex justify-end mt-3">
                         <x-button.btn-neutral type="button" btnType="danger">

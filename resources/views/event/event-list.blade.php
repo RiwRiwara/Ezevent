@@ -61,16 +61,18 @@
                                 <span class="sr-only">Image</span>
                             </th>
                             <th scope="col" class="bg-neutral-9 text-white px-6 py-3">
-                                Event Name
+                                {{__('event.event_name')}}
                             </th>
                             <th scope="col" class="bg-neutral-8 text-white px-6 py-3">
-                                Event Date & Time
+                                {{__('event.datetime')}}
                             </th>
                             <th scope="col" class="bg-neutral-9 text-white px-6 py-3">
-                                Phase
+                                {{ __('event.phase.set') }}
+
                             </th>
                             <th scope="col" class="bg-neutral-8 text-white px-6 py-3">
-                                Status
+                                {{ __('event.status.Status') }}
+
                             </th>
                             <th scope="col" class="bg-neutral-9 text-white px-6 py-3">
                                 <span class="sr-only">Edit</span>
@@ -106,7 +108,7 @@
                             </td>
                             <td class="px-6 py-4 text-right">
                                 <x-button.btn-common name="view" type="link" href="{{route('event-detail', ['event_id' => $event->event_id])}}">
-                                    View
+                                {{ __('page.view') }}
                                 </x-button.btn-common>
                             </td>
                         </tr>

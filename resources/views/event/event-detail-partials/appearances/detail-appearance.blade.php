@@ -1,7 +1,7 @@
 <div class="max-w-7xl mx-auto sm:px-4 lg:px-8">
     <div class="flex flex-col justify-center text-center">
         <h1 class="text-4xl text-center font-bold mb-4 mt-2 text-neutral-8">
-            Appearance
+            {{__("event.menu-event.menu-event4")}}
         </h1>
         <p>
             This is the appearance of the event screen is will show in mobile app.
@@ -22,7 +22,7 @@
                         <img id="banner_image_preview" class="rounded-lg object-cover" style="height: 600px;width: 430;" src="{{$event->getBannerImage()}}" alt="image description">
                     </a>
                     <figcaption class="absolute px-4 py-3 text-lg text-bold text-white bottom-0.5 opacity-80 w-full" id="banner_title" 
-                    style="background-color: {{$event->banner_text_bg}};color: {{$event->banner_text_color}};">
+                    style="background-color: {{$event->banner_text_bg}}; color: {{$event->banner_text_color}};">
                         <p class="font-semibold text-sm mb-0.5">
                             {{$event->getCategoriesForShow()}}
                         </p>

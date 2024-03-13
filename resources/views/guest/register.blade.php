@@ -56,9 +56,9 @@
             <x-forms.checkbox name="submit_agreement" label="{{__('')}}" />
           </div>
           <span>
-            ฉันมีอายุอย่างน้อย 13 ปีขึ้นไปและยอมรับ
+          {{__('field_name.policy1')}}
             <a class="text-primary-9 underline cursor-pointer" data-modal-target="privacy_agreement" data-modal-toggle="privacy_agreement">
-              {{__('ข้อตกลงเงื่อนไขการใช้งาน EZEVENT')}}
+            {{__('field_name.policy2')}}
             </a>
           </span>
         </div>

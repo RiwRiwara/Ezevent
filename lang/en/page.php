@@ -42,5 +42,11 @@ return [
     'save_phase' => 'Save phase',
     'create_qr' => 'Create QR-code',
 
+    'view' => 'View',
+
+    
+    'published' => 'publish',
+
+
     
 ];
