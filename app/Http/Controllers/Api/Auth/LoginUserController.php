@@ -46,8 +46,8 @@ class LoginUserController extends Controller
         $token = $request->user()->createToken('authToken', ['role:participant'], now()->addDay());
         return response()->json([
             'message' => 'You have been logged in',
-            'user' => new UserResource($user),
-            'token' => $token->plainTextToken
+            'token' => $token->plainTextToken,
+            'user' => new UserResource($user)
         ]);
     }
 
