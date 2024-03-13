@@ -85,7 +85,7 @@
                         <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
 
                             <td class="px-3 py-4">
-                                <img class="h-24 w-20 rounded-md" src="{{$event->getThumbnail()}}" alt="">
+                                <img class="h-24 w-20 rounded-md object-cover" src="{{$event->getThumbnail()}}" alt="">
                             </td>
                             <th scope="row" class="px-6 py-4 font-semibold text-neutral-9 whitespace-nowrap dark:text-white text-lg">
                                 {{ mb_strlen($event->event_name) > 30 ? mb_substr($event->event_name, 0, 30) . '...' : $event->event_name }}

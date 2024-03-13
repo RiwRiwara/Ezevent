@@ -12,7 +12,8 @@ Route::get('/check-php-extensions', function () {
         'openssl' => 'php_openssl',
         'xsl' => 'php_xsl',
         'curl' => 'php_curl',
-        'gd' => 'GD'
+        'gd' => 'GD',
+        'zip' => 'ZipArchive',
     ];
 
     $results = [];

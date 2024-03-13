@@ -21,8 +21,7 @@
                     <a href="#">
                         <img id="banner_image_preview" class="rounded-lg object-cover" style="height: 600px;width: 430;" src="{{$event->getBannerImage()}}" alt="image description">
                     </a>
-                    <figcaption class="absolute px-4 py-3 text-lg text-bold text-white bottom-0.5 opacity-80 w-full" id="banner_title" 
-                    style="background-color: {{$event->banner_text_bg}}; color: {{$event->banner_text_color}};">
+                    <figcaption class="absolute px-4 py-3 text-lg text-bold text-white bottom-0.5 opacity-80 w-full" id="banner_title" style="background-color: {{$event->banner_text_bg}} ;color: {{$event->banner_text_color}};">
                         <p class="font-semibold text-sm mb-0.5">
                             {{$event->getCategoriesForShow()}}
                         </p>
@@ -102,8 +101,21 @@
 
     </div>
 
-    <x-forms.rich-text name="appearance" value="{{$event->appearance}}" label="Appearance" />
+    <form action="{{route('event-detail-content-update', $event->event_id)}}" method="POST" class="flex flex-col gap-4 mt-10 rounded-lg my-5 border-2 border-gray-1 p-2">
+        @csrf
+        <h1 class="text-xl text-center font-bold mb-3 mt-2 text-neutral-8">
+            <a onclick="smoothScroll('#banner')"># Event Content</a>
+        </h1>
+        <x-forms.rich-text name="content" value="{{$event->content}}" label="content" />
+        <div class="flex justify-end ">
+            <x-button.btn-neutral type="submit">
+                {{__('event.save')}}
+            </x-button.btn-neutral>
+        </div>
+    </form>
+
     <script>
+
         function handleColorChange(from, targetId, color) {
             if (from === 'text-bg-color') {
                 document.getElementById(targetId).style.backgroundColor = color
@@ -111,9 +123,7 @@
                 document.getElementById(targetId).style.color = color
             }
         }
-    </script>
 
-    <script>
         function previewImage(event) {
             const input = event.target;
             const file = input.files[0];

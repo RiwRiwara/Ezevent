@@ -186,27 +186,9 @@
                 </div>
             </div>
 
-            <div class="p-3 rounded-lg my-5 border-2 border-gray-1">
-                <h1 class="text-lg font-bold text-neutral-9 mb-3">{{__('event.eventdetail_page.delete_event')}}</h1>
-
-                <div class="mt-3 flex flex-col gap-3">
-                    <p>
-                        {{__('event.eventdetail_page.delete_desc')}}
-                    </p>
-                    <div class="flex justify-end mt-3">
-                        <x-button.btn-neutral type="button" btnType="danger">
-                            {{__('event.delete')}}
-                        </x-button.btn-neutral>
-                    </div>
-
-
-                </div>
-
-            </div>
+            @include('event.event-detail-partials.sub-components.delete-event-form')
 
         </div>
-
-
     </div>
 </div>
 

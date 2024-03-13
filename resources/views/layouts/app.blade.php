@@ -57,9 +57,6 @@
         window.onload = function() {
 
             document.getElementById('loading-spinner').style.display = 'none';
-            setTimeout(function() {
-                partialsDetail.style.opacity = '1';
-            }, 100);
         };
     </script>
 </body>

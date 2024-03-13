@@ -17,7 +17,7 @@ class GetUserByIdController extends Controller
 
     public function __invoke(Request $request)
     {
-        return $this->getUserByID($request);
+        return $this->getUserByID($request->user_id);
     }
 
     public function getUserByID(string $user_id)
