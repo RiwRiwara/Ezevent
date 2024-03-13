@@ -5,6 +5,10 @@ namespace App\Http\Controllers\Api\Event;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Resources\EventResource;
+use App\Http\Resources\ApplicationResource;
+use Illuminate\Support\Facades\Log;
+use App\Http\Requests\Event\ParticipantApplicationRequest;
+
 
 class EventApiController extends Controller
 {
@@ -25,5 +29,26 @@ class EventApiController extends Controller
     public function getEventById(string $event_id)
     {
         return (new GetEventById())->getEventById($event_id);
+    }
+
+    /**
+     * Participant Application [T]
+     * 
+     * Allows a participant to apply for an event.
+     * 
+     * อนุญาตให้ผู้เข้าร่วมสมัครเข้าร่วมกิจกรรม
+     * 
+     * @param ParticipantApplicationRequest $request The request object containing the participant's application data.
+     * 
+     * @return ApplicationResource
+     * 
+     * @throws \Illuminate\Validation\ValidationException
+     */
+    
+    public function participantApplication(ParticipantApplicationRequest $request)
+    {
+        
+        return (new ParticipantApplication())->participantApplication($request);
+       
     }
 }

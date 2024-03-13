@@ -24,7 +24,7 @@ class PreCreateRequest extends FormRequest
     public function rules(): array
     {
         $rules = [
-            'event_name' => 'required|string|max:144',
+            'event_name' => ['required', 'string', 'max:144', 'unique:events,event_name'],
             'event_time' => 'required|string|in:announce_after,specific',
             'venue' => 'required|string|in:venue,online',
 

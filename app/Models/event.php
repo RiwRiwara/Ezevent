@@ -81,6 +81,17 @@ class Event extends Model
 
     ];
 
+
+    public function organizer()
+    {
+        return $this->belongsTo(User::class, 'organizer_id', 'user_id');
+    }
+
+    public function participants()
+    {
+        return $this->belongsToMany(User::class, 'event_participants', 'event_id', 'user_id');
+    }
+
     public function getStatusColor()
     {
         switch ($this->event_status) {

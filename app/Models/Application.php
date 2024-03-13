@@ -15,12 +15,16 @@ class Application extends Model
     const APPLICATION_STATUS_REJECTED = 'Rejected';
     const APPLICATION_STATUS_CANCELLED = 'Cancelled';
 
+    const APPLICATION_TYPE_PARTICIPANT = 'Participant';
+    const APPLICATION_TYPE_STAFF = 'Staff';
+
 
     protected $fillable = [
         'application_id',
         'user_id',
         'event_id',
         'form_id',
+        'type',
         'status',
         'message',
         'application_date',
@@ -41,6 +45,8 @@ class Application extends Model
     {
         return $this->belongsTo(Form::class, 'form_id', 'form_id');
     }
+
+    
 
     public function applicationStatusColor()
     {
