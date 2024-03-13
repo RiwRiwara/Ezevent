@@ -1,10 +1,10 @@
 <div class="max-w-7xl mx-auto sm:px-4 lg:px-8">
     <div class="flex flex-col justify-center text-center">
         <h1 class="text-4xl text-center font-bold mb-4 mt-2 text-neutral-8">
-            Appearance
+            {{__("event.menu-event.menu-event4")}}
         </h1>
         <p>
-            This is the appearance of the event screen is will show in mobile app.
+            {{__("event.appr_page.appr_info")}}
         </p>
     </div>
 
@@ -52,7 +52,7 @@
 
                 <div class="p-2 rounded-lg border-2 border-gray-1">
                     <a class="text-md font-bold text-neutral-9 mb-3">
-                        Banner image
+                        {{__("event.appr_page.banner_img")}}
                     </a>
                     <form action="{{route('event-detail-banner-image-upload', $event->event_id)}}" method="POST" class="mt-2 flex flex-col gap-3" enctype="multipart/form-data" id="banner_image_form">
                         @csrf
@@ -71,7 +71,8 @@
 
                     <div>
                         <a class="text-md font-bold text-neutral-9 mb-3">
-                            Text Background Color
+                        {{__("event.appr_page.bg_color")}}
+
                         </a>
                         <div class="mt-2 flex flex-col gap-3">
                             <x-forms.color-picker defaultValue="{{$event->banner_text_bg}}" name="text_background_color" from="text-bg-color" target_id="banner_title" />
@@ -80,7 +81,7 @@
 
                     <div>
                         <a class="text-md font-bold text-neutral-9 mb-3">
-                            Text Color
+                        {{__("event.appr_page.text_color")}}
                         </a>
                         <div class="mt-2 flex flex-col gap-3">
                             <x-forms.color-picker defaultValue="{{$event->banner_text_color}}" name="banner_text_color" from="text-color" target_id="banner_title" />
