@@ -29,11 +29,11 @@
 
         <div class="p-3 rounded-lg my-3 border-2 border-gray-1" >
             <a class="text-lg font-bold text-neutral-9 mb-3">
-                Limit Staff
+                {{__("event.rule_page.limit_staff")}}
             </a>
-            <p>{{__("event.rule_page.limit_info_part")}}</p>
+            <p>{{__("event.rule_page.limit_info_staff")}}</p>
             <div class="mt-3 flex flex-col gap-3">
-                <livewire:event-editable-field inputType="number" fieldName="limit_staff" label_show="{{__('event.limit_staff')}}" oldValue="{{$event->limit_staff}}" item_id="{{$event->event_id}}" />
+                <livewire:event-editable-field inputType="number" fieldName="limit_staff" label_show="{{__('event.rule_page.num_staff')}}" oldValue="{{$event->limit_staff}}" item_id="{{$event->event_id}}" />
             </div>
         </div>
 
