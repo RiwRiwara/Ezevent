@@ -16,11 +16,8 @@
                     <li class="">
 
                         <a href="{{ route('my-profile') }}" class="mt-2 rounded-full flex justify-center hover:scale-125 duration-300 delay-500 ease-in-out">
-                            <img class="h-10 w-10 rounded-full items-center {{ request()->is('my-profile') ? 'border-4 border-neutral-5' : '' }}" src="{{ 
-             auth()->user()->profile_img 
-             ? (config('azure.base_url') . '/' . config('azure.containers.userprofile') . '/' . auth()->user()->profile_img) 
-             : 'https://avatars.githubusercontent.com/u/35387401?v=4' 
-         }}" onerror="this.onerror=null; this.src='https://ezeventstorage.blob.core.windows.net/testprofileimgs/default_thumnail.png';" alt="" />
+                            <img class="h-10 w-10 rounded-full items-center {{ request()->is('my-profile') ? 'border-4 border-neutral-5' : '' }}" 
+                            src="{{ auth()->user()->profileImg()}}" alt="" />
                         </a>
 
                     </li>

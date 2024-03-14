@@ -26,11 +26,12 @@ class ParticipantApplication extends Controller
     public function participantApplication(ParticipantApplicationRequest $request)
     {
         $event = Event::where('event_id', $request->event_id)->first();
-        $user = User::where('user_id', $request->user_id)->first();
+        $user_id = auth()->user()->user_id;
+        $user = User::where('user_id', $user_id)->first();
 
 
         $existingApplication = Application::where('event_id', $event->event_id)
-            ->where('user_id', $user->user_id)
+            ->where('user_id', $user_id)
             ->first();
 
         if ($existingApplication) {
@@ -44,7 +45,7 @@ class ParticipantApplication extends Controller
             $application = Application::create([
                 'application_id' => uniqid('application_'),
                 'event_id' => $event->event_id,
-                'user_id' => $user->user_id,
+                'user_id' => $user_id,
                 'form_id' => $request->form_id ?? null,
                 'type' => $request->type,
                 'status' => 'pending',

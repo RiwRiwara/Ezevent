@@ -1,6 +1,6 @@
 <div class="max-w-7xl mx-auto sm:px-4 lg:px-8">
     <h1 class="text-2xl text-center font-bold mb-4 mt-2 text-neutral-8">
-    {{__("event.menu-event.menu-event5")}}
+        {{__("event.menu-event.menu-event5")}}
     </h1>
 
     <div class="flex flex-col gap-4">
@@ -67,23 +67,18 @@
             <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
                 <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                     <tr>
-                        <th scope="col" class="p-4">
-                            <div class="flex items-center">
-                                <input id="checkbox-all-search" type="checkbox" class="w-4 h-4 text-neutral-6 bg-gray-100 border-gray-300 rounded focus:ring-neutral-5 dark:focus:ring-neutral-6 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                                <label for="checkbox-all-search" class="sr-only">checkbox</label>
-                            </div>
+
+                        <th scope="col" class="px-6 py-3">
+                            Name
                         </th>
                         <th scope="col" class="px-6 py-3">
-                            Product name
+                            Position
                         </th>
                         <th scope="col" class="px-6 py-3">
-                            Color
+                            Status
                         </th>
                         <th scope="col" class="px-6 py-3">
-                            Category
-                        </th>
-                        <th scope="col" class="px-6 py-3">
-                            Price
+                            Application date
                         </th>
                         <th scope="col" class="px-6 py-3">
                             Action
@@ -91,146 +86,64 @@
                     </tr>
                 </thead>
                 <tbody>
+                    @if ($eventApplications->count() > 0)
+
+                    @foreach ($eventApplications as $application)
                     <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                        <td class="w-4 p-4">
-                            <div class="flex items-center">
-                                <input id="checkbox-table-search-1" type="checkbox" class="w-4 h-4 text-neutral-6 bg-gray-100 border-gray-300 rounded focus:ring-neutral-5 dark:focus:ring-neutral-6 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                                <label for="checkbox-table-search-1" class="sr-only">checkbox</label>
+
+                        <th scope="row" class="flex items-center px-6 py-4 text-gray-900 whitespace-nowrap dark:text-white">
+                            <img class="w-10 h-10 rounded-full" src="{{$application->user->profileImg()}}" alt="{{$application->user->first_nam}}">
+                            <div class="ps-3">
+                                <div class="text-base font-semibold">
+                                    {{ $application->user->first_name }} {{ $application->user->last_name }}
+                                </div>
+                                <div class="font-normal text-gray-500">
+                                    {{ $application->user->email }}
+                                </div>
                             </div>
-                        </td>
-                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                            Apple MacBook Pro 17"
                         </th>
                         <td class="px-6 py-4">
-                            Silver
-                        </td>
-                        <td class="px-6 py-4">
-                            Laptop
-                        </td>
-                        <td class="px-6 py-4">
-                            $2999
-                        </td>
-                        <td class="px-6 py-4">
-                            <a href="#" class="font-medium text-neutral-6 dark:text-neutral-5 hover:underline">Edit</a>
-                        </td>
-                    </tr>
-                    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                        <td class="w-4 p-4">
-                            <div class="flex items-center">
-                                <input id="checkbox-table-search-2" type="checkbox" class="w-4 h-4 text-neutral-6 bg-gray-100 border-gray-300 rounded focus:ring-neutral-5 dark:focus:ring-neutral-6 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                                <label for="checkbox-table-search-2" class="sr-only">checkbox</label>
+                            <div class="text-gray-900 dark:text-white">
+                                {{ $application->type }}
                             </div>
                         </td>
-                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                            Microsoft Surface Pro
-                        </th>
                         <td class="px-6 py-4">
-                            White
-                        </td>
-                        <td class="px-6 py-4">
-                            Laptop PC
-                        </td>
-                        <td class="px-6 py-4">
-                            $1999
-                        </td>
-                        <td class="px-6 py-4">
-                            <a href="#" class="font-medium text-neutral-6 dark:text-neutral-5 hover:underline">Edit</a>
-                        </td>
-                    </tr>
-                    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                        <td class="w-4 p-4">
                             <div class="flex items-center">
-                                <input id="checkbox-table-search-3" type="checkbox" class="w-4 h-4 text-neutral-6 bg-gray-100 border-gray-300 rounded focus:ring-neutral-5 dark:focus:ring-neutral-6 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                                <label for="checkbox-table-search-3" class="sr-only">checkbox</label>
+                                <div class="h-2.5 w-2.5 rounded-full bg-{{$application->applicationStatusColor()}}-5 me-2 animate-pulse"></div> {{ $application->status }}
                             </div>
                         </td>
-                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                            Magic Mouse 2
-                        </th>
                         <td class="px-6 py-4">
-                            Black
-                        </td>
-                        <td class="px-6 py-4">
-                            Accessories
-                        </td>
-                        <td class="px-6 py-4">
-                            $99
-                        </td>
-                        <td class="px-6 py-4">
-                            <a href="#" class="font-medium text-neutral-6 dark:text-neutral-5 hover:underline">Edit</a>
-                        </td>
-                    </tr>
-                    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                        <td class="w-4 p-4">
-                            <div class="flex items-center">
-                                <input id="checkbox-table-3" type="checkbox" class="w-4 h-4 text-neutral-6 bg-gray-100 border-gray-300 rounded focus:ring-neutral-5 dark:focus:ring-neutral-6 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                                <label for="checkbox-table-3" class="sr-only">checkbox</label>
+                            <div class="text-gray-900 dark:text-white">
+                                {{ $application->application_date_format('d M Y, H:i')}}
                             </div>
                         </td>
-                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                            Apple Watch
-                        </th>
                         <td class="px-6 py-4">
-                            Silver
-                        </td>
-                        <td class="px-6 py-4">
-                            Accessories
-                        </td>
-                        <td class="px-6 py-4">
-                            $179
-                        </td>
-                        <td class="px-6 py-4">
-                            <a href="#" class="font-medium text-neutral-6 dark:text-neutral-5 hover:underline">Edit</a>
+                            <!-- Modal toggle -->
+                            <a href="#" type="button" data-modal-target="form_modal" data-modal-show="form_modal" class="font-medium text-neutral-6 dark:text-neutral-5 hover:underline">
+                                View
+                            </a>
                         </td>
                     </tr>
-                    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                        <td class="w-4 p-4">
-                            <div class="flex items-center">
-                                <input id="checkbox-table-3" type="checkbox" class="w-4 h-4 text-neutral-6 bg-gray-100 border-gray-300 rounded focus:ring-neutral-5 dark:focus:ring-neutral-6 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                                <label for="checkbox-table-3" class="sr-only">checkbox</label>
-                            </div>
-                        </td>
-                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                            iPad
-                        </th>
-                        <td class="px-6 py-4">
-                            Gold
-                        </td>
-                        <td class="px-6 py-4">
-                            Tablet
-                        </td>
-                        <td class="px-6 py-4">
-                            $699
-                        </td>
-                        <td class="px-6 py-4">
-                            <a href="#" class="font-medium text-neutral-6 dark:text-neutral-5 hover:underline">Edit</a>
+                    @endforeach
+
+                    @else
+                    <tr>
+                        <td colspan="5" class="text-center py-4 text-gray-500 dark:text-gray-400">
+                            No applications found
                         </td>
                     </tr>
-                    <tr class="bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-600">
-                        <td class="w-4 p-4">
-                            <div class="flex items-center">
-                                <input id="checkbox-table-3" type="checkbox" class="w-4 h-4 text-neutral-6 bg-gray-100 border-gray-300 rounded focus:ring-neutral-5 dark:focus:ring-neutral-6 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                                <label for="checkbox-table-3" class="sr-only">checkbox</label>
-                            </div>
-                        </td>
-                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                            Apple iMac 27"
-                        </th>
-                        <td class="px-6 py-4">
-                            Silver
-                        </td>
-                        <td class="px-6 py-4">
-                            PC Desktop
-                        </td>
-                        <td class="px-6 py-4">
-                            $3999
-                        </td>
-                        <td class="px-6 py-4">
-                            <a href="#" class="font-medium text-neutral-6 dark:text-neutral-5 hover:underline">Edit</a>
-                        </td>
-                    </tr>
+
+                    @endif
+
+                    
+
                 </tbody>
             </table>
+            <!-- Edit user modal -->
+            @if ($eventApplications->count() > 0)
+
+            @include('event.event-detail-form.form-modal')
+            @endif
         </div>
 
 

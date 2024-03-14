@@ -26,9 +26,6 @@ class ParticipantApplicationRequest extends FormRequest
             // Event ID is required and must exist in the events table
             'event_id' => ['required', 'string', 'exists:events,event_id'],
 
-            // User ID is required and must exist in the users table
-            'user_id' => ['required', 'string', 'exists:users,user_id'],
-
             // form_id is a string
             'form_id' => ['nullable', 'string'],
 
@@ -48,7 +45,6 @@ class ParticipantApplicationRequest extends FormRequest
     {
         return [
             'event_id.required' => 'The event_id field is required.',
-            'user_id.required' => 'The user_id field is required.',
             'event_id.exists' => 'The event does not exist.',
             'user_id.exists' => 'The user does not exist.',
 

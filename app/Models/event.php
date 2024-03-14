@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Carbon\Carbon;
 
+
 class Event extends Model
 {
     public $table = 'events';
@@ -92,6 +93,11 @@ class Event extends Model
         return $this->belongsToMany(User::class, 'event_participants', 'event_id', 'user_id');
     }
 
+    public function eventApplications()
+    {
+        return $this->hasMany(Application::class, 'event_id', 'event_id');
+    }
+
     public function getStatusColor()
     {
         switch ($this->event_status) {
@@ -158,4 +164,5 @@ class Event extends Model
     {
         return User::where('user_id', $this->organizer_id)->first();
     }
+
 }

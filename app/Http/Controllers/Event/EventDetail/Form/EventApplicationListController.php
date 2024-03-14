@@ -13,14 +13,16 @@ class EventApplicationListController extends Controller
         $event = Event::where('event_id', $event_id)->firstOrFail();
         $this->authorize('view', $event);
 
+        $eventApplications = $event->eventApplications()->with('user')->get();
 
         $page_data = [
             'breadcrumbItems' => [
                 ['label' => 'Events', 'url' => route('event-list')],
                 ['label' => $event->event_name],
             ],
-            'default_event_img' => config('azure.default_img.event_banner'),
         ];
-        return view('event.event-detail-form.event-detail-form', compact('page_data', 'event'));
+
+
+        return view('event.event-detail-form.event-detail-form', compact('page_data', 'event', 'eventApplications'));
     }
 }

@@ -64,6 +64,13 @@ class Application extends Model
         }
     }
 
+    public function application_date_format($format){
+        return date($format, strtotime($this->application_date));
 
+    }
+
+    public function approved_date_format($format){
+        return date($format, strtotime($this->approved_date));
+    }
 
 }
