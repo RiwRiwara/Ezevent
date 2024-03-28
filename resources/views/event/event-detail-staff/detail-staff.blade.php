@@ -1,6 +1,6 @@
 <div class="max-w-7xl mx-auto sm:px-4 lg:px-8">
     <h1 class="text-2xl text-center font-bold mb-4 mt-2 text-neutral-8">
-        Participant
+    {{__("event.menu-event.menu-event7")}}
     </h1>
 
     <div class="flex flex-col gap-4">
@@ -44,6 +44,7 @@
                     <input type="text" id="table-search-users" class="block pt-2 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg w-80 bg-gray-50 focus:ring-neutral-5 focus:border-neutral-5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-neutral-5 dark:focus:border-neutral-5" placeholder="Search for users">
                 </div>
             </div>
+            
             <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
                 <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                     <tr>
@@ -88,6 +89,7 @@
 
                 </tbody>
             </table>
+
             <!-- Edit user modal -->
             @include('event.event-detail-partials.users.detail-modal')
         </div>

@@ -5,11 +5,13 @@ return [
     'event' => 'อีเวนต์',
     'crm' => 'CRM',
     'summary' => 'สรุปผล',
+    'Home' => 'หน้าแรก',
 
     'personal_information' => 'ข้อมูลส่วนตัว',
     'address_information' => 'ข้อมูลที่อยู่',
     'password' => 'รหัสผ่าน',
     'confirm_password' => 'ยืนยันรหัสผ่าน',
+    'remember_me' => 'จดจำรหัสผ่าน',
     'email' => 'อีเมล',
     'first_name' => 'ชื่อ',
     'last_name' => 'นามสกุล',
@@ -40,6 +42,10 @@ return [
     'have_create_account' => "คุณยังไม่มีบัญชีใช่หรือไม่?",
     'have_account' => 'มีบัญชีอยู่แล้ว?',
     'create_account' => 'สร้างบัญชีทันที',
+
+    'policy1' => 'ฉันมีอายุอย่างน้อย 13 ปีขึ้นไปและยอมรับ',
+    'policy2' => 'ข้อตกลงเงื่อนไขการใช้งาน EZEVENT',
+
 
 
 

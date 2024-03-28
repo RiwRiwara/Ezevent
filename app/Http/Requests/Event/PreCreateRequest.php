@@ -24,7 +24,7 @@ class PreCreateRequest extends FormRequest
     public function rules(): array
     {
         $rules = [
-            'event_name' => 'required|string|max:144',
+            'event_name' => ['required', 'string', 'max:144', 'unique:events,event_name'],
             'event_time' => 'required|string|in:announce_after,specific',
             'venue' => 'required|string|in:venue,online',
 
@@ -57,7 +57,7 @@ class PreCreateRequest extends FormRequest
     public function messages(): array
     {
         return [
-            'event_name.required' => 'Event name is required',
+            'event_name.required' => __("event.noti.event_name_required"),
             'event_name.string' => 'Event name must be a string',
             'event_name.max' => 'Event name must not exceed 144 characters',
             'event_time.required' => 'Event time is required',

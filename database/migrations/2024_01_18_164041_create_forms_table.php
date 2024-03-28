@@ -12,15 +12,16 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('forms', function (Blueprint $table) {
-            $table->bigIncrements('form_id'); 
-            $table->string('form_name'); 
-            $table->enum('form_type', ['all', 'staff', 'participants']);
-            // $table->dateTime('created_at'); 
-            // $table->dateTime('updated_at'); 
-            $table->integer('status'); 
+            $table->id();
+            $table->string('form_id')->unique()->default(uniqid('form_')); 
+            $table->string('event_id'); 
+            $table->enum('form_type', ['All', 'Staff', 'Participants']);
+
+            $table->string('form_title');
+            $table->string('form_description');
+
+            $table->string('status'); 
             $table->timestamps();
-            
-            $table->string('event_id'); //FK event_id from event
         });
     }
 

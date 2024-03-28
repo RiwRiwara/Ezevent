@@ -1,6 +1,7 @@
 <div class="max-w-7xl mx-auto sm:px-4 lg:px-8">
     <h1 class="text-2xl text-center font-bold mb-4 mt-2 text-neutral-8">
-        Staff Management
+    {{__("event.menu-event.menu-event6")}}
+
     </h1>
 
     <div class="flex flex-col gap-4">

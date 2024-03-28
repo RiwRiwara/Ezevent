@@ -8,6 +8,3 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::post('/uploadprofileimage', [UserController::class, 'uploadUserProfile'])->name('upload_profile_image');
 });
 
-Route::fallback(function () {
-    return response()->json(['message' => 'Route not found'], 404);
-});

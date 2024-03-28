@@ -11,9 +11,10 @@ return new class extends Migration
         Schema::create('events', function (Blueprint $table) {
             // information
             $table->id(); 
-            $table->string('event_id')->unique();
+            $table->string('event_id')->unique()->default(uniqid('event_'));
             $table->string('event_name', 144)->nullable()->unique(); 
-            $table->string('categories')->nullable(); // 1, 2
+            $table->string('categories')->nullable(); 
+            $table->string('tags')->nullable(); 
 
             // Contact
             $table->string('contact_email', 50)->nullable();
@@ -23,7 +24,6 @@ return new class extends Migration
             $table->string('instagram')->nullable();
             $table->string('line')->nullable();
             $table->string('website')->nullable();
-
             
             // Date
             $table->enum('event_time', ['announce_after', 'specific'])->nullable();
@@ -53,9 +53,14 @@ return new class extends Migration
             // Rule
             $table->integer('age_require')->nullable();
             $table->integer('limit_participant')->nullable();
+            $table->integer('limit_staff')->nullable();
+
 
             // Organizer
             $table->string('organizer_id'); 
+            $table->string('deleted_by')->nullable();
+            $table->string('deleted_type')->nullable();
+
 
             // Image
             $table->string('thumbnail')->nullable();
@@ -63,7 +68,7 @@ return new class extends Migration
 
 
             // Appearance
-            $table->string('content')->nullable();
+            $table->text('content')->nullable();
             $table->string('banner_text_bg')->nullable()->default('#000');
             $table->string('banner_text_color')->nullable()->default('#fff');
             $table->string('content-theme')->nullable()->default('light');

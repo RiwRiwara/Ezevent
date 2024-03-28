@@ -12,17 +12,24 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('questions', function (Blueprint $table) {
-            $table->bigIncrements('question_id'); 
-            $table->string('question', 255); 
-            $table->string('question_type', 50); 
-            // $table->dateTime('created_at'); 
-            // $table->dateTime('updated_at'); 
-            $table->integer('status'); 
-            $table->text('answer'); 
-            $table->integer('score'); 
-            $table->timestamps();
+            $table->id();
+            $table->string('question_id')->unique()->default(uniqid('question_'));
+            $table->string('form_id');
+            $table->boolean('is_required');
+            $table->string('question_type')->enum('short_ansewer', 'long_answer', 'multiple_choice', 'checkbox', 'file_upload', 'image');
 
-            $table->string('form_id'); //FK form_id from from
+            $table->string('question');
+            $table->string('question_label');
+            $table->string('question_placeholder');
+            $table->string('question_image')->nullable();
+
+            $table->string('options')->nullable();
+            $table->string('answer')->nullable();
+            $table->string('correct_answer')->nullable();
+            
+            $table->string('status');
+            $table->string('created_by');
+            $table->timestamps();
         });
     }
 

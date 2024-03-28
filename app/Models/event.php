@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Carbon\Carbon;
 
+
 class Event extends Model
 {
     public $table = 'events';
@@ -65,6 +66,7 @@ class Event extends Model
         'website',
         'age_require',
         'limit_participant',
+        'limit_staff',
 
         'content',
         'banner_text_bg',
@@ -73,8 +75,28 @@ class Event extends Model
         'banner_image',
         'thumbnail',
 
+        'is_deleted',
+        'deleted_by',
+        'deleted_type',
+
 
     ];
+
+
+    public function organizer()
+    {
+        return $this->belongsTo(User::class, 'organizer_id', 'user_id');
+    }
+
+    public function participants()
+    {
+        return $this->belongsToMany(User::class, 'event_participants', 'event_id', 'user_id');
+    }
+
+    public function eventApplications()
+    {
+        return $this->hasMany(Application::class, 'event_id', 'event_id');
+    }
 
     public function getStatusColor()
     {
@@ -134,7 +156,12 @@ class Event extends Model
     public function getBannerImage()
     {
         $banner_image_url = config('azure.image.eventimgs') . '/' . $this->banner_image;
-
         return $this->banner_image ? $banner_image_url : config('azure.default_img.event_banner');
     }
+
+    public function getOrganizer()
+    {
+        return User::where('user_id', $this->organizer_id)->first();
+    }
+
 }

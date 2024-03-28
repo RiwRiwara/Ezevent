@@ -57,7 +57,7 @@
 
 <body>
     <div class="image-container">
-        <img src="http://127.0.0.1:9000/images/Logo.png" alt="EZEVENT" class="smaller-img">
+        <img class="mx-auto w-auto h-3/4 h " src="{{ asset('images/Logo.png') }}" alt="EZEVENT">
     </div>
     <div class="confirmation-email">
         <h2 class="center-text">Email Confirmation</h2>

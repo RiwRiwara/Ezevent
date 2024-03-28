@@ -39,16 +39,18 @@ class LoginUserController extends Controller
 
         if (!auth()->attempt($request->only('email', 'password'))) {
             return response()->json([
-                'message' => 'Invalid login details'
+                'message' => 'Invalid login details',
+                'success' => 'false'
             ], 401);
         }
         $user = auth()->user();
         $token = $request->user()->createToken('authToken', ['role:participant'], now()->addDay());
         return response()->json([
             'message' => 'You have been logged in',
+            'token' => $token->plainTextToken,
             'user' => new UserResource($user),
-            'token' => $token->plainTextToken
-        ]);
+            'success' => 'true'
+        ], 200);
     }
 
 }
