@@ -9,7 +9,3 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::post('/logout', [AuthApiController::class, 'logout'])->name('logout');
 });
 
-
-Route::fallback(function () {
-    return response()->json(['message' => 'Route not found'], 404);
-});

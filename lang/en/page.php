@@ -8,6 +8,7 @@ return [
     'search' =>'Search',
     'topic1'=> 'Start your first activity!',
     'paragraph1' => "Let's create your exclusive event with Ezevent. Many attendees will join :)",
+    'dashboard' => 'Dashboard',
 
     'filter_customer' => 'Filter Customers:',
     'send_email' => 'Send Email',

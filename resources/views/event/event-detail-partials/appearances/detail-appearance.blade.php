@@ -17,33 +17,43 @@
         <div class="grid grid-cols-2 items-start" id="banner">
             <div class="flex justify-center">
 
-                <figure class="relative max-w-sm transition-all duration-300 cursor-pointer filter">
-                    <a href="#">
-                        <img id="banner_image_preview" class="rounded-lg object-cover" style="height: 600px;width: 430;" src="{{$event->getBannerImage()}}" alt="image description">
-                    </a>
-                    <figcaption class="absolute px-4 py-3 text-lg text-bold text-white bottom-0.5 opacity-80 w-full" id="banner_title" style="background-color: {{$event->banner_text_bg}} ;color: {{$event->banner_text_color}};">
-                        <p class="font-semibold text-sm mb-0.5">
-                            {{$event->getCategoriesForShow()}}
-                        </p>
-                        <p class="font-bold text-3xl mb-0.5">
-                            {{$event->event_name}}
-                        </p>
-                        <p class=" text-sm mb-0.5">
-                            Date : {{$event->getDateStart()}} - {{$event->getDateEnd()}}
-                        </p>
-                        <p class=" text-sm mb-0.5">
-                            Time : {{$event->getTimeStart()}} - {{$event->getTimeEnd()}}
-                        </p>
-                        <div class="flex flex-row gap-2 items-center">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" />
-                            </svg>
-                            <div class="text-sm">{{$event->placename}}</d>
-                            </div>
+                <div class="relative mx-auto border-gray-800 dark:border-gray-800 bg-gray-800 border-[14px] rounded-[2.5rem] h-[600px] w-[300px]">
+                    <div class="h-[32px] w-[3px] bg-gray-800 dark:bg-gray-800 absolute -start-[17px] top-[72px] rounded-s-lg"></div>
+                    <div class="h-[46px] w-[3px] bg-gray-800 dark:bg-gray-800 absolute -start-[17px] top-[124px] rounded-s-lg"></div>
+                    <div class="h-[46px] w-[3px] bg-gray-800 dark:bg-gray-800 absolute -start-[17px] top-[178px] rounded-s-lg"></div>
+                    <div class="h-[64px] w-[3px] bg-gray-800 dark:bg-gray-800 absolute -end-[17px] top-[142px] rounded-e-lg"></div>
+                    <div class="rounded-[2rem] overflow-hidden w-[272px] h-[572px] bg-white dark:bg-gray-800">
+                        <figure class="relative max-w-sm transition-all duration-300 cursor-pointer filter">
+                            <a href="#">
+                                <img id="banner_image_preview" class="rounded-lg object-cover" style="height: 572px;width: 272px;" src="{{$event->getBannerImage()}}" alt="image description">
+                            </a>
+                            <figcaption class="absolute px-4 py-3 text-lg text-bold text-white bottom-0.5 opacity-80 w-full" id="banner_title" style="background-color: {{$event->banner_text_bg}} ;color: {{$event->banner_text_color}};">
+                                <p class="font-semibold text-xs mb-0.5">
+                                    {{$event->getCategoriesForShow()}}
+                                </p>
+                                <p class="font-bold text-xl mb-0.5">
+                                    {{$event->event_name}}
+                                </p>
+                                <p class=" text-xs mb-0.5">
+                                    Date : {{$event->getDateStart()}} - {{$event->getDateEnd()}}
+                                </p>
+                                <p class=" text-xs mb-0.5">
+                                    Time : {{$event->getTimeStart()}} - {{$event->getTimeEnd()}}
+                                </p>
+                                <div class="flex flex-row gap-2 items-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" />
+                                    </svg>
+                                    <div class="text-xs">{{$event->placename}}</d>
+                                    </div>
 
-                    </figcaption>
-                </figure>
+                            </figcaption>
+                        </figure>
+
+                    </div>
+                </div>
+
 
 
 
@@ -71,7 +81,7 @@
 
                     <div>
                         <a class="text-md font-bold text-neutral-9 mb-3">
-                        {{__("event.appr_page.bg_color")}}
+                            {{__("event.appr_page.bg_color")}}
 
                         </a>
                         <div class="mt-2 flex flex-col gap-3">
@@ -81,7 +91,7 @@
 
                     <div>
                         <a class="text-md font-bold text-neutral-9 mb-3">
-                        {{__("event.appr_page.text_color")}}
+                            {{__("event.appr_page.text_color")}}
                         </a>
                         <div class="mt-2 flex flex-col gap-3">
                             <x-forms.color-picker defaultValue="{{$event->banner_text_color}}" name="banner_text_color" from="text-color" target_id="banner_title" />
@@ -116,7 +126,6 @@
     </form>
 
     <script>
-
         function handleColorChange(from, targetId, color) {
             if (from === 'text-bg-color') {
                 document.getElementById(targetId).style.backgroundColor = color

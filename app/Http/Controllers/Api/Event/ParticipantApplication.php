@@ -56,6 +56,7 @@ class ParticipantApplication extends Controller
 
             return response()->json([
                 'status' => 'success',
+                'success' => 'true',
                 'message' => 'Application submitted successfully.',
                 'application' => new ApplicationResource($application)
             ], 200);

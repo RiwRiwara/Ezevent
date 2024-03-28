@@ -12,7 +12,7 @@
     <div class="max-w-full bg-neutral-9 shadow-inner border-b-8 border-neutral-8">
 
         <div class="col-span-12 flex justify-end p-2">
-            <p class="text-muted text-gray-200 font-medium">{{$event->event_id}}</p>
+            <div class="text-muted text-xs text-gray-200 font-medium">{{$event->event_id}}</div>
         </div>
 
         <div class="max-w-7xl px-2 md:py-8 mx-auto sm:px-10 lg:px-8">

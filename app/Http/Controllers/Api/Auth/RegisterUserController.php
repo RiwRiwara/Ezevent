@@ -48,7 +48,8 @@ class RegisterUserController extends Controller
         return response()->json([
             'message' => 'User registered successfully',
             'user' => new UserResource($user),
-            'token' => $token->plainTextToken
+            'token' => $token->plainTextToken,
+            'success' => 'true'
         ], 201);
     }
 }

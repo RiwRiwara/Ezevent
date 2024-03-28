@@ -26,7 +26,8 @@ class GetEventById extends Controller
         if ($event) {
             return response()->json([
                 'message' => 'Event found',
-                'event' => new EventResource($event)
+                'event' => new EventResource($event),
+                'success' => 'true'
             ], 200);
         } else {
             return response()->json([

@@ -156,7 +156,6 @@ class Event extends Model
     public function getBannerImage()
     {
         $banner_image_url = config('azure.image.eventimgs') . '/' . $this->banner_image;
-
         return $this->banner_image ? $banner_image_url : config('azure.default_img.event_banner');
     }
 

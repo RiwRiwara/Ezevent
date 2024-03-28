@@ -5,10 +5,12 @@ return [
     'event' => 'Event',
     'crm' => 'CRM',
     'summary' => 'Summary',
+    'Home' => 'Home',
 
     'personal_information' => 'Personal Information',
     'address_information' => 'Address Information',
     'password' => 'Password',
+    'remember_me' => 'Remember me',
     'confirm_password' => 'Confirm Password',
     'email' => 'Email',
     'first_name' => 'First Name',

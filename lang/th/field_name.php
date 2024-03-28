@@ -5,11 +5,13 @@ return [
     'event' => 'อีเวนต์',
     'crm' => 'CRM',
     'summary' => 'สรุปผล',
+    'Home' => 'หน้าแรก',
 
     'personal_information' => 'ข้อมูลส่วนตัว',
     'address_information' => 'ข้อมูลที่อยู่',
     'password' => 'รหัสผ่าน',
     'confirm_password' => 'ยืนยันรหัสผ่าน',
+    'remember_me' => 'จดจำรหัสผ่าน',
     'email' => 'อีเมล',
     'first_name' => 'ชื่อ',
     'last_name' => 'นามสกุล',

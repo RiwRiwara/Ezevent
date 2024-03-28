@@ -86,9 +86,8 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @if ($eventApplications->count() > 0)
 
-                    @foreach ($eventApplications as $application)
+                    @forelse ($eventApplications as $application)
                     <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
 
                         <th scope="row" class="flex items-center px-6 py-4 text-gray-900 whitespace-nowrap dark:text-white">
@@ -124,26 +123,19 @@
                             </a>
                         </td>
                     </tr>
-                    @endforeach
-
-                    @else
+                    @empty
                     <tr>
                         <td colspan="5" class="text-center py-4 text-gray-500 dark:text-gray-400">
                             No applications found
                         </td>
                     </tr>
 
-                    @endif
-
-                    
+                    @endforelse
 
                 </tbody>
             </table>
-            <!-- Edit user modal -->
-            @if ($eventApplications->count() > 0)
 
             @include('event.event-detail-form.form-modal')
-            @endif
         </div>
 
 

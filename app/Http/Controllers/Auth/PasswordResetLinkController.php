@@ -15,7 +15,12 @@ class PasswordResetLinkController extends Controller
      */
     public function create(): View
     {
-        return view('auth.forgot-password');
+        $breadcrumbItems = [
+            ['label' => 'Login', 'url' => '/login'],
+            ['label' => 'Reset password']
+        ];
+
+        return view('auth.forgot-password', ['breadcrumbItems' => $breadcrumbItems]);
     }
 
     /**

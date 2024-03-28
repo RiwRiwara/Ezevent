@@ -39,7 +39,8 @@ class LoginUserController extends Controller
 
         if (!auth()->attempt($request->only('email', 'password'))) {
             return response()->json([
-                'message' => 'Invalid login details'
+                'message' => 'Invalid login details',
+                'success' => 'false'
             ], 401);
         }
         $user = auth()->user();
@@ -47,8 +48,9 @@ class LoginUserController extends Controller
         return response()->json([
             'message' => 'You have been logged in',
             'token' => $token->plainTextToken,
-            'user' => new UserResource($user)
-        ]);
+            'user' => new UserResource($user),
+            'success' => 'true'
+        ], 200);
     }
 
 }
