@@ -44,7 +44,17 @@ class LoginUserController extends Controller
             ], 401);
         }
         $user = auth()->user();
-        $token = $request->user()->createToken('authToken', ['role:participant'], now()->addDay());
+        $role = 'role:participant';
+
+        if ($user->role_id == 1) {
+            $role = 'role:admin';
+        } else if ($user->role_id == 2) {
+            $role = 'role:participant';
+        } else if ($user->role_id == 3) {
+            $role = 'role:organizer';
+        }
+
+        $token = $request->user()->createToken('authToken', [$role], now()->addDay());
         return response()->json([
             'message' => 'You have been logged in',
             'token' => $token->plainTextToken,
