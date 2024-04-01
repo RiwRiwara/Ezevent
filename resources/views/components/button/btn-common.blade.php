@@ -16,7 +16,7 @@ $classes .= ' cursor-pointer';
     {{ $slot }}
 </a>
 @else
-<button {{ $attributes->merge($additionalAttributes) }} style="white-space: nowrap;" class="{{ $classes }}" type="button">
+<button {{ $attributes->merge($additionalAttributes) }} style="white-space: nowrap;" class="{{ $classes }}" type="{{$type}}">
     {{ $slot }}
 </button>
 @endif

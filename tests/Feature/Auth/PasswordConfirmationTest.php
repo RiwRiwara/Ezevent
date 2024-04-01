@@ -13,7 +13,6 @@ class PasswordConfirmationTest extends TestCase
     public function test_confirm_password_screen_can_be_rendered(): void
     {
         
-        $this->markTestSkipped('Reason for skipping the test');
 
         $user = User::factory()->create();
 
@@ -24,7 +23,6 @@ class PasswordConfirmationTest extends TestCase
 
     public function test_password_can_be_confirmed(): void
     {
-        $this->markTestSkipped('Reason for skipping the test');
 
         $user = User::factory()->create();
 
@@ -38,7 +36,6 @@ class PasswordConfirmationTest extends TestCase
 
     public function test_password_is_not_confirmed_with_invalid_password(): void
     {
-        $this->markTestSkipped('Reason for skipping the test');
 
         $user = User::factory()->create();
 

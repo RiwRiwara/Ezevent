@@ -5,8 +5,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\User\UserController;
 use App\Http\Controllers\User\UploadUserProfileController;
 use App\Http\Controllers\ChartController;
-use App\Http\Controllers\Event\EventList\EventListController;
-use App\Http\Controllers\Event\CreateEvent\CreateEventController;
+use App\Http\Controllers\DashboardController;
 use App\Models\User;
 
 
@@ -17,9 +16,7 @@ Route::middleware('auth', 'verified')->group(function () {
     Route::get('/my-profile', [ProfileController::class, 'myProfileDetail'])->name('my-profile');
     Route::post('/my-profile/upload-profile-img', UploadUserProfileController::class)->name('upload-profile-img');
 
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
+    Route::get('/dashboard',[DashboardController::class, "showDashboard"])->name('dashboard');
 
 
 

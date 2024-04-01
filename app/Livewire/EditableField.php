@@ -2,11 +2,10 @@
 
 namespace App\Livewire;
 
+use Illuminate\Support\Facades\Log;
 use Livewire\Component;
-use App\Models\User;
-use App\Http\Controllers\User\UserController;
 
-class EditableField extends Component
+abstract class EditableField extends Component
 {
 
     public $oldValue ;
@@ -14,6 +13,8 @@ class EditableField extends Component
     public $label_show;
     public $newValue;
     public $show = false;
+    public $item_id;
+    public $inputType = 'text';
 
 
     public function render()
@@ -21,27 +22,16 @@ class EditableField extends Component
         return view('livewire.editable-field');
     }
 
-    public function mount($fieldName, $label_show)
+    public function mount($fieldName, $label_show, $oldValue, $item_id = null, $inputType = 'text' )
     {
         $this->fieldName = $fieldName;
         $this->label_show = $label_show;
-        $this->oldValue = auth()->user()->$fieldName;
+        $this->oldValue = $oldValue;
         $this->newValue = $this->oldValue;
+        $this->item_id = $item_id;
+        $this->inputType = $inputType;
 
     }
 
-    public function save()
-    {
-        try {
-            $user_id = auth()->user()->user_id;
-            User::where('user_id', $user_id)->update([
-                $this->fieldName => $this->newValue
-            ]);
-            $this->oldValue = $this->newValue;
-            toastr()->addSuccess($this->label_show . ' ' . __('success.update_success'));
-        } catch (\Exception $e) {
-            toastr()->addError(__('error.profile_update'));
-            return redirect()->back();
-        }
-    }
+    abstract public function save();
 }

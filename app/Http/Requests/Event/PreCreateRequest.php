@@ -23,14 +23,30 @@ class PreCreateRequest extends FormRequest
      */
     public function rules(): array
     {
-        return [
-            'event_name' => 'required|string|max:144',
+        $rules = [
+            'event_name' => ['required', 'string', 'max:144', 'unique:events,event_name'],
             'event_time' => 'required|string|in:announce_after,specific',
             'venue' => 'required|string|in:venue,online',
 
         ];
+        if ($this->isFromLivewire()) {
+            $logMessage = json_decode(request()->toArray()['components'][0]['snapshot'], true);
+            request()->merge([
+                $logMessage['data']['fieldName'] => $logMessage['data']['newValue']
+            ]);
+            foreach ($rules as $key => $value) {
+                if ($key !== $logMessage['data']['fieldName']) {
+                    unset($rules[$key]);
+                }
+            }
+        }
+        return $rules;
     }
 
+    public function isFromLivewire(): bool
+    {
+        return request()->has('components');
+    }
 
 
     /**
@@ -41,7 +57,7 @@ class PreCreateRequest extends FormRequest
     public function messages(): array
     {
         return [
-            'event_name.required' => 'Event name is required',
+            'event_name.required' => __("event.noti.event_name_required"),
             'event_name.string' => 'Event name must be a string',
             'event_name.max' => 'Event name must not exceed 144 characters',
             'event_time.required' => 'Event time is required',
@@ -52,8 +68,8 @@ class PreCreateRequest extends FormRequest
             'venue.in' => 'Venue must be either venue or online',
         ];
     }
-    
-    
+
+
     protected function failedValidation(Validator $validator)
     {
         if ($this->expectsJson()) {
@@ -68,6 +84,4 @@ class PreCreateRequest extends FormRequest
         toastr()->AddError($validator->errors()->first());
         parent::failedValidation($validator);
     }
-    
-
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Event\EventList;
+namespace App\Http\Controllers\Event\EventDetail;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -20,11 +20,12 @@ class EventDetailController extends Controller
 
         $page_data = [
             'breadcrumbItems' => [
-                ['label' => 'Events', 'url' => route('create-event')],
+                ['label' => 'Events', 'url' => route('event-list')],
                 ['label' => $event->event_name],
             ],
             'event_types' => \App\Models\EventType::all(),
             'badge_types' => \App\Models\Badge::all(),
+            'default_event_img' => config('azure.default_img.event_banner'),
         ];
 
         return view(EventDetailController::TEMPLATE_PAGE, compact('page_data', 'event'));

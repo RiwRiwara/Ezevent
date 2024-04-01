@@ -51,6 +51,12 @@ class RegisteredUserController extends Controller
      */
     public function store(RegisterRequest $request): RedirectResponse
     {
+        //Is check agreement
+        if (!$request->has('submit_agreement')) {
+            toastr()->addError('Please check the agreement');
+            return redirect()->back();
+        }
+        
         try {
             $date_birth = date('Y-m-d', strtotime($request->date_birth));
             $user = User::create([
@@ -67,6 +73,7 @@ class RegisteredUserController extends Controller
                 'district' => $request->district,
                 'city' => $request->city,
                 'zipcode' => $request->zipcode,
+                'role_id' => USER::ROLE_ORGANIZER,
             ]);
     
             event(new Registered($user));

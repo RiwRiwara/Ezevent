@@ -12,7 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('images', function (Blueprint $table) {
-            $table->bigIncrements('image_id'); 
+            $table->id();
+            $table->string('image_id')->unique()->default(uniqid('image_')); 
             $table->string('image_alt', 255)->nullable(); 
             $table->string('src', 255); 
             $table->string('image_type', 255)->nullable(); 

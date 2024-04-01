@@ -5,10 +5,12 @@ return [
     'event' => 'Event',
     'crm' => 'CRM',
     'summary' => 'Summary',
+    'Home' => 'Home',
 
     'personal_information' => 'Personal Information',
     'address_information' => 'Address Information',
     'password' => 'Password',
+    'remember_me' => 'Remember me',
     'confirm_password' => 'Confirm Password',
     'email' => 'Email',
     'first_name' => 'First Name',
@@ -40,5 +42,8 @@ return [
     'have_create_account' => "Do not have an account?",
     'have_account' => 'Already have an account?',
     'create_account' => 'Create an account',
+
+    'policy1' => 'I am at least 13 years old and agree to',
+    'policy2' => 'EZEVENT Terms of Use Agreement',
 
 ];

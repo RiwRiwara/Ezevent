@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Http\Exceptions\HttpResponseException;
 use Illuminate\Http\Response;
 
 
@@ -15,7 +16,8 @@ class LogoutUserController extends Controller
         $this->request = $request;
     }
 
-    public function __invoke(Request $request){
+    public function __invoke(Request $request)
+    {
         return $this->logout($request);
     }
 
@@ -31,12 +33,16 @@ class LogoutUserController extends Controller
      */
     public function logout(Request $request)
     {
+
         try {
             $request->user()->tokens()->delete();
         } catch (\Exception $e) {
-            \Log::error('Failed to delete tokens for user ' . $request->user()->id . ': ' . $e->getMessage());
-            return response()->json(['error' => 'Failed to logout. Please try again.'], 500);
+            throw new HttpResponseException(response()->json(['error' => 'Failed to logout. Please try again.'], 500));
         }
-        return response()->json(['message' => 'You have been logged out successfully']);
+
+        return response()->json([
+            'message' => 'You have been logged out successfully',
+            'success' => 'true'
+        ], 200);
     }
 }

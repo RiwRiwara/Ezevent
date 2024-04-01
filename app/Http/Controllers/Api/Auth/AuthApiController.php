@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Api\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Http\Requests\Auth\RegisterRequest;
+use App\Http\Requests\Api\Auth\MobileRegisterRequest;
 use App\Http\Requests\Auth\LoginRequest;
 
 
@@ -48,11 +48,11 @@ class AuthApiController extends Controller
      * 
      * ลงทะเบียนผู้ใช้ใหม่และสร้างโทเค็นใหม่สำหรับพวกเขา
      * 
-     * @param  RegisterRequest  $request
+     * @param  MobileRegisterRequest  $request
      * @return \Illuminate\Http\JsonResponse
      * 
      */
-    public function register(RegisterRequest $request)
+    public function register(MobileRegisterRequest $request)
     {
         return (new RegisterUserController($request))->register($request);
 

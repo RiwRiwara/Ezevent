@@ -1,7 +1,9 @@
-@props(['name' => 'richtext', 'label' => ''])
+@props(['name' => 'richtext', 'label' => '',
+'value' => ''
+
+])
 
 <div class="">
-    <link href="/styles.css" rel="stylesheet" />
     <link href="https://cdn.jsdelivr.net/npm/quill@2.0.0-rc.2/dist/quill.snow.css" rel="stylesheet" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/quill@2.0.0-rc.2/dist/quill.js"></script>
@@ -9,7 +11,7 @@
     <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" />
 
-    <div id="toolbar-container">
+    <div id="toolbar-container" class="rounded-md">
         <span class="ql-formats">
             <select class="ql-font"></select>
             <select class="ql-size"></select>
@@ -28,12 +30,14 @@
             <button class="ql-script" value="sub"></button>
             <button class="ql-script" value="super"></button>
         </span>
-        <span class="ql-formats">
-            <button class="ql-header" value="1"></button>
-            <button class="ql-header" value="2"></button>
-            <button class="ql-blockquote"></button>
-            <button class="ql-code-block"></button>
-        </span>
+        <?php
+        //<span class="ql-formats">
+           // <button class="ql-header" value="1"></button>
+           // <button class="ql-header" value="2"></button>
+            //<button class="ql-blockquote"></button>
+           // <button class="ql-code-block"></button>
+        //</span>
+        ?>
         <span class="ql-formats">
             <button class="ql-list" value="ordered"></button>
             <button class="ql-list" value="bullet"></button>
@@ -53,8 +57,14 @@
         </span>
     </div>
 
-    <div id="{{$name}}">
+    <div id="{{$name}}" style="min-height: 15em;">
+        {!! htmlspecialchars_decode($value) !!}
     </div>
+
+
+    <input type="hidden" name="{{$name}}_input" id="{{$name}}_input"
+        value="{{htmlspecialchars_decode($value)}}" 
+    >
 
     <script>
         const quill = new Quill('#{{$name}}', {
@@ -62,8 +72,12 @@
                 syntax: true,
                 toolbar: '#toolbar-container',
             },
-            placeholder : 'Write your content here...',
+            placeholder: 'Write your content here...',
             theme: 'snow',
+        });
+
+        quill.on('text-change', function(delta, oldDelta, source) {
+            document.getElementById('{{$name}}_input').value = quill.root.innerHTML;
         });
     </script>
 </div>

@@ -20,9 +20,11 @@ class EventPolicy
     }
 
 
-    public function view(User $user, Event $event)
+    public function view(User $user, Event $event) : bool
     {
-        return $user->user_id === $event->organizer_id;
+        $is_own = $user->user_id === $event->organizer_id;
+        $is_admin = $user->role === 'admin';
+        return $is_own || $is_admin;
     }
 
     /**
@@ -39,8 +41,10 @@ class EventPolicy
      */
     public function update(User $user, Event $event): bool
     {
-        return true;
-        //
+
+        $is_own = $user->user_id === $event->organizer_id;
+        $is_admin = $user->role === 'admin';
+        return $is_own || $is_admin;
     }
 
     /**
@@ -48,8 +52,9 @@ class EventPolicy
      */
     public function delete(User $user, Event $event): bool
     {
-        return true;
-        //
+        $is_own = $user->user_id === $event->organizer_id;
+        $is_admin = $user->role === 'admin';
+        return $is_own || $is_admin;
     }
 
     /**

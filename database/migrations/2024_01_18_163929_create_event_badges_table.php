@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('event_badges', function (Blueprint $table) {
-            $table->bigIncrements('event_id'); 
+            $table->string('event_id'); 
             $table->integer('badge_1')->nullable(); 
             $table->integer('badge_2')->nullable(); 
             $table->integer('badge_3')->nullable(); 
