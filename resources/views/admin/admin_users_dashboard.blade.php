@@ -10,7 +10,7 @@
         <div class="md:flex-col gap-4">
             <div class=" md:flex justify-between items-center">
                 <h1 class="text-2xl font-bold leading-9 tracking-tight text-neutral-9">
-                  Admin Dashboard
+                  All Users Dashboard
                 </h1>
                 <div>
                 <form class="flex items-center max-w-sm  flex-row gap-2 text-nowrap">
@@ -33,9 +33,9 @@
             </div>
             <hr class="my-5 border-1 border-primary-5">
             <h1 class="text-sm font-bold leading-9 tracking-tight text-neutral-9">
-            {{__('page.all_event')}} ( 
-                    {{$events_data['all_events']->total()}}
-                    {{__('page.event')}})
+             All Users ( 
+                    {{$users_data['all_users']->total()}}
+                    users)
             </h1>
             <div class="relative overflow-x-auto shadow-md sm:rounded-lg my-3">
 
@@ -43,57 +43,47 @@
                     <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                         <tr class="text-center">
                             <th scope="col" class="bg-neutral-8 text-neutral-8 px-3 py-2">
-                                {{__('event.thumbnail')}}
+                                รูป
                             </th>
-                            <th scope="col" class="bg-neutral-9 text-white px-6 py-3">
-                                {{__('event.event_name')}}
+                            <th scope="col" class="bg-neutral-9 text-white px-5 py-3">
+                                ชื่อนามสกุล
                             </th>
-                            <th scope="col" class="bg-neutral-8 text-white px-6 py-3">
-                                {{__('event.datetime')}}
+                            <th scope="col" class="bg-neutral-8 text-white px-5 py-3">
+                                อีเมล
                             </th>
-                            <th scope="col" class="bg-neutral-9 text-white px-6 py-3">
-                                {{ __('event.phase.set') }}
-
+                            <th scope="col" class="bg-neutral-9 text-white px-5 py-3">
+                                เบอร์โทร
                             </th>
-                            <th scope="col" class="bg-neutral-8 text-white px-6 py-3">
-                                {{ __('event.status.Status') }}
-
+                            <th scope="col" class="bg-neutral-8 text-white px-5 py-3">
+                                สถานะ
                             </th>
-                            <th scope="col" class="bg-neutral-9 text-white px-6 py-3">
+                            <th scope="col" class="bg-neutral-9 text-white px-5 py-3">
                             </th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($events_data['all_events'] as $event)
+                        @foreach ($users_data['all_users'] as $user)
 
                         <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
 
                             <td class="px-2 py-2 items-center flex justify-center">
-                                <img class="h-24 w-20 rounded-md object-cover hover:scale-x-105 duration-300 ease-in hover:shadow-md t" src="{{$event->getThumbnail()}}" alt="">
+                                <img class="h-24 w-20 rounded-md object-cover hover:scale-x-105 duration-300 ease-in hover:shadow-md t" src="{{$user->profileImg()}}" alt="">
                             </td>
-                            <th scope="row" class="px-4 py-2 font-semibold text-neutral-9 whitespace-nowrap dark:text-white text-base">
-                                {{ mb_strlen($event->event_name) > 30 ? mb_substr($event->event_name, 0, 30) . '...' : $event->event_name }}
+                            <th scope="row" class="px-3 py-2 font-semibold text-neutral-9 whitespace-nowrap dark:text-white text-base">
+                                {{$user->first_name}} {{$user->last_name}}
                             </th>
 
                             <td class="px-4 py-2 text-base text-nowrap">
-                                {{$event->getDateStart()}} - {{$event->getDateEnd()}}
+                                {{$user->email}}
                             </td>
                             <td class="px-4 py-2 font-bold text-base">
-                                <div class="flex items-center gap-1">
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="10" stroke="currentColor" class="animate-pulse w-2.5 h-2.5 {{$event->getStatusColor()}}">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="m12.75 15 3-3m0 0-3-3m3 3h-7.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-                                    </svg>
-                                    {{ __('event.status.'.$event->event_status) }}
-                                </div>
+                                {{$user->mobile_number}}
                             </td>
                             <td class="px-4 py-2 font-bold text-base text-nowrap">
-                                <div class="flex items-center">
-                                    <span class="h-2.5 w-2.5 rounded-full {{$event->getStatusColor()}} me-2 animate-pulse text-nowrap"></span>
-                                    {{ __('event.phase.'.$event->event_phase) }}
-                                </div>
+                                {{$user->created_at}}
                             </td>
                             <td class="px-4 py-2 text-right">
-                                <a type="link" href="{{route('event-detail', ['event_id' => $event->event_id])}}" class="text-neutral-8">
+                                <a type="link" href="" class="text-neutral-8">
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                                         <path stroke-linecap="round" stroke-linejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L10.582 16.07a4.5 4.5 0 0 1-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 0 1 1.13-1.897l8.932-8.931Zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0 1 15.75 21H5.25A2.25 2.25 0 0 1 3 18.75V8.25A2.25 2.25 0 0 1 5.25 6H10" />
                                     </svg>
@@ -107,7 +97,7 @@
                 </table>
 
                 <div class="mt-5">
-                    {{ $events_data['all_events']->links() }}
+                    {{ $users_data['all_users']->links() }}
                 </div>
             </div>
         </div>

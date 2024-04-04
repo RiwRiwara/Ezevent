@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin\Event;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Event; // Assuming Event model is used
+use App\Models\Event;
 
 class AllEventController extends Controller
 {
@@ -12,7 +12,6 @@ class AllEventController extends Controller
     {
         $search = $request->input('search_string');
         
-        // Retrieve all events instead of user's active events
         $all_events = Event::query()
             ->when($search, function ($query, $search) {
                 return $query->where('event_name', 'like', "%$search%");
@@ -26,6 +25,6 @@ class AllEventController extends Controller
             'all_events' => $all_events,
         ];
 
-        return view('admin.admin_dashboard', compact('events_data'));
+        return view('admin.admin_events_dashboard', compact('events_data'));
     }
 }
