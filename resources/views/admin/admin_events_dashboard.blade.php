@@ -64,7 +64,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($events_data['all_events'] as $event)
+                        @forelse ($events_data['all_events'] as $event)
 
                         <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
 
@@ -100,7 +100,11 @@
                                 </a>
                             </td>
                         </tr>
-                        @endforeach
+                        @empty
+                            <tr>
+                                <td colspan="6" class="px-4 py-2 text-center">No events found</td>
+                            </tr>
+                        @endforelse
 
                     </tbody>
 

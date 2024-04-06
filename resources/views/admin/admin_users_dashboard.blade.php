@@ -62,7 +62,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($users_data['all_users'] as $user)
+                        @forelse ($users_data['all_users'] as $user)
 
                         <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
 
@@ -90,7 +90,11 @@
                                 </a>
                             </td>
                         </tr>
-                        @endforeach
+                        @empty
+                            <tr>
+                                <td colspan="6" class="px-4 py-2 text-center">No users found</td>
+                            </tr>
+                        @endforelse
 
                     </tbody>
 
