@@ -79,6 +79,9 @@ class Event extends Model
         'deleted_by',
         'deleted_type',
 
+        'created_at',
+        'updated_at',
+
 
     ];
 

@@ -17,7 +17,6 @@ class AdminControllerApi extends Controller
      * ดึงข้อมูลผู้ใช้ทั้งหมดจากฐานข้อมูล
      * 
      * 
-     * 
      * @return \Illuminate\Http\JsonResponse
      * 
      * @throws \Illuminate\Database\Eloquent\ModelNotFoundException
