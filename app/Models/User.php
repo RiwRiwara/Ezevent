@@ -70,7 +70,6 @@ class User extends Authenticatable  implements MustVerifyEmail
         return $this->belongsTo(Role::class);
     }
 
-
     public function events()
     {
         return $this->hasMany(Event::class, 'organizer_id', 'user_id');
@@ -88,4 +87,18 @@ class User extends Authenticatable  implements MustVerifyEmail
         
         return $this->profile_img ? $profile_image_url : config('azure.default_img.userprofile');
     }
+
+    public function EventParticipants()
+    {
+        return $this->hasMany(EventParticipants::class, 'user_id', 'user_id');
+    }
+
+    public function EventCollaborators()
+    {
+        return $this->hasMany(EventCollaborators::class, 'user_id', 'user_id');
+    }
+
+    
+
+
 }

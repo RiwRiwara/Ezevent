@@ -129,7 +129,7 @@
 
                 </table>
 
-                <div class="mt-5">
+                <div class="mt-5 p-3">
                     {{ $page_data['my_events']->links() }}
                 </div>
             </div>
