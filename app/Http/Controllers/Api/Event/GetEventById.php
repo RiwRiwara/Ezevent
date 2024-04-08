@@ -31,7 +31,7 @@ class GetEventById extends Controller
             ], 200);
         } else {
             return response()->json([
-                'message' => 'Event not found'
+                'message' => 'Event not found...'
             ], 404);
         }
     }

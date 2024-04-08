@@ -1,40 +1,27 @@
 <x-app-layout>
-    <x-slot name="title">
-        {{__('page.event')}}
-    </x-slot>
+    
+<x-slot name="header">
+    <h2 class="font-semibold text-xl text-primary-5 dark:text-gray-200 leading-tight">
+      {{ __('Ezevent') }}
+    </h2>
+</x-slot>
 
-    <x-slot name="header">
-        <div class="flex justify-center">
-            <x-breadcrumb :items="$page_data['breadcrumbItems']" />
-        </div>
-    </x-slot>
-
-
-
-
-    <div class="max-w-7xl mx-auto p-6 md:p-8 my-5 md:mt-10 bg-white rounded-md h-fit ">
+<div class="max-w-7xl mx-auto p-6 md:p-8 my-5 md:mt-10 bg-neutral-0 rounded-md h-svh ">
         <div class="md:flex-col gap-4">
-
             <div class=" md:flex justify-between items-center">
-                <h1 class="text-2xl font-bold leading-9 tracking-tight text-neutral-9">{{__('page.all_event')}} ( 
-                    {{$page_data['my_events']->total()}}
-                    {{__('page.event')}})
+                <h1 class="text-2xl font-bold leading-9 tracking-tight text-neutral-9">
+                  All Events Dashboard
                 </h1>
-                <x-button.neutral name="create-event">
-                    {{__('page.create_event')}}
-                </x-button.neutral>
-            </div>
-            <hr class="my-5 border-1 border-primary-5">
-            <div class="flex justify-end">
+                <div>
                 <form class="flex items-center max-w-sm  flex-row gap-2 text-nowrap">
-                    <x-forms.input-outline-primary name="search_string" label="{{__('page.search')}}" type="text" value="{{request()->input('search_string')}}" />
+                    <x-forms.input-outline-primary name="search_string" label="{{__('page.search')}}" type="text" value="" />
                     <button type="submit" class="p-1 ms-2 text-sm font-medium text-white bg-neutral-7 rounded-lg border border-neutral-7 hover:bg-neutral-8 focus:ring-4 focus:outline-none focus:ring-neutral-3 dark:bg-neutral-6 dark:hover:bg-neutral-7 dark:focus:ring-neutral-8 duration-300">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-8 h-8">
                             <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
                         </svg>
                         <span class="sr-only">Search</span>
                     </button>
-                    <a href="{{route('event-list')}}" class="p-1 text-sm font-medium text-white bg-neutral-7 rounded-lg border border-neutral-7 hover:bg-neutral-8 focus:ring-4 focus:outline-none focus:ring-neutral-3 dark:bg-neutral-6 dark:hover:bg-neutral-7 dark:focus:ring-neutral-8 duration-300">
+                    <a href="" class="p-1 text-sm font-medium text-white bg-neutral-7 rounded-lg border border-neutral-7 hover:bg-neutral-8 focus:ring-4 focus:outline-none focus:ring-neutral-3 dark:bg-neutral-6 dark:hover:bg-neutral-7 dark:focus:ring-neutral-8 duration-300">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-8 h-8">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
                         </svg>
@@ -42,24 +29,14 @@
                     </a>
 
                 </form>
-            </div>
-
-            @if ($page_data['my_events']->count() == 0)
-            <div class="mt-10 flex flex-col items-center justify-center gap-4b ">
-                <div class="text-neutral-9">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="150" height="130" fill="currentColor" class="bi bi-calendar2-event-fill" viewBox="0 0 16 16">
-                        <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5m9.954 3H2.545c-.3 0-.545.224-.545.5v1c0 .276.244.5.545.5h10.91c.3 0 .545-.224.545-.5v-1c0-.276-.244-.5-.546-.5M11.5 7a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5z" />
-                    </svg>
                 </div>
-                <label class="text-2xl font-bold leading-9 tracking-tight text-black mt-4">{{__('page.topic1')}}</label>
-
-                <label class="text-base my-2">{{__('page.paragraph1')}}</label>
-
-                <x-button.neutral name="create-event">
-                    {{__('page.create_event')}}
-                </x-button.neutral>
             </div>
-            @else
+            <hr class="my-5 border-1 border-primary-5">
+            <h1 class="text-sm font-bold leading-9 tracking-tight text-neutral-9">
+            {{__('page.all_event')}} ( 
+                    {{$events_data['all_events']->total()}}
+                    {{__('page.event')}})
+            </h1>
             <div class="relative overflow-x-auto shadow-md sm:rounded-lg my-3">
 
                 <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400 ">
@@ -87,7 +64,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($page_data['my_events'] as $event)
+                        @forelse ($events_data['all_events'] as $event)
 
                         <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
 
@@ -123,23 +100,23 @@
                                 </a>
                             </td>
                         </tr>
-                        @endforeach
+                        @empty
+                            <tr>
+                                <td colspan="6" class="px-4 py-2 text-center">No events found</td>
+                            </tr>
+                        @endforelse
 
                     </tbody>
 
                 </table>
 
-                <div class="mt-5 p-3">
-                    {{ $page_data['my_events']->links() }}
+                <div class="mt-5">
+                    {{ $events_data['all_events']->links() }}
                 </div>
             </div>
-
-
-            @endif
-
         </div>
+        
     </div>
 
+</x-app-layout>
 
-
-    </x-guest-layout>

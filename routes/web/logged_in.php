@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\Admin\Event\AllEventController;
+use App\Http\Controllers\Admin\User\AllUserContoller;
+use App\Http\Controllers\Admin\Users\AllUserController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\User\UserController;
@@ -49,10 +52,8 @@ Route::middleware('auth', 'verified')->group(function () {
     })->name('reset_password_complete');
 
     // admin
-    Route::get('/admin-dashboard', function () {
-        $users = User::all();
-        return view('admin.admin_dashboard', compact('users'));
-    })->name('admin-dashboard');
+    Route::get('/admin_events_dashboard',AllEventController::class)->name('admin_events_dashboard');
+    Route::get('/admin_users_dashboard',AllUserController::class)->name('admin_users_dashboard');
 
     Route::post('/profile/update', [UserController::class, 'updateUserInformation'])->name('profile.update.field');
 });

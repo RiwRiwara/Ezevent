@@ -20,6 +20,7 @@ class EventCollaborators extends Model
     {
         return $this->belongsTo(User::class, 'user_id', 'user_id');
     }
+    
     public static function isUserCollaborator($eventId, $userId)
     {
         return self::where('event_id', $eventId)

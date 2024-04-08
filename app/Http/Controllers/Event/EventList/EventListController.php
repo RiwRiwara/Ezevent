@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Event\EventList;
 
 use App\Http\Controllers\Controller;
+use App\Models\Event;
 use Illuminate\Http\Request;
 
 class EventListController extends Controller
@@ -11,6 +12,7 @@ class EventListController extends Controller
     {
 
         $search = $request->input('search_string');
+
         $my_events = $request->user()->activeEvents()->when($search, function ($query, $search) {
                 return $query->where('event_name', 'like', "%$search%");
             })->paginate(10);

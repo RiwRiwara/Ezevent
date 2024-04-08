@@ -3,7 +3,7 @@ use Illuminate\Support\Facades\Route;
 
 // Test for api is working
 Route::get('/test', function () {
-    return response()->json(['message' => 'API is working']);
+    return response()->json(['message' => 'API is working...']);
 });
 
 
@@ -16,3 +16,6 @@ require __DIR__ . '/api/authApi.php';
 require __DIR__ . '/api/userApi.php';
 require __DIR__ . '/api/adminApi.php';
 require __DIR__ . '/api/eventApi.php';
+require __DIR__ . '/api/myEventApi.php';
+require __DIR__ . '/api/applicationApi.php';
+require __DIR__ . '/api/badgeApi.php';
