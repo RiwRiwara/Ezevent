@@ -13,6 +13,7 @@ class UpdateByFieldsName extends Controller
     {
         //
     }
+    
     public function __invoke(Request $request)
     {
         return $this->updateByFieldsName($request);

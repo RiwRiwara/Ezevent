@@ -167,4 +167,33 @@ class Event extends Model
         return User::where('user_id', $this->organizer_id)->first();
     }
 
+    public function getSummary()
+    {
+       $summary = [
+        'count_participants' => $this->participants()->count(),
+        'count_participants_cancelled' => $this->participants()->where('status', 'Cancelled')->count(),
+        'count_participants_removed' => $this->participants()->where('status', 'Removed')->count(),
+        'count_participants_applications' => $this->eventApplications()->where('type', 'Participant')->count(),
+        'count_participants_applications_pending' => $this->eventApplications()->where('type', 'Participant')->where('status', 'Pending')->count(),
+        'count_participants_applications_rejected' => $this->eventApplications()->where('type', 'Participant')->where('status', 'Rejected')->count(),
+        'count_participants_applications_cancelled' => $this->eventApplications()->where('type', 'Participant')->where('status', 'Cancelled')->count(),
+
+        'count_staff' => $this->participants()->where('role', 'Staff')->count(),
+        'count_staff_cancelled' => $this->participants()->where('role', 'Staff')->where('status', 'Cancelled')->count(),
+        'count_staff_removed' => $this->participants()->where('role', 'Staff')->where('status', 'Removed')->count(),
+        'count_staff_applications' => $this->eventApplications()->where('type', 'Staff')->count(),
+        'count_staff_applications_pending' => $this->eventApplications()->where('type', 'Staff')->where('status', 'Pending')->count(),
+        'count_staff_applications_rejected' => $this->eventApplications()->where('type', 'Staff')->where('status', 'Rejected')->count(),
+        'count_staff_applications_cancelled' => $this->eventApplications()->where('type', 'Staff')->where('status', 'Cancelled')->count(),
+       ];
+
+         return $summary;
+    }
+
+
+    public function getLastestApplication()
+    {
+        // get last 5 applications
+        return $this->eventApplications()->orderBy('application_date', 'desc')->take(5)->get();
+    }
 }

@@ -19,7 +19,7 @@ class ApplicationApiController extends Controller
      * 
      * @param ParticipantApplicationRequest $request The request object containing the participant's application data.
      * 
-     * @return ApplicationResource
+     * @return \Illuminate\Http\JsonResponse
      * 
      * @throws \Illuminate\Validation\ValidationException
      */

@@ -13,6 +13,7 @@ class EventStaffListController extends Controller
         $event = Event::where('event_id', $event_id)->firstOrFail();
         $this->authorize('view', $event);
 
+        $eventApplications = $event->eventApplications()->with('user')->get();
 
         $page_data = [
             'breadcrumbItems' => [
@@ -21,6 +22,6 @@ class EventStaffListController extends Controller
             ],
             'default_event_img' => config('azure.default_img.event_banner'),
         ];
-        return view('event.event-detail-staff.event-detail-staff', compact('page_data', 'event'));
+        return view('event.event-detail-staff.event-detail-staff', compact('page_data', 'event', 'eventApplications'));
     }
 }

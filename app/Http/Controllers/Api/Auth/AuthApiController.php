@@ -49,6 +49,7 @@ class AuthApiController extends Controller
      * ลงทะเบียนผู้ใช้ใหม่และสร้างโทเค็นใหม่สำหรับพวกเขา
      * 
      * @param  MobileRegisterRequest  $request
+     * 
      * @return \Illuminate\Http\JsonResponse
      * 
      */
@@ -56,5 +57,23 @@ class AuthApiController extends Controller
     {
         return (new RegisterUserController($request))->register($request);
 
+    }
+
+
+    /**
+     * Check if the session is active. [NT]
+     * 
+     * Check if the session is active and return a response.
+     * 
+     * ตรวจสอบว่าเซสชันทำงานอยู่หรือไม่และส่งคืนการตอบสนอง
+     * 
+     * @param  \Illuminate\Http\Request  $request
+     * 
+     * @return \Illuminate\Http\JsonResponse
+     * 
+     */
+    public function checkSession(Request $request)
+    {
+        return (new CheckSessionController($request))->checkSession($request);
     }
 }

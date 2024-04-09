@@ -98,7 +98,6 @@ class User extends Authenticatable  implements MustVerifyEmail
         return $this->hasMany(EventCollaborators::class, 'user_id', 'user_id');
     }
 
-    
 
 
 }

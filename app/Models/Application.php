@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Carbon\Carbon;
 
 class Application extends Model
 {
@@ -71,6 +72,12 @@ class Application extends Model
 
     public function approved_date_format($format){
         return date($format, strtotime($this->approved_date));
+    }
+
+
+    public function getDateTimeAppication()
+    {
+        return Carbon::parse($this->application_date)->timezone('Asia/Bangkok')->format('M d, Y H:i');
     }
 
 }
