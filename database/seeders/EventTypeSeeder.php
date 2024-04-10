@@ -15,42 +15,42 @@ class EventTypeSeeder extends Seeder
     public function run()
     {
         EventType::create([
-            'name_th' => 'สื่อบันเทิง',
+            'name_th' => 'Entertainment',
             'name_en' => 'Entertainment',
             'description' => 'Entertainment',
             'icon' => 'bi bi-server',
         ]);
 
         EventType::create([
-            'name_th' => 'การศึกษา',
+            'name_th' => 'Education',
             'name_en' => 'Education',
             'description' => 'Education',
             'icon' => 'bi bi-book',
         ]);
 
         EventType::create([
-            'name_th' => 'งานการกุศล',
+            'name_th' => 'Charity',
             'name_en' => 'Charity',
             'description' => 'Charity',
             'icon' => 'bi bi-heart',
         ]);
 
         EventType::create([
-            'name_th' => 'งานสัมมนา',
+            'name_th' => 'Seminar',
             'name_en' => 'Seminar',
             'description' => 'Seminar',
             'icon' => 'bi bi-mic',
         ]);
 
         EventType::create([
-            'name_th' => 'เวิร์คช้อป',
+            'name_th' => 'Workshop',
             'name_en' => 'Workshop',
             'description' => 'funny',
             'icon' => 'bi bi-emoji-laughing',
         ]);
 
         EventType::create([
-            'name_th' => 'ประชุม',
+            'name_th' => 'Conference',
             'name_en' => 'Conference',
 
             'description' => 'Finance',
@@ -58,35 +58,35 @@ class EventTypeSeeder extends Seeder
         ]);
 
         EventType::create([
-            'name_th' => 'เกม',
+            'name_th' => 'Game',
             'name_en' => 'Game',
             'description' => 'Game',
             'icon' => 'bi bi-joystick',
         ]);
 
         EventType::create([
-            'name_th' => 'นิทรรศการ',
+            'name_th' => 'Exhibition',
             'name_en' => 'Exhibition',
             'description' => 'Exhibition',
             'icon' => 'bi bi-image',
         ]);
 
         EventType::create([
-            'name_th' => 'ศิลปะ',
+            'name_th' => 'Art',
             'name_en' => 'Art',
             'description' => 'Art',
             'icon' => 'bi bi-palette',
         ]);
 
         EventType::create([
-            'name_th' => 'ดนตรี',
+            'name_th' => 'Music',
             'name_en' => 'Music',
             'description' => 'Technology',
             'icon' => 'bi bi-laptop',
         ]);
 
         EventType::create([
-            'name_th' => 'กีฬา',
+            'name_th' => 'Sport',
             'name_en' => 'Sport',
             'description' => 'Other',
             'icon' => 'bi bi-three-dots',
