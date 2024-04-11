@@ -1,10 +1,12 @@
-<div x-data="{ quickApprove: false}">
+<div x-data="{ quickApprove: false, allowConfirm :true}">
 
-    <div class="flex justify-end">
+    <div class="flex justify-end gap-2">
+
 
         <button @click="quickApprove=!quickApprove" :class="{ 'bg-green-500': quickApprove, 'bg-gray-500': !quickApprove }" class="text-white px-2 py-1 rounded-md my-1">
-            <span class="ms-2">Quick approve</span>
+            <span class="ms-2">Quick Action</span>
         </button>
+
     </div>
 
 
@@ -80,7 +82,7 @@
 
                     </div>
                 </td>
-                <td class="px-6 py-4">
+                <td class="px-6 py-4" x-show="! quickApprove">
                     <!-- Modal toggle -->
                     <a href="#" type="button" data-modal-target="form_modal_{{$application['application_id']}}" data-modal-show="form_modal_{{$application['application_id']}}" class="font-medium text-neutral-6 dark:text-neutral-5 hover:underline">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-clipboard-list">
@@ -151,17 +153,17 @@
                                     <!-- Approve and reject button -->
                                     <div class="flex justify-between gap-2">
                                         @if ($application['status'] == 'Approved')
-                                        <button disabled type="button" class="p-2 text-sm text-white bg-green-200 rounded-lg">
+                                        <button data-modal-hide="form_modal_{{$application['application_id']}}" disabled type="button" class="p-2 text-sm text-white bg-green-200 rounded-lg">
                                             Approve
                                         </button>
-                                        <button disabled type="button" class="p-2 text-sm text-white bg-red-200 rounded-lg">
+                                        <button data-modal-hide="form_modal_{{$application['application_id']}}" disabled type="button" class="p-2 text-sm text-white bg-red-200 rounded-lg">
                                             Reject
                                         </button>
                                         @else
-                                        <button wire:click.prevent="approved('{{ $application['application_id'] }}')" wire:confirm="Are you sure to approve this application?" type="button" class="p-2 text-sm text-white bg-green-500 rounded-lg hover:bg-green-600">
+                                        <button data-modal-hide="form_modal_{{$application['application_id']}}" wire:click.prevent="approved('{{ $application['application_id'] }}')" wire:confirm="Are you sure to approve this application?" type="button" class="p-2 text-sm text-white bg-green-500 rounded-lg hover:bg-green-600">
                                             Approve
                                         </button>
-                                        <button wire:click.prevent="rejected('{{ $application['application_id'] }}')" wire:confirm="Are you sure to reject this application?" type="button" class="p-2 text-sm text-white bg-red-500 rounded-lg hover:bg-red-600">
+                                        <button data-modal-hide="form_modal_{{$application['application_id']}}" wire:click.prevent="rejected('{{ $application['application_id'] }}')" wire:confirm="Are you sure to reject this application?" type="button" class="p-2 text-sm text-white bg-red-500 rounded-lg hover:bg-red-600">
                                             Reject
                                         </button>
 

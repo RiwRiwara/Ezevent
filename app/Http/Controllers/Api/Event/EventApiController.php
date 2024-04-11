@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Api\Event;
 
 use App\Http\Controllers\Controller;
-use App\Http\Resources\EventResource;
+use App\Http\Resources\Api\LastestEventResource;
 use Illuminate\Http\Request;
 
 class EventApiController extends Controller
@@ -35,7 +35,7 @@ class EventApiController extends Controller
      * 
      * ดึงข้อมูลกิจกรรม 5 กิจกรรมล่าสุดและส่งคืนอาร์เรย์ของอ็อบเจ็กต์กิจกรรม
      * 
-     * @return \Illuminate\Http\JsonResponse
+     * @return \Illuminate\Http\JsonResponse 
      * 
      * @throws \Illuminate\Database\Eloquent\ModelNotFoundException
      * 
@@ -52,7 +52,8 @@ class EventApiController extends Controller
      * 
      * ดึงข้อมูลกิจกรรมทั้งหมดและส่งคืนอาร์เรย์ของอ็อบเจ็กต์กิจกรรม
      * 
-     * @return \Illuminate\Http\JsonResponse
+     * @return \Illuminate\Http\JsonResponse 
+     * 
      * 
      * @throws \Illuminate\Database\Eloquent\ModelNotFoundException
      * 

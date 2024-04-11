@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('applications', function (Blueprint $table) {
             $table->id();
             $table->string('application_id')->unique()->default(uniqid('application_'));
-            $table->string('user_id');
+            $table->string('user_id')->unique();
             $table->string('event_id');
             $table->string('form_id')->nullable();
             $table->string('type')->enum('Participant', 'Staff')->default('Participant');

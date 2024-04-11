@@ -1,5 +1,4 @@
 <?php
-
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Event\CreateEvent\CreateEventPageController;
 use App\Http\Controllers\Event\CreateEvent\StoreEventController;
@@ -16,6 +15,10 @@ use App\Http\Controllers\Event\EventDetail\Participant\EventParticipantListContr
 use App\Http\Controllers\Event\EventDetail\UpdateContentController;
 use App\Http\Controllers\Event\EventDetail\Staff\EventStaffListController;
 use App\Http\Controllers\Event\EventDetail\Message\EventMessageController;
+use App\Http\Controllers\Event\EventDetail\During\PublishEvent;
+use App\Http\Controllers\Event\EventDetail\During\CancelledEvent;
+use App\Http\Controllers\Event\EventDetail\During\ChangePhaseEvent;
+
 
 
 
@@ -43,7 +46,7 @@ Route::middleware('auth', 'verified')->group(function () {
     Route::get('/event-application-list/{event_id}', EventApplicationListController::class)->name('event-application-list');
 
     // Event Participant list
-    Route::get('/event-participant-list/{event_id}', EventParticipantListController::class )->name('event-participant-list');
+    Route::get('/event-participant-list/{event_id}', EventParticipantListController::class)->name('event-participant-list');
 
     // Event Staff list
     Route::get('/event-staff-list/{event_id}',  EventStaffListController::class)->name('event-staff-list');
@@ -52,5 +55,13 @@ Route::middleware('auth', 'verified')->group(function () {
     Route::get('/event-message/{event_id}', EventMessageController::class)->name('event-message-list');
 
 
-    
+
+    // During Event 
+    Route::post('/published-event/{event_id}', PublishEvent::class)->name('published-event');
+    Route::post('/cancelled-event/{event_id}', CancelledEvent::class)->name('cancelled-event');
+
+    Route::post('/change-phase-event/{event_id}', ChangePhaseEvent::class)->name('change-phase-event');
+
+
+
 });

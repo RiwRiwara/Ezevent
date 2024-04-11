@@ -88,12 +88,12 @@ class User extends Authenticatable  implements MustVerifyEmail
         return $this->profile_img ? $profile_image_url : config('azure.default_img.userprofile');
     }
 
-    public function EventParticipants()
+    public function eventParticipants()
     {
         return $this->hasMany(EventParticipants::class, 'user_id', 'user_id');
     }
 
-    public function EventCollaborators()
+    public function eventCollaborators()
     {
         return $this->hasMany(EventCollaborators::class, 'user_id', 'user_id');
     }

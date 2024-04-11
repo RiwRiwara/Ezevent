@@ -13,6 +13,10 @@ class EventParticipantListController extends Controller
         $event = Event::where('event_id', $event_id)->firstOrFail();
         $this->authorize('view', $event);
 
+        $eventParticipants = $event->eventParticipants()->with('user')->where('role', 'Participant')
+        ->paginate(10);
+        $eventParticipantsDataArray = $eventParticipants->toArray();
+
 
         $page_data = [
             'breadcrumbItems' => [
@@ -21,6 +25,6 @@ class EventParticipantListController extends Controller
             ],
             'default_event_img' => config('azure.default_img.event_banner'),
         ];
-        return view('event.event-detail-participant.event-detail-participant', compact('page_data', 'event'));
+        return view('event.event-detail-participant.event-detail-participant', compact('page_data', 'event', 'eventParticipants', 'eventParticipantsDataArray'));
     }
 }

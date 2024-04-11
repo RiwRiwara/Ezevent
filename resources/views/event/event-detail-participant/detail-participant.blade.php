@@ -1,13 +1,17 @@
+<?php
+// Controller : [EventParticipantListController]
+?>
+
 <div class="max-w-7xl mx-auto sm:px-4 lg:px-8">
     <h1 class="text-2xl text-center font-bold mb-4 mt-2 text-neutral-8">
-    {{__("event.menu-event.menu-event6")}}
+        {{__("event.menu-event.menu-event6")}}
 
     </h1>
 
     <div class="flex flex-col gap-4">
 
 
-        <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+        <div class="">
             <div class="flex items-center justify-between flex-column md:flex-row flex-wrap space-y-4 md:space-y-0 py-4 bg-white dark:bg-gray-900">
                 <div>
                     <button id="dropdownActionButton" data-dropdown-toggle="dropdownAction" class="inline-flex items-center text-gray-500 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-medium rounded-lg text-sm px-3 py-1.5 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700" type="button">
@@ -45,53 +49,13 @@
                     <input type="text" id="table-search-users" class="block pt-2 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg w-80 bg-gray-50 focus:ring-neutral-5 focus:border-neutral-5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-neutral-5 dark:focus:border-neutral-5" placeholder="Search for users">
                 </div>
             </div>
-            <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-                    <tr>
-
-                        <th scope="col" class="px-6 py-3">
-                            Name
-                        </th>
-                        <th scope="col" class="px-6 py-3">
-                            Position
-                        </th>
-                        <th scope="col" class="px-6 py-3">
-                            Status
-                        </th>
-                        <th scope="col" class="px-6 py-3">
-                            Action
-                        </th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-
-                        <th scope="row" class="flex items-center px-6 py-4 text-gray-900 whitespace-nowrap dark:text-white">
-                            <img class="w-10 h-10 rounded-full" src="/docs/images/people/profile-picture-1.jpg" alt="Jese image">
-                            <div class="ps-3">
-                                <div class="text-base font-semibold">Neil Sims</div>
-                                <div class="font-normal text-gray-500">neil.sims@flowbite.com</div>
-                            </div>
-                        </th>
-                        <td class="px-6 py-4">
-                            React Developer
-                        </td>
-                        <td class="px-6 py-4">
-                            <div class="flex items-center">
-                                <div class="h-2.5 w-2.5 rounded-full bg-green-500 me-2"></div> Online
-                            </div>
-                        </td>
-                        <td class="px-6 py-4">
-                            <!-- Modal toggle -->
-                            <a href="#" type="button" data-modal-target="editUserModal" data-modal-show="editUserModal" class="font-medium text-neutral-6 dark:text-neutral-5 hover:underline">Edit user</a>
-                        </td>
-                    </tr>
-
-                </tbody>
-            </table>
-            <!-- Edit user modal -->
-            @include('event.event-detail-partials.users.detail-modal')
         </div>
+
+        <livewire:participant-table :eventParticipants="$eventParticipantsDataArray['data']" />
+        <div class="p-2">
+                {{$eventParticipants->links()}}
+            </div>
+        
 
     </div>
 </div>

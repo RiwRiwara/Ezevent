@@ -21,12 +21,29 @@ class ApplicationSeeder extends Seeder
         // Get first event
         $event = Event::first();
 
+
+        // Create application for me
+        Application::create([
+            'application_id' => uniqid('application_'),
+            'event_id' => $event->event_id,
+            'user_id' => User::where('email', 'awirut2629@gmail.com')->first()->user_id,
+            'form_id' => null,
+            'type' => 'Participant',
+            'status' => 'Pending',
+            'message' => null,
+            'application_date' => now(),
+        ]);
+
         // Create application for each user
         foreach ($RandomUsers as $user) {
 
+            if ($user->email == 'awirut2629@gmail.com') {
+                continue;
+            }
+
             // Random Type Participant(80%)or Staff(20%)
             $type = rand(1, 100) <= 80 ? 'Participant' : 'Staff';
-            
+
             Application::create([
                 'application_id' => uniqid('application_'),
                 'event_id' => $event->event_id,
@@ -38,5 +55,8 @@ class ApplicationSeeder extends Seeder
                 'application_date' => now(),
             ]);
         }
+
+
+        
     }
 }

@@ -55,6 +55,9 @@ class EventResource extends JsonResource
             'banner_image' => $this->banner_image,
             'thumbnail' => $this->thumbnail,
 
+            'isJoined' => $this->isMeJoinEvent(),
+
+
             'status_color' => $this->getStatusColor(),
             'date_start' => $this->getDateStart(),
             'date_end' => $this->getDateEnd(),
@@ -62,7 +65,10 @@ class EventResource extends JsonResource
             'time_end' => $this->getTimeEnd(),
             'getThumbnail' => $this->getThumbnail(),
             'getBannerImage' => $this->getBannerImage(),
-            'organizer' => new UserResource($this->getOrganizer())
+            'getCategoriesForShow' => $this->getCategoriesForShow(),
+            'getDateShow' => "Date: " .$this->getDateStart() . " - " . $this->getDateEnd(),
+            'getTimeShow' => "Time: " .$this->getTimeStart() . " - " . $this->getTimeEnd(),
+            'organizer' => new UserResource($this->getOrganizer()),
     
         ];
     }

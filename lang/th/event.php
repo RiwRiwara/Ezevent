@@ -73,10 +73,11 @@ return [
     'phase' => [
         'set' => 'เฟส',
         'Initial' => 'เริ่มต้น',
-        'Upcoming' => 'เร็วๆนี้',
+        'Upcoming' => 'กำลังมาถึง',
         'Ongoing' => 'กำลังดำเนินการ',
         'Reviewing' => 'กำลังตรวจสอบ',
-        'Completed' => 'เสร็จสิ้น',
+        'Complete' => 'เสร็จสิ้น',
+        'Archived' => 'เก็บถาวร',
     ],
     'menu-event' => [
         'menu-event1' => 'แดชบอร์ด',

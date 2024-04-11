@@ -26,7 +26,8 @@ class Event extends Model
     const EVENT_PHASE_UPCOMING = 'Upcoming';
     const EVENT_PHASE_ONGOING = 'Ongoing';
     const EVENT_PHASE_REVIEWING = 'Reviewing';
-    const EVENT_PHASE_COMPLETED = 'Completed';
+    const EVENT_PHASE_COMPLETED = 'Complete';
+    
 
     // Define constants for event statuses
     const EVENT_STATUS_DRAFT = 'Draft';
@@ -91,9 +92,9 @@ class Event extends Model
         return $this->belongsTo(User::class, 'organizer_id', 'user_id');
     }
 
-    public function participants()
+    public function eventParticipants()
     {
-        return $this->belongsToMany(User::class, 'event_participants', 'event_id', 'user_id');
+        return $this->hasMany(EventParticipants::class, 'event_id', 'event_id');
     }
 
     public function eventApplications()
@@ -170,17 +171,17 @@ class Event extends Model
     public function getSummary()
     {
        $summary = [
-        'count_participants' => $this->participants()->count(),
-        'count_participants_cancelled' => $this->participants()->where('status', 'Cancelled')->count(),
-        'count_participants_removed' => $this->participants()->where('status', 'Removed')->count(),
+        'count_participants' => $this->eventParticipants()->count(),
+        'count_participants_cancelled' => $this->eventParticipants()->where('status', 'Cancelled')->count(),
+        'count_participants_removed' => $this->eventParticipants()->where('status', 'Removed')->count(),
         'count_participants_applications' => $this->eventApplications()->where('type', 'Participant')->count(),
         'count_participants_applications_pending' => $this->eventApplications()->where('type', 'Participant')->where('status', 'Pending')->count(),
         'count_participants_applications_rejected' => $this->eventApplications()->where('type', 'Participant')->where('status', 'Rejected')->count(),
         'count_participants_applications_cancelled' => $this->eventApplications()->where('type', 'Participant')->where('status', 'Cancelled')->count(),
 
-        'count_staff' => $this->participants()->where('role', 'Staff')->count(),
-        'count_staff_cancelled' => $this->participants()->where('role', 'Staff')->where('status', 'Cancelled')->count(),
-        'count_staff_removed' => $this->participants()->where('role', 'Staff')->where('status', 'Removed')->count(),
+        'count_staff' => $this->eventParticipants()->where('role', 'Staff')->count(),
+        'count_staff_cancelled' => $this->eventParticipants()->where('role', 'Staff')->where('status', 'Cancelled')->count(),
+        'count_staff_removed' => $this->eventParticipants()->where('role', 'Staff')->where('status', 'Removed')->count(),
         'count_staff_applications' => $this->eventApplications()->where('type', 'Staff')->count(),
         'count_staff_applications_pending' => $this->eventApplications()->where('type', 'Staff')->where('status', 'Pending')->count(),
         'count_staff_applications_rejected' => $this->eventApplications()->where('type', 'Staff')->where('status', 'Rejected')->count(),
@@ -196,4 +197,24 @@ class Event extends Model
         // get last 5 applications
         return $this->eventApplications()->orderBy('application_date', 'desc')->take(5)->get();
     }
+
+
+
+    // This function can use only logged in user and check is me already join this event
+    public function isMeJoinEvent()
+    {
+        $user = auth()->user();
+        if (!$user) {
+            return false;
+        }
+
+
+        return EventParticipants::where('event_id', $this->event_id)
+            ->where('user_id', $user->user_id)
+            ->exists();
+
+    }
+
 }
+
+

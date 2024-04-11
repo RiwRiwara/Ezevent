@@ -16,6 +16,7 @@ class EventApplicationListController extends Controller
 
         $timeRange = $request->input('time_range', 'last_7_days');
         $role = $request->input('role', 'all');
+        $status = $request->input('status', 'all');
         $nameSearch = $request->input('table-search', '');
         $eventApplicationsQuery = $event->eventApplications()->with('user');
 
@@ -38,6 +39,10 @@ class EventApplicationListController extends Controller
 
         if ($role !== 'all') {
             $eventApplicationsQuery->where('type', $role);
+        }
+
+        if ($status !== 'all') {
+            $eventApplicationsQuery->where('status', $status);
         }
 
         $eventApplicationsQuery->whereHas('user', function ($query) use ($nameSearch) {

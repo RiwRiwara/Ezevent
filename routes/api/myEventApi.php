@@ -5,5 +5,8 @@ use App\Http\Controllers\Api\MyEvent\MyEventApiController;
 
 
 Route::middleware('auth:sanctum')->group(function () {
-    Route::get('/event/myevent', [MyEventApiController::class, 'getMyEventAllAsParticipant'])->name('api.event.get_my_event_all_as_participant');
+    Route::get(
+        '/event/myevent/{type}/{progress}/{status}',
+        [MyEventApiController::class, 'getAllMyEvent']
+    )->name('api.event.get_my_event_all_as_participant');
 });

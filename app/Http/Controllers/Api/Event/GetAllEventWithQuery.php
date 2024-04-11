@@ -25,7 +25,9 @@ class GetAllEventWithQuery extends Controller
     public function getEventAll(Request $request)
     {
         // pagiantion
-        $events = Event::paginate(10);
+        $events = Event::where('event_status', Event::EVENT_STATUS_PUBLISHED)
+        ->whereNotIn('event_phase', [Event::EVENT_PHASE_REVIEWING, Event::EVENT_PHASE_COMPLETED])
+        ->paginate(10);
         $pagination = $events->toArray();
 
         $pagination['data'] = [];

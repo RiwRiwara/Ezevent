@@ -25,10 +25,14 @@ class GetLastEvents extends Controller
 
     public function getLastEvents()
     {
-        $events = Event::orderBy('created_at', 'desc')->take(5)->get();
+        $events = Event::orderBy('created_at', 'desc')
+        ->where('event_status', Event::EVENT_STATUS_PUBLISHED)
+        ->whereNotIn('event_phase', [Event::EVENT_PHASE_REVIEWING, Event::EVENT_PHASE_COMPLETED])
+        ->take(5)
+        ->get();
+    
 
 
-        Log::channel('debug')->info('Events found', ['events' => $events]);
 
         if ($events) {
             return response()->json([

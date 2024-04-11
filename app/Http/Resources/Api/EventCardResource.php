@@ -22,6 +22,9 @@ class EventCardResource extends JsonResource
             'event_location' => $this->event_location,
             'is_specific_date' => $this->is_specific_date,
             'is_online' => $this->is_online,
+
+            'isJoined' => $this->isMeJoinEvent(),
+
             
             'status_color' => $this->getStatusColor(),
             'date_start' => $this->getDateStart(),

@@ -1,47 +1,6 @@
 <x-app-layout>
-    <x-slot name="title">
-        {{__('page.event_detail')}}
-    </x-slot>
+    @include('event.event-detail-header')
 
-    <x-slot name="header">
-        <div class="flex justify-center">
-            <x-breadcrumb :items="$page_data['breadcrumbItems']" />
-        </div>
-    </x-slot>
-
-    <div class="max-w-full bg-neutral-9 shadow-inner border-b-8 border-neutral-8">
-
-        <div class="col-span-12 flex justify-end p-2">
-            <p class="text-muted text-gray-200 font-medium">{{$event->event_id}}</p>
-        </div>
-
-        <div class="max-w-7xl px-2 md:py-8 mx-auto sm:px-10 lg:px-8">
-            <div class=" grid-cols-12 grid">
-                <div class="col-span-6 flex flex-row gap-4 justify-start">
-                    <img class="w-32 h-36 rounded-lg border-4 border-neutral-2 p-1 object-cover" src="{{$event->getThumbnail()}}" alt="">
-                    <div class="flex flex-col gap-2">
-                        <div class="flex flex-row gap-2">
-                            <div class="text-2xl font-bold text-white overflow-hidden overflow-ellipsis whitespace-normal break-words max-w-[350px] max-h-[3.5em] line-clamp-3" id="event-name-show">{{$event->event_name}}</div>
-                        </div>
-                        <div class="text-md text-gray-2 font-semibold text-nowrap"> {{$event->getDateStart()}} - {{$event->getDateEnd()}}</div>
-                        <div class="text-md text-gray-2 font-semibold text-nowrap"> {{$event->venue}}</div>
-                    </div>
-                </div>
-                <div class="col-span-6 flex flex-col gap-4 ">
-                    <div class="flex items-center justify-end">
-                        <div class="rounded-lg text-white font-bold px-2 py-1 {{$event->getStatusColor()}} me-2">
-                            {{ __('event.status.'.$event->event_status) }}
-                        </div>
-                    </div>
-                    <div class="flex justify-end">
-                        <x-button.btn-common name="review" type="button">
-                            {{__('page.published')}}
-                        </x-button.btn-common>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 
 
     <div class="max-w-7xl my-5 px-2 mx-auto sm:px-10 lg:px-8" id="partials-detail">

@@ -18,6 +18,7 @@ class LastestEventResource extends JsonResource
             'event_id' => $this->event_id,
             'event_name' => $this->event_name,
             'getBannerImage' => $this->getBannerImage(),
+
         ];
     }
 }

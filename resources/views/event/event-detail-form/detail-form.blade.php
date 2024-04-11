@@ -4,7 +4,7 @@
 
     <div class="flex flex-col gap-4">
 
-        <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+        <div class="">
             <div class="flex flex-column sm:flex-row flex-wrap space-y-4 sm:space-y-0 items-center justify-between pb-4">
 
                 <form method="GET" id="filter_form">
@@ -15,11 +15,20 @@
                         <option value="last_30_days">Last 30 days</option>
                         <option value="last_month">Last month</option>
                     </select>
+
                     <select id="role_filter" name="role" onchange="submitForm()" class="inline-flex items-center text-gray-500 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-medium rounded-lg text-sm px-3 py-1.5 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">
                         <option value="all">All</option>
                         <option value="participant">Participant</option>
                         <option value="staff">Staff</option>
                     </select>
+
+                    <select id="status_filter" name="status" onchange="submitForm()" class="inline-flex items-center text-gray-500 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-medium rounded-lg text-sm px-3 py-1.5 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">
+                        <option value="all">All</option>
+                        <option value="Approved">Approved</option>
+                        <option value="Pending">Pending</option>
+                        <option value="Rejected">Rejected</option>
+                    </select>
+
                 </form>
 
                 <label for="table-search" class="sr-only">Search</label>
@@ -41,6 +50,7 @@
                 {{$eventApplications->links()}}
             </div>
         </div>
+
     </div>
 </div>
 
