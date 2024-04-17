@@ -76,7 +76,9 @@ return [
         'Upcoming' => 'Upcoming',
         'Ongoing' => 'Ongoing',
         'Reviewing' => 'Reviewing',
-        'Completed' => 'Completed',
+        'Complete' => 'Completed',
+        'Archived' => 'Archived',
+
     ],
     'menu-event' => [
         'menu-event1' => 'Dashboard',

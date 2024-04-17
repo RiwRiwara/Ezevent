@@ -22,7 +22,11 @@ class GetEventById extends Controller
 
     public function getEventById(string $event_id)
     {
-        $event = Event::where('event_id', $event_id)->first();
+        $event = Event::where('event_id', $event_id)
+        ->where('event_status', Event::EVENT_STATUS_PUBLISHED)
+        ->whereNotIn('event_phase', [Event::EVENT_PHASE_REVIEWING, Event::EVENT_PHASE_COMPLETED])
+
+        ->first();
         if ($event) {
             return response()->json([
                 'message' => 'Event found',
@@ -31,7 +35,7 @@ class GetEventById extends Controller
             ], 200);
         } else {
             return response()->json([
-                'message' => 'Event not found'
+                'message' => 'Event not found...'
             ], 404);
         }
     }

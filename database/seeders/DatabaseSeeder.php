@@ -14,9 +14,15 @@ class DatabaseSeeder extends Seeder
         $this->call(EventTypeSeeder::class);
         $this->call(BadgeTypeSeeder::class);
 
+
+
         $userData = include(database_path('seeders/testUser.php'));
         foreach ($userData as $user) {
             \App\Models\User::factory()->create($user);
         }
+
+        $this->call(EventSeeder::class);
+
+        $this->call(ApplicationSeeder::class);
     }
 }

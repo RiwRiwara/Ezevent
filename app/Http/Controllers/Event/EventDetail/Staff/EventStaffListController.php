@@ -13,6 +13,9 @@ class EventStaffListController extends Controller
         $event = Event::where('event_id', $event_id)->firstOrFail();
         $this->authorize('view', $event);
 
+        $eventStaff = $event->eventParticipants()->with('user')->where('role', 'Staff')
+        ->paginate(10);
+        $eventStaffDataArray = $eventStaff->toArray();
 
         $page_data = [
             'breadcrumbItems' => [
@@ -21,6 +24,6 @@ class EventStaffListController extends Controller
             ],
             'default_event_img' => config('azure.default_img.event_banner'),
         ];
-        return view('event.event-detail-staff.event-detail-staff', compact('page_data', 'event'));
+        return view('event.event-detail-staff.event-detail-staff', compact('page_data', 'event', 'eventStaff', 'eventStaffDataArray'));
     }
 }

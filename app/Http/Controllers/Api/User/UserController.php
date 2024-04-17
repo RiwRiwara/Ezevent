@@ -37,6 +37,7 @@ class UserController extends Controller
      * อัปเดตข้อมูลผู้ใช้ และส่งคืนอ็อบเจ็กต์ผู้ใช้ที่อัปเดตแล้ว
      * 
      * @param \Illuminate\Http\Request $request The incoming request object.
+     * 
      * @return \Illuminate\Http\JsonResponse
      */
     public function updateByFieldsName(Request $request)

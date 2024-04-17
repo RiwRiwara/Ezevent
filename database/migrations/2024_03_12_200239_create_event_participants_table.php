@@ -15,18 +15,22 @@ return new class extends Migration
             $table->id();
             $table->string('event_participant_id')->unique()->default(uniqid('event_participant_'));
             $table->string('event_id');
-            $table->string('user_id');
+            $table->string('user_id')->unique();
             $table->string('role')->enum('Participant', 'Staff')->default('Participant');
             $table->string('position')->nullable();
             $table->string('status')->enum('Normal', 'Cancelled', 'Removed', 'Late')->default('Normal');
-            $table->boolean('is_check_in')->default(false);
-            $table->string('is_check_out')->nullable();
+            $table->string('progress')->enum ('Pre', 'IsCheckIn', 'IsCheckOut', 'IsReviewed', 'IsCompleted')->default('Pre');
+
 
             $table->string('check_in_by')->nullable();
             $table->string('check_out_by')->nullable();
             
-            $table->string('check_in_time')->nullable();
-            $table->string('check_out_time')->nullable();
+            $table->dateTime('check_in_time')->nullable();
+            $table->dateTime('check_out_time')->nullable();
+            $table->dateTime('review_time')->nullable();
+            $table->dateTime('completed_time')->nullable();
+
+            
             $table->string('created_by')->nullable();
             $table->timestamps();
         });

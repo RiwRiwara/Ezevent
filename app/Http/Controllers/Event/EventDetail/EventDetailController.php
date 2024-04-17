@@ -18,6 +18,8 @@ class EventDetailController extends Controller
         $event_types = $this->prepate_type_data($event);
         $event->event_types = $event_types;
 
+        $Summary = $event->getSummary();
+
         $page_data = [
             'breadcrumbItems' => [
                 ['label' => 'Events', 'url' => route('event-list')],

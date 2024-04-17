@@ -30,7 +30,25 @@ class AuthenticatedSessionController extends Controller
      */
     public function store(LoginRequest $request): RedirectResponse
     {
+
         $request->authenticate();
+
+        // Get the authenticated user
+        $user = Auth::user();
+
+        // Check if the user has role 1 or role 3
+        if (!in_array($user->role_id, [1, 3])) {
+            // If the user doesn't have the required role, log them out
+            Auth::guard('web')->logout();
+            $request->session()->invalidate();
+            $request->session()->regenerateToken();
+
+            // Redirect back with an error message
+            toastr()->addError(__('auth.invalid_role'));
+            return redirect()->back();
+        }
+
+
         $request->session()->regenerate();
 
         toastr()->addSuccess(__('success.success_login'));

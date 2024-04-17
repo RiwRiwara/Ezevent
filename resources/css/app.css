@@ -46,3 +46,20 @@
 }
 
 
+
+.progress-scroller::-webkit-scrollbar {
+  width: 0px; 
+  height: 8px;
+}
+
+.progress-scroller::-webkit-scrollbar-track {
+  background: #fff; 
+}
+
+.progress-scroller::-webkit-scrollbar-thumb {
+  background: #cfecff; 
+}
+
+.progress-scroller::-webkit-scrollbar-thumb:hover {
+  cursor: pointer;
+}

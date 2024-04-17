@@ -3,17 +3,13 @@
 namespace App\Http\Controllers\Api\Event;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\Api\LastestEventResource;
 use Illuminate\Http\Request;
-use App\Http\Resources\EventResource;
-use App\Http\Resources\ApplicationResource;
-use Illuminate\Support\Facades\Log;
-use App\Http\Requests\Event\ParticipantApplicationRequest;
-
 
 class EventApiController extends Controller
 {
     /**
-     * Get event by event_id [T]
+     * Get event by event_id [NT]
      * 
      * Retrieves a specific event by its event_id and returns an event object.
      * 
@@ -21,7 +17,7 @@ class EventApiController extends Controller
      * 
      * @param string $event_id The ID of the event to retrieve.
      * 
-     * @return EventResource A resource object containing the event's data.
+     * @return \Illuminate\Http\JsonResponse
      * 
      * @throws \Illuminate\Database\Eloquent\ModelNotFoundException
      * 
@@ -31,24 +27,40 @@ class EventApiController extends Controller
         return (new GetEventById())->getEventById($event_id);
     }
 
+
     /**
-     * Participant Application [T]
+     * Get last events [NT]
      * 
-     * Allows a participant to apply for an event.
+     * Retrieves the last 5 events and returns an array of event objects.
      * 
-     * อนุญาตให้ผู้เข้าร่วมสมัครเข้าร่วมกิจกรรม
+     * ดึงข้อมูลกิจกรรม 5 กิจกรรมล่าสุดและส่งคืนอาร์เรย์ของอ็อบเจ็กต์กิจกรรม
      * 
-     * @param ParticipantApplicationRequest $request The request object containing the participant's application data.
+     * @return \Illuminate\Http\JsonResponse 
      * 
-     * @return ApplicationResource
+     * @throws \Illuminate\Database\Eloquent\ModelNotFoundException
      * 
-     * @throws \Illuminate\Validation\ValidationException
      */
-    
-    public function participantApplication(ParticipantApplicationRequest $request)
+    public function getLastEvents()
     {
-        
-        return (new ParticipantApplication())->participantApplication($request);
-       
+        return (new GetLastEvents())->getLastEvents();
+    }
+
+    /**
+     * Get all events [NT]
+     * 
+     * Retrieves all events and returns an array of event objects.
+     * 
+     * ดึงข้อมูลกิจกรรมทั้งหมดและส่งคืนอาร์เรย์ของอ็อบเจ็กต์กิจกรรม
+     * 
+     * @return \Illuminate\Http\JsonResponse 
+     * 
+     * 
+     * @throws \Illuminate\Database\Eloquent\ModelNotFoundException
+     * 
+     */
+
+    public function getEventAll(Request $request)
+    {
+        return (new GetAllEventWithQuery())->getEventAll($request);
     }
 }
