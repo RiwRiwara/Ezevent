@@ -44,14 +44,14 @@ class EventTypeSeeder extends Seeder
 
         EventType::create([
             'name_th' => 'สนุกสนาน',
-            'name_en' => 'Workshop',
+            'name_en' => 'funny',
             'description' => 'funny',
             'icon' => 'bi bi-emoji-laughing',
         ]);
 
         EventType::create([
             'name_th' => 'การเงินการบัญชี',
-            'name_en' => 'Conference',
+            'name_en' => 'Finance',
 
             'description' => 'Finance',
             'icon' => 'bi bi-cash',
@@ -80,14 +80,14 @@ class EventTypeSeeder extends Seeder
 
         EventType::create([
             'name_th' => 'เทคโนโลยี',
-            'name_en' => 'Music',
+            'name_en' => 'Technology',
             'description' => 'Technology',
             'icon' => 'bi bi-laptop',
         ]);
 
         EventType::create([
             'name_th' => 'หมวดอื่นๆ',
-            'name_en' => 'Sport',
+            'name_en' => 'Other',
             'description' => 'Other',
             'icon' => 'bi bi-three-dots',
         ]);
