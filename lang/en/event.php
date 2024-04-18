@@ -3,7 +3,7 @@
 return [
     'event' => 'Event',
     'create_event' => 'Create Event',
-    'add_type' => 'Seelct Event Type',
+    'add_type' => 'Select Event Type',
     'detail' => 'Detail',
     'event_name' => 'Event Name',
     'event_location' => 'Event Location',
