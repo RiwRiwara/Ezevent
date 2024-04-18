@@ -40,7 +40,7 @@ return [
     'online_desc' => 'You can provide participation channels in the event management system.',
     'text_location1' => 'Where would you like to host an event?',
     'text_location2' => 'Do you want to add venue location now?',
-    'type' => [
+    'add_type' => [
         'entertainment' => 'Entertainment',
         'education' => 'Education',
         'charity' => 'Charity',
