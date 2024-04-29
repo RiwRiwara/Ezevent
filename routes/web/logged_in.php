@@ -17,6 +17,7 @@ Route::middleware('auth', 'verified')->group(function () {
 
 
     Route::get('/my-profile', [ProfileController::class, 'myProfileDetail'])->name('my-profile');
+    
     Route::post('/my-profile/upload-profile-img', UploadUserProfileController::class)->name('upload-profile-img');
 
     Route::get('/dashboard',[DashboardController::class, "showDashboard"])->name('dashboard');

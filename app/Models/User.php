@@ -81,6 +81,7 @@ class User extends Authenticatable  implements MustVerifyEmail
             ->where('is_deleted', false);
     }
 
+
     public function profileImg()
     {
         $profile_image_url = config('azure.image.userprofile') . '/' . $this->profile_img;

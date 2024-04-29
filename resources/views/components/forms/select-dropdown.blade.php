@@ -25,9 +25,9 @@
         @foreach ($options as $option)
             <option 
                 value="{{$option['id']}}" 3
-                {{ $selected == $option['id'] ? 'selected' : '' }}
                 class="text-md"
-                > {{$option[$val_key]}}</option>
+                > {{$option[$val_key]}} 
+            </option>
         @endforeach
     </select>
 </div>

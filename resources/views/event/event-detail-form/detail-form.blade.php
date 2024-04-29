@@ -9,26 +9,9 @@
 
                 <form method="GET" id="filter_form">
                     <input type="hidden" name="page" value="{{ $eventApplications->currentPage() }}">
-                    <select id="time_range_filter" name="time_range" onchange="submitForm()" class="inline-flex items-center text-gray-500 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-medium rounded-lg text-sm px-3 py-1.5 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">
-                        <option value="last_day">Last day</option>
-                        <option value="last_7_days">Last 7 days</option>
-                        <option value="last_30_days">Last 30 days</option>
-                        <option value="last_month">Last month</option>
-                    </select>
-
-                    <select id="role_filter" name="role" onchange="submitForm()" class="inline-flex items-center text-gray-500 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-medium rounded-lg text-sm px-3 py-1.5 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">
-                        <option value="all">All</option>
-                        <option value="participant">Participant</option>
-                        <option value="staff">Staff</option>
-                    </select>
-
-                    <select id="status_filter" name="status" onchange="submitForm()" class="inline-flex items-center text-gray-500 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-medium rounded-lg text-sm px-3 py-1.5 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">
-                        <option value="all">All</option>
-                        <option value="Approved">Approved</option>
-                        <option value="Pending">Pending</option>
-                        <option value="Rejected">Rejected</option>
-                    </select>
-
+                    <x-forms.filter-select id="time_range_filter" name="time_range" :options="$filters['time_range']['data']" :filters="$filters" />
+                    <x-forms.filter-select id="role_filter" name="role" :options="$filters['role']['data']" :filters="$filters" />
+                    <x-forms.filter-select id="status_filter" name="status" :options="$filters['status']['data']" :filters="$filters" />
                 </form>
 
                 <label for="table-search" class="sr-only">Search</label>
@@ -41,8 +24,9 @@
                             <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"></path>
                         </svg>
                     </div>
-                    <input type="text" id="table-search" name="table-search" class="block p-2 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg w-80 bg-gray-50 focus:ring-neutral-5 focus:border-neutral-5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-neutral-5 dark:focus:border-neutral-5" placeholder="Search">
+                    <input type="text" id="table-search" name="table-search" value="{{ $filters['name_search'] }}" class="block p-2 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg w-80 bg-gray-50 focus:ring-neutral-5 focus:border-neutral-5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-neutral-5 dark:focus:border-neutral-5" placeholder="Search">
                 </form>
+                
             </div>
 
             <livewire:application-table :eventApplications="$eventApplicationsDataArray['data']" />
@@ -55,7 +39,19 @@
 </div>
 
 <script>
-    function submitForm() {
-        document.getElementById("filter_form").submit();
+    function submitFormFilter() {
+        var form = document.getElementById("filter_form");
+        var formData = new FormData(form);
+
+        var searchInput = document.getElementById("table-search");
+        formData.append(searchInput.name, searchInput.value);
+
+        var params = new URLSearchParams();
+
+        for (var pair of formData.entries()) {
+            params.append(pair[0], pair[1]);
+        }
+
+        window.location.href = window.location.pathname + '?' + params.toString();
     }
 </script>

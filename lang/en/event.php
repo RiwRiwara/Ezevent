@@ -66,9 +66,16 @@ return [
     'status' => [
         'Status' => 'Status',
         'Draft' => 'Draft',
+        'Draft-desc' => 'Please complete the event information and public it.',
+        
         'Published' => 'Published',
+        'Published-desc' => 'Published',
+
         'Cancelled' => 'Cancelled',
+        'Cancelled-desc' => 'Cancelled',
+
         'Archived' => 'Archived',
+        'Archived-desc' => 'Archived',
     ],
     'phase' => [
         'set' => 'Phase',
@@ -89,6 +96,7 @@ return [
         'menu-event6' => 'Participant',
         'menu-event7' => 'Staff',
         'menu-event8' => 'Message',
+        'menu-event9' => 'Event Action',
     ],
     'dashboard_page' => [
         'total_appplications' => 'Total Applications',
