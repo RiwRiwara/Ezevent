@@ -18,10 +18,7 @@ use App\Http\Controllers\Event\EventDetail\Message\EventMessageController;
 use App\Http\Controllers\Event\EventDetail\During\PublishEvent;
 use App\Http\Controllers\Event\EventDetail\During\CancelledEvent;
 use App\Http\Controllers\Event\EventDetail\During\ChangePhaseEvent;
-
-
-
-
+use App\Http\Controllers\User\UserDetailController;
 
 Route::middleware('auth', 'verified')->group(function () {
 
@@ -61,6 +58,10 @@ Route::middleware('auth', 'verified')->group(function () {
     Route::post('/cancelled-event/{event_id}', CancelledEvent::class)->name('cancelled-event');
 
     Route::post('/change-phase-event/{event_id}', ChangePhaseEvent::class)->name('change-phase-event');
+
+
+    // Participant Profile
+    Route::get('/participant-profile/{user_id}', UserDetailController::class)->name('participant-profile');
 
 
 

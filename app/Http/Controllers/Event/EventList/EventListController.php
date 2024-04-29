@@ -16,6 +16,8 @@ class EventListController extends Controller
         $my_events = $request->user()->activeEvents()->when($search, function ($query, $search) {
                 return $query->where('event_name', 'like', "%$search%");
             })->paginate(10);
+        
+
 
         $page_data = [
             'breadcrumbItems' => [
@@ -23,6 +25,7 @@ class EventListController extends Controller
                 ['label' => 'Create Event'],
             ],
             'my_events' => $my_events,
+            "isHaveActiveEvent" => $request->user()->activeEvents()->count() > 0,
         ];
 
 

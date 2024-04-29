@@ -42,6 +42,8 @@ class ParticipantApplication extends Controller
         }
 
         try {
+
+            
             $application = Application::create([
                 'application_id' => uniqid('application_'),
                 'event_id' => $event->event_id,

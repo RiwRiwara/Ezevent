@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Event;
 use App\Http\Resources\Api\EventCardResource;
+use Illuminate\Support\Facades\Log;
 
 class GetAllEventWithQuery extends Controller
 {
@@ -24,9 +25,20 @@ class GetAllEventWithQuery extends Controller
     
     public function getEventAll(Request $request)
     {
+        LOG::channel('debug')->info('Get all events', ['request' => $request->all()]);
+
+        // ============ Query ============
+        $query = [];
+        // keyword
+        if ($request->has('keyword')) {
+            $query[] = ['event_name', 'like', '%' . $request->keyword . '%'];
+        }
+
+
         // pagiantion
         $events = Event::where('event_status', Event::EVENT_STATUS_PUBLISHED)
         ->whereNotIn('event_phase', [Event::EVENT_PHASE_REVIEWING, Event::EVENT_PHASE_COMPLETED])
+        ->where($query)
         ->paginate(10);
         $pagination = $events->toArray();
 

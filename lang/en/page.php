@@ -46,7 +46,7 @@ return [
     'view' => 'View',
 
     
-    'published' => 'publish',
+    'published' => 'Publish',
 
 
     

@@ -28,6 +28,7 @@ return [
 
     'select_date_birth' => 'เลือกวันเกิด',
     'date_birth' => 'วันเกิด',
+    'short_bio' => 'ประวัติสั้น',
 
     'login' => 'เข้าสู่ระบบ',
     'update' => 'แก้ไข',
