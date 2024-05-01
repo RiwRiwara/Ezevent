@@ -35,9 +35,7 @@ class ApplicationApiController extends Controller
      * 
      * Retrieves all applications for the current user and returns an array of application objects.
      * 
-     * ดึงข้อมูลการสมัครของฉันทั้งหมดและส่งคืนอาร์เรย์ของอ็อบเจ็กต์การสมัคร
-     * 
-     * @param Request $request The request object.
+     * ดึงข้อมูลการสมัครของฉันทั้งหมด
      * 
      * @return \Illuminate\Http\JsonResponse
      * 
@@ -45,8 +43,8 @@ class ApplicationApiController extends Controller
      * 
      */
 
-    public function getMyApplication(Request $request)
+    public function getMyApplication()
     {
-        return (new GetMyApplication())->getMyApplication($request);
+        return (new GetMyApplication())->getMyApplication();
     }
 }

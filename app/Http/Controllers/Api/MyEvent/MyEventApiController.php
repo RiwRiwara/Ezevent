@@ -11,7 +11,7 @@ use App\Models\EventParticipants;
 class MyEventApiController extends Controller
 {
     /**
-     * Get all events that the user has joined. [NT]
+     * Get all events that the user has joined. [T]
      * 
      * Get all events that the user has joined and return an array of event objects.
      * 

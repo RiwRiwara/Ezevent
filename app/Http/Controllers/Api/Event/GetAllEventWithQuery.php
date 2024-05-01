@@ -29,9 +29,10 @@ class GetAllEventWithQuery extends Controller
 
         // ============ Query ============
         $query = [];
-        // keyword
-        if ($request->has('keyword')) {
-            $query[] = ['event_name', 'like', '%' . $request->keyword . '%'];
+        
+        // name
+        if ($request->has('name')) {
+            $query[] = ['event_name', 'like', '%' . $request->name . '%'];
         }
 
 

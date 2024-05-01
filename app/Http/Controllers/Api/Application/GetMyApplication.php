@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api\Application;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Application;
+use App\Http\Resources\Api\Event\MyApplicationResource;
 
 class GetMyApplication extends Controller
 {
@@ -13,16 +14,15 @@ class GetMyApplication extends Controller
         //
     }
 
-    public function __invoke(Request $request)
+    public function __invoke()
     {
-        $this->getMyApplication($request);
+        $this->getMyApplication();
     }
 
 
-    public function getMyApplication(Request $request)
+    public function getMyApplication()
     {
         $user_id = auth()->user()->user_id;
-
         $applications = Application::with('event')
             ->where('user_id', $user_id)
             ->orderBy('application_date', 'desc')
@@ -30,15 +30,15 @@ class GetMyApplication extends Controller
 
         if ($applications->count() == 0) {
             return response()->json([
-                'message' => 'No applications found !!!',
+                'message' => 'No applications found.',
                 'success' => 'false'
-            ]);
+            ], 404);
         } else {
             return response()->json([
-                'message' => 'My applications found !!!',
-                'event_application' => $applications,
-                'success' => 'true'
-            ]);
+                'message' => 'My applications found.',
+                'success' => 'true',
+                'applications' => ($applications),
+            ], 200);
         }
     }
 }
