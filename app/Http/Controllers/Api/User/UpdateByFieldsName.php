@@ -21,10 +21,9 @@ class UpdateByFieldsName extends Controller
 
     public function updateByFieldsName(Request $request)
     {
-        $user = User::where('user_id', $request->user_id)->first();
+        $user = User::where('user_id', auth()->user()->user_id)->first();
 
         if ($user) {
-
             $user->update($request->all());
             return response()->json([
                 'message' => 'User updated',

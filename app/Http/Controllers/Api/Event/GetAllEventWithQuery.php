@@ -22,37 +22,76 @@ class GetAllEventWithQuery extends Controller
     }
 
 
-    
+
     public function getEventAll(Request $request)
     {
-        LOG::channel('debug')->info('Get all events', ['request' => $request->all()]);
+        // Build query
+        $query = Event::where('event_status', Event::EVENT_STATUS_PUBLISHED)
+            ->whereNotIn('event_phase', [Event::EVENT_PHASE_REVIEWING, Event::EVENT_PHASE_COMPLETED]);
 
-        // ============ Query ============
-        $query = [];
-        
-        // name
+        // Filter by event name
         if ($request->has('name')) {
-            $query[] = ['event_name', 'like', '%' . $request->name . '%'];
+            $query->where('event_name', 'like', '%' . $request->name . '%');
         }
 
+        // Filter by date_start
+        if ($request->has('date_start')) {
+            $query->whereDate('date_start', '<=', $request->date_start)
+                ->whereDate('date_end', '>=', $request->date_start);
+        }
 
-        // pagiantion
-        $events = Event::where('event_status', Event::EVENT_STATUS_PUBLISHED)
-        ->whereNotIn('event_phase', [Event::EVENT_PHASE_REVIEWING, Event::EVENT_PHASE_COMPLETED])
-        ->where($query)
-        ->paginate(10);
+        // Filter by Today
+        if ($request->has('today')) {
+            $today = date('Y-m-d');
+            $query->whereDate('date_start', '<=', $today)
+                ->whereDate('date_end', '>=', $today);
+        }
+
+        // Filter by tomorrow
+        if ($request->has('tomorrow')) {
+            $tomorrow = date('Y-m-d', strtotime('+1 day'));
+            $query->whereDate('date_start', '<=', $tomorrow)
+                ->whereDate('date_end', '>=', $tomorrow);
+        }
+
+        // Filter by this week
+        if ($request->has('this_week')) {
+            $today = date('Y-m-d');
+            $endOfWeek = date('Y-m-d', strtotime('next sunday'));
+            $query->whereDate('date_start', '>=', $today)
+                ->whereDate('date_end', '<=', $endOfWeek);
+        }
+
+        // Filter by this month
+        if ($request->has('this_month')) {
+            $today = date('Y-m-d');
+            $endOfMonth = date('Y-m-t');
+            $query->whereDate('date_start', '>=', $today)
+                ->whereDate('date_end', '<=', $endOfMonth);
+        }
+
+        // Filter by categories
+        if ($request->has('categories')) {
+            $query->whereJsonContains('categories', $request->categories);
+        }
+
+        // Filter by badges [?badges=1,2,3,4]
+        if ($request->has('badges')) {
+            //TODO: 'Filter by badges';
+        }
+
+        // Paginate results ====================
+        $events = $query->paginate(10);
         $pagination = $events->toArray();
 
         $pagination['data'] = [];
-        
-        if ($events) {
+
+        if ($events->isNotEmpty()) {
             return response()->json([
                 'message' => 'Events found',
-                'events' => array_map(function ($event) {
-                    return new EventCardResource($event);
-                }, $events->all()),
+                'events' => EventCardResource::collection($events),
                 'pagination' => $pagination,
-                'success' => 'true'
+                'success' => true
             ], 200);
         } else {
             return response()->json([
@@ -60,5 +99,4 @@ class GetAllEventWithQuery extends Controller
             ], 404);
         }
     }
-    
 }

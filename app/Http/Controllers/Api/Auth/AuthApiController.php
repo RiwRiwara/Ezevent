@@ -76,4 +76,18 @@ class AuthApiController extends Controller
     {
         return (new CheckSessionController($request))->checkSession($request);
     }
+
+    /**
+     * Send a new email verification notification. [T]
+     * 
+     * ยืนยันอีเมล
+     * 
+     * @param  \Illuminate\Http\Request  $request
+     * 
+     * @return \Illuminate\Http\JsonResponse
+     * 
+     */
+    public function sendEmailVerify(Request $request) {
+        return (new SendEmailVerify($request))->sendEmailVerify($request);
+    }
 }
