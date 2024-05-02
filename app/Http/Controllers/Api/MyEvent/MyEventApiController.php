@@ -45,4 +45,44 @@ class MyEventApiController extends Controller
             $status
         );
     }
+
+    /**
+     * Get all events that the user has saved. [T]
+     * 
+     * Get all events that the user has saved and return an array of event objects.
+     * 
+     * ดึงข้อมูลกิจกรรมทั้งหมดที่ผู้ใช้บันทึกและส่งคืนอาร์เรย์ของอ็อบเจ็กต์กิจกรรม
+     * 
+     * @param Request $request The request object containing the user's data.
+     * 
+     * @return \Illuminate\Http\JsonResponse
+     * 
+     * @throws \Illuminate\Database\Eloquent\ModelNotFoundException
+     * 
+     */
+
+    public function getSavedEvent(Request $request)
+    {
+        return (new GetSavedEvent())->getSavedEvent();
+    }
+
+    /**
+     * Save an event. [T]
+     * 
+     * Save an event to the user's saved events.
+     * 
+     * บันทึกกิจกรรมไปยังกิจกรรมที่บันทึกไว้ของผู้ใช้
+     * 
+     * @param Request $request The request object containing the user's data.
+     * 
+     * @return \Illuminate\Http\JsonResponse
+     * 
+     * @throws \Illuminate\Database\Eloquent\ModelNotFoundException
+     * 
+     */
+
+    public function saveEvent(Request $request)
+    {
+        return (new SaveEvent())->saveEvent($request);
+    }
 }
