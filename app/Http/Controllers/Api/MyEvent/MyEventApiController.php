@@ -85,4 +85,26 @@ class MyEventApiController extends Controller
     {
         return (new SaveEvent())->saveEvent($request);
     }
+
+
+    /**
+     * Perform an action on an event. [T]
+     * 
+     * Perform an action on an event and return the result.
+     * 
+     * ดำเนินการทำงานใด ๆ บนกิจกรรมและส่งคืนผลลัพธ์
+     * 
+     * @param Request $request The request object containing the user's data.
+     * 
+     * @param String $action The action to perform on the event. [CheckIn, CheckOut, Review, Complete]
+     * 
+     * @return \Illuminate\Http\JsonResponse
+     * 
+     * @throws \Illuminate\Database\Eloquent\ModelNotFoundException
+     * 
+     */
+
+    public function actionEvent(Request $request,String $event_participant_id, String $action) {
+        return (new ActionEvent())->actionEvent($request, $event_participant_id, $action);
+    }
 }
