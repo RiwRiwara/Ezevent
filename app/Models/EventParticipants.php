@@ -10,19 +10,28 @@ class EventParticipants extends Model
     use HasFactory;
     public $table = 'event_participants';
     
+    // Role
     const ROLE_PARTICIPANT = 'Participant';
     const ROLE_STAFF = 'Staff';
 
+    // Status
     const STATUS_NORMAL = 'Normal';
     const STATUS_CANCELLED = 'Cancelled';
     const STATUS_REMOVED = 'Removed';
     const STATUS_LATE = 'Late';
 
+    // Progress
     const PROGRESS_PRE = 'Pre';
     const PROGRESS_IS_CHECK_IN = 'IsCheckIn';
     const PROGRESS_IS_CHECK_OUT = 'IsCheckOut';
     const PROGRESS_IS_REVIEWED = 'IsReviewed';
     const PROGRESS_IS_COMPLETED = 'IsCompleted';
+
+    // Action
+    const ACTION_CHECK_IN = 'CheckIn';
+    const ACTION_CHECK_OUT = 'CheckOut';
+    const ACTION_REVIEW = 'Review';
+    const ACTION_COMPLETE = 'Complete';
 
 
     protected $fillable = [
