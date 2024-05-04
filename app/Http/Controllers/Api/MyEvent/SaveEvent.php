@@ -22,10 +22,23 @@ class SaveEvent extends Controller
             'event_id' => 'required'
         ]);
 
+        // Check if the event is already saved
+        $event = SavedEvents::where('user_id', auth()->user()->user_id)
+            ->where('event_id', $request->event_id)
+            ->first();
+
+        if ($event) {
+            return response()->json([
+                'message' => 'Event already saved',
+                'success' => 'false'
+            ], 400);
+        }
+        
         $savedEvent = new SavedEvents();
         $savedEvent->user_id = auth()->user()->user_id;
         $savedEvent->event_id = $request->event_id;
         $savedEvent->save();
+        
 
         return response()->json([
             'message' => 'Event saved successfully',
