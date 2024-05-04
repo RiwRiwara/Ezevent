@@ -24,7 +24,7 @@ class GetEventById extends Controller
     {
         $event = Event::where('event_id', $event_id)
         ->where('event_status', Event::EVENT_STATUS_PUBLISHED)
-        ->whereNotIn('event_phase', [Event::EVENT_PHASE_REVIEWING, Event::EVENT_PHASE_COMPLETED])
+        // ->whereNotIn('event_phase', [Event::EVENT_PHASE_REVIEWING, Event::EVENT_PHASE_COMPLETED])
 
         ->first();
         if ($event) {
