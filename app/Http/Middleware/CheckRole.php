@@ -31,6 +31,8 @@ class CheckRole
          if ($user->role_id !== $role) {
              return abort(403, 'Unauthorized'); // Return 403 for unauthorized users
          }
+
+        //  
      
          return $next($request);
      }
