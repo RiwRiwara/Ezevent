@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Laravel\Facades\Image;
 use App\Models\User;
+use Illuminate\Support\Facades\Log;
 use App\Services\AzureBlobService;
 
 
@@ -24,27 +25,32 @@ class UploadUserProfileController extends Controller
 
     public function uploadUserProfile(Request $request)
     {
-        try {
-            $image_tmp = json_decode($request->input('image'), true);
-        } catch (\Exception $e) {
-            toastr()->addError('Error uploading image');
-            return redirect()->back();
+
+        // Check if image is uploaded
+        if (!$request->has('image')) {
+            return response()->json([
+                'message' => 'No image uploaded'
+            ], 400);
         }
+
+        
+
+        
+        $blobService = new AzureBlobService();
+        $containerName = 'testprofileimgs';
+        $blobName = auth()->user()->user_id . '_' . now() . '.webp';
+
+        $image = Image::read($request->input('image')['base64'])->toWebp();
+
+        // Decode base64 string
+        $decodeImage = base64_decode(preg_replace('#^data:image/\w+;base64,#i', '', $image->toDataUri()));
+
+
+
+
+
         try {
-            $path = Storage::path($image_tmp['path']);
-            $image = Image::read($path)->toWebp();
-
-            $blobService = new AzureBlobService();
-            $containerName = 'testprofileimgs';
-            $blobName = auth()->user()->user_id . '_' . now() . '.webp';
-
-            $decodeImage = base64_decode(preg_replace('#^data:image/\w+;base64,#i', '', $image->toDataUri()));
-
-            $blobService->uploadBlob($containerName, $blobName, $decodeImage, $image->mediaType());
-
-            // delete temp image
-            Storage::deleteDirectory('tmp');
-
+            $blobService->uploadBlob($containerName, $blobName, $decodeImage, 'image/webp');
             // delete old image
             $blobService->deleteBlob($containerName, auth()->user()->profile_img);
 
@@ -53,10 +59,8 @@ class UploadUserProfileController extends Controller
             $user->profile_img = $blobName;
             $user->save();
 
-
             return response()->json([
-                'message' => 'Profile image uploaded',
-                'user' => $user
+                'message' => 'Profile image uploaded successfully',
             ], 200);
         } catch (\Exception $e) {
             return response()->json([

@@ -37,7 +37,7 @@ class AuthenticatedSessionController extends Controller
         $user = Auth::user();
 
         // Check if the user has role 1 or role 3
-        if (!in_array($user->role_id, [1, 3])) {
+        if (!in_array($user->role_id, [1, 3, 4])) {
             // If the user doesn't have the required role, log them out
             Auth::guard('web')->logout();
             $request->session()->invalidate();
