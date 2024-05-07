@@ -49,6 +49,7 @@ class AllMyEvent extends Controller
         //EventParticipants in each event
         $events->map(function ($event) use ($myEventsJoin) {
             $event->event_participants = $myEventsJoin->where('event_id', $event->event_id);
+            $event->getBannerImage = $event->getBannerImage();
             return $event;
         });
         
