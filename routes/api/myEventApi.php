@@ -8,6 +8,6 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::post('/event/saveevent',[MyEventApiController::class, 'saveEvent'])->name('api.myevent.save_event');
     Route::get('/event/savedevent',[MyEventApiController::class, 'getSavedEvent'])->name('api.myevent.get_saved_event');
 
-    Route::post('/event/myevent/{event_participant_id}/{action}',[MyEventApiController::class, 'actionEvent'])->name('api.myevent.action_event');
-    Route::post('/event/myevent/{event_participant_id}/{status}',[MyEventApiController::class, 'changeStatusMyEvent'])->name('api.myevent.change_status_myevent');
+    Route::post('/event/myevent/{event_participant_id}/progress/{action}',[MyEventApiController::class, 'actionEvent'])->name('api.myevent.action_event');
+    Route::post('/event/myevent/{event_participant_id}/status/{status}',[MyEventApiController::class, 'changeStatusMyEvent'])->name('api.myevent.change_status_myevent');
 });
