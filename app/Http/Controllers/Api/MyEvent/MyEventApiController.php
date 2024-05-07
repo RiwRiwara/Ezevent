@@ -107,4 +107,25 @@ class MyEventApiController extends Controller
     public function actionEvent(Request $request,String $event_participant_id, String $action) {
         return (new ActionEvent())->actionEvent($request, $event_participant_id, $action);
     }
+
+    /**
+     * Change the status of an event. [T]
+     * 
+     * Change the status of an event and return the result.
+     * 
+     * เปลี่ยนสถานะของกิจกรรมและส่งคืนผลลัพธ์
+     * 
+     * @param Request $request The request object containing the user's data.
+     * 
+     * @param String $status The status to change the event to. [Normal, Cancelled, Removed, Late]
+     * 
+     * @return \Illuminate\Http\JsonResponse
+     * 
+     * @throws \Illuminate\Database\Eloquent\ModelNotFoundException
+     * 
+     */
+
+    public function changeStatusMyEvent(Request $request, String $event_participant_id, String $status) {
+        return (new ChangeStatusMyEvent())->changeStatusMyEvent($request, $event_participant_id, $status);
+    }
 }
