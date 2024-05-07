@@ -6,6 +6,7 @@ return [
     'add_type' => 'Seelct Event Type',
     'detail' => 'Detail',
     'event_name' => 'Event Name',
+    'event_org' => 'Organizer',
     'event_location' => 'Event Location',
 
     'specific' => 'Set Date',

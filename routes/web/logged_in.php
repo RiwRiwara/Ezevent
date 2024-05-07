@@ -52,9 +52,7 @@ Route::middleware('auth', 'verified')->group(function () {
         return view('mailTemplate.reset_password_complete');
     })->name('reset_password_complete');
 
-    // admin
-    Route::get('/admin_events_dashboard',AllEventController::class)->name('admin_events_dashboard');
-    Route::get('/admin_users_dashboard',AllUserController::class)->name('admin_users_dashboard');
+
 
     Route::post('/profile/update', [UserController::class, 'updateUserInformation'])->name('profile.update.field');
 });
