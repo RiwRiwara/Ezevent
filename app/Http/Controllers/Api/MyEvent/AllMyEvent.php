@@ -46,12 +46,18 @@ class AllMyEvent extends Controller
         }
         $events = Event::whereIn('event_id', $myEventsJoin->pluck('event_id'))->get();
 
+        //EventParticipants in each event
+        $events->map(function ($event) use ($myEventsJoin) {
+            $event->event_participants = $myEventsJoin->where('event_id', $event->event_id);
+            return $event;
+        });
+        
+        
+
         if ($events->count() > 0) {
             return response()->json([
                 'message' => 'Events found !!!',
-                'events' => array_map(function ($event) {
-                    return new EventCardResource($event);
-                }, $events->all()),
+                'events' => $events,
                 'success' => 'true'
             ], 200);
         } else {
