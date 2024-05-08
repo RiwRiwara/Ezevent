@@ -62,7 +62,8 @@ class ActionEvent extends Controller
                 ], 400);
             }
 
-            if ($action == EventParticipants::ACTION_REVIEW && $eventParticipant->progress != EventParticipants::PROGRESS_IS_CHECK_OUT) {
+            // if ($action == EventParticipants::ACTION_REVIEW && $eventParticipant->progress != EventParticipants::PROGRESS_IS_CHECK_OUT) {
+            if ($action == EventParticipants::ACTION_REVIEW && $eventParticipant->progress != EventParticipants::PROGRESS_IS_CHECK_IN) {
                 return response()->json([
                     'message' => 'Invalid action for the current progress',
                     'success' => 'false'
