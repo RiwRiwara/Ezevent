@@ -31,7 +31,7 @@ class EditableFieldDropdown extends Component
 
         $isThai = app()->getLocale() === 'th';
         $field_Language = $isThai ? 'name_th' : 'name_en';
-        $this->value_show = auth()->user()->$fieldName[$field_Language];
+        // $this->value_show = auth()->user()->$fieldName[$field_Language];
 
         $this->oldValue = auth()->user()->$fieldName;
         $this->newValue = $this->oldValue;

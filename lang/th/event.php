@@ -6,6 +6,7 @@ return [
     'add_type' => 'เลือกประเภทของอีเวนต์',
     'detail' => 'รายละเอียด',
     'event_name' => 'ชื่ออีเวนต์',
+    'event_org' => 'ผู้จัดอีเวนต์',
     'event_location' => 'สถานที่จัดงาน',
     'specific' => 'กำหนดวันที่',
     'announce_after' => 'ประกาศภายหลัง',
