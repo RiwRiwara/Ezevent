@@ -44,4 +44,23 @@ class BadgeApiController extends Controller
     {
         return (new GetMyBadges())->getMyBadges($request);
     }
+
+    /**
+     * Get Badges by User ID [NT]
+     * 
+     * Retrieves all Badges that belong to the user with the specified ID.
+     * 
+     * ดึงข้อมูลกิจกรรมทั้งหมดที่เป็นของผู้ใช้ที่มี ID ที่ระบุ
+     * 
+     * @param string $user_id The ID of the user to retrieve Badges for.
+     * 
+     * @return \Illuminate\Http\JsonResponse
+     * 
+     * @throws \Illuminate\Database\Eloquent\ModelNotFoundException
+     * 
+     */
+    public function getBadgeByUserId(string $user_id)
+    {
+        return (new GetBadgeByUserId())->getBadgeByUserId($user_id);
+    }
 }
