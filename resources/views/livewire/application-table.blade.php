@@ -159,9 +159,14 @@
                                 <!-- Modal body -->
                                 <div class="p-6 space-y-6">
                                     <p>
-                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Id delectus necessitatibus quos cumque, vel quasi assumenda totam incidunt porro animi nam tempore corporis perspiciatis quisquam, facilis asperiores facere accusantium ullam?
+                                    Phone : {{$application['user']['mobile_number']}}
                                     </p>
-
+                                    <p>
+                                    Short Bio : {{$application['user']['short_bio']}}
+                                    </p>
+                                    <p>
+                                    Description : {{$application['user']['description']}}
+                                    </p>
 
                                     <!-- Approve and reject button -->
                                     <div class="flex justify-between gap-2">

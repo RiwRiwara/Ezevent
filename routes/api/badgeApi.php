@@ -8,5 +8,5 @@ Route::middleware('auth:sanctum')->group(function () {
 
     Route::get('/badge/{id}', [ BadgeApiController::class, 'getBadgeById'])->name('badge.getBadgeById');
     Route::get('/mybadges', [ BadgeApiController::class, 'getMyBadges'])->name('badge.getMyBadges');
-
+    Route::get('/badge/{user_id}', [ BadgeApiController::class, 'getBadgeByUserId'])->name('badge.getBadgeByUserId');
 });
