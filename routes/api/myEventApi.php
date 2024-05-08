@@ -11,5 +11,5 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::post('/event/myevent/{event_participant_id}/progress/{action}',[MyEventApiController::class, 'actionEvent'])->name('api.myevent.action_event');
     Route::post('/event/myevent/{event_participant_id}/status/{status}',[MyEventApiController::class, 'changeStatusMyEvent'])->name('api.myevent.change_status_myevent');
 
-    Route::get('/event/myevent/{event_id}/isalreadyjoin',[MyEventApiController::class, 'checkIsAlreadyJoin'])->name('api.myevent.check_is_already_join');
+    Route::get('/event/myevent/{event_id}/isalreadyjoin',[MyEventApiController::class, 'checkIsAlreadyApplication'])->name('api.myevent.check_is_already_join');
 });

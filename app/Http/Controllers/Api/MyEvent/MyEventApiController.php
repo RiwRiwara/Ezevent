@@ -144,10 +144,11 @@ class MyEventApiController extends Controller
      * 
      * @throws \Illuminate\Database\Eloquent\ModelNotFoundException
      * 
+     * 
      */
 
-    public function checkIsAlreadyJoin(Request $request, String $event_id)
+    public function checkIsAlreadyApplication(Request $request, String $event_id)
     {
-        return (new CheckIsAlreadyJoin())->checkIsAlreadyJoin($request, $event_id);
+        return (new CheckIsAlreadyApplication())->checkIsAlreadyApplication($request, $event_id);
     }
 }
