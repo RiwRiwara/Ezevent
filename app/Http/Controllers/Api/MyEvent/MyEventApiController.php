@@ -104,7 +104,8 @@ class MyEventApiController extends Controller
      * 
      */
 
-    public function actionEvent(Request $request,String $event_participant_id, String $action) {
+    public function actionEvent(Request $request, String $event_participant_id, String $action)
+    {
         return (new ActionEvent())->actionEvent($request, $event_participant_id, $action);
     }
 
@@ -125,7 +126,28 @@ class MyEventApiController extends Controller
      * 
      */
 
-    public function changeStatusMyEvent(Request $request, String $event_participant_id, String $status) {
+    public function changeStatusMyEvent(Request $request, String $event_participant_id, String $status)
+    {
         return (new ChangeStatusMyEvent())->changeStatusMyEvent($request, $event_participant_id, $status);
+    }
+
+    /**
+     * Check if the user has already joined an event. [T]
+     * 
+     * Check if the user has already joined an event and return the result.
+     * 
+     * ตรวจสอบว่าผู้ใช้เข้าร่วมกิจกรรมแล้วหรือไม่และส่งผลลัพธ์
+     * 
+     * @param Request $request The request object containing the user's data.
+     * 
+     * @return \Illuminate\Http\JsonResponse
+     * 
+     * @throws \Illuminate\Database\Eloquent\ModelNotFoundException
+     * 
+     */
+
+    public function checkIsAlreadyJoin(Request $request, String $event_id)
+    {
+        return (new CheckIsAlreadyJoin())->checkIsAlreadyJoin($request, $event_id);
     }
 }

@@ -43,6 +43,9 @@ class EventResource extends JsonResource
             'website' => $this->website,
             'age_require' => $this->age_require,
             'limit_participant' => $this->limit_participant,
+            'number_participant' => $this->getSummary()['count_participants'],
+            'limit_staff' => $this->limit_staff,
+            'number_staff' => $this->getSummary()['count_staff'],
     
             'content' => $this->content,
             'banner_text_bg' => $this->banner_text_bg,

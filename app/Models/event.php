@@ -96,6 +96,7 @@ class Event extends Model
     {
         return $this->hasMany(EventParticipants::class, 'event_id', 'event_id');
     }
+    
 
     public function eventApplications()
     {
@@ -215,4 +216,6 @@ class Event extends Model
     {
         return $this->hasOne(EventBadge::class, 'event_id', 'event_id');
     }
+
+
 }
