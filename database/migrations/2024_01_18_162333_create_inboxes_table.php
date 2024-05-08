@@ -12,15 +12,16 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('inboxes', function (Blueprint $table) {
-            $table->bigIncrements('inbox_id'); 
-            $table->integer('status')->default(0); 
-            $table->enum('inbox_type', ['All', 'Staff', 'Participants'])->nullable(); 
+            $table->string('inbox_id')->unique()->default(uniqid('inbox_'));
+            $table->enum('status', ['Unread', 'Read', 'Deleted'])->nullable();
+            $table->enum('inbox_type', ['All', 'Staff', 'Participant'])->nullable();
+            $table->text('subject')->nullable(); 
             $table->text('body')->nullable(); 
             // $table->dateTime('send_time')->nullable(); 
             $table->timestamps();
 
             $table->string('event_id'); //FK event_id from event
-            $table->integer('user_recieve_id'); //FK user_id from user
+            $table->string('user_recieve_id'); //FK user_id from user
 
         });
     }

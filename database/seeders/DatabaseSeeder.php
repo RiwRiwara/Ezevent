@@ -24,5 +24,7 @@ class DatabaseSeeder extends Seeder
         $this->call(EventSeeder::class);
 
         $this->call(ApplicationSeeder::class);
+
+        $this->call(InboxSeeder::class);
     }
 }
