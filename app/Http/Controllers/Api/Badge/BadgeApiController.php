@@ -25,4 +25,23 @@ class BadgeApiController extends Controller
     {
         return (new GetBadgeById())->getBadgeById($id);
     }
+
+
+    /**
+     * Get My Badges [T]
+     * 
+     * Retrieves all Badges that belong to the authenticated user.
+     * 
+     * ดึงข้อมูลกิจกรรมทั้งหมดที่เป็นของผู้ใช้
+     * 
+     * @param \Illuminate\Http\Request $request
+     * 
+     * @return \Illuminate\Http\JsonResponse
+     * 
+     */
+
+    public function getMyBadges(Request $request)
+    {
+        return (new GetMyBadges())->getMyBadges($request);
+    }
 }

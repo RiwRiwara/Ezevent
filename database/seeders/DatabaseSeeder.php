@@ -26,5 +26,7 @@ class DatabaseSeeder extends Seeder
         $this->call(ApplicationSeeder::class);
 
         $this->call(InboxSeeder::class);
+
+        $this->call(GiveBadgeSeeder::class);
     }
 }
