@@ -24,6 +24,7 @@ class ApplicationResource extends JsonResource
             'message' => $this->message,
             'application_date' => $this->application_date,
             'approved_date' => $this->approved_date,
+            
         ];
     }
 }

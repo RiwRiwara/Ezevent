@@ -8374,5 +8374,11 @@ class Cities
   {
     return self::CITY;
   }
+
+  
+  public static function city($id)
+  {
+    return self::CITY[$id];
+  }
   
 }

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Application;
 use App\Http\Resources\Api\Event\MyApplicationResource;
+use App\Http\Resources\ApplicationResource;
 
 class GetMyApplication extends Controller
 {
@@ -37,7 +38,9 @@ class GetMyApplication extends Controller
             return response()->json([
                 'message' => 'My applications found.',
                 'success' => 'true',
-                'applications' => ($applications),
+                'applications' =>$applications->map(function ($application) {
+                    return new MyApplicationResource($application);
+                }),
             ], 200);
         }
     }

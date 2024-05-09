@@ -706,4 +706,8 @@ const PROVINCE = [
   {
     return self::PROVINCE;
   }
+  public static function province($id)
+  {
+    return self::PROVINCE[$id];
+  }
 }
