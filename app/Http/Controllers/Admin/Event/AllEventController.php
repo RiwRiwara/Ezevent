@@ -25,6 +25,6 @@ class AllEventController extends Controller
             'all_events' => $all_events,
         ];
 
-        return view('admin.admin_events_dashboard', compact('events_data'));
+        return view('admin.events-dashboard', compact('events_data'));
     }
 }

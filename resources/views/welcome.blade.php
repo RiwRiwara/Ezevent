@@ -47,7 +47,7 @@
 
             <div class="mt-3 text-center text-sm">
                 {{__('field_name.have_create_account')}}
-                <a href="{{route('web.register.index')}}" class="font-semibold text-lg underline leading-10 text-neutral-0">
+                <a href="{{route('web.register.index')}}" class="font-semibold text-md underline leading-10 text-neutral-0">
                     {{__('field_name.create_account')}}
                 </a>
             </div>

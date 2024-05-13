@@ -14,11 +14,43 @@ class EventApplicationListController extends Controller
         $event = Event::where('event_id', $event_id)->firstOrFail();
         $this->authorize('view', $event);
 
-        $timeRange = $request->input('time_range', 'last_7_days');
+        $timeRange = $request->input('time_range', 'all');
         $role = $request->input('role', 'all');
         $status = $request->input('status', 'all');
         $nameSearch = $request->input('table-search', '');
         $eventApplicationsQuery = $event->eventApplications()->with('user');
+
+        // Filter data
+        $filters = [
+            'time_range' => [
+                'selected' => $timeRange,
+                'data' => [
+                    'last_day' => 'Last Day',
+                    'last_7_days' => 'Last 7 Days',
+                    'last_30_days' => 'Last 30 Days',
+                    'last_month' => 'Last Month',
+                    'all' => 'All Time',
+                ],
+            ],
+            'role' => [
+                'selected' => $role,
+                'data' => [
+                    'all' => 'All Roles',
+                    'Participant' => 'Participant',
+                    'Staff' => 'Staff',
+                ],
+            ],
+            'status' => [
+                'selected' => $status,
+                'data' => [
+                    'all' => 'All Statuses',
+                    'pending' => 'Pending',
+                    'approved' => 'Approved',
+                    'rejected' => 'Rejected',
+                ],
+            ],
+            'name_search' => $nameSearch,
+        ];
 
         switch ($timeRange) {
             case 'last_day':
@@ -65,6 +97,6 @@ class EventApplicationListController extends Controller
             ],
         ];
 
-        return view('event.event-detail-form.event-detail-form', compact('page_data', 'event', 'eventApplications', 'timeRange', 'eventApplicationsDataArray'));
+        return view('event.event-detail-form.event-detail-form', compact('page_data', 'event', 'eventApplications', 'timeRange', 'eventApplicationsDataArray', 'filters'));
     }
 }

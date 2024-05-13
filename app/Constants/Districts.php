@@ -74524,4 +74524,9 @@ const DISTRICT = [
   {
     return self::DISTRICT;
   }
+
+    public static function district($id)
+  {
+    return self::DISTRICT[$id];
+  }
   }

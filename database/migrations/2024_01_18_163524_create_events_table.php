@@ -44,16 +44,16 @@ return new class extends Migration
             $table->string('lng')->nullable();
 
             // Status
-            $table->enum('event_phase', ['Initial','Upcoming', 'Ongoing', 'Reviewing', 'Complete', 'Archived'])->nullable();
+            $table->enum('event_phase', ['Initial','Upcoming', 'Ongoing', 'Reviewing', 'Completed', 'Archived'])->nullable();
             $table->enum('event_status', ['Draft', 'Published', 'Cancelled'])->nullable();
             $table->boolean('is_specific_date')->nullable()->default(false);
             $table->boolean('is_online')->nullable()->default(false);
             $table->boolean('is_deleted')->nullable()->default(false);
 
             // Rule
-            $table->integer('age_require')->nullable();
-            $table->integer('limit_participant')->nullable();
-            $table->integer('limit_staff')->nullable();
+            $table->integer('age_require')->nullable()->default(1);
+            $table->integer('limit_participant')->nullable()->default(999);
+            $table->integer('limit_staff')->nullable()->default(999);
 
 
             // Organizer

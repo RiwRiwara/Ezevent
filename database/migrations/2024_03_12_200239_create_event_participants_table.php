@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('event_participant_id')->unique()->default(uniqid('event_participant_'));
             $table->string('event_id');
-            $table->string('user_id')->unique();
+            $table->string('user_id');
             $table->string('role')->enum('Participant', 'Staff')->default('Participant');
             $table->string('position')->nullable();
             $table->string('status')->enum('Normal', 'Cancelled', 'Removed', 'Late')->default('Normal');

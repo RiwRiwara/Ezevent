@@ -13,12 +13,11 @@ return new class extends Migration
     {
         Schema::create('give_badges', function (Blueprint $table) {
             $table->bigIncrements('give_badge_id'); 
-            // $table->dateTime('give_date');
             $table->timestamps();
+            $table->integer('badge_id');
 
-            $table->integer('user_id'); //FK user_id from user
-            $table->integer('badge_id'); //FK badge_id from badge
-            $table->integer('event_id'); //FK event_id from event
+            $table->string('user_id'); 
+            $table->string('event_id');
         });
     }
 

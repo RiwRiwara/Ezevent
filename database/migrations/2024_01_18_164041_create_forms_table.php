@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('form_id')->unique()->default(uniqid('form_')); 
             $table->string('event_id'); 
             $table->enum('form_type', ['All', 'Staff', 'Participants']);
-
+            
             $table->string('form_title');
             $table->string('form_description');
 

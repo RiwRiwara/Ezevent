@@ -19,7 +19,7 @@ class PublishEvent extends Controller
         $event->event_phase = Event::EVENT_PHASE_UPCOMING;
         $event->save();
 
-        toastr()->addSuccess(__('event.event_published'));
+        toastr()->addSuccess(__('event.status.Published'));
         return back();
     }
 }

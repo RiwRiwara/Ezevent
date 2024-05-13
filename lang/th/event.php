@@ -6,6 +6,7 @@ return [
     'add_type' => 'เลือกประเภทของอีเวนต์',
     'detail' => 'รายละเอียด',
     'event_name' => 'ชื่ออีเวนต์',
+    'event_org' => 'ผู้จัดอีเวนต์',
     'event_location' => 'สถานที่จัดงาน',
     'specific' => 'กำหนดวันที่',
     'announce_after' => 'ประกาศภายหลัง',
@@ -66,9 +67,16 @@ return [
     'status' => [
         'Status' => 'สถานะ',
         'Draft' => 'ร่าง',
+        'Draft-desc' => 'โปรดเลือกเพิ่มข้อมูล และเผยแพร่กิจกรรมของคุณ',
+
         'Published' => 'เผยแพร่',
+        'Published-desc' => 'เผยแพร่',
+
         'Cancelled' => 'ยกเลิก',
+        'Cancelled-desc' => 'ยกเลิก',
+
         'Archived' => 'เก็บถาวร',
+        'Archived-desc' => 'เก็บถาวร',
     ],
     'phase' => [
         'set' => 'เฟส',
@@ -88,6 +96,7 @@ return [
         'menu-event6' => 'ผู้เข้าร่วม',
         'menu-event7' => 'สตาฟ',
         'menu-event8' => 'ข้อความ',
+        'menu-event9' => 'การดำเนินการอีเวนต์',
     ],
     'dashboard_page' => [
         'total_appplications' => 'ผู้สมัครทั้งหมด',

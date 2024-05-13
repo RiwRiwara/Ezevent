@@ -10,6 +10,7 @@
     'classinput'    => '',
     'isHighlight'   => false,
     'isHaveReset'   => false,
+    'isDisable'    => false,
 ])
 
 
@@ -24,7 +25,9 @@
         placeholder="{{ $placeholder }}" 
         {{$attributes}} 
         autocomplete="{{$autocomplete}}" 
-        class=" block px-2.5 pb-2.5 pt-2 w-full text-md text-gray-9 bg-gray-0 border-2
+        class=" block px-2.5 pb-2.5 pt-2 w-full text-md border-2
+                    {{ $isDisable ? 'bg-gray-1' : 'bg-white' }}
+                    {{ $isDisable ? 'text-gray-6' : 'text-gray-900' }}
                     rounded-lg  {{$isHighlight ? 'border-neutral-6 hover:border-neutral-7 border-2' : 'border-neutral-3 hover:border-primary-3'}}  appearance-none dark:text-white 
                     dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none 
                     focus:ring-0 peer {{ $classinput }}

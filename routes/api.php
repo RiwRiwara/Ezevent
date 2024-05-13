@@ -19,3 +19,4 @@ require __DIR__ . '/api/eventApi.php';
 require __DIR__ . '/api/myEventApi.php';
 require __DIR__ . '/api/applicationApi.php';
 require __DIR__ . '/api/badgeApi.php';
+require __DIR__ . '/api/inboxApi.php';

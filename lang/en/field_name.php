@@ -27,6 +27,7 @@ return [
     
     'select_date_birth' => 'Select date of birth',
     'date_birth' => 'Date of birth',
+    'short_bio' => 'Short Bio',
 
 
     'login' => 'Login',

@@ -9,69 +9,104 @@
 
       <x-breadcrumb :items="$breadcrumbItems" />
 
-      <form class="space-y-6" action="#" method="POST">
-        @csrf
-        <div class="mb-2">
-          <p class="block text-md font-bold  text-primary-9">{{__('field_name.personal_information')}}</p>
-          <div class="mt-2 flex flex-col gap-3">
-            <x-forms.input-outline-primary name="email" label="{{__('field_name.email')}}" type="email" required />
-            <x-forms.input-outline-primary-password name="password" label="{{__('field_name.password')}}" type="password" required />
-            <x-forms.input-outline-primary-password name="password_confirmation" label="{{__('field_name.confirm_password')}}" type="password" required />
-            <x-forms.input-outline-primary name="mobile_number" label="{{__('field_name.phone')}}" type="text" required />
-            <x-forms.input-outline-primary name="first_name" label="{{__('field_name.first_name')}}" type="text" required />
-            <x-forms.input-outline-primary name="last_name" label="{{__('field_name.last_name')}}" type="text" required />
-            <x-forms.date-picker name="date_of_birth" placeholder="{{__('field_name.select_date_birth')}}" />
-            <x-forms.select-dropdown name="gender" label="{{__('field_name.selected_gender')}}" :options="$page_data['gender']" val_key="{{ app()->getLocale() === 'th' ? 'name_th' : 'name_en'}}" require />
+      <div class="mt-4">
+        <div x-data="{ open: false }">
 
+          <div x-show="!open">
+            <button x-on:click="open = ! open" class="bg-neutral-7 text-white py-1 px-2 rounded-md hover:scale-105 duration-300 ease-in-out w-full font-semibold">
+              Already mobile account?
+            </button>
+          </div>
+          <div x-show="open">
+            <button x-on:click="open = ! open" class="bg-primary-7 text-white py-1 px-2 rounded-md hover:scale-105 duration-300 ease-in-out w-full font-semibold">
+              Create new account!
+            </button>
+          </div>
+
+
+          <div x-show="open" x-transition:enter.duration.500ms x-transition:leave.duration.400ms
+          class="duration-200"
+          >
+
+            <form class="flex flex-col gap-4 my-4">
+              @csrf
+              <p class="block text-md font-bold  text-primary-9">
+                Confirm your email to access organization account.
+              </p>
+              <x-forms.input-outline-primary name="email" label="{{__('field_name.email')}}" type="email" required />
+              <x-button.primary type="submit" innerHtml="Send confirm email!" id="confirmmail" />
+            </form>
 
           </div>
+
+          <form x-show="!open" class="space-y-4 duration-200" action="#" method="POST" x-transition:enter.duration.500ms x-transition:leave.duration.400ms>
+            @csrf
+            <div class="mb-2">
+              <p class="block text-md font-bold  text-primary-9">{{__('field_name.personal_information')}}</p>
+              <div class="mt-2 flex flex-col gap-3">
+                <x-forms.input-outline-primary name="email" label="{{__('field_name.email')}}" type="email" required />
+                <x-forms.input-outline-primary-password name="password" label="{{__('field_name.password')}}" type="password" required />
+                <x-forms.input-outline-primary-password name="password_confirmation" label="{{__('field_name.confirm_password')}}" type="password" required />
+                <x-forms.input-outline-primary name="mobile_number" label="{{__('field_name.phone')}}" type="text" required />
+                <x-forms.input-outline-primary name="first_name" label="{{__('field_name.first_name')}}" type="text" required />
+                <x-forms.input-outline-primary name="last_name" label="{{__('field_name.last_name')}}" type="text" required />
+                <x-forms.date-picker name="date_of_birth" placeholder="{{__('field_name.select_date_birth')}}" />
+                <x-forms.select-dropdown name="gender" label="{{__('field_name.selected_gender')}}" :options="$page_data['gender']" val_key="{{ app()->getLocale() === 'th' ? 'name_th' : 'name_en'}}" require />
+
+
+              </div>
+            </div>
+
+            <div class="mb-2">
+              <p class="block text-md font-bold  text-primary-9 mb-3">{{__('field_name.address_information')}}</p>
+
+              <x-forms.textarea-outline-primary id="address" name="address" label="{{__('field_name.address')}}" placeholder="{{__('field_name.add_address')}}" require />
+
+              <div class="mt-2 row">
+                <div class="col-md-3 mb-3">
+                  <x-forms.select-dropdown name="province" label="{{__('field_name.province')}}" :options="$page_data['provinces']" val_key="{{ app()->getLocale() === 'th' ? 'name_th' : 'name_en'}}" require />
+                </div>
+                <div class="col-md-3 mb-3">
+                  <x-forms.select-dropdown name="district" label="{{__('field_name.district')}}" require />
+                </div>
+
+                <div class="col-md-3 mb-3">
+                  <x-forms.select-dropdown name="city" label="{{__('field_name.sub_district')}}" disabled require />
+                </div>
+
+                <div class="col-md-3 mt-5">
+                  <input type="hidden" name="zipcode" id="zipcode" />
+                  <x-forms.input-outline-primary name="zipcode_show" label="{{__('field_name.zipcode')}}" type="text" disabled require />
+                </div>
+              </div>
+            </div>
+            <!-- Modal toggle -->
+            <div class="flex justify-between">
+              <div>
+                <x-forms.checkbox name="submit_agreement" label="{{__('')}}" />
+              </div>
+              <span>
+                {{__('field_name.policy1')}}
+                <a class="text-primary-9 underline cursor-pointer" data-modal-target="privacy_agreement" data-modal-toggle="privacy_agreement">
+                  {{__('field_name.policy2')}}
+                </a>
+              </span>
+            </div>
+            <div>
+              <x-button.primary type="submit" innerHtml="{{__('field_name.register')}}" id="nextButton" />
+            </div>
+            <p class="mt-0 text-center text-sm">
+              {{__('field_name.have_account')}}
+              <a href="{{route('web.login.index')}}" class="font-semibold text-lg underline leading-10 text-neutral-8">
+                {{__('field_name.login')}}
+              </a>
+            </p>
+          </form>
+
         </div>
 
-        <div class="mb-2">
-          <p class="block text-md font-bold  text-primary-9 mb-3">{{__('field_name.address_information')}}</p>
+      </div>
 
-          <x-forms.textarea-outline-primary id="address" name="address" label="{{__('field_name.address')}}" placeholder="{{__('field_name.add_address')}}" require />
-
-          <div class="mt-2 row">
-            <div class="col-md-3 mb-3">
-              <x-forms.select-dropdown name="province" label="{{__('field_name.province')}}" :options="$page_data['provinces']" val_key="{{ app()->getLocale() === 'th' ? 'name_th' : 'name_en'}}" require />
-            </div>
-            <div class="col-md-3 mb-3">
-              <x-forms.select-dropdown name="district" label="{{__('field_name.district')}}" require />
-            </div>
-
-            <div class="col-md-3 mb-3">
-              <x-forms.select-dropdown name="city" label="{{__('field_name.sub_district')}}" disabled require />
-            </div>
-
-            <div class="col-md-3 mt-5">
-              <input type="hidden" name="zipcode" id="zipcode" />
-              <x-forms.input-outline-primary name="zipcode_show" label="{{__('field_name.zipcode')}}" type="text" disabled require />
-            </div>
-          </div>
-        </div>
-        <!-- Modal toggle -->
-        <div class="flex justify-between">
-          <div>
-            <x-forms.checkbox name="submit_agreement" label="{{__('')}}" />
-          </div>
-          <span>
-          {{__('field_name.policy1')}}
-            <a class="text-primary-9 underline cursor-pointer" data-modal-target="privacy_agreement" data-modal-toggle="privacy_agreement">
-            {{__('field_name.policy2')}}
-            </a>
-          </span>
-        </div>
-        <div>
-          <x-button.primary type="submit" innerHtml="{{__('field_name.register')}}" id="nextButton" />
-        </div>
-        <p class="mt-0 text-center text-sm">
-          {{__('field_name.have_account')}}
-          <a href="{{route('web.login.index')}}" class="font-semibold text-lg underline leading-10 text-neutral-8">
-            {{__('field_name.login')}}
-          </a>
-        </p>
-      </form>
     </div>
   </div>
 

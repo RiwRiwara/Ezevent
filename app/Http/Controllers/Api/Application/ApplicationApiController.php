@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Api\Application;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Requests\Event\ParticipantApplicationRequest;
-use App\Http\Resources\ApplicationResource;
 
 class ApplicationApiController extends Controller
 {
@@ -28,5 +27,24 @@ class ApplicationApiController extends Controller
     {
 
         return (new ParticipantApplication())->participantApplication($request);
+    }
+
+
+    /**
+     * Get my applications [T]
+     * 
+     * Retrieves all applications for the current user and returns an array of application objects.
+     * 
+     * ดึงข้อมูลการสมัครของฉันทั้งหมด
+     * 
+     * @return \Illuminate\Http\JsonResponse
+     * 
+     * @throws \Illuminate\Database\Eloquent\ModelNotFoundException
+     * 
+     */
+
+    public function getMyApplication()
+    {
+        return (new GetMyApplication())->getMyApplication();
     }
 }

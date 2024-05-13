@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LanguageController;
+use App\Http\Controllers\User\UpdateAddressController;
 use App\Utils\Filepond\FileUploadController;
 use App\Utils\Filepond\UploadImageController;
 use App\Utils\Filepond\LoadImageController;
@@ -21,6 +22,8 @@ Route::middleware('auth', 'verified')->group(function () {
     // Get profile
     Route::get('/load-profile-img/{img_url}',LoadImageController::class)->name('load-profile-img');
     
+    // Update Address
+    Route::post('update-address', UpdateAddressController::class)->name('update-address');
 
 });
 

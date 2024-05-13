@@ -23,7 +23,7 @@ class EventPolicy
     public function view(User $user, Event $event) : bool
     {
         $is_own = $user->user_id === $event->organizer_id;
-        $is_admin = $user->role === 'admin';
+        $is_admin = $user->role_id == 1;
         return $is_own || $is_admin;
     }
 

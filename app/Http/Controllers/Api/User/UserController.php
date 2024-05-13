@@ -59,4 +59,18 @@ class UserController extends Controller
     {
         return (new UploadUserProfileController())->uploadUserProfile($request);
     }
+
+
+    /**
+     * Get my profile [T]
+     * 
+     * Retrieves the profile of the currently authenticated user and returns a user object.
+     * 
+     * ดึงข้อมูลโปรไฟล์ของผู้ใช้ที่ยืนยันตัวตนอยู่ในปัจจุบันและส่งคืนอ็อบเจ็กต์ผู้ใช้
+     * 
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function getMyProfile() {
+        return (new GetMyProfile())->getMyProfile();
+    }
 }

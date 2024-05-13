@@ -57,7 +57,7 @@
                     </div>
                 </th>
                 <td class="px-6 py-4">
-                    <div class="text-gray-900 dark:text-white text-center p-0.5 rounded-md
+                    <div class="text-gray-900 dark:text-white text-center py-0.5 px-1 rounded-md
                     {{
                         $participant['role'] == 'Participant' ? 'text-neutral-8 bg-neutral-2' : 'text-primary-7 bg-primary-1'
                     }}
@@ -67,9 +67,9 @@
                 </td>
                 <td class="px-6 py-4">
                     <div class="text-center
-                    p-0.5 rounded-md
+                    py-0.5 px-1 rounded-md
                     {{
-                        $participant['status'] == 'Approved' ? 'text-green-800 bg-green-100' : ($participant['status'] == 'Rejected' ? 'text-red-500 bg-red-100' : 'text-yellow-500 bg-yellow-100')
+                        $participant['status'] == 'Normal' ? 'text-green-800 bg-green-100' : ($participant['status'] == 'Cancel' ? 'text-red-500 bg-red-100' : 'text-red-500 bg-red-100')
                     }}">
                         {{ $participant['status'] }}
                     </div>
@@ -121,14 +121,25 @@
                             <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
                                 <!-- Modal header -->
                                 <div class="flex items-start justify-between p-4 border-b rounded-t dark:border-gray-600">
-                                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
-                                        {{$participant['event_participant_id']}}
-                                    </h3>
+                                    <div class="flex flex-col gap-2">
+                                        <h3 class="text-xs font-semibold text-gray-500 dark:text-white">
+                                            Participant ID : {{$participant['event_participant_id']}}
+                                        </h3>
+                                        <h3 class="text-xs font-semibold text-gray-500 dark:text-white">
+                                            User ID : {{$participant['user']['user_id']}}
+                                        </h3>
+                                        <a 
+                                        target="_blank"
+                                        href="{{
+                                            route('participant-profile', ['user_id' => $participant['user']['user_id']])
+                                        }}" class="hover:underline hover:cursor-help hover:bg-neutral-8 hover:text-white hover:p-2 duration-300 ease-in rounded-md text-lg font-bold text-neutral-8 flex flex-row gap-3 items-center">
+                                            {{$participant['user']['first_name']}} {{$participant['user']['last_name']}}
+                                        </a>
+                                    </div>
                                     <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-hide="form_modal_{{$participant['event_participant_id']}}">
                                         <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
                                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
                                         </svg>
-
                                         <span class="sr-only">Close modal</span>
                                     </button>
                                 </div>

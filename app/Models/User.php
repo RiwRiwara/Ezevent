@@ -7,7 +7,9 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
-
+use App\Constants\Cities;
+use App\Constants\Districts;
+use App\Constants\Provinces;
 
 class User extends Authenticatable  implements MustVerifyEmail
 {
@@ -81,10 +83,11 @@ class User extends Authenticatable  implements MustVerifyEmail
             ->where('is_deleted', false);
     }
 
+
     public function profileImg()
     {
         $profile_image_url = config('azure.image.userprofile') . '/' . $this->profile_img;
-        
+
         return $this->profile_img ? $profile_image_url : config('azure.default_img.userprofile');
     }
 
@@ -97,7 +100,6 @@ class User extends Authenticatable  implements MustVerifyEmail
     {
         return $this->hasMany(EventCollaborators::class, 'user_id', 'user_id');
     }
-
 
 
 }

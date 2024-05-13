@@ -25,6 +25,6 @@ class AllUserController extends Controller
             'all_users' => $all_users,
         ];
 
-        return view('admin.admin_users_dashboard', compact('users_data'));
+        return view('admin.users-dashboard', compact('users_data'));
     }
 }

@@ -10,4 +10,13 @@ class EventBadge extends Model
     public $table = 'event_badges';
 
     use HasFactory;
+
+
+    protected $fillable = [
+        'event_id',
+        'badge_1',
+        'badge_2',
+        'badge_3',
+        'badge_4',
+    ];
 }

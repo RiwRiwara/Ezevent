@@ -3,10 +3,7 @@
 namespace App\Livewire;
 
 use App\Models\Event;
-use App\Http\Requests\Event\PreCreateRequest;
-use Illuminate\Support\Facades\Validator;
 use App\Traits\AdditionalValidationTrait;
-use Illuminate\Support\Facades\Log;
 
 
 

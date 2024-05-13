@@ -4,15 +4,16 @@
     </h1>
 
 
+
     <div class="flex flex-col gap-4">
 
-        <div class=" bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+        <div class=" bg-white border flex flex-row border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
 
             <div class="border-t border-gray-200 dark:border-gray-600">
                 <h1 class="text-xl font-bold leading-none text-neutral-9 dark:text-white p-4">
                     ผู้เข้าร่วมงาน
                 </h1>
-                <div class="flex justify-center items-center p-4 rounded-md bg-neutral-1 mx-4 text-3xl font-bold text-neutral-7">
+                <div class="flex justify-center items-center p-4 rounded-md bg-neutral-1 mx-4 text-2xl font-bold text-neutral-7">
                     {{$event->getSummary()['count_participants']}}
                 </div>
 
@@ -66,7 +67,7 @@
                 <h1 class="text-xl font-bold leading-none text-neutral-9 dark:text-white p-4">
                     สตาฟงาน
                 </h1>
-                <div class="flex justify-center items-center p-4 rounded-md bg-primary-1 mx-4 text-3xl font-bold text-primary-7">
+                <div class="flex justify-center items-center p-4 rounded-md bg-primary-1 mx-4 text-2xl font-bold text-primary-7">
                     {{$event->getSummary()['count_staff']}}
                 </div>
                 <dl class="flex flex-row gap-4 justify-center flex-wrap p-8">
@@ -118,14 +119,19 @@
         <div class=" p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700">
             <div class="flex items-center justify-between mb-4">
                 <h5 class="text-xl font-bold leading-none text-gray-900 dark:text-white">{{__("event.dashboard_page.recent_participants")}}</h5>
-                <a href="#" class="text-sm font-medium text-neutral-6 hover:underline dark:text-neutral-5">
+                <a href="{{
+                    route('event-application-list', ['event_id' => $event->event_id])
+                }}" class="text-sm font-medium text-neutral-6 hover:underline dark:text-neutral-5">
                     {{__("event.dashboard_page.view_all")}}
                 </a>
             </div>
             <div class="flow-root">
                 <ul role="list" class="divide-y divide-gray-200 dark:divide-gray-700">
                     @forelse ($event->getLastestApplication() as $application)
-                    <a href="/" class="">
+
+                    <a href="{{
+                        route('participant-profile', ['user_id' => $application['user_id']])
+                    }}" class="">
                         <li class="py-3 sm:py-4 hover:scale-105 hover:bg-slate-100 px-4 duration-300 ease-in-out">
                             <div class="flex items-center">
                                 <div class="flex-shrink-0">
