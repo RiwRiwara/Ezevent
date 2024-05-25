@@ -72,14 +72,13 @@ class GetAllEventWithQuery extends Controller
 
         // Filter by categories
         if ($request->has('categories')) {
-            $query->whereJsonContains('categories', $request->categories);
+            $query->where('categories', 'like', '%' . $request->categories . '%');
         }
 
         // Filter by badges [?badges=1,2,3,4]
         if ($request->has('badges')) {
             //TODO: 'Filter by badges';
         }
-
         // Paginate results ====================
         $events = $query->paginate(10);
         $pagination = $events->toArray();
