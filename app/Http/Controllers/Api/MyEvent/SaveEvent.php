@@ -11,20 +11,18 @@ class SaveEvent extends Controller
     /**
      * Handle the incoming request.
      */
-    public function __invoke(Request $request)
+    public function __invoke(Request $request, String $event_id)
     {
-        return $this->saveEvent($request);
+        return $this->saveEvent($request, $event_id);
     }
 
-    public function saveEvent($request)
+    public function saveEvent($request, $event_id)
     {
-        $request->validate([
-            'event_id' => 'required'
-        ]);
+        
 
         // Check if the event is already saved
         $event = SavedEvents::where('user_id', auth()->user()->user_id)
-            ->where('event_id', $request->event_id)
+            ->where('event_id', $event_id)
             ->first();
 
         if ($event) {
@@ -33,12 +31,12 @@ class SaveEvent extends Controller
                 'success' => 'false'
             ], 400);
         }
-        
+
         $savedEvent = new SavedEvents();
         $savedEvent->user_id = auth()->user()->user_id;
-        $savedEvent->event_id = $request->event_id;
+        $savedEvent->event_id = $event_id;
         $savedEvent->save();
-        
+
 
         return response()->json([
             'message' => 'Event saved successfully',

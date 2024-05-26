@@ -73,6 +73,7 @@ class GetAllEventWithQuery extends Controller
         // Filter by categories
         if ($request->has('categories')) {
             $query->whereJsonContains('categories', $request->categories);
+            
         }
 
         // Filter by badges [?badges=1,2,3,4]
