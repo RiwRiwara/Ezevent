@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api\MyEvent;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\SavedEvents;
+use App\Http\Resources\EventResource;
 
 class GetSavedEvent extends Controller
 {
@@ -20,8 +21,12 @@ class GetSavedEvent extends Controller
     {
 
         $mySavedEvents = SavedEvents::with('event')->where('user_id', auth()->user()->user_id)->get();
+        
+        foreach ($mySavedEvents as $mySavedEvent) {
+            $mySavedEvent['event'] = new EventResource($mySavedEvent->event);
+        }
 
-        if ($mySavedEvents->count() > 0) {
+        if ($mySavedEvents) {
             return response()->json([
                 'message' => 'Events found !!!',
                 'events' => $mySavedEvents,
@@ -30,7 +35,7 @@ class GetSavedEvent extends Controller
         } else {
             return response()->json([
                 'message' => 'Events not found'
-            ], 404);
+            ], 200);
         }
     }
 }

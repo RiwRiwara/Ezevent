@@ -69,11 +69,13 @@ class MyEventApiController extends Controller
     /**
      * Save an event. [T]
      * 
-     * Save an event to the user's saved events.
+     * Save an event.
      * 
-     * บันทึกกิจกรรมไปยังกิจกรรมที่บันทึกไว้ของผู้ใช้
+     * บันทึกกิจกรรม
      * 
      * @param Request $request The request object containing the user's data.
+     * 
+     * @param String $event_id The ID of the event to save.
      * 
      * @return \Illuminate\Http\JsonResponse
      * 
@@ -81,9 +83,9 @@ class MyEventApiController extends Controller
      * 
      */
 
-    public function saveEvent(Request $request)
+    public function saveEvent(Request $request, String $event_id)
     {
-        return (new SaveEvent())->saveEvent($request);
+        return (new SaveEvent())->saveEvent($request, $event_id);
     }
 
 
